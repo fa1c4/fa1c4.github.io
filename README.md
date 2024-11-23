@@ -82,6 +82,20 @@ _Note: The content in `jekyll-for-everyone` is for illustration purpose only. It
 - The source code is stored at `/gitbook_source_code`
 - The content of generated book is coped from `/gitbook_source_code/_book` to `/gitbook`.
 
+```shell
+# install dependencies
+nvm install 10
+nvm use 10
+npm install -g gitbook-cli
+
+# build gitbook and deploy
+cd /gitbook_source_code
+gitbook build
+cp -r ./_book/* ../gitbook/ 
+```
+
+
+
 ### Other
 - If you would like to replace the website icon, you can use [this](https://favicon.io/) website to create one and replace the downloaded icon at `favicon.io`.
 - Update the variable in `/_config.yml`. Remember to replace the `url` variable with your actual URL.

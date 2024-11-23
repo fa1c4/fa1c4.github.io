@@ -3,3 +3,8 @@ _site/
 .jekyll-metadata
 gitbook_source_code/node_modules
 gitbook_source_code/_book
+
+# ignore files
+
+# ignore directories
+temp*/
