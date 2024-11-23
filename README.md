@@ -87,9 +87,15 @@ _Note: The content in `jekyll-for-everyone` is for illustration purpose only. It
 nvm install 10
 nvm use 10
 npm install -g gitbook-cli
+# install plugins
+gitbook install 
+
+# add new markdown file to corresponding directory with meta header
+# and modify SUMMARY.md to build websites (including subpages)
 
 # build gitbook and deploy
 cd /gitbook_source_code
+rm -r ./_book
 gitbook build
 cp -r ./_book/* ../gitbook/ 
 ```

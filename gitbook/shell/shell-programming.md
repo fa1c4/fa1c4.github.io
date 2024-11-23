@@ -1,7 +1,7 @@
 ---
-title: 'Shell Programming'
+title: "Shell Programming"
 date: 2023-10-20
-permalink: /posts/2023/10/shell-programming/
+permalink: /gitbook/shell/shell-programming/
 tags:
   - shell
   - script
