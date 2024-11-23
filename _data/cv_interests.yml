@@ -1,5 +1,5 @@
-- name: Eat
-- name: Sleep
-- name: Cook
-- name: Bake
-- name: Code
+- name: Vulnerability Analysis
+- name: Vulnerability Detection
+- name: Fuzzing
+- name: Reverse Engineering
+- name: Software Development

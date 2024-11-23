@@ -1,17 +1,9 @@
-- name: Cooking
+- name: Programming
   level: 70
 
-- name: Eating
+- name: Reverse Engineering
   level: 80
 
-- name: Honest
+- name: Vulnerability Analysis
   level: 95
-
-- name: Confident
-  level: 75
-
-- name: Loyal
-  level: 95
-
-- name: Sleeping
-  level: 60
+  

@@ -1,10 +1,10 @@
 awards: true
-courses: true
-experiences: true
+courses: false
+experiences: false
 group_projects: true
-individual_projects: true
+individual_projects: false
 interests: true
 languages: true
 profiles: true
-skills: true
-volunteers: true
+skills: false
+volunteers: false

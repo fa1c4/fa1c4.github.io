@@ -13,9 +13,9 @@ ga_cv: UA-fa1c4-X
 
 # Index page and Profile Information
 name: fa1c4
-tagline: Software Developer, Security Researcher, Reverse Engineering, Vulnerability Researcher
+tagline: Security Researcher, Software Developer, Vulnerability Researcher, Reverse Engineering
 pic: profile.png # profile.png can be found at /assets/images/profile.png
-description: System and AI Developer, Reverse Engineering, Vulnerability Researcher, CTF Player, and some more.
+description: Security Researcher, System and AI Developer, Vulnerability and Reverse Engineering, CTF Player, and Some More.
 description_tiny: 'Location: Hefei & Beijing | Studying: USTC | Work: Doctoral Student'
 email: azesinter@mail.ustc.edu.cn
 website: fa1c4.github.io # do not add http://

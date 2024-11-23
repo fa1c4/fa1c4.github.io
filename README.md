@@ -101,7 +101,6 @@ cp -r ./_book/* ../gitbook/
 ```
 
 
-
 ### Other
 - If you would like to replace the website icon, you can use [this](https://favicon.io/) website to create one and replace the downloaded icon at `favicon.io`.
 - Update the variable in `/_config.yml`. Remember to replace the `url` variable with your actual URL.
