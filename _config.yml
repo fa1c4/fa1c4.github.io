@@ -1,0 +1,32 @@
+# Your Website Title
+title: FA1C4's PATHs
+
+# Your Website URL
+url: 'https://fa1c4.github.io/'
+
+# Leave it default
+baseurl: '' 
+
+# Google Analytics
+ga_index: UA-fa1c4-X
+ga_cv: UA-fa1c4-X
+
+# Index page and Profile Information
+name: fa1c4
+tagline: Software Developer, Security Researcher, Reverse Engineering, Vulnerability Researcher
+pic: profile.png # profile.png can be found at /assets/images/profile.png
+description: System and AI Developer, Reverse Engineering, Vulnerability Researcher, CTF Player, and some more.
+description_tiny: 'Location: Hefei & Beijing | Studying: USTC | Work: Doctoral Student'
+email: azesinter@mail.ustc.edu.cn
+website: fa1c4.github.io # do not add http://
+linkedin: fa1c4
+github: fa1c4
+twitter: '@fa1c4'
+
+# Files or folders to be excluded
+exclude: [gitbook_source_code/]
+
+# All the plugins for Jekyll
+plugins:
+  - jekyll-sitemap
+  - wdm
