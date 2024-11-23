@@ -7,9 +7,14 @@
 <!-- * [Table of Content](SUMMARY.md) -->
 
 <!-- relative path must be without ./ prefix or will occur bugs -->
+* [Papers](papers/index.md)
+
 * [Pwn](pwn/index.md)
+
 * [Reverse](reverse/index.md)
+
 * [Fuzzing](fuzzing/index.md)
+
 * [Shell](shell/index.md)
     * [Shell Programming](shell/shell-programming.md)
 
