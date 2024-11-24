@@ -1,5 +1,4 @@
-- name: Vulnerability Analysis
-- name: Vulnerability Detection
+- name: Vulnerability
 - name: Fuzzing
 - name: Reverse Engineering
 - name: Software Development

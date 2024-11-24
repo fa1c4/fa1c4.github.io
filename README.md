@@ -82,6 +82,7 @@ _Note: The content in `jekyll-for-everyone` is for illustration purpose only. It
 - The source code is stored at `/gitbook_source_code`
 - The content of generated book is coped from `/gitbook_source_code/_book` to `/gitbook`.
 
+Workflow
 ```shell
 # install dependencies
 nvm install 10
