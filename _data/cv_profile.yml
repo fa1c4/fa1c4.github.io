@@ -1,11 +1,10 @@
-- summary: Undergraduate student at USTC, majoring in Computer Science and Technology.
-  degree: BS in University of Science and Technology of China
+education:
+- degree: BS in University of Science and Technology of China
   school: Computer Science and Technology
   school_time: September 2017 - June 2021
   school_certificate: Completion Undergraduate Education of Computer Science and Technology
 
-- summary: Graduate student at USTC, majoring in Cyberspace Security.
-  degree: MS & Phd in University of Science and Technology of China
+- degree: MS & Phd in University of Science and Technology of China
   school: Cyberspace Science 
   school_time: September 2021 - Now
   school_certificate: working towards a Doctorate in Cyberspace Security
