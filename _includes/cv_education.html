@@ -2,9 +2,9 @@
 <h2 class="container-block-title">Education</h2>
 {% for edu in site.data.cv_profile.education %}
     <div class="item">
-        <h4 class="degree">{{ site.data.cv_profile.degree }}</h4>
-        <h5 class="meta">{{ site.data.cv_profile.school }}</h5>
-        <div class="time">{{ site.data.cv_profile.school_time }}</div>
-        <div class="time"><h6>{{ site.data.cv_profile.school_certificate }}</h6></div>
+        <h4 class="degree">{{ edu.degree }}</h4>
+        <h5 class="meta">{{ edu.school }}</h5>
+        <div class="time">{{ edu.school_time }}</div>
+        <div class="time"><h6>{{ edu.school_certificate }}</h6></div>
     </div><!--//item-->
 </div><!--//education-container-->
