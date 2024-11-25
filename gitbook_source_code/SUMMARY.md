@@ -16,7 +16,6 @@
 * [Fuzzing](fuzzing/index.md)
 
 * [Shell](shell/index.md)
-    * [Shell Programming](shell/shell-programming.md)
 
 <!-- toggle function for table (bug) -->
 <!-- * <details>
