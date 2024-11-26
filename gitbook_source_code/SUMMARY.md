@@ -16,9 +16,12 @@
 * [Fuzzing](fuzzing/index.md)
 
 * [Shell](shell/index.md)
+  * [shell programming basic](shell/shell_programming_basic.md)
+  * [shell programming techs I](shell/shell_programming_techs_I.md)
 
-<!-- toggle function for table (bug) -->
+<!-- no need to use details tag to trigger toggle function -->
 <!-- * <details>
-    <summary>[Shell](shell/index.md)</summary>
-    * [Shell Programming](shell/shell-programming.md)
-  </details> -->
+    <summary><a href="shell/index.md">Shell</a></summary>
+    * [Shell Programming Basic](shell/shell_programming_basic.md)
+    * [Shell Programming Techs I](shell/shell_programming_techs_I.md)
+</details> -->

@@ -1,7 +1,12 @@
 {
-    "plugins": ["theme-default"],
+    "plugins": ["theme-default", "toggle-chapters"],
     "styles": {
         "website": "styles/website.css"
+    },
+    "pluginsConfig": {
+        "toggle-chapters": {
+          "toggle": true
+        }
     },
     "title": "FA1C4 PATHs",
     "author": "fa1c4",

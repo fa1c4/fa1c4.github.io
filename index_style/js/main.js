@@ -13,7 +13,7 @@ $(document).ready(function () {
     $('.btn-mobile-menu__icon').toggleClass('icon-list icon-x-circle animated fadeIn')
   })
 
-    //Disable cut copy paste
+  //Disable cut copy paste
   $('body').bind('cut copy paste', function (e) {
     e.preventDefault();
   });

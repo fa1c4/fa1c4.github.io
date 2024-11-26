@@ -1,6 +1,10 @@
 {
   "dependencies": {
     "gitbook": "^2.6.9",
-    "gitbook-cli": "^2.3.2"
+    "gitbook-cli": "^2.3.2",
+    "gitbook-plugin-highlight": "^2.0.3",
+    "gitbook-plugin-livereload": "0.0.1",
+    "gitbook-plugin-toggle-chapters": "0.0.3",
+    "lodash": "^4.17.21"
   }
 }

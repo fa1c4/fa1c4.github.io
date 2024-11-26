@@ -1,0 +1,715 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>shell programming basic · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="shell_programming_techs_I.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../papers/">
+            
+                <a href="../papers/">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.6.1" data-path="shell_programming_basic.html">
+            
+                <a href="shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="shell_programming_techs_I.html">
+            
+                <a href="shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >shell programming basic</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="shell-programming">Shell Programming</h1>
+<h2 id="init">Init</h2>
+<p>Interpreter by default starts with <code>#!</code></p>
+<pre><code class="lang-bash"><span class="hljs-meta">#!/bin/bash
+</span></code></pre>
+<p>Execution of  shell script</p>
+<pre><code class="lang-bash"><span class="hljs-comment"># method1: use absolute or relavant path (needs +x authority)</span>
+./script.sh
+
+<span class="hljs-comment"># method2: use /bin/sh or /bin/bash </span>
+<span class="hljs-comment"># (no need for +x authority, because bash creates new shell to execute script)</span>
+bash ./script.sh
+
+<span class="hljs-comment"># method3: source or . </span>
+<span class="hljs-comment"># this method will create sub-shell, env variant inherits from upper-shell</span>
+<span class="hljs-built_in">source</span> script.sh
+. script.sh
+</code></pre>
+<h2 id="variant">Variant</h2>
+<p>Predefined Variants of System</p>
+<pre><code class="lang-bash"><span class="hljs-variable">$HOME</span>, <span class="hljs-variable">$PWD</span>, <span class="hljs-variable">$SHELL</span>, <span class="hljs-variable">$USER</span>, <span class="hljs-comment"># etc</span>
+</code></pre>
+<p>print all system env varients</p>
+<pre><code class="lang-bash">&gt; env
+&gt; <span class="hljs-built_in">echo</span> <span class="hljs-variable">$env</span>-var
+&gt; printenv
+</code></pre>
+<p>self-define variants</p>
+<pre><code class="lang-shell">variant=value # note: there is no blankspace besides &apos;=&apos;
+variant=&apos;string exmple&apos;
+variant=&quot;string exmple&quot;
+variant=1+2 # echo variant -&gt; 1+2
+variant=$((1+2)) # echo variant -&gt; 3
+variant=$[1+2] # echo variant -&gt; 3
+readonly variant=value # set variant readonly, which can&apos;t be modified or be unset
+</code></pre>
+<p>special variants</p>
+<pre><code class="lang-shell">$n # stands for n-th args parameter
+echo $0 $1 $2
+./script.sh 1stparameter 2ndparameter
+# script-name 1stparameter 2ndparameter
+
+# special usage
+$# # stands for count of parameters
+$* # stands for all parameters as one obj
+$@ # stands for all parameters as each obj
+$? # stands for return value of last execution
+</code></pre>
+<p>here is an example to show the difference between <code>$*</code> and <code>$@</code></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># shell code </span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;---- \$* ----&quot;</span>
+<span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;$*&quot;</span> <span class="hljs-comment"># note that must use &quot;&quot; to see the difference between $* and $@</span>
+<span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$n</span>
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;---- \$@ ----&quot;</span>
+<span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span> <span class="hljs-comment"># note that not use &quot;&quot; there is no difference </span>
+<span class="hljs-keyword">do</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$n</span>
+<span class="hljs-keyword">done</span>   
+
+<span class="hljs-comment"># bash command</span>
+./script.sh a b c d e
+---- $* ----
+a b c d e
+---- <span class="hljs-variable">$@</span> ----
+a
+b
+c
+d
+e
+</code></pre>
+<h2 id="operator">Operator</h2>
+<p>arithmetic operators</p>
+<pre><code class="lang-shell">expr 1 + 2
+expr 1 - 2
+expr 1 \* 2
+expr 1 / 2
+</code></pre>
+<p>popular usage</p>
+<pre><code class="lang-shell">$((expression)) or $[expression]
+</code></pre>
+<p>expr assignment</p>
+<pre><code class="lang-shell">variant=$(expr 1 + 2)
+variant=`expr 1 \* 2`
+variant=$[1 * 2] # no needs add escape character before * in []
+</code></pre>
+<p>new support expr</p>
+<pre><code class="lang-shell">let n += 1
+let n++
+# use let before expr can apply normal program language syntax
+</code></pre>
+<h2 id="test-condition">Test Condition</h2>
+<pre><code class="lang-shell"># normal usage test
+var=&quot;stringcmp&quot;
+test $var = &quot;stringcmp&quot;
+echo $?
+
+# easy usage test 
+var=&quot;stringcmp&quot;
+[ $var = &quot;stringcmp&quot; ] # note that there are 2 blankspace in [  ]
+</code></pre>
+<p>Besides, there is no <code>&lt;</code> or <code>&gt;</code> test condition in shell </p>
+<blockquote>
+<p>TEST CONDITIONS using in shell</p>
+<p>-eq equal</p>
+<p>-ne not equal</p>
+<p>-gt greater than</p>
+<p>-lt less than</p>
+<p>-le less equal</p>
+<p>-ge greater equal</p>
+</blockquote>
+<pre><code class="lang-shell">[ $v1 -lt $v2 ]
+[ $v1 -gt $v2 ]
+[ $v1 -le $v2 ]
+[ $v1 -ge $v2 ]
+</code></pre>
+<p>check authority of shell file</p>
+<pre><code class="lang-shell">[ -r script.sh ]
+[ -w script.sh ]
+[ -x script.sh ]
+</code></pre>
+<p>check class of files</p>
+<pre><code class="lang-shell">[ -e file ] # obj exists or not
+[ -f file ] # normal file exists or not
+[ -d directory ] # is a directory or not
+</code></pre>
+<p>multiple conditions</p>
+<p><code>&amp;&amp;</code> stands for <code>and</code></p>
+<p><code>||</code> stands for <code>or</code></p>
+<pre><code class="lang-shell">[ condition1 ] &amp;&amp; [ condition2 ] || [ condition3 ]
+</code></pre>
+<p><code>-a</code> stands for <code>and</code></p>
+<p><code>-o</code> stands for <code>or</code></p>
+<pre><code class="lang-shell">[ condition1 -a condition2 -o condition3 ]
+</code></pre>
+<h2 id="process-control">Process Control</h2>
+<p><code>if</code>  statement</p>
+<pre><code class="lang-shell"># single branch
+if [ condition ];then # &apos;;&apos; spilits the execution of commands
+    # code here
+fi
+
+# or
+if [ condition ]
+then
+    # code here
+fi
+
+
+# multiple branch
+if [ condition1 ]
+then 
+    # code here
+elif [ condition2 ]
+then    
+    # code here
+elif [ condition3 ]
+then
+    # code here
+...
+else # note that there is no &apos;then&apos; after else 
+    # code here
+fi
+</code></pre>
+<p><code>case</code> statement</p>
+<pre><code class="lang-shell">case $variant in 
+v1) # case v1
+    # code here
+;; # double &apos;;&apos; to end one branch
+v2) # case v2
+    # code here
+;;
+v3) # case v3
+    # code here
+;;
+...
+*) # stands for default
+    # code here
+;;
+esac
+</code></pre>
+<p><code>for</code> statement</p>
+<pre><code class="lang-shell">for ((initial;loop-condition;variant-mutation))
+do
+    # code here
+done
+
+# example code
+sum=0
+for (( i=0; i&lt;10; i++ )) # note that in (()) can use &lt; &gt; &lt;= &gt;= 
+do
+    sum=$[$sum+$i] # note that $[] to calculate
+                   # if not use $[] will be string concat
+done
+echo sum=$sum
+
+
+# other usage
+for n in 1 2 3 4 5
+do
+    echo $n
+done
+
+sum=0
+for n in {1..100} # note that there are only 2 &apos;.&apos;
+do
+    sum=$[$sum+$n]
+done
+echo $sum
+</code></pre>
+<p><code>while</code> statement</p>
+<pre><code class="lang-shell">while [ condition ]
+do
+    # code here
+done
+
+# or 
+while ((condition))
+do
+    # code here
+done
+</code></pre>
+<h2 id="input">Input</h2>
+<p><code>read</code> statement</p>
+<blockquote>
+<p>-p: sets the prompt for reading the value</p>
+<p>-t: Indicates the amount of time (in seconds) to wait for the value to be read. The default is always</p>
+</blockquote>
+<pre><code class="lang-shell">read -t 10 -p &quot;input your string (in 10 seconds)&quot; string
+</code></pre>
+<h2 id="functions">Functions</h2>
+<p>System function call</p>
+<pre><code class="lang-shell"># example: basename
+basename [string / pathname] [suffix] 
+# basename will remove all prefix-str including &apos;/&apos; in string or path name
+# if suffix is indicated then suffix-str in string or pathname will be removed
+</code></pre>
+<p>self-defined function </p>
+<pre><code class="lang-shell">[function] funcname[()] # parameters are $1, $2, ..., $n
+{
+    # code here
+    [return int;]
+}
+</code></pre>
+<p>We can think of functions as scripts. Some tips here:</p>
+<ul>
+<li>Before call function in shell script, we have to define it first</li>
+<li>Return value of function can only be referenced as <code>$?</code>; if add <code>return intval</code> statement in the last line of function, the return value of function is <code>intval</code> whose range is between 0 to 255.</li>
+</ul>
+<p>example of self-define function</p>
+<pre><code class="lang-shell">function sum_of_nums()
+{
+    sum=0
+    for n in $@
+    do
+        sum=$[$sum+$n]
+    done
+    echo $sum
+    return 0;
+}
+
+if [ $# -lt 2 ]
+then
+    sum_of_nums 1 2 3 4 5 # echo 15
+else 
+    sum_of_nums $1 $2 # echo $[$1 + $2]
+fi
+
+res=$(sum_of_nums $1 $2) # return value to main
+</code></pre>
+<h2 id="practice">Practice</h2>
+<p>Descriptions: Set a <code>dirname</code> (there is no &apos;/&apos; in suffix), tar all files in the <code>dirname</code> everyday, and attach the date after <code>.tar</code> filename then save to <code>/root/archive</code></p>
+<blockquote>
+<p>tar</p>
+<p>-c: stands for archive</p>
+<p>-z: stands for compress, the compressed file suffix is .tar.gz</p>
+</blockquote>
+<p>shell script implementation</p>
+<pre><code class="lang-shell"># tar synthesis example 
+if [ $# -ne 1]; then
+    echo &quot;Usage: $0 &lt;dir&gt;&quot;
+    exit 1
+fi
+
+# get the path of the dir from the first argument
+if [ -d $1 ]; then
+    dir=$(cd $1; pwd)
+else
+    echo &quot;$1 is not a dir&quot;
+    exit 1
+fi
+
+DIR_NAME=$(basename $dir)
+DIR_PATH=$dir
+
+# get the current time 
+DATE=$(date +%Y%m%d)
+
+# set the name of the tar file
+FILE=archive_$DIR_NAME_$DATE.tar.gz
+# DEST=/root/archive/$FILE # we test in the /tmp dir
+DEST=/tmp/archive/$FILE
+
+# create the dir of the tar file if not exists
+if [ ! -d $(dirname $DEST) ]; then
+    mkdir -p $(dirname $DEST)
+    echo &quot;create dir $(dirname $DEST) successfully&quot;
+fi
+
+# start to tar
+echo &quot;start to tar $DIR_PATH to $DEST&quot;
+tar -zcvf $DEST $DIR_PATH
+
+if [ $? -eq 0 ]; then
+    echo &quot;tar success&quot;
+else
+    echo &quot;tar failed&quot;
+    exit 1
+fi
+
+exit
+
+# set daily backup
+# crontab -e
+# 0 0 * * * /root/script.sh /root/dir
+# the first 0 is minute, the second 0 is hour, 
+# the third * is day, the fourth * is month, the fifth * is week
+</code></pre>
+<h2 id="regex">RegEx</h2>
+<p>normal matching</p>
+<pre><code class="lang-shell">grep dest-string
+</code></pre>
+<p>special characters</p>
+<blockquote>
+<p>^ : the start of matching</p>
+<p>$ : the end of matching</p>
+<p>. : any single character</p>
+<p>* : combines with pre-one char to math any character any times</p>
+<p>[n1-n2,c1-c2] : match range n1 to n2 or c1 to c2</p>
+<p>\ : escape character, used like \$, to match $</p>
+</blockquote>
+<p>note that: <code>^$</code> will match null. There is no blank space in [n1-n2,c1-c2]</p>
+<p><code>grep -n ^$</code> will match all null lines</p>
+<p><code>grep ^start.*end$</code> will match those string that starts with <code>start</code> and ends with <code>end</code></p>
+<p><code>grep -E ^1[34578][0-9]{9}$</code> to match normal phone number, <code>-E</code> stands for supports extensive usage, grep doesn&apos;t support <code>{}</code> usage by default</p>
+<h2 id="string-process">String Process</h2>
+<p><code>cut</code> usage</p>
+<pre><code class="lang-shell">cut [parameters] filename
+# separator is tab by default
+
+# example: extracts 2,3 cols from source.txt and the separator for columns is &quot; &quot;
+cut -d &quot; &quot; -f 2,3 source.txt
+
+# example: extracts 1,2,3 cols from /etc/passwd for those lines end with bash, and the separator is &quot;:&quot;
+cat /etc/passwd | grep bash$ | cut -d &quot;:&quot; -f 1,2,3
+
+# example: extracts 6 col and all cols after it from /etc/passwd for those lines end with bash, and the separator is &quot;:&quot;
+cat /etc/passwd | grep bash$ | cut -d &quot;:&quot; -f 6-
+
+# example: cut the IP address
+ifconfig ens33 | grep netmask | cut -d &quot; &quot; -f 10
+</code></pre>
+<blockquote>
+<p>-f : extracts column</p>
+<p>-d : indicates separator</p>
+<p>-c : splits as char, use -c n to fetch n-th column</p>
+</blockquote>
+<p><code>awk</code> usage</p>
+<pre><code class="lang-shell">awk [parameters] &apos;/pattern1/{action1} /pattern2/{action2}...&apos; filename
+# pattern stands for matching pattern
+# action stands for execution commands during matching
+
+# first explain the data structure of /etc/passwd 
+# user-name:password(encrypted):user-id:group-id:comment:user-homedir:shell-interpreter
+# match lines in /etc/passwd for those starts with &apos;root&apos; then output the 7th column of the lines
+cat /etc/passwd | awk -F &quot;:&quot; &apos;/^root/{print $7}&apos;
+# comparing to grep usage
+cat /etc/passwd | grep ^root | cut -d &quot;:&quot; -f 7
+
+# print 1,7 cols
+cat /etc/passwd | awk -F &quot;:&quot; &apos;/^root/{print $1&quot;, &quot;$7}&apos;
+
+# use variants
+awk -v i=2 -F &quot;:&quot; &apos;{print $3+i}&apos;
+
+# inner variants
+# FILENAME, NR, NF
+awk -F &quot;:&quot; &apos;{print &quot;filename: &quot;FILENAME &quot; row number: &quot;NR &quot; col number: &quot; NF}&apos; /etc/passwd
+
+# print row number of all null lines 
+ifconfig | awk -F &quot; &quot; &apos;/^$/{print NR}&apos;
+</code></pre>
+<blockquote>
+<p>-F : indicates separator of input filename</p>
+<p>-v : assignment for a self-defined variant</p>
+</blockquote>
+<h2 id="summary">Summary</h2>
+<p>So this is, the blog is about basic shell programming, including </p>
+<ul>
+<li>Variants</li>
+<li>Expr</li>
+<li>Conditions</li>
+<li>Process Control</li>
+<li>RegEx</li>
+<li>String Process</li>
+</ul>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Shell">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="shell_programming_techs_I.html" class="navigation navigation-next " aria-label="Next page: shell programming techs I">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"shell programming basic","date":"2023-10-20T00:00:00.000Z","permalink":"/gitbook/shell/shell-programming/","tags":["shell","script"],"level":"1.6.1","depth":2,"next":{"title":"shell programming techs I","level":"1.6.2","depth":2,"path":"shell/shell_programming_techs_I.md","ref":"shell/shell_programming_techs_I.md","articles":[]},"previous":{"title":"Shell","level":"1.6","depth":1,"path":"shell/index.md","ref":"shell/index.md","articles":[{"title":"shell programming basic","level":"1.6.1","depth":2,"path":"shell/shell_programming_basic.md","ref":"shell/shell_programming_basic.md","articles":[]},{"title":"shell programming techs I","level":"1.6.2","depth":2,"path":"shell/shell_programming_techs_I.md","ref":"shell/shell_programming_techs_I.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"toggle-chapters":{"toggle":true},"livereload":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"shell/shell_programming_basic.md","mtime":"2024-11-23T13:45:32.494Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-11-26T08:41:09.391Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
