@@ -9,6 +9,9 @@
 <!-- relative path must be without ./ prefix or will occur bugs -->
 * [Papers](papers/index.md)
 
+* [Linux](linux/index.md)
+  * [Kernel I](linux/kernel_I.md)
+
 * [Pwn](pwn/index.md)
 
 * [Reverse](reverse/index.md)
