@@ -1,0 +1,672 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AFLpp build for Magma · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../shell/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../papers/">
+            
+                <a href="../papers/">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.2.1" data-path="AFLpp_build_on_Magma.html">
+            
+                <a href="AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AFLpp build for Magma</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="afl-build-for-magma">AFL++ build for Magma</h1>
+<p>AFL++ <sup>[1]</sup> &#x662F;AFL&#x7684;&#x589E;&#x5F3A;&#x7248;, &#x96C6;&#x6210;&#x4E86;&#x5404;&#x79CD;fuzzing&#x4F18;&#x5316;&#x65B9;&#x6848;/&#x6280;&#x672F;, &#x5728;&#x5DE5;&#x4E1A;&#x754C;&#x901A;&#x5E38;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;, &#x5728;&#x5B66;&#x672F;&#x754C;&#x5219;&#x4F5C;&#x4E3A;&#x91CD;&#x8981;&#x7684;Baseline. &#x5E76;&#x4E14;AFL++&#x662F;&#x4E00;&#x76F4;&#x5728;&#x7EF4;&#x62A4;&#x548C;&#x66F4;&#x65B0;&#x7684;, &#x6240;&#x4EE5;&#x4E5F;&#x53EF;&#x4EE5;&#x5F53;&#x505A;&#x6316;&#x6F0F;&#x6D1E;&#x7684;&#x6807;&#x914D;Fuzzer.</p>
+<p>&#x4E3B;&#x8981;&#x5305;&#x62EC;&#x57FA;&#x4E8E;&#x539F;&#x7248;AFL&#x6539;&#x8FDB;&#x7684;&#x7684;&#x51E0;&#x79CD;&#x4F18;&#x5316;&#x7248;&#x672C;:</p>
+<ul>
+<li><strong>AFLFast</strong> <sup>[3]</sup>: &#x7ED9;&#x89E6;&#x53D1;&#x4F4E;&#x9891;&#x8DEF;&#x5F84;&#x7684;&#x79CD;&#x5B50;&#x8D4B;&#x4E88;&#x66F4;&#x9AD8;&#x80FD;&#x91CF;</li>
+<li><p><strong>MOpt</strong> <sup>[4]</sup>: &#x81EA;&#x5B9A;&#x4E49;&#x7C92;&#x5B50;&#x7FA4;&#x4F18;&#x5316; (Particle Swarm Optimization, PSO) &#x7B97;&#x6CD5;, &#x6839;&#x636E;&#x6D4B;&#x8BD5;&#x6548;&#x679C;&#x5BFB;&#x627E;&#x7B97;&#x5B50;&#x7684;&#x6700;&#x4F18;&#x9009;&#x62E9;&#x6982;&#x7387;&#x5206;&#x5E03;</p>
+</li>
+<li><p><strong>LAF-Intel</strong> <sup>[5]</sup>: LLVM pass&#x53CD;&#x4F18;&#x5316;&#x6761;&#x4EF6;&#x5206;&#x652F;&#x63D0;&#x9AD8;AFL&#x8FDB;&#x5165;&#x9AD8;&#x96BE;&#x5EA6;&#x6761;&#x4EF6;&#x5206;&#x652F;&#x7684;&#x6982;&#x7387;</p>
+</li>
+<li><p><strong>RedQueen</strong> <sup>[6]</sup>: &#x5B9A;&#x4E49; Input-To-State (I2S) &#x81EA;&#x52A8;&#x89E3;&#x51B3; magic byte &#x548C; checksum &#x68C0;&#x67E5;</p>
+</li>
+<li><p><strong>AFLSmart</strong> <sup>[7]</sup>: &#x4EBA;&#x5DE5;&#x914D;&#x7F6E;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x5165;&#x7528;&#x4F8B;, &#x6D4B;&#x8BD5;&#x65F6;&#x8FDB;&#x884C;&#x7ED3;&#x6784;&#x5316;&#x53D8;&#x5F02;</p>
+</li>
+</ul>
+<p><a href="https://hexhive.epfl.ch/magma/" target="_blank">Magma</a> <sup>[2]</sup> &#x662F;Greybox Fuzzing&#x8BBA;&#x6587;&#x4E2D;&#x91CD;&#x8981;&#x7684;Benchmark&#x4E4B;&#x4E00;. </p>
+<p>&#x6240;&#x4EE5;&#x672C;&#x6587;&#x4E3B;&#x8981;&#x4ECB;&#x7ECD;AFL++ (&#x539F;&#x7248;) &#x5728;Magma benchmark&#x4E0A;&#x7684;&#x5B89;&#x88C5;, &#x914D;&#x7F6E;, &#x4F7F;&#x7528;&#x7684;&#x6D41;&#x7A0B;.</p>
+<h2 id="afl-&#x914D;&#x7F6E;">AFL++ &#x914D;&#x7F6E;</h2>
+<p>OS: Ubuntu20.04 + | Dependencies: python-3.10+, llvm-19, gcc-9.4.0</p>
+<p>&#x5B89;&#x88C5;&#x73AF;&#x5883;&#x4F9D;&#x8D56; (&#x975E;&#x79C1;&#x6709;&#x73AF;&#x5883;&#x4E0B;&#x6309;&#x9700;&#x5B89;&#x88C5;, &#x907F;&#x514D;&#x7834;&#x574F;&#x5DF2;&#x6709;&#x73AF;&#x5883;)</p>
+<pre><code class="lang-shell">sudo apt-get update &amp;&amp; sudo apt-get upgrade
+sudo apt-get install -y build-essential python3-dev automake cmake git flex bison libglib2.0-dev libpixman-1-dev python3-setuptools
+sudo apt-get install -y lld llvm llvm-dev clang
+sudo apt-get install -y gcc-$(gcc --version|head -n1|sed &apos;s/.* //&apos;|sed &apos;s/\..*//&apos;)-plugin-dev libstdc++-$(gcc --version|head -n1|sed &apos;s/.* //&apos;|sed &apos;s/\..*//&apos;)-dev
+sudo apt-get install -y ninja-build # for QEMU mode
+</code></pre>
+<p>&#x4E0B;&#x8F7D;&#x548C;&#x7F16;&#x8BD1;AFL++</p>
+<pre><code class="lang-shell"># cd to home path
+git clone https://github.com/AFLplusplus/AFLplusplus.git
+cd AFLplusplus
+make clean # if run again
+make distrib # for binary level and source code level
+# make source-only # for only source code level 
+sudo make install # not necessary
+</code></pre>
+<p>&#x62A5;&#x9519;&#x89E3;&#x51B3;</p>
+<ol>
+<li>&#x7F3A;&#x5C11; libpython3.xx.so.1.0: <code>sudo apt-get install libpython3.xx-dev</code></li>
+<li>&#x7F3A;&#x5C11; <code>gcc-X-plugin-dev</code> &#x5934;&#x6587;&#x4EF6;: <code>sudo apt-get install gcc-xx-plugin-dev</code> &#x6216;&#x8005; &#x89C1;&#x4E0A;&#x9762;&#x4F9D;&#x8D56;&#x73AF;&#x5883;&#x5B89;&#x88C5;&#x547D;&#x4EE4;</li>
+</ol>
+<h2 id="magma-&#x914D;&#x7F6E;">Magma &#x914D;&#x7F6E;</h2>
+<p>Magma&#x5B98;&#x65B9;&#x6587;&#x6863;&#x5199;&#x660E;&#x767D;&#x4E86;&#x5982;&#x4F55;&#x7F16;&#x8BD1;&#x548C;&#x4F7F;&#x7528;&#x6D4B;&#x8BD5;&#x96C6;, &#x4F46;&#x662F;&#x9ED8;&#x8BA4;&#x90FD;&#x4E3A; Docker &#x73AF;&#x5883;&#x4E0B;&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x6D4B;&#x8BD5;. &#x5BF9;&#x4E8E;&#x79D1;&#x7814;&#x5DE5;&#x4F5C;&#x6709;&#x65F6;&#x4E0D;&#x592A;&#x65B9;&#x4FBF;, &#x800C;&#x4E14;&#x6709;&#x7684;fuzzer&#x4E0D;&#x517C;&#x5BB9;, &#x6240;&#x4EE5;&#x8FD9;&#x91CC;&#x7ED9;&#x51FA;&#x7269;&#x7406;&#x673A;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x6D4B;&#x8BD5;&#x96C6;&#x7A0B;&#x5E8F;&#x7F16;&#x8BD1;&#x548C;&#x6D4B;&#x8BD5;&#x7684;&#x6D41;&#x7A0B;.</p>
+<pre><code class="lang-shell"># install dependencies
+apt-get update &amp;&amp; apt-get install -y util-linux inotify-tools docker.io
+
+# clone magma
+git clone --branch v1.2.1 https://github.com/HexHive/magma.git
+</code></pre>
+<p>&#x7F16;&#x8BD1;AFL driver</p>
+<pre><code class="lang-shell">export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+cd magma/fuzzer/afl/src
+$CXX -std=c++11 -c &quot;afl_driver.cpp&quot; -fPIC -o &quot;./afl_driver.o&quot;
+</code></pre>
+<p>&#x62A5;&#x9519;&#x89E3;&#x51B3;</p>
+<ol>
+<li>use of undeclared identifier &apos;va_start&apos; and &apos;va_end&apos;: <code>afl_driver.cpp</code> &#x6DFB;&#x52A0; <code>#include &lt;cstdarg&gt;</code></li>
+</ol>
+<p>&#x4E0B;&#x8F7D;&#x7F16;&#x8BD1;&#x76EE;&#x6807;&#x7A0B;&#x5E8F;</p>
+<h4 id="libpng">libpng</h4>
+<pre><code class="lang-shell"># patch source code
+cd magma/
+git clone --no-checkout https://hub.fastgit.org/glennrp/libpng.git targets/libpng/repo
+git -C &quot;targets/libpng/repo&quot; checkout a37d4836519517bdce6cb9d956092321eca3e73b
+./magma/apply_patches.sh # not neccessary for running
+
+# make target lib
+cd targets/libpng/repo
+autoreconf -f -i
+./configure --with-libpng-prefix=MAGMA_ --disable-shared
+make -j$(nproc) clean
+make -j$(nproc) libpng16.la
+cp .libs/libpng16.a ./
+
+# compile target binary !modify the /path/to/.../afl_driver.o
+$CXX -std=c++11 -I. contrib/oss-fuzz/libpng_read_fuzzer.cc -o ./libpng_read_fuzzer ./libpng16.a /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -lz
+</code></pre>
+<p>&#x62A5;&#x9519;&#x89E3;&#x51B3;</p>
+<ol>
+<li>use of undeclared identifier &apos;malloc&apos; and free&apos;: <code>libpng_read_fuzzer.cc</code> add <code>#include &lt;cstdlib&gt;</code></li>
+<li>*&#x4E4B;&#x540E;&#x540C;&#x7406;</li>
+</ol>
+<h4 id="libtiff">libtiff</h4>
+<pre><code class="lang-shell"># patch source code
+cd magma/
+git clone --no-checkout https://gitlab.com/libtiff/libtiff.git targets/libtiff/repo
+git -C &quot;targets/libtiff/repo&quot; checkout c145a6c14978f73bb484c955eb9f84203efcb12e
+cp targets/libtiff/src/tiff_read_rgba_fuzzer.cc targets/libtiff/repo/contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc
+./magma/apply_patches.sh # not neccessary for running
+
+# compile tiffcp
+cd targets/libtiff/repo
+mkdir work
+./autogen.sh
+./configure --disable-shared --prefix=`pwd`/work
+make -j$(nproc) clean
+make -j$(nproc)
+make install
+
+# compile tiff_read_rgba_fuzzer
+$CXX -std=c++11 -I`pwd`/work/include contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc -o ./tiff_read_rgba_fuzzer `pwd`/work/lib/libtiffxx.a `pwd`/work/lib/libtiff.a -lz -ljpeg -ljbig -Wl,-Bstatic -llzma -Wl,-Bdynamic /path/to/magma/fuzzers/src/afl_driver.o -lstdc++
+</code></pre>
+<p>&#x62A5;&#x9519;&#x89E3;&#x51B3;</p>
+<ol>
+<li>/usr/bin/ld: cannot find -ljbig: <code>sudo apt install libjbig-dev</code></li>
+</ol>
+<h4 id="libxml2">libxml2</h4>
+<pre><code class="lang-shell"># patch source code
+cd magma/
+git clone --no-checkout https://gitlab.gnome.org/GNOME/libxml2.git targets/libxml2/repo
+git -C &quot;targets/libxml2/repo&quot; checkout ec6e3efb06d7b15cf5a2328fabd3845acea4c815
+./magma/apply_patches.sh # not neccessary for running
+
+# compile xmllint
+cd targets/libxml2/repo
+./autogen.sh \
+    --with-http=no \
+    --with-python=no \
+    --with-lzma=yes \
+    --with-threads=no \
+    --disable-shared
+make -j$(nproc) clean
+make -j$(nproc) all
+
+# compile libxml2_xml_read_memory_fuzzer &amp; libxml2_xml_reader_for_file_fuzzer
+for fuzzer in libxml2_xml_read_memory_fuzzer libxml2_xml_reader_for_file_fuzzer; do \
+$CXX -std=c++11 -Iinclude/ -I&quot;`pwd`/../src/&quot; &quot;`pwd`/../src/$fuzzer.cc&quot; -o &quot;./$fuzzer&quot; .libs/libxml2.a /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -lz -llzma; done;
+</code></pre>
+<h4 id="openssl">openssl</h4>
+<pre><code class="lang-shell"># patch source code
+cd magma/
+git clone --no-checkout https://github.com/openssl/openssl.git targets/openssl/repo
+git -C &quot;targets/openssl/repo&quot; checkout 3bd5319b5d0df9ecf05c8baba2c401ad8e3ba130
+cp targets/openssl/src/abilist.txt targets/openssl/repo/abilist.txt
+./magma/apply_patches.sh # not neccessary for running
+
+# set environment variables
+cd targets/openssl/repo
+CONFIGURE_FLAGS=&quot;&quot;
+if [[ $CFLAGS = *sanitize=memory* ]]
+then
+  CONFIGURE_FLAGS=&quot;no-asm&quot;
+fi
+export LDLIBS=&quot;/path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++&quot;
+
+# compile target binary
+./config --debug enable-fuzz-libfuzzer enable-fuzz-afl disable-tests -DPEDANTIC \
+    -DFUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION no-shared no-module \
+    enable-tls1_3 enable-rc5 enable-md2 enable-ec_nistp_64_gcc_128 enable-ssl3 \
+    enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
+    -fno-sanitize=alignment $CONFIGURE_FLAGS
+make -j$(nproc) clean
+make -j$(nproc) # buggy for now
+</code></pre>
+<h4 id="php">php</h4>
+<pre><code class="lang-shell"># patch source code
+cd magma/
+git clone --no-checkout https://github.com/php/php-src.git targets/php/repo
+git -C &quot;targets/php/repo&quot; checkout bc39abe8c3c492e29bc5d60ca58442040bbf063b
+git clone --no-checkout https://github.com/kkos/oniguruma.git targets/php/repo/oniguruma
+git -C &quot;targets/php/repo/oniguruma&quot; checkout 227ec0bd690207812793c09ad70024707c405376
+./magma/apply_patches.sh # not neccessary for running
+
+# set environment variables
+export ONIG_CFLAGS=&quot;-I`pwd`/oniguruma/src&quot;
+export ONIG_LIBS=&quot;-L`pwd`/oniguruma/src/.libs -lonig&quot;
+export EXTRA_CFLAGS=&quot;-fno-sanitize=object-size&quot;
+export EXTRA_CXXFLAGS=&quot;-fno-sanitize=object-size&quot;
+
+# compile oniguruma
+./buildconf
+LIB_FUZZING_ENGINE=&quot;-Wall&quot; CFLAGS=&quot;-DXXH_VECTOR=0 -fno-slp-vectorize&quot; ./configure \
+    --disable-all \
+    --enable-option-checking=fatal \
+    --enable-fuzzer \
+    --enable-exif \
+    --enable-phar \
+    --enable-intl \
+    --enable-mbstring \
+    --without-pcre-jit \
+    --disable-phpdbg \
+    --disable-cgi \
+    --with-pic
+make clean
+
+pushd oniguruma
+autoreconf -vfi
+./configure --disable-shared
+make -j$(nproc)
+popd
+
+# compile php
+# modify Makefile
+# FUZZING_LIB = -Wall # modify to:
+# FUZZING_LIB = -Wall xxxpath/afl_driver.o -lstdc++
+make -j$(nproc)
+</code></pre>
+<h4 id="poppler">poppler</h4>
+<pre><code class="lang-shell"># patch source code
+cd magma/
+git clone --no-checkout https://gitlab.com/libtiff/libtiff.git targets/poppler/repo
+git -C &quot;targets/poppler/repo&quot; checkout c145a6c14978f73bb484c955eb9f84203efcb12e
+git clone --no-checkout git://git.sv.nongnu.org/freetype/freetype2.git targets/poppler/repo/freetype2
+git -C &quot;targets/poppler/repo/freetype2&quot; checkout 50d0033f7ee600c5f5831b28877353769d1f7d48
+./magma/apply_patches.sh # not neccessary for running
+
+# compile freetype2
+cd targets/poppler/repo/freetype2
+./autogen.sh
+./configure --prefix=`pwd`/../work --disable-shared PKG_CONFIG_PATH=&quot;`pwd`/../work/lib/pkgconfig&quot;
+make -j$(nproc) clean
+make -j$(nproc)
+make install
+
+# compile pdfimages &amp; pdftoppm
+cd work
+mkdir poppler
+cd poppler
+EXTRA=&quot;&quot;
+test -n &quot;$AR&quot; &amp;&amp; EXTRA=&quot;$EXTRA -DCMAKE_AR=$AR&quot;
+test -n &quot;$RANLIB&quot; &amp;&amp; EXTRA=&quot;$EXTRA -DCMAKE_RANLIB=$RANLIB&quot;
+cmake ../../ $EXTRA -DCMAKE_BUILD_TYPE=debug -DBUILD_SHARED_LIBS=OFF -DFONT_CONFIGURATION=generic -DBUILD_GTK_TESTS=OFF -DBUILD_QT5_TESTS=OFF -DBUILD_CPP_TESTS=OFF -DENABLE_LIBPNG=ON -DENABLE_LIBTIFF=ON -DENABLE_LIBJPEG=ON -DENABLE_SPLASH=ON -DENABLE_UTILS=ON -DWITH_Cairo=ON -DENABLE_CMS=none -DENABLE_LIBCURL=OFF -DENABLE_GLIB=OFF -DENABLE_GOBJECT_INTROSPECTION=OFF -DENABLE_QT5=OFF -DENABLE_LIBCURL=OFF -DWITH_NSS3=OFF \
+-DFREETYPE_INCLUDE_DIRS=&quot;`pwd`/../include/freetype2&quot; \
+-DFREETYPE_LIBRARY=&quot;`pwd`/../lib/libfreetype.a&quot; \
+-DICONV_LIBRARIES=&quot;/usr/lib/x86_64-linux-gnu/libc.so&quot; \
+-DCMAKE_EXE_LINKER_FLAGS_INIT=&quot;/path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++&quot;
+EXTRA=&quot;&quot;
+
+# compile pdf_fuzzer
+$CXX -std=c++11 -I&quot;`pwd`/../poppler/cpp&quot; -I&quot;`pwd`/../../cpp&quot; &quot;`pwd`/../../../src/pdf_fuzzer.cc&quot; -o &quot;./pdf_fuzzer&quot; &quot;`pwd`/../poppler/cpp/libpoppler-cpp.a&quot; &quot;`pwd`/../poppler/libpoppler.a&quot; &quot;`pwd`/../lib/libfreetype.a&quot; /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm -lpthread -pthread
+</code></pre>
+<h4 id="sqlite3">sqlite3</h4>
+<pre><code class="lang-shell"># patch source code
+cd magma/
+curl &quot;https://www.sqlite.org/src/tarball/sqlite.tar.gz?r=8c432642572c8c4b&quot; \
+  -o &quot;targets/sqlite3/sqlite.tar.gz&quot; &amp;&amp; \
+mkdir -p &quot;targets/sqlite3/repo&quot; &amp;&amp; \
+tar -C &quot;targets/sqlite3/repo&quot; --strip-components=1 -xzf &quot;targets/sqlite3/sqlite.tar.gz&quot;
+./magma/apply_patches.sh # not neccessary for running
+
+# set environment variables
+export CFLAGS=&quot;-DSQLITE_MAX_LENGTH=128000000 \
+               -DSQLITE_MAX_SQL_LENGTH=128000000 \
+               -DSQLITE_MAX_MEMORY=25000000 \
+               -DSQLITE_PRINTF_PRECISION_LIMIT=1048576 \
+               -DSQLITE_DEBUG=1 \
+               -DSQLITE_MAX_PAGE_COUNT=16384&quot;
+
+# compile sqlite3
+cd targets/sqlite3/repo
+../configure --disable-shared --enable-rtree
+make clean
+make -j$(nproc)
+make sqlite3.c
+
+# compile sqlite3_fuzz
+$CC -I. &quot;`pwd`/../test/ossfuzz.c&quot; &quot;./sqlite3.o&quot; -o &quot;./sqlite3_fuzz&quot; /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -pthread -ldl -lm
+</code></pre>
+<h2 id="afl-running-on-magma">AFL++ running on Magma</h2>
+<p>before running the fuzzer</p>
+<pre><code class="lang-shell">export AFL_SKIP_CPUFREQ=1
+</code></pre>
+<h4 id="libpng">libpng</h4>
+<pre><code class="lang-shell"># make sure the directories exist
+make -p /path/to/fuzz_out/libpng
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libpng/corpus/libpng_read_fuzzer -o /path/to/fuzz_out/libpng -- /path/to/magma/targets/libpng/repo/libpng_read_fuzzer
+</code></pre>
+<h4 id="libtiff">libtiff</h4>
+<pre><code class="lang-shell"># make sure the directories exist
+make -p /path/to/fuzz_out/libtiff
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libtiff/corpus/corpus/libtiff -o /path/to/fuzz_out/libtiff -- /path/to/magma/targets/libtiff/repo/tiff_read_rgba_fuzzer
+</code></pre>
+<h4 id="libxml2">libxml2</h4>
+<pre><code class="lang-shell"># make sure the directories exist
+make -p /path/to/fuzz_out/libxml2_file
+make -p /path/to/fuzz_out/libxml2_memory
+
+# start fuzzing libxml2_xml_reader_for_file_fuzzer
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libxml2/corpus/libxml2_xml_reader_for_file_fuzzer -o /path/to/fuzz_out/libxml2_file -- /path/to/magma/targets/libxml2/repo/libxml2_xml_reader_for_file_fuzzer
+
+# start fuzzing libxml2_xml_read_memory_fuzzer
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libxml2/corpus/libxml2_xml_read_memory_fuzzer -o /path/to/fuzz_out/libxml2_memory -- /path/to/magma/targets/libxml2/repo/libxml2_xml_read_memory_fuzzer
+</code></pre>
+<h4 id="openssl">openssl</h4>
+<pre><code class="lang-shell"># make sure the directories exist
+make -p /path/to/fuzz_out/asn1parse
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/openssl/corpus/asn1parse -o /path/to/fuzz_out/asn1parse -- /path/to/magma/targets/openssl/repo/asn1parse
+</code></pre>
+<h4 id="php">php</h4>
+<pre><code class="lang-shell"># make sure the directories exist
+make -p /path/to/fuzz_out/php_xxx
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/php/corpus/php_fuzz_xxx -o /path/to/fuzz_out/php_xxx -- /path/to/magma/targets/php/repo/php_fuzz_xxx
+</code></pre>
+<h4 id="poppler">poppler</h4>
+<pre><code class="lang-shell"># make sure the directories exist
+make -p /path/to/fuzz_out/poppler
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/poppler/corpus/pdf_fuzzer -o /path/to/fuzz_out/poppler -- /path/to/magma/targets/poppler/repo/pdf_fuzzer
+</code></pre>
+<h4 id="sqlite3">sqlite3</h4>
+<pre><code class="lang-shell"># make sure the directories exist
+make -p /path/to/fuzz_out/sqlite3
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/sqlite3/corpus/sqlite3_fuzz -o /path/to/fuzz_out/sqlite3 -- /path/to/magma/targets/sqlite3/repo/work/sqlite3_fuzz
+</code></pre>
+<h2 id="summary">Summary</h2>
+<p>AFL++ &#x5728; Magma &#x4E0A;&#x8FD0;&#x884C;&#x7684;&#x65B9;&#x5F0F;, &#x7C7B;&#x4F3C;&#x4E5F;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x5230;&#x5176;&#x4ED6; fuzzer &#x4E0A;.</p>
+<h2 id="references">References</h2>
+<p>[1] <a href="https://github.com/AFLplusplus/AFLplusplus" target="_blank">https://github.com/AFLplusplus/AFLplusplus</a></p>
+<p>[2] Hazimeh, Ahmad, Adrian Herrera, and Mathias Payer. &quot;Magma: A ground-truth fuzzing benchmark.&quot; <em>Proceedings of the ACM on Measurement and Analysis of Computing Systems</em> 4.3 (2020): 1-29.</p>
+<p>[3] <a href="https://github.com/BT123/aflfast" target="_blank">https://github.com/BT123/aflfast</a></p>
+<p>[4] <a href="https://www.usenix.org/conference/usenixsecurity19/presentation/lyu" target="_blank">https://www.usenix.org/conference/usenixsecurity19/presentation/lyu</a></p>
+<p>[5] <a href="https://lafintel.wordpress.com/" target="_blank">https://lafintel.wordpress.com/</a></p>
+<p>[6] <a href="https://www.ndss-symposium.org/ndss-paper/redqueen-fuzzing-with-input-to-state-correspondence/" target="_blank">https://www.ndss-symposium.org/ndss-paper/redqueen-fuzzing-with-input-to-state-correspondence/</a></p>
+<p>[7] <a href="https://github.com/aflsmart/aflsmart" target="_blank">https://github.com/aflsmart/aflsmart</a></p>
+<p>[8] <a href="https://zhuanlan.zhihu.com/p/430280845" target="_blank">https://zhuanlan.zhihu.com/p/430280845</a></p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Fuzzing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../shell/" class="navigation navigation-next " aria-label="Next page: Shell">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AFLpp build for Magma","level":"2.2.1","depth":2,"next":{"title":"Shell","level":"2.3","depth":1,"path":"shell/index.md","ref":"shell/index.md","articles":[{"title":"shell programming basic","level":"2.3.1","depth":2,"path":"shell/shell_programming_basic.md","ref":"shell/shell_programming_basic.md","articles":[]},{"title":"shell programming techs I","level":"2.3.2","depth":2,"path":"shell/shell_programming_techs_I.md","ref":"shell/shell_programming_techs_I.md","articles":[]}]},"previous":{"title":"Fuzzing","level":"2.2","depth":1,"path":"fuzzing/index.md","ref":"fuzzing/index.md","articles":[{"title":"AFLpp build for Magma","level":"2.2.1","depth":2,"path":"fuzzing/AFLpp_build_on_Magma.md","ref":"fuzzing/AFLpp_build_on_Magma.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"toggle-chapters":{"toggle":true},"livereload":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"fuzzing/AFLpp_build_on_Magma.md","mtime":"2024-12-19T08:10:48.199Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-19T08:15:58.900Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -10,13 +10,16 @@
 * [Papers](papers/index.md)
 
 * [Linux](linux/index.md)
-  * [Kernel I](linux/kernel_I.md)
+  <!-- * [Kernel I](linux/kernel_I.md) -->
 
 * [Pwn](pwn/index.md)
+  <!-- * [Glibc _IO_FILE Exploitation](pwn/glibc_IO_FILE_exploitation.md) -->
+
 
 * [Reverse](reverse/index.md)
 
 * [Fuzzing](fuzzing/index.md)
+  * [AFLpp build for Magma](fuzzing/AFLpp_build_on_Magma.md)
 
 * [Shell](shell/index.md)
   * [shell programming basic](shell/shell_programming_basic.md)

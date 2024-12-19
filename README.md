@@ -98,6 +98,7 @@ gitbook install
 cd /gitbook_source_code
 rm -r ./_book
 gitbook build
+gitbook serve # for local testing
 cp -r ./_book/* ../gitbook/ 
 ```
 
