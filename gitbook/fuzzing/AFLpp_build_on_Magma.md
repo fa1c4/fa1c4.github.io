@@ -86,7 +86,7 @@ $CXX -std=c++11 -c "afl_driver.cpp" -fPIC -o "./afl_driver.o"
 
 
 
-下载编译目标程序
+下载编译目标程序, 编译之前可以 `cat preinstall.sh` 查看需要的环境依赖, 如果编译报错, 可以先把**所有依赖都安装**一遍.
 
 #### libpng
 
@@ -198,7 +198,7 @@ export LDLIBS="/path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++"
     enable-ssl3-method enable-nextprotoneg enable-weak-ssl-ciphers \
     -fno-sanitize=alignment $CONFIGURE_FLAGS
 make -j$(nproc) clean
-make -j$(nproc) # buggy for now
+make -j$(nproc)
 ```
 
 
@@ -243,9 +243,11 @@ make -j$(nproc)
 popd
 
 # compile php
-# modify Makefile
+# <modify Makefile>
 # FUZZING_LIB = -Wall # modify to:
-# FUZZING_LIB = -Wall xxxpath/afl_driver.o -lstdc++
+# FUZZING_LIB = -Wall /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++
+# and modify that 
+# FUZZING_CC = /path/to/AFLplusplus/afl-clang-fast++ -stdlib=libstdc++
 make -j$(nproc)
 ```
 
@@ -257,13 +259,17 @@ make -j$(nproc)
 # patch source code
 cd magma/
 git clone --no-checkout https://gitlab.com/libtiff/libtiff.git targets/poppler/repo
-git -C "targets/poppler/repo" checkout c145a6c14978f73bb484c955eb9f84203efcb12e
-git clone --no-checkout git://git.sv.nongnu.org/freetype/freetype2.git targets/poppler/repo/freetype2
-git -C "targets/poppler/repo/freetype2" checkout 50d0033f7ee600c5f5831b28877353769d1f7d48
+git -C "targets/poppler/repo" checkout 1d23101ccebe14261c6afc024ea14f29d209e760
+git clone --no-checkout git://git.sv.nongnu.org/freetype/freetype2.git targets/poppler/freetype2
+git -C "targets/poppler/freetype2" checkout 50d0033f7ee600c5f5831b28877353769d1f7d48
 ./magma/apply_patches.sh # not neccessary for running
 
+# mkdir work directory
+mkdir -p targets/poppler/work
+mkdir -p targets/poppler/work/lib targets/poppler/work/include
+
 # compile freetype2
-cd targets/poppler/repo/freetype2
+cd targets/poppler/freetype2
 ./autogen.sh
 ./configure --prefix=`pwd`/../work --disable-shared PKG_CONFIG_PATH="`pwd`/../work/lib/pkgconfig"
 make -j$(nproc) clean
@@ -271,21 +277,45 @@ make -j$(nproc)
 make install
 
 # compile pdfimages & pdftoppm
-cd work
-mkdir poppler
-cd poppler
+cd ../work
+mkdir poppler && cd poppler
 EXTRA=""
 test -n "$AR" && EXTRA="$EXTRA -DCMAKE_AR=$AR"
 test -n "$RANLIB" && EXTRA="$EXTRA -DCMAKE_RANLIB=$RANLIB"
-cmake ../../ $EXTRA -DCMAKE_BUILD_TYPE=debug -DBUILD_SHARED_LIBS=OFF -DFONT_CONFIGURATION=generic -DBUILD_GTK_TESTS=OFF -DBUILD_QT5_TESTS=OFF -DBUILD_CPP_TESTS=OFF -DENABLE_LIBPNG=ON -DENABLE_LIBTIFF=ON -DENABLE_LIBJPEG=ON -DENABLE_SPLASH=ON -DENABLE_UTILS=ON -DWITH_Cairo=ON -DENABLE_CMS=none -DENABLE_LIBCURL=OFF -DENABLE_GLIB=OFF -DENABLE_GOBJECT_INTROSPECTION=OFF -DENABLE_QT5=OFF -DENABLE_LIBCURL=OFF -DWITH_NSS3=OFF \
+
+cmake /path/to/magma/targets/poppler/repo $EXTRA -DCMAKE_BUILD_TYPE=debug -DBUILD_SHARED_LIBS=OFF -DFONT_CONFIGURATION=generic -DBUILD_GTK_TESTS=OFF -DBUILD_QT5_TESTS=OFF -DBUILD_CPP_TESTS=OFF -DENABLE_LIBPNG=ON -DENABLE_LIBTIFF=ON -DENABLE_LIBJPEG=ON -DENABLE_SPLASH=ON -DENABLE_UTILS=ON -DWITH_Cairo=ON -DENABLE_CMS=none -DENABLE_LIBCURL=OFF -DENABLE_GLIB=OFF -DENABLE_GOBJECT_INTROSPECTION=OFF -DENABLE_QT5=OFF -DENABLE_LIBCURL=OFF -DWITH_NSS3=OFF \
 -DFREETYPE_INCLUDE_DIRS="`pwd`/../include/freetype2" \
 -DFREETYPE_LIBRARY="`pwd`/../lib/libfreetype.a" \
 -DICONV_LIBRARIES="/usr/lib/x86_64-linux-gnu/libc.so" \
 -DCMAKE_EXE_LINKER_FLAGS_INIT="/path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++"
+
+make -j$(nproc) poppler poppler-cpp pdfimages pdftoppm
 EXTRA=""
 
 # compile pdf_fuzzer
-$CXX -std=c++11 -I"`pwd`/../poppler/cpp" -I"`pwd`/../../cpp" "`pwd`/../../../src/pdf_fuzzer.cc" -o "./pdf_fuzzer" "`pwd`/../poppler/cpp/libpoppler-cpp.a" "`pwd`/../poppler/libpoppler.a" "`pwd`/../lib/libfreetype.a" /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm -lpthread -pthread
+$CXX -std=c++11 -I"`pwd`/cpp" -I"`pwd`/../../repo/cpp" "`pwd`/../../src/pdf_fuzzer.cc" -o "./pdf_fuzzer" "`pwd`/cpp/libpoppler-cpp.a" "`pwd`/libpoppler.a" "`pwd`/../lib/libfreetype.a" /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm -lpthread -pthread # -lharfbuzz -lbz2
+
+# copy to targets/poppler
+cp pdf_fuzzer ../../
+```
+
+报错解决
+
+```shell
+...
+ftbzip2.c:(.text.ft_bzip2_file_fill_output[ft_bzip2_file_fill_output]+0x90): undefined reference to `BZ2_bzDecompress'
+/usr/bin/ld: ftbzip2.c:(.text.ft_bzip2_file_fill_output[ft_bzip2_file_fill_output]+0x16b): undefined reference to `BZ2_bzDecompress'
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+make[3]: *** [utils/CMakeFiles/pdftoppm.dir/build.make:151: utils/pdftoppm] Error 1
+make[2]: *** [CMakeFiles/Makefile2:232: utils/CMakeFiles/pdftoppm.dir/all] Error 2
+make[1]: *** [CMakeFiles/Makefile2:239: utils/CMakeFiles/pdftoppm.dir/rule] Error 2
+make: *** [Makefile:205: pdftoppm] Error 2
+```
+
+增加 `-lharfbuzz -lbz2`
+
+```shell
+$CXX -std=c++11 -I"`pwd`/cpp" -I"`pwd`/../../repo/cpp" "`pwd`/../../src/pdf_fuzzer.cc" -o "./pdf_fuzzer" "`pwd`/cpp/libpoppler-cpp.a" "`pwd`/libpoppler.a" "`pwd`/../lib/libfreetype.a" /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -ljpeg -lz -lopenjp2 -lpng -ltiff -llcms2 -lm -lpthread -pthread -lharfbuzz -lbz2
 ```
 
 
@@ -295,9 +325,8 @@ $CXX -std=c++11 -I"`pwd`/../poppler/cpp" -I"`pwd`/../../cpp" "`pwd`/../../../src
 ```shell
 # patch source code
 cd magma/
-curl "https://www.sqlite.org/src/tarball/sqlite.tar.gz?r=8c432642572c8c4b" \
-  -o "targets/sqlite3/sqlite.tar.gz" && \
-mkdir -p "targets/sqlite3/repo" && \
+curl "https://www.sqlite.org/src/tarball/sqlite.tar.gz?r=8c432642572c8c4b" -o "targets/sqlite3/sqlite.tar.gz"
+mkdir -p targets/sqlite3/repo
 tar -C "targets/sqlite3/repo" --strip-components=1 -xzf "targets/sqlite3/sqlite.tar.gz"
 ./magma/apply_patches.sh # not neccessary for running
 
@@ -311,13 +340,12 @@ export CFLAGS="-DSQLITE_MAX_LENGTH=128000000 \
                
 # compile sqlite3
 cd targets/sqlite3/repo
-../configure --disable-shared --enable-rtree
+./configure --disable-shared --enable-rtree
 make clean
 make -j$(nproc)
-make sqlite3.c
 
 # compile sqlite3_fuzz
-$CC -I. "`pwd`/../test/ossfuzz.c" "./sqlite3.o" -o "./sqlite3_fuzz" /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -pthread -ldl -lm
+$CC -I. "./test/ossfuzz.c" "./sqlite3.o" -o "./sqlite3_fuzz" /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -pthread -ldl -lm
 ```
 
 
@@ -332,6 +360,8 @@ before running the fuzzer
 export AFL_SKIP_CPUFREQ=1
 ```
 
+
+
 #### libpng
 
 ```shell
@@ -339,7 +369,7 @@ export AFL_SKIP_CPUFREQ=1
 make -p /path/to/fuzz_out/libpng
 
 # start fuzzing
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libpng/corpus/libpng_read_fuzzer -o /path/to/fuzz_out/libpng -- /path/to/magma/targets/libpng/repo/libpng_read_fuzzer
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libpng/corpus/libpng_read_fuzzer -o /path/to/AFLplusplus/fuzz_out/libpng -- /path/to/magma/targets/libpng/repo/libpng_read_fuzzer
 ```
 
 
@@ -351,7 +381,7 @@ make -p /path/to/fuzz_out/libpng
 make -p /path/to/fuzz_out/libtiff
 
 # start fuzzing
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libtiff/corpus/corpus/libtiff -o /path/to/fuzz_out/libtiff -- /path/to/magma/targets/libtiff/repo/tiff_read_rgba_fuzzer
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libtiff/corpus/corpus/libtiff -o /path/to/AFLplusplus/fuzz_out/libtiff -- /path/to/magma/targets/libtiff/repo/tiff_read_rgba_fuzzer
 ```
 
 
@@ -364,10 +394,10 @@ make -p /path/to/fuzz_out/libxml2_file
 make -p /path/to/fuzz_out/libxml2_memory
 
 # start fuzzing libxml2_xml_reader_for_file_fuzzer
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libxml2/corpus/libxml2_xml_reader_for_file_fuzzer -o /path/to/fuzz_out/libxml2_file -- /path/to/magma/targets/libxml2/repo/libxml2_xml_reader_for_file_fuzzer
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libxml2/corpus/libxml2_xml_reader_for_file_fuzzer -o /path/to/AFLplusplus/fuzz_out/libxml2_file -- /path/to/magma/targets/libxml2/repo/libxml2_xml_reader_for_file_fuzzer
 
 # start fuzzing libxml2_xml_read_memory_fuzzer
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libxml2/corpus/libxml2_xml_read_memory_fuzzer -o /path/to/fuzz_out/libxml2_memory -- /path/to/magma/targets/libxml2/repo/libxml2_xml_read_memory_fuzzer
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libxml2/corpus/libxml2_xml_read_memory_fuzzer -o /path/to/AFLplusplus/fuzz_out/libxml2_memory -- /path/to/magma/targets/libxml2/repo/libxml2_xml_read_memory_fuzzer
 ```
 
 
@@ -379,7 +409,7 @@ make -p /path/to/fuzz_out/libxml2_memory
 make -p /path/to/fuzz_out/asn1parse
 
 # start fuzzing
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/openssl/corpus/asn1parse -o /path/to/fuzz_out/asn1parse -- /path/to/magma/targets/openssl/repo/asn1parse
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/openssl/corpus/asn1parse -o /path/to/AFLplusplus/fuzz_out/asn1parse -- /path/to/magma/targets/openssl/repo/asn1parse
 ```
 
 
@@ -388,10 +418,26 @@ make -p /path/to/fuzz_out/asn1parse
 
 ```shell
 # make sure the directories exist
-make -p /path/to/fuzz_out/php_xxx
+make -p /path/to/fuzz_out/php_exif
+make -p /path/to/fuzz_out/php_json
+make -p /path/to/fuzz_out/php_unserialize
+
+# copy the magma/targets/php/repo/sapi/fuzzer/corpus to magma/targets/php/corpus
+cd magma/targets/php/repo
+mkdir -p ../corpus
+for fuzzerName in `ls sapi/fuzzer/corpus`; do
+    mkdir -p "../corpus/${fuzzerName}"
+    cp sapi/fuzzer/corpus/${fuzzerName}/* "../corpus/${fuzzerName}/"
+done
 
 # start fuzzing
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/php/corpus/php_fuzz_xxx -o /path/to/fuzz_out/php_xxx -- /path/to/magma/targets/php/repo/php_fuzz_xxx
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/php/corpus/exif -o /path/to/AFLplusplus/fuzz_out/php_exif -- /path/to/magma/targets/php/repo/sapi/fuzzer/php-fuzz-exif
+
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/php/corpus/json -o /path/to/AFLplusplus/fuzz_out/php_json -- /path/to/magma/targets/php/repo/sapi/fuzzer/php-fuzz-json
+
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/php/corpus/unserialize -o /path/to/AFLplusplus/fuzz_out/php_unserialize -- /path/to/magma/targets/php/repo/sapi/fuzzer/php-fuzz-unserialize
+
+# ...
 ```
 
 
@@ -403,7 +449,7 @@ make -p /path/to/fuzz_out/php_xxx
 make -p /path/to/fuzz_out/poppler
 
 # start fuzzing
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/poppler/corpus/pdf_fuzzer -o /path/to/fuzz_out/poppler -- /path/to/magma/targets/poppler/repo/pdf_fuzzer
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/poppler/corpus/pdf_fuzzer -o /path/to/AFLplusplus/fuzz_out/poppler -- /path/to/magma/targets/poppler/pdf_fuzzer
 ```
 
 
@@ -415,7 +461,7 @@ make -p /path/to/fuzz_out/poppler
 make -p /path/to/fuzz_out/sqlite3
 
 # start fuzzing
-/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/sqlite3/corpus/sqlite3_fuzz -o /path/to/fuzz_out/sqlite3 -- /path/to/magma/targets/sqlite3/repo/work/sqlite3_fuzz
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/sqlite3/corpus/sqlite3_fuzz -o /path/to/AFLplusplus/fuzz_out/sqlite3 -- /path/to/magma/targets/sqlite3/repo/sqlite3_fuzz
 ```
 
 

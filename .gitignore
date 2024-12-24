@@ -8,3 +8,4 @@ gitbook_source_code/_book
 
 # ignore directories
 temp*/
+.vscode/
