@@ -91,7 +91,10 @@ $CXX -std=c++11 -c "afl_driver.cpp" -fPIC -o "./afl_driver.o"
 #### libpng
 
 ```shell
-# patch source code
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
 cd magma/
 git clone --no-checkout https://hub.fastgit.org/glennrp/libpng.git targets/libpng/repo
 git -C "targets/libpng/repo" checkout a37d4836519517bdce6cb9d956092321eca3e73b
@@ -119,7 +122,10 @@ $CXX -std=c++11 -I. contrib/oss-fuzz/libpng_read_fuzzer.cc -o ./libpng_read_fuzz
 #### libtiff
 
 ```shell
-# patch source code
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
 cd magma/
 git clone --no-checkout https://gitlab.com/libtiff/libtiff.git targets/libtiff/repo
 git -C "targets/libtiff/repo" checkout c145a6c14978f73bb484c955eb9f84203efcb12e
@@ -148,7 +154,10 @@ $CXX -std=c++11 -I`pwd`/work/include contrib/oss-fuzz/tiff_read_rgba_fuzzer.cc -
 #### libxml2
 
 ```shell
-# patch source code
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
 cd magma/
 git clone --no-checkout https://gitlab.gnome.org/GNOME/libxml2.git targets/libxml2/repo
 git -C "targets/libxml2/repo" checkout ec6e3efb06d7b15cf5a2328fabd3845acea4c815
@@ -175,7 +184,10 @@ $CXX -std=c++11 -Iinclude/ -I"`pwd`/../src/" "`pwd`/../src/$fuzzer.cc" -o "./$fu
 #### openssl
 
 ```shell
-# patch source code
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
 cd magma/
 git clone --no-checkout https://github.com/openssl/openssl.git targets/openssl/repo
 git -C "targets/openssl/repo" checkout 3bd5319b5d0df9ecf05c8baba2c401ad8e3ba130
@@ -206,7 +218,10 @@ make -j$(nproc)
 #### php
 
 ```shell
-# patch source code
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
 cd magma/
 git clone --no-checkout https://github.com/php/php-src.git targets/php/repo
 git -C "targets/php/repo" checkout bc39abe8c3c492e29bc5d60ca58442040bbf063b
@@ -256,7 +271,10 @@ make -j$(nproc)
 #### poppler
 
 ```shell
-# patch source code
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
 cd magma/
 git clone --no-checkout https://gitlab.com/libtiff/libtiff.git targets/poppler/repo
 git -C "targets/poppler/repo" checkout 1d23101ccebe14261c6afc024ea14f29d209e760
@@ -323,7 +341,10 @@ $CXX -std=c++11 -I"`pwd`/cpp" -I"`pwd`/../../repo/cpp" "`pwd`/../../src/pdf_fuzz
 #### sqlite3
 
 ```shell
-# patch source code
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
 cd magma/
 curl "https://www.sqlite.org/src/tarball/sqlite.tar.gz?r=8c432642572c8c4b" -o "targets/sqlite3/sqlite.tar.gz"
 mkdir -p targets/sqlite3/repo
@@ -347,6 +368,77 @@ make -j$(nproc)
 # compile sqlite3_fuzz
 $CC -I. "./test/ossfuzz.c" "./sqlite3.o" -o "./sqlite3_fuzz" /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -pthread -ldl -lm
 ```
+
+
+
+### lua
+
+```shell
+# download source code
+git clone --no-checkout https://github.com/lua/lua.git targets/lua/repo
+git -C "targets/lua/repo" checkout dbdc74dc5502c2e05e1c1e2ac894943f418c8431
+./magma/apply_patches.sh # not necessary
+
+# compile lua lib
+cd targets/lua/repo
+
+# modify the makefile before compiling
+# from: # MYCFLAGS= $(LOCAL) -std=c99 -DLUA_USE_LINUX -DLUA_USE_READLINE
+# to: MYCFLAGS= $(LOCAL) -std=c11 -DLUA_USE_LINUX -DLUA_USE_READLINE
+
+# from : CC= gcc
+# to: CC= /path/to/AFLplusplus/afl-clang-fast
+
+# from : LIB_O= lbaselib.o ldblib.o liolib.o lmathlib.o loslib.o ltablib.o lstrlib.o lutf8lib.o loadlib.o lcorolib.o linit.o 
+# to: LIB_O= lbaselib.o ldblib.o liolib.o lmathlib.o loslib.o ltablib.o lstrlib.o lutf8lib.o loadlib.o lcorolib.o linit.o ../../../fuzzers/afl/src/afl_driver.o
+
+make -j$(nproc) clean
+make -j$(nproc) liblua.a
+
+# compile lua
+make -j$(nproc) lua
+```
+
+
+
+### libsndfile
+
+```shell
+export CC=/path/to/AFLplusplus/afl-clang-fast
+export CXX=/path/to/AFLplusplus/afl-clang-fast++
+
+# download source code
+git clone --no-checkout https://github.com/libsndfile/libsndfile.git targets/libsndfile/repo
+git -C "targets/libsndfile/repo" checkout 86c9f9eb7022d186ad4d0689487e7d4f04ce2b29
+./magma/apply_patches.sh # not necessary
+
+# install dependencies before compile
+# see the build.sh in targets/libsndfile/
+
+# compile sndfile
+cd targets/libsndfile/repo
+./autogen.sh
+./configure --disable-shared --enable-ossfuzzers
+make -j$(nproc) clean
+make -j$(nproc) ossfuzz/sndfile_fuzzer
+
+# compile libsndfile_fuzzer
+$CXX "./ossfuzz/sndfile_fuzzer-sndfile_fuzzer.o" -o "./libsndfile_fuzzer" /path/to/magma/fuzzers/afl/src/afl_driver.o -lstdc++ -pthread -ldl -lm -lsndfile
+```
+
+报错解决
+
+```shell
+/usr/bin/ld: /usr/bin/ld: DWARF error: invalid or unhandled FORM value: 0x25
+./ossfuzz/sndfile_fuzzer-sndfile_fuzzer.o: in function `LLVMFuzzerTestOneInput':
+sndfile_fuzzer.cc:(.text.LLVMFuzzerTestOneInput[LLVMFuzzerTestOneInput]+0xa2): undefined reference to `sf_open_virtual'
+/usr/bin/ld: sndfile_fuzzer.cc:(.text.LLVMFuzzerTestOneInput[LLVMFuzzerTestOneInput]+0x115): undefined reference to `sf_close'
+/usr/bin/ld: sndfile_fuzzer.cc:(.text.LLVMFuzzerTestOneInput[LLVMFuzzerTestOneInput]+0x13f): undefined reference to `sf_readf_float'
+/usr/bin/ld: sndfile_fuzzer.cc:(.text.LLVMFuzzerTestOneInput[LLVMFuzzerTestOneInput]+0x164): undefined reference to `sf_readf_float'
+clang++: error: linker command failed with exit code 1 (use -v to see invocation)
+```
+
+安装 libsndfile 库依赖 `apt install libsndfile1-dev`
 
 
 
@@ -466,11 +558,39 @@ make -p /path/to/fuzz_out/sqlite3
 
 
 
+### lua
+
+```shell
+# make sure the directories exist
+make -p /path/to/fuzz_out/lua
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -t 5000 -i /path/to/magma/targets/lua/corpus/lua -o /path/to/AFLplusplus/fuzz_out/lua -- /path/to/magma/targets/lua/repo/lua
+```
+
+报错解决
+
+xx seed timeout: 增加 `-t 5000` fuzzer 参数提高超时阈值
+
+
+
+### libsndfile
+
+```shell
+# make sure the directories exist
+make -p /path/to/fuzz_out/sndfile
+
+# start fuzzing
+/path/to/AFLplusplus/afl-fuzz -i /path/to/magma/targets/libsndfile/corpus/sndfile_fuzzer -o /path/to/AFLplusplus/fuzz_out/sndfile -- /path/to/magma/targets/libsndfile/repo/libsndfile_fuzzer
+```
+
+
+
 
 
 ## Summary
 
-AFL++ 在 Magma 上运行的方式, 类似也可以应用到其他 fuzzer 上.
+AFL++ 在 Magma 上运行的方式, 类似也可以应用到其他 fuzzer 上. 不过还是优先推荐使用docker统一运行环境, 这样实验评估结果更公平和科学.
 
 
 
