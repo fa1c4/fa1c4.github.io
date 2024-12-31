@@ -1,0 +1,490 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SoK: Prudent Evaluation Practices for Fuzzing · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../linux/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                <a href="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.5.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SoK: Prudent Evaluation Practices for Fuzzing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sok-prudent-evaluation-practices-for-fuzzing-sp-2024">SoK: Prudent Evaluation Practices for Fuzzing [S&amp;P 2024]</h1>
+<p><img src="assets/image-20241231102238334.png" alt="image-20241231102238334"></p>
+<h2 id="introduction">Introduction</h2>
+<p>&#x4F5C;&#x8005;&#x7814;&#x7A76;&#x548C;&#x603B;&#x7ED3;&#x4E86; 2018 - 2023 &#x5E74;, &#x5171;150&#x7BC7;CORE&#x63A8;&#x8350;A&#x7C7B;&#x4F1A;&#x8BAE;/&#x671F;&#x520A;&#x7684;Fuzzing&#x8BBA;&#x6587;, &#x5728;Fuzzing Evaluation&#x4E0A;&#x7684;&#x8BBE;&#x8BA1;&#x65B9;&#x6CD5;&#x548C;&#x5B9E;&#x9A8C;&#x7684;&#x53EF;&#x590D;&#x73B0;&#x6027;. &#x5E76;&#x590D;&#x73B0;&#x4E86;8&#x7BC7;&#x8BBA;&#x6587;&#x6240;&#x63D0;&#x65B9;&#x6CD5;&#x53CA;&#x5176;&#x8BC4;&#x4F30;&#x5B9E;&#x9A8C;. &#x6700;&#x540E;&#x5728;Fuzzing&#x7814;&#x7A76;&#x4E0A;&#x8FDB;&#x884C;&#x5B9E;&#x9A8C;&#x8BC4;&#x4F30;&#x65B9;&#x9762;, &#x63D0;&#x51FA;&#x591A;&#x79CD;&#x63A8;&#x8350;&#x610F;&#x89C1;&#x548C;&#x4E00;&#x79CD;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;.</p>
+<p>&#x5F71;&#x54CD;&#x786E;&#x5B9A;&#x6027;&#x548C;&#x53EF;&#x590D;&#x73B0;&#x6027;&#x7684;&#x56E0;&#x7D20;: &#x4ECE;&#x8FDB;&#x7A0B;&#x7684;&#x8C03;&#x5EA6;, &#x5BF9;&#x8FDB;&#x7A0B;&#x7684;&#x8F93;&#x5165;&#x548C;&#x4FEE;&#x6539;, &#x5230;Fuzzing&#x73AF;&#x5883;&#x7B49;&#x591A;&#x4E2A;&#x968F;&#x673A;&#x6027;&#x6765;&#x6E90;.</p>
+<p>&#x5BF9;&#x6B64;, Klees et al. <sup>[1]</sup> &#x63D0;&#x51FA;&#x516C;&#x5E73;&#x548C;&#x53EF;&#x590D;&#x73B0;&#x7684;Fuzzing Evaluation&#x7684;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>Recommendation 1: &#x57FA;&#x7EBF;&#x9009;&#x62E9;&#x76F8;&#x5173;&#x4E0E;&#x5408;&#x7406;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>Recommendation 2: Benchmark&#x9009;&#x62E9;&#x5E26;&#x6709;&#x5DF2;&#x77E5;&#x6F0F;&#x6D1E;&#x7684;&#x76EE;&#x6807;&#x7A0B;&#x5E8F;&#x68C0;&#x6D4B;Fuzzer&#x7684;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x80FD;&#x529B;</li>
+<li>Recommendation 3: Fuzzing&#x9700;&#x8981;&#x8FDB;&#x884C;24h, &#x5E76;&#x753B;&#x51FA;&#x6027;&#x80FD;&#x968F;&#x65F6;&#x95F4;&#x66F2;&#x7EBF;; &#x79CD;&#x5B50;&#x5E93;&#x9009;&#x62E9;&#x9700;&#x8981;&#x9644;&#x52A0;&#x79CD;&#x5B50;&#x7684;&#x6587;&#x6863;&#x8BF4;&#x660E;, &#x5E76;&#x5305;&#x62EC;&#x591A;&#x79CD;&#x79CD;&#x5B50;&#x96C6;&#x6BD4;&#x5982;&#x7A7A;&#x96C6;&#x548C;&#x672A;&#x77E5;&#x96C6;.</li>
+<li>Recommendation 4: Fuzzer&#x8BC4;&#x4F30;&#x4FA7;&#x91CD;&#x4E8E;&#x6F0F;&#x6D1E;&#x6316;&#x6398;&#x80FD;&#x529B;&#x800C;&#x4E0D;&#x662F;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;; &#x57FA;&#x672C;&#x5757;&#x548C;&#x8FB9;&#x8986;&#x76D6;&#x7387;&#x5B9E;&#x9A8C;&#x4F5C;&#x4E3A;&#x8865;&#x5145;&#x6307;&#x6807;.</li>
+<li>Recommendation 5: &#x5E94;&#x7528;&#x7EDF;&#x8BA1;&#x6D4B;&#x8BD5;, &#x5982;Mann-Whitney U-test&#x6216;&#x57FA;&#x4E8E;&#x5F15;&#x5BFC;&#x7684;&#x65B9;&#x6CD5;, &#x6765;&#x9A8C;&#x8BC1;&#x96F6;&#x5047;&#x8BBE; (&#x5373;&#x4E0E;&#x4E00;&#x4E2A;&#x5408;&#x7406;&#x7684;&#x57FA;&#x7EBF;&#x76F8;&#x6BD4;, &#x65B0;&#x65B9;&#x6CD5;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x533A;&#x522B;)</li>
+</ul>
+<h2 id="benchmarks">Benchmarks</h2>
+<p><strong>FuzzBench</strong> the successor to the Google Fuzzer Test Suite (FTS). &#x4FA7;&#x91CD;&#x8986;&#x76D6;&#x7387;. &#x63A8;&#x8350;</p>
+<p><strong>Google&#x2019;s Fuzzer-TestSuite</strong> &#x4FA7;&#x91CD;&#x8986;&#x76D6;&#x7387;. &#x63A8;&#x8350; FuzzBench</p>
+<p><strong>LAVA-M</strong> &#x4FA7;&#x91CD;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;. &#x4EBA;&#x5DE5;&#x6F0F;&#x6D1E;. &#x4E0D;&#x63A8;&#x8350;</p>
+<p><strong>CGC</strong> &#x4FA7;&#x91CD;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;. &#x4EBA;&#x5DE5;&#x6F0F;&#x6D1E;. &#x4E0D;&#x63A8;&#x8350;</p>
+<p><strong>Magma</strong> &#x4FA7;&#x91CD;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;. &#x771F;&#x5B9E;&#x6F0F;&#x6D1E;. &#x63A8;&#x8350;</p>
+<p><strong>Unibench</strong> &#x4FA7;&#x91CD;&#x8986;&#x76D6;&#x7387;</p>
+<p><strong>ProFuzzBench</strong> &#x72B6;&#x6001;&#x534F;&#x8BAE;Fuzzing Bench. &#x4FA7;&#x91CD;&#x8986;&#x76D6;&#x7387;</p>
+<p><strong>RevBugBench</strong> &#x4FA7;&#x91CD;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;. &#x771F;&#x5B9E;&#x6F0F;&#x6D1E;</p>
+<h2 id="analysis--conclusions">Analysis &amp; Conclusions</h2>
+<p><strong>&#x4EE3;&#x7801;&#x5F00;&#x6E90;</strong> &#x4F5C;&#x8005;&#x4ECE;289&#x7BC7;papers&#x4E2D;&#x9009;&#x51FA;150&#x7BC7;&#x4E13;&#x6CE8;&#x4E8E;Fuzzing&#x7684;papers, &#x6392;&#x9664;&#x5C06;Fuzzing&#x505A;&#x4E3A;&#x5DE5;&#x5177;&#x6216;&#x8005;&#x6280;&#x672F;&#x4E4B;&#x4E00;&#x6765;&#x5E94;&#x7528;&#x5230;&#x5176;&#x4ED6;&#x65B9;&#x5411;&#x7684;&#x7814;&#x7A76;papers.</p>
+<h4 id="conclusion-1">Conclusion 1</h4>
+<p>74%&#x7684;papers&#x516C;&#x5F00;&#x4E86;&#x4EE3;&#x7801;, 60%&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#x5B9E;&#x9A8C;, &#x53EA;&#x6709;23%&#x7684;papers&#x83B7;&#x5F97;&#x7531;&#x8BC4;&#x5BA1;&#x59D4;&#x5458;&#x4F1A;&#x6216;&#x72EC;&#x7ACB;&#x8BC4;&#x5BA1;&#x4EBA;&#x5458;&#x9881;&#x53D1;&#x7684;&#x5FBD;&#x7AE0;.</p>
+<p><strong>Benchmarks &#x9009;&#x62E9;</strong> &#x5E73;&#x5747;&#x6BCF;&#x7BC7;&#x8BBA;&#x6587;&#x8BC4;&#x4F30;8.9&#x4E2A;&#x76EE;&#x6807;, &#x603B;&#x8BA1;753&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x76EE;&#x6807;, &#x5176;&#x4E2D;76% (576&#x4E2A;) &#x4EC5;&#x5728;&#x4E00;&#x7BC7;&#x8BBA;&#x6587;&#x4E2D;&#x88AB;&#x8BC4;&#x4F30;&#x8FC7;. &#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x7528;&#x4E8E;&#x53EF;&#x91CD;&#x590D;&#x5730;&#x8861;&#x91CF;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x7684;&#x6027;&#x80FD;, &#x4F46;61%&#x7684;&#x8BBA;&#x6587;&#x672A;&#x4F7F;&#x7528;&#x4EFB;&#x4F55;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;. &#x5404;&#x4E2A;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x7684;&#x4F7F;&#x7528;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;&#x5982;&#x4E0B;:</p>
+<p><img src="assets/image-20241231114347121.png" alt="image-20241231114347121" style="zoom: 67%;"> </p>
+<ul>
+<li>LAVA-M&#xFF1A;17%&#xFF08;26&#x7BC7;&#xFF09;</li>
+<li>FuzzBench&#xFF1A;10%&#xFF08;15&#x7BC7;&#xFF09;</li>
+<li>Google&#x7684;Fuzzer Test Suite&#xFF08;FTS&#xFF09;&#xFF1A;8%&#xFF08;12&#x7BC7;&#xFF09;</li>
+<li>CGC&#xFF1A;5%&#xFF08;8&#x7BC7;&#xFF09;</li>
+<li>Magma&#xFF1A;4%&#xFF08;6&#x7BC7;&#xFF09;</li>
+<li>Unibench&#xFF1A;1%&#xFF08;2&#x7BC7;&#xFF09;</li>
+</ul>
+<h4 id="conclusion-2">Conclusion 2</h4>
+<p>&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x76EE;&#x6807;&#x901A;&#x5E38;&#x4EC5;&#x9650;&#x4E8E;&#x4E8C;&#x8FDB;&#x5236;&#x8F93;&#x5165;&#x7A0B;&#x5E8F;, &#x800C;&#x5927;&#x591A;&#x6570;&#x8BBA;&#x6587;&#x90FD;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x57FA;&#x51C6;. &#x4ECD;&#x5728;&#x4F7F;&#x7528;&#x5E26;&#x6709;&#x4EBA;&#x4E3A;&#x6F0F;&#x6D1E;&#x7684;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;.</p>
+<p><strong>Baselines &#x9009;&#x62E9;</strong> &#x6700;&#x5E38;&#x88AB;&#x7528;&#x4F5C;&#x5BF9;&#x6BD4;&#x57FA;&#x51C6;&#x7684;&#x5DE5;&#x5177;&#x5305;&#x62EC;&#xFF1A;</p>
+<ul>
+<li>AFL&#xFF1A;35%&#xFF08;53&#x7BC7;&#xFF09;</li>
+<li>QSym&#xFF1A;15%&#xFF08;23&#x7BC7;&#xFF09;</li>
+<li>AFLFast&#xFF1A;14%&#xFF08;21&#x7BC7;&#xFF09;</li>
+<li>Angora&#xFF1A;13%&#xFF08;20&#x7BC7;&#xFF09;</li>
+<li>FairFuzz&#xFF1A;8%&#xFF08;12&#x7BC7;&#xFF09;</li>
+<li>AFL++&#xFF1A;9%&#xFF08;14&#x7BC7;&#xFF09;</li>
+</ul>
+<h4 id="conclusion-3">Conclusion 3</h4>
+<p>45%&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7814;&#x7A76;&#x5EFA;&#x7ACB;&#x5728;&#x975E;&#x5B66;&#x672F;&#x6027;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E4B;&#x4E0A;, 33%&#x5EFA;&#x7ACB;&#x4E86;&#x65B0;&#x7684;&#x5DE5;&#x5177;. 23%&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8BC4;&#x4F30;&#x65E0;&#x6CD5;&#x4E0E;&#x76F8;&#x5173;&#x7684;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x6216;&#x4ED6;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x57FA;&#x51C6;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;.</p>
+<p><strong>&#x5B9E;&#x9A8C;&#x8BBE;&#x7F6E;</strong> &#x8FD0;&#x884C;&#x65F6;&#x95F4;, CPU&#x6838;&#x6570;, &#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x516C;&#x5E73;&#x6027;, &#x521D;&#x59CB;&#x79CD;&#x5B50;&#x5E93;</p>
+<h4 id="conclusion-4">Conclusion 4</h4>
+<p>5%&#x7684;&#x8BBA;&#x6587;&#x5206;&#x914D;&#x8BA1;&#x7B97;&#x8D44;&#x6E90;&#x4E0D;&#x516C;&#x5E73;, 5%&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x79CD;&#x5B50;&#x96C6;. </p>
+<p><strong>&#x8BC4;&#x4F30;&#x6307;&#x6807;</strong> &#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;, &#x5DF2;&#x77E5;BUG, &#x65B0;BUG / CVEs</p>
+<p><img src="assets/image-20241231115224708.png" alt="image-20241231115224708" style="zoom:50%;"></p>
+<h4 id="conclusion-5">Conclusion 5</h4>
+<p>20%&#x7684;CVE&#x88AB;&#x5FFD;&#x7565;&#x5E76;&#x4E14;&#x4E0D;&#x4FEE;&#x590D;, 11%&#x65E0;&#x6548;, 26%&#x4FDD;&#x7559;&#x4F46;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x5206;&#x6790;.</p>
+<p><strong>&#x7EDF;&#x8BA1;&#x8BC4;&#x4F30;</strong> Mann-Whitney U&#x68C0;&#x9A8C; &#x548C; t-&#x68C0;&#x9A8C;</p>
+<h4 id="conclusion-6">Conclusion 6</h4>
+<p>63%&#x7684;&#x5DE5;&#x4F5C;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x7EDF;&#x8BA1;&#x68C0;&#x9A8C;&#x6765;&#x8BC4;&#x4F30;&#x5176;&#x7ED3;&#x679C;, 15%&#x4F7F;&#x7528;&#x7684;&#x8BD5;&#x9A8C;&#x4E0D;&#x8DB3;, &#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x53EF;&#x9760;&#x7684;&#x7ED3;&#x679C;. 73%&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x4E0D;&#x786E;&#x5B9A;&#x6027;&#x5EA6;&#x91CF;.</p>
+<h2 id="case-study">Case Study</h2>
+<p><strong>Lesson 1</strong> &#x72EC;&#x7279;&#x7684;&#x5D29;&#x6E83;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x9760;&#x7684;&#x6307;&#x6807;; &#x76F8;&#x53CD;, &#x4F5C;&#x8005;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF08;&#x5DF2;&#x77E5;&#x7684;&#xFF09;BUG. &#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x4EBA;&#x5DE5;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;, &#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86;&#x9700;&#x8981;&#x8BB0;&#x5F55;&#x8FD9;&#x79CD;&#x9650;&#x5236;. &#x6211;&#x4EEC;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x4E0D;&#x8981;&#x83B7;&#x5F97;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;CVEs. &#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x5F71;&#x54CD;&#x4E0D;&#x5E94;&#x8BE5;&#x6839;&#x636E;&#x5206;&#x914D;&#x7684;CVEs&#x7684;&#x6570;&#x91CF;&#x6765;&#x8861;&#x91CF;.</p>
+<p><strong>Lesson 2</strong> &#x5F3A;&#x70C8;&#x53CD;&#x5BF9;&#x5C06;&#x65E0;&#x6548;bug&#x62A5;&#x544A;&#x4F5C;&#x4E3A;&#x6F0F;&#x6D1E;&#x8FDB;&#x884C;&#x8425;&#x9500;. &#x5FC5;&#x987B;&#x8003;&#x8651;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x53CD;&#x9988;&#xFF08;&#x7279;&#x522B;&#x662F;&#x5728;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x62D2;&#x7EDD;BUG&#x62A5;&#x544A;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;.</p>
+<p><strong>Lesson 3</strong> &#x5EFA;&#x8BAE;&#x5BF9;&#x6539;&#x8FDB;&#x7684;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;, &#x800C;&#x4E0D;&#x662F;&#x4EE5; Fuzzer &#x6574;&#x4F53;&#x4F5C;&#x4E3A;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;. &#x5EFA;&#x8BAE;&#x53D1;&#x5E03;&#x6240;&#x6709;&#x8BC4;&#x4F30;&#x5DE5;&#x4EF6;, &#x5305;&#x62EC;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x548C;&#x539F;&#x59CB;&#x6570;&#x636E;.</p>
+<p><strong>Lesson 4</strong> &#x4F9D;&#x8D56;&#x8FC7;&#x65F6;&#x7684;&#x57FA;&#x7EBF;&#x7248;&#x672C;&#x53EF;&#x80FD;&#x4F1A;&#x626D;&#x66F2;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;. &#x4F5C;&#x8005;&#x5E94;&#x8BE5;&#x786E;&#x4FDD;&#x4F7F;&#x7528;&#x6240;&#x6709;&#x5DE5;&#x5177;&#x7684;&#x6700;&#x65B0;&#x7248;&#x672C;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;.</p>
+<p><strong>Lesson 5</strong> &#x4E00;&#x4E2A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x53EF;&#x80FD;&#x5728;&#x67D0;&#x4E2A;&#x6307;&#x6807;&#x4E0A;&#x8868;&#x73B0;&#x51FA;&#x8272;, &#x4F46;&#x5728;&#x5176;&#x4ED6;&#x6307;&#x6807;&#x4E0A;&#x5374;&#x672A;&#x5FC5;; &#x56E0;&#x6B64;&#x9009;&#x62E9;&#x4E00;&#x5957;&#x5408;&#x9002;&#x7684;&#x8BC4;&#x4F30;&#x6307;&#x6807;&#x5BF9;&#x4E8E;&#x4E3A;&#x8BFB;&#x8005;&#x63D0;&#x4F9B;&#x5168;&#x8C8C;&#x81F3;&#x5173;&#x91CD;&#x8981;.</p>
+<p><strong>Lesson 6</strong> &#x79CD;&#x5B50;&#x4F1A;&#x5F71;&#x54CD;&#x6A21;&#x7CCA;&#x5668;&#x7684;&#x6027;&#x80FD;. &#x5EFA;&#x8BAE;&#x4E3A;&#x6240;&#x6709;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8005;&#x63D0;&#x4F9B;&#x76F8;&#x540C;&#x7684;&#x79CD;&#x5B50;&#x96C6;, &#x5E76;&#x516C;&#x5E03;&#x4F7F;&#x7528;&#x7684;&#x79CD;&#x5B50;.</p>
+<p><strong>Lesson 7</strong> &#x5EFA;&#x8BAE;&#x63D0;&#x4F9B;&#x5408;&#x7406;&#x6C34;&#x5E73;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x548C;&#x6587;&#x6863;, &#x4EE5;&#x5141;&#x8BB8;&#x5176;&#x4ED6;&#x4EBA;&#x7406;&#x89E3;&#x548C;&#x4F7F;&#x7528;&#x4EE3;&#x7801;, &#x4ECE;&#x800C;&#x4FC3;&#x8FDB;&#x53EF;&#x91CD;&#x590D;&#x6027;.</p>
+<p><strong>Lesson 8</strong> &#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x63D2;&#x6869;&#x65B9;&#x6CD5;&#x4F1A;&#x626D;&#x66F2;&#x8986;&#x76D6;&#x7387;&#x6D4B;&#x91CF;&#x7ED3;&#x679C;, &#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x6D4B;&#x91CF;&#x8986;&#x76D6;&#x7387;.</p>
+<h2 id="best-practice">Best Practice</h2>
+<p>&#x5BF9; Fuzzing &#x7684;&#x8BC4;&#x4F30;&#x5B9E;&#x9A8C;, &#x4F5C;&#x8005;&#x7ED9;&#x51FA;&#x4E86;&#x6700;&#x4F73;&#x5B9E;&#x8DF5;&#x6307;&#x5357; <sup>[2]</sup> </p>
+<h4 id="reproducible-artifact">Reproducible Artifact</h4>
+<p>&#x660E;&#x786E;&#x6307;&#x5B9A;&#x7528;&#x4E8E;&#x6BD4;&#x8F83;&#x7684;&#x76EE;&#x6807;&#xFF08;&#x548C;&#x5DE5;&#x5177;&#xFF09;&#x53CA;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x7684;&#x786E;&#x5207;&#x7248;&#x672C;. &#x4F7F;&#x7528;&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;&#x62BD;&#x8C61;&#xFF08;&#x5982;Docker&#xFF09;, &#x5728;&#x53EF;&#x884C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;. &#x6307;&#x660E;&#x65B0;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x7684;&#x57FA;&#x51C6;&#x7248;&#x672C;, &#x5E76;&#x907F;&#x514D;&#x5C06;&#x8BE5;&#x57FA;&#x51C6;&#x7684;&#x63D0;&#x4EA4;&#x538B;&#x7F29;&#x5408;&#x5E76;.</p>
+<h4 id="targets-under-test">Targets under Test</h4>
+<p>&#x9009;&#x5B9A;&#x7684;&#x8BC4;&#x4F30;&#x76EE;&#x6807;&#x5E94;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x5177;&#x6709;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x96C6;&#x5408;, &#x65E2;&#x80FD;&#x5C55;&#x793A;&#x6240;&#x63D0;&#x65B9;&#x6CD5;&#x7684;&#x4F18;&#x70B9;, &#x53C8;&#x80FD;&#x4E0E;&#x5148;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x8FDB;&#x884C;&#x53EF;&#x6BD4;&#x6027;&#x6BD4;&#x8F83;. &#x56E0;&#x6B64;, &#x5EFA;&#x8BAE;&#x5305;&#x62EC;&#x5728;&#x5176;&#x4ED6;&#x7814;&#x7A76;&#x4E2D;&#x5DF2;&#x6D4B;&#x8BD5;&#x8FC7;&#x7684;&#x76EE;&#x6807;. &#x5BF9;&#x76EE;&#x6807;&#x6240;&#x5E94;&#x7528;&#x7684;&#x8865;&#x4E01;&#x5E94;&#x505A;&#x51FA;&#x89E3;&#x91CA;. &#x5982;&#x679C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x6709;&#x67D0;&#x4E9B;&#x9650;&#x5236;&#xFF08;&#x4F8B;&#x5982;&#x57FA;&#x4E8E;&#x7B26;&#x53F7;&#x6267;&#x884C;&#x7684;&#x6280;&#x672F;&#x65E0;&#x6CD5;&#x6A21;&#x62DF;&#x6240;&#x6709;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF09;, &#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x660E;&#x786E;&#x8BF4;&#x660E;&#x8FD9;&#x4E9B;&#x9650;&#x5236;. &#x540C;&#x65F6;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x5DF2;&#x5E7F;&#x6CDB;&#x63A5;&#x53D7;&#x7684;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;, &#x5982;FuzzBench, &#x4EE5;&#x4FBF;&#x4E8E;&#x540E;&#x7EED;&#x7684;&#x8F7B;&#x677E;&#x590D;&#x73B0;.</p>
+<h4 id="comparison-to-other-fuzzers">Comparison to Other Fuzzers</h4>
+<p>&#x5728;&#x76F8;&#x5173;&#x9886;&#x57DF;&#x4E2D;&#xFF0C;&#x4E0E;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x6280;&#x672F;&#x4EE5;&#x53CA;&#x65B0;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x6240;&#x57FA;&#x4E8E;&#x7684;&#x57FA;&#x51C6;&#xFF08;&#x5982;&#x679C;&#x6709;&#x7684;&#x8BDD;&#xFF09;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x81F3;&#x5173;&#x91CD;&#x8981;. &#x8FD9;&#x5305;&#x62EC;&#x90A3;&#x4E9B;&#x5DF2;&#x5E7F;&#x6CDB;&#x63A5;&#x53D7;&#x5E76;&#x79EF;&#x6781;&#x7EF4;&#x62A4;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;, &#x5982;AFL++. &#x5C06;&#x65B0;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x7EB3;&#x5165;&#x8BF8;&#x5982;FuzzBench&#x7B49;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;, &#x53EF;&#x4EE5;&#x4F7F;&#x5176;&#x4E0E;&#x591A;&#x79CD;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;. &#x5982;&#x679C;&#x63D0;&#x51FA;&#x7684;&#x662F;&#x4E00;&#x79CD;&#x5177;&#x6709;&#x53EF;&#x5206;&#x79BB;&#x8BBE;&#x8BA1;&#x9009;&#x62E9;&#x7684;&#x65B0;&#x6280;&#x672F;, &#x5EFA;&#x8BAE;&#x901A;&#x8FC7;&#x6D88;&#x878D;&#x7814;&#x7A76;&#xFF08;ablation study&#xFF09;&#x6765;&#x5355;&#x72EC;&#x8BC4;&#x4F30;&#x5404;&#x4E2A;&#x8BBE;&#x8BA1;&#x9009;&#x62E9;. &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BBE;&#x8BA1;&#x57FA;&#x51C6;, &#x9010;&#x6B65;&#x542F;&#x7528;&#x6216;&#x7981;&#x7528;&#x5355;&#x4E2A;&#x7EC4;&#x4EF6;&#x6765;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;.</p>
+<h4 id="evaluation-setup">Evaluation Setup</h4>
+<p>&#x9009;&#x62E9;&#x7684;&#x8BC4;&#x4F30;&#x8BBE;&#x7F6E;&#x5E94;&#x8BE6;&#x7EC6;&#x8BB0;&#x5F55;, &#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x5185;&#x5BB9;:</p>
+<ol>
+<li>&#x786C;&#x4EF6;&#x7EC6;&#x8282;&#xFF1A;&#x5305;&#x62EC;&#x5B9E;&#x9A8C;&#x6240;&#x7528;&#x7684;&#x786C;&#x4EF6;&#x914D;&#x7F6E;</li>
+<li>&#x5B9E;&#x9A8C;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#xFF1A;&#x63A8;&#x8350;&#x81F3;&#x5C11;24&#x5C0F;&#x65F6;. &#x82E5;&#x8BC4;&#x4F30;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x5728;&#x5B9E;&#x9A8C;&#x7ED3;&#x675F;&#x65F6;&#x4ECD;&#x672A;&#x8D8B;&#x4E8E;&#x5E73;&#x7A33;, &#x53EF;&#x80FD;&#x9700;&#x8981;&#x66F4;&#x957F;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;</li>
+<li>&#x5206;&#x914D;&#x7684;&#x6838;&#x5FC3;&#x6570;&#x4E0E;&#x6BCF;&#x4E2A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x7684;&#x8FDB;&#x7A0B;&#x6570;&#xFF1A;&#x9009;&#x62E9;&#x5355;&#x4E2A;&#x6838;&#x5FC3;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x4EE3;&#x8868;&#x73B0;&#x4EE3;&#x7CFB;&#x7EDF;&#x7684;&#x6027;&#x80FD;</li>
+<li>&#x5E76;&#x884C;&#x8FD0;&#x884C;&#x591A;&#x4E2A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x65F6;&#x7684;&#x5185;&#x6838;&#x62E5;&#x585E;&#x95EE;&#x9898;&#xFF1A;&#x5E94;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x907F;&#x514D;&#x5185;&#x6838;&#x74F6;&#x9888;&#xFF08;&#x5373;&#x4F7F;&#x4F7F;&#x7528;Docker&#xFF09;, &#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x67D0;&#x4E9B;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5904;&#x7406;&#x7F13;&#x6162;, &#x5F71;&#x54CD;&#x67D0;&#x4E9B;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x7684;&#x8868;&#x73B0;. &#x53EF;&#x4EE5;&#x5C06;&#x6BCF;&#x4E2A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x5B9E;&#x4F8B;&#x5C01;&#x88C5;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x865A;&#x62DF;&#x673A;&#x4E2D;, &#x4EE5;&#x907F;&#x514D;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;</li>
+<li>&#x79CD;&#x5B50;&#x7BA1;&#x7406;&#xFF1A;&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x65E0;&#x4FE1;&#x606F;&#x79CD;&#x5B50;&#x6216;&#x591A;&#x4E2A;&#x79CD;&#x5B50;&#x96C6;. &#x79CD;&#x5B50;&#x5FC5;&#x987B;&#x63CF;&#x8FF0;&#x6E05;&#x6670;&#x4E14;&#x53EF;&#x8BBF;&#x95EE;&#xFF08;&#x5BF9;&#x4E8E;&#x6709;&#x4FE1;&#x606F;&#x7684;&#x79CD;&#x5B50;&#xFF09;, &#x4EE5;&#x786E;&#x4FDD;&#x5B9E;&#x9A8C;&#x53EF;&#x590D;&#x73B0;. &#x6240;&#x6709;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x5E94;&#x516C;&#x5E73;&#x5730;&#x8BBF;&#x95EE;&#x6240;&#x6709;&#x79CD;&#x5B50;. &#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E86;&#x6709;&#x4FE1;&#x606F;&#x7684;&#x79CD;&#x5B50;, &#x5EFA;&#x8BAE;&#x7ED8;&#x5236;&#x6216;&#x5206;&#x6790;&#x521D;&#x59CB;&#x79CD;&#x96C6;&#x7684;&#x8986;&#x76D6;&#x60C5;&#x51B5;, &#x4EE5;&#x907F;&#x514D;&#x5C06;&#x9AD8;&#x8986;&#x76D6;&#x5F52;&#x56E0;&#x4E8E;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x6027;&#x80FD;, &#x800C;&#x975E;&#x79CD;&#x5B50;&#x7684;&#x5F71;&#x54CD;</li>
+</ol>
+<h4 id="evaluation-metrics">Evaluation Metrics</h4>
+<p>&#x8BC4;&#x4F30;&#x7684;&#x5173;&#x952E;&#x8981;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>&#x5EA6;&#x91CF;&#x6807;&#x51C6;&#xFF1A;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x7684;&#x3001;&#x88AB;&#x5E7F;&#x6CDB;&#x63A5;&#x53D7;&#x7684;&#x5EA6;&#x91CF;&#x6807;&#x51C6;, &#x81F3;&#x5C11;&#x5E94;&#x5305;&#x62EC;&#x8986;&#x76D6;&#x7387;&#x548C;&#x53D1;&#x73B0;&#x6F0F;&#x6D1E;&#x6570;&#x91CF;. &#x5E94;&#x540C;&#x65F6;&#x8003;&#x8651;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x548C;&#x6F0F;&#x6D1E;&#x53D1;&#x73B0;&#x80FD;&#x529B;, &#x4EE5;&#x907F;&#x514D;&#x5355;&#x4E00;&#x5EA6;&#x91CF;&#x5E26;&#x6765;&#x7684;&#x504F;&#x5DEE;</li>
+<li>&#x8986;&#x76D6;&#x7387;&#x7684;&#x6536;&#x96C6;&#xFF1A;&#x9700;&#x8981;&#x660E;&#x786E;&#x8BF4;&#x660E;&#x8986;&#x76D6;&#x7387;&#x7684;&#x6536;&#x96C6;&#x65B9;&#x5F0F;, &#x4F8B;&#x5982;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x975E;&#x4EEA;&#x5668;&#x5316;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x3001;&#x901A;&#x8FC7;&#x6A21;&#x62DF;&#x5668;&#x8F6C;&#x6362;&#x7684;&#x4EE3;&#x7801;&#x5757;, &#x6216;&#x4F7F;&#x7528;&#x5982;lcov&#x7B49;&#x5DF2;&#x5EFA;&#x7ACB;&#x7684;&#x65B9;&#x6CD5;. &#x8986;&#x76D6;&#x7387;&#x4E0D;&#x5E94;&#x4F7F;&#x7528;&#x78B0;&#x649E;&#x7684;&#x4F4D;&#x56FE;&#x6765;&#x8861;&#x91CF;, &#x800C;&#x5E94;&#x91C7;&#x7528;&#x65E0;&#x78B0;&#x649E;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#x6216;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;</li>
+<li>&#x76F8;&#x540C;&#x7684;&#x8986;&#x76D6;&#x7387;&#x5EA6;&#x91CF;&#xFF1A;&#x5728;&#x6BD4;&#x8F83;&#x4E0D;&#x540C;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x65F6;, &#x786E;&#x4FDD;&#x6240;&#x6709;&#x8BC4;&#x4F30;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x7684;&#x8986;&#x76D6;&#x7387;&#x5EA6;&#x91CF;&#x6807;&#x51C6;&#x662F;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x7684;</li>
+<li>&#x9009;&#x62E9;&#x5408;&#x7406;&#x7684;&#x6D4B;&#x8BD5;&#x76EE;&#x6807;&#xFF1A;&#x5728;&#x5BFB;&#x627E;&#x6F0F;&#x6D1E;&#x4EE5;&#x5C55;&#x793A;&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x5F71;&#x54CD;&#x65F6;, &#x9009;&#x62E9;&#x5408;&#x7406;&#x7684;&#x76EE;&#x6807;&#xFF08;&#x5373;&#x975E;&#x8BBE;&#x8BA1;&#x4E0A;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#x9879;&#x76EE;&#x3001;&#x4E0D;&#x6D3B;&#x8DC3;&#x591A;&#x5E74;&#x6216;&#x56E0;&#x5176;&#x4ED6;&#x539F;&#x56E0;&#x4E0D;&#x9002;&#x5408;&#x6D4B;&#x8BD5;&#x7684;&#x9879;&#x76EE;&#xFF09;&#x662F;&#x5173;&#x952E;</li>
+<li>&#x8BC4;&#x4F30;&#x5176;&#x4ED6;&#x5148;&#x8FDB;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#xFF1A;&#x5E94;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#x5176;&#x4ED6;&#x5148;&#x8FDB;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;, &#x770B;&#x770B;&#x5B83;&#x4EEC;&#x662F;&#x5426;&#x4E5F;&#x80FD;&#x53D1;&#x73B0;&#x76F8;&#x540C;&#x7684;&#x6F0F;&#x6D1E;, &#x4ECE;&#x800C;&#x6D88;&#x9664;&#x9488;&#x5BF9;&#x4E4B;&#x524D;&#x672A;&#x6D4B;&#x8BD5;&#x8F6F;&#x4EF6;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x7684;&#x8D28;&#x7591;</li>
+<li>&#x5D29;&#x6E83;&#x53BB;&#x91CD;&#x4E0E;&#x5904;&#x7406;&#xFF1A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x53D1;&#x73B0;&#x7684;&#x5D29;&#x6E83;&#x5E94;&#x8FDB;&#x884C;&#x53BB;&#x91CD;, &#x7136;&#x540E;&#x518D;&#x5F00;&#x62A5;&#x544A;. &#x5D29;&#x6E83;&#x7684;&#x5206;&#x7C7B;&#x8FC7;&#x7A0B;&#x5E94;&#x660E;&#x786E;&#x63CF;&#x8FF0;. &#x5728;&#x6D4B;&#x8BD5;&#x5D29;&#x6E83;&#x65F6;, &#x5EFA;&#x8BAE;&#x5728;&#x6CA1;&#x6709;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x6216;&#x8986;&#x76D6;&#x7387;&#x4EEA;&#x5668;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x4E0A;&#x8FDB;&#x884C;&#x91CD;&#x73B0;, &#x4EE5;&#x907F;&#x514D;&#x590D;&#x73B0;&#x95EE;&#x9898;.</li>
+<li>CVE&#x8BF7;&#x6C42;&#xFF1A;&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;, &#x53EA;&#x6709;&#x7EF4;&#x62A4;&#x8005;&#x5E94;&#x8BF7;&#x6C42;CVE. &#x5982;&#x679C;&#x7EF4;&#x62A4;&#x8005;&#x672A;&#x8BF7;&#x6C42;, &#x7814;&#x7A76;&#x4EBA;&#x5458;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x94FE;&#x63A5;&#x5230;&#x6F0F;&#x6D1E;&#x62A5;&#x544A;. &#x907F;&#x514D;&#x4E3A;&#x540C;&#x4E00;&#x6F0F;&#x6D1E;&#x8BF7;&#x6C42;&#x591A;&#x4E2A;CVE, &#x6216;&#x5728;&#x672A;&#x7ECF;&#x534F;&#x8C03;&#x6216;&#x901A;&#x77E5;&#x7EF4;&#x62A4;&#x8005;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x8BF7;&#x6C42;CVE. &#x5982;&#x679C;&#x53EF;&#x80FD;, &#x533F;&#x540D;&#x62A5;&#x544A;&#x6F0F;&#x6D1E;&#x6216;CVE&#x6709;&#x52A9;&#x4E8E;&#x63D0;&#x4F9B;&#x7ED9;&#x5BA1;&#x7A3F;&#x4EBA;&#x5728;&#x63D0;&#x4EA4;&#x65F6;&#x8FDB;&#x884C;&#x8BBF;&#x95EE;, &#x4ECE;&#x800C;&#x80FD;&#x591F;&#x68C0;&#x67E5;CVE&#x6216;&#x6F0F;&#x6D1E;&#x62A5;&#x544A;&#x7684;&#x6709;&#x6548;&#x6027;.</li>
+</ol>
+<h4 id="statistical-evaluation">Statistical Evaluation</h4>
+<ol>
+<li>&#x6700;&#x5C11;&#x8FD0;&#x884C;&#x5341;&#x6B21;&#x8BD5;&#x9A8C;&#xFF0C;&#x6216;&#x901A;&#x8FC7;&#x529F;&#x6548;&#x5206;&#x6790;&#x8BA1;&#x7B97;&#x5408;&#x9002;&#x7684;&#x8BD5;&#x9A8C;&#x6B21;&#x6570;</li>
+<li>&#x4F7F;&#x7528;&#x7F6E;&#x6362;&#x68C0;&#x9A8C;&#x6216;&#x91CD;&#x62BD;&#x6837;&#x68C0;&#x9A8C;&#x907F;&#x514D;&#x5BF9;&#x6B63;&#x6001;&#x5206;&#x5E03;&#x7684;&#x5047;&#x8BBE;</li>
+<li>&#x907F;&#x514D;&#x591A;&#x91CD;&#x68C0;&#x9A8C;&#x95EE;&#x9898;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;<strong>&#x81EA;&#x52A9;&#x6CD5;ANOVA</strong>&#x6765;&#x6BD4;&#x8F83;&#x591A;&#x4E2A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;</li>
+<li>&#x8FDB;&#x884C;&#x6548;&#x5E94;&#x5927;&#x5C0F;&#x6D4B;&#x91CF;&#x548C;&#x91CF;&#x5316;&#x4E0D;&#x786E;&#x5B9A;&#x6027;</li>
+</ol>
+<h2 id="reference">Reference</h2>
+<p>[1] G. Klees, A. Ruef, B. Cooper, S. Wei, and M. Hicks, &#x201C;Evaluating Fuzz Testing,&#x201D; in ACM Conference on Computer and Communications Security (CCS), 2018.</p>
+<p>[2] <a href="https://github.com/fuzz-evaluator/guidelines" target="_blank">https://github.com/fuzz-evaluator/guidelines</a></p>
+
+                                
+                                </section>
+                            
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Papers">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../linux/" class="navigation navigation-next " aria-label="Next page: Linux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SoK: Prudent Evaluation Practices for Fuzzing","level":"1.2.1","depth":2,"next":{"title":"Linux","level":"2.1","depth":1,"path":"linux/index.md","ref":"linux/index.md","articles":[]},"previous":{"title":"Papers","level":"1.2","depth":1,"path":"papers/index.md","ref":"papers/index.md","articles":[{"title":"SoK: Prudent Evaluation Practices for Fuzzing","level":"1.2.1","depth":2,"path":"papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md","ref":"papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"toggle-chapters":{"toggle":true},"livereload":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md","mtime":"2024-12-31T06:28:44.349Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-12-31T06:32:38.664Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/buttons.js"></script>
+        
+    
+
+    </body>
+</html>
+
