@@ -16,6 +16,7 @@
 
 * [Fuzzing](fuzzing/index.md)
   * [AFLpp build for Magma](fuzzing/AFLpp_build_on_Magma.md)
+  * [FuzzBench Build](fuzzing/fuzzbench_build.md)
 
 * [Pwn](pwn/index.md)
   * [Glibc _IO_FILE Exploitation Introduction](pwn/glibc_IO_FILE_exploitation.md)
