@@ -13,19 +13,29 @@
 
 * [Linux](linux/index.md)
   <!-- * [Kernel I](linux/kernel_I.md) -->
+  * [Rust Elementary I](linux/rust_elementary_I.md)
+
 
 * [Fuzzing](fuzzing/index.md)
   * [AFLpp build for Magma](fuzzing/AFLpp_build_on_Magma.md)
   * [FuzzBench Build](fuzzing/fuzzbench_build.md)
 
+
 * [Pwn](pwn/index.md)
   * [Glibc _IO_FILE Exploitation Introduction](pwn/glibc_IO_FILE_exploitation.md)
 
+
 * [Reverse](reverse/index.md)
+
+
+* [LLM](LLM/index.md)
+  <!-- * [Reproduction of KAG](LLM/Reproduction_KAG.md) -->
+
 
 * [Shell](shell/index.md)
   * [shell programming basic](shell/shell_programming_basic.md)
   * [shell programming techs I](shell/shell_programming_techs_I.md)
+
 
 <!-- no need to use details tag to trigger toggle function -->
 <!-- * <details>

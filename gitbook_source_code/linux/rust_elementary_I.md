@@ -1,6 +1,6 @@
 # Rust 基础语法 I
 
-环境安装, 变量, 数据类型, 函数, 注释, 控制流 if-else
+环境安装, 变量, 数据类型, 函数, 注释, 控制流 if-else, 控制流 循环
 
 ## 环境安装
 
@@ -112,7 +112,30 @@ cargo build --release
 
 
 
-## 变量
+## 变量 & 常量
+
+声明变量使用 `let` 关键字, 默认不可变 `immutable`, 声明变量时, 在变量前面加上 `mut`, 使得变量可变.
+
+同个名字声明变量, 会隐藏 (shadowing) 之前的变量, 重新声明的变量类型可以改变
+
+```rust
+let x = 1;
+let x = x + 1; // shadowing
+let x = x * 2; // shadowing
+println!("The value of x is {}", x); // x == 4;
+```
+
+
+
+常量 `constant` 在绑定值以后也不可变, 与 `immutable` 的差别: `constant` 一直不可变, 但是 `immutable` 可以重定义为 `mut`.
+
+常量 `constant` 可以在任何作用域声明, 包括全局作用域. 并且, 常量只能绑定到常量表达式, 只能绑定在不运行也能计算出的表达式.
+
+常量 `constant` 使用全大写字母, 每个单词用下划线分开
+
+```rust
+const MAX_VAL: u32 = 100_000; // using _ to split const for readable
+```
 
 
 
@@ -120,21 +143,151 @@ cargo build --release
 
 ## 数据类型
 
+标量类型: 整数类型, 浮点类型, 布尔类型, 字符类型
+
+整数类型
+
+| Length  | Signed [-(2^n - 1), 2^(n-1) - 1]     | Unsigned [0, 2^n - 1]                |
+| ------- | ------------------------------------ | ------------------------------------ |
+| 8-bit   | i8                                   | u8                                   |
+| 16-bit  | i16                                  | u16                                  |
+| 32-bit  | i32                                  | u32                                  |
+| 64-bit  | i64                                  | u64                                  |
+| 128-bit | i128                                 | u128                                 |
+| arch    | isize (32-bit if arch32 else 64-bit) | usize (32-bit if arch32 else 64-bit) |
+
+浮点类型
+
+| Length | Precision |
+| ------ | --------- |
+| 32-bit | f32       |
+| 64-bit | f64       |
+
+
+
+布尔类型 `bool`: {true, false}. 字符类型 `char` 占用 32-bit 大小, Unicode标量值. 
+
+
+
+ 复合类型: 元组(Tuple), 数组(Array)
+
+Tuple 可以存放多个类型, Array 只能存放相同类型, Tuple 和 Array 长度固定. Array是在 stack 上分配内存.
+
+```rust
+let tup: (i32, f64, u8) = (50, 2.33, 1);
+println!("{} {} {}", tup.0, tup.1, tup.2);
+// 50, 2.33, 1
+
+let (x, y, z) = tup;
+println!("{} {} {}", x, y, z);
+// 50, 2.33, 1
+
+let months: [&str; 12] = [
+	"January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+];
+```
+
+可变数组: vector 由标准库提供
+
 
 
 
 
 ## 函数
 
+Rust 基于 snake case 命名规范, 函数和变量名的所有字母小写并用下划线分开单词. 函数参数必须声明类型. `->` 声明返回值类型. 返回值为函数体中最后一个表达式的值 (注意, 不是 statement 语句以 `;` 结尾, 而是 expression 表达式)
 
+```rust
+fn test_print() {
+    println!("testing println!");
+}
 
+fn print_x_y(x: i32, y: i32) {
+	println!("value of x: {}", x);
+    println!("value of y: {}", y);
+}
 
-
-## 注释
+// last expression is 5, so the return value is 5
+fn get_const() -> i32 {
+	5
+}
+```
 
 
 
 
 
 ## 控制流: IF ELSE
+
+if 的条件必须是 bool 类型
+
+```rust
+let number = 3;
+
+if number < 5 {
+	println!("number is smaller than 5");
+} else if number == 5  {
+    println!("number is equal to 5");
+} else {
+	println!("number is greater than 5");
+}
+
+// syntactic sugar
+let condition = true;
+let number = if condition {1} else {0};
+```
+
+
+
+
+
+## 控制流: 循环
+
+### loop
+
+相当于无限循环, 用 `break` 退出
+
+```rust
+let mut counter = 0;
+
+let result = loop {
+    counter += 1;
+    if counter == 10 {
+        break counter * 2;
+    }
+};
+```
+
+
+
+### while
+
+while 的逻辑是基于 for 实现的, 效率低于 for
+
+```rust
+let mut number = 10;
+while number != 0 {
+    number -= 1;
+}
+```
+
+
+
+### for
+
+for 遍历集合比 loop 和 while 更高效且不易出错.
+
+```rust
+let arr = [10, 20, 30];
+for elem in arr.iter() {
+    println!("{}", elem);
+}
+
+for elem in (1..4).rev() {
+    println!("{}", elem);
+}
+```
+
+
 
