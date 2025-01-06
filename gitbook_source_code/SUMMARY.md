@@ -14,6 +14,7 @@
 * [Linux](linux/index.md)
   <!-- * [Kernel I](linux/kernel_I.md) -->
   * [Rust Elementary I](linux/rust_elementary_I.md)
+  * [Docker Sources Switch](linux/docker_sources_switch.md)
 
 
 * [Fuzzing](fuzzing/index.md)

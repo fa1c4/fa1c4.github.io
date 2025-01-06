@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Papers · FA1C4 PATHs</title>
+        <title>Docker Sources Switch · FA1C4 PATHs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -53,10 +53,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html" />
+    <link rel="next" href="../fuzzing/" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="rust_elementary_I.html" />
     
 
     </head>
@@ -94,9 +94,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../papers/">
             
-                <a href="./">
+                <a href="../papers/">
             
                     
                     Papers
@@ -108,9 +108,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+        <li class="chapter " data-level="1.2.1" data-path="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
             
-                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+                <a href="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
             
                     
                     SoK: Prudent Evaluation Practices for Fuzzing
@@ -133,9 +133,9 @@
         
         
     
-        <li class="chapter " data-level="2.1" data-path="../linux/">
+        <li class="chapter " data-level="2.1" data-path="./">
             
-                <a href="../linux/">
+                <a href="./">
             
                     
                     Linux
@@ -147,9 +147,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+        <li class="chapter " data-level="2.1.1" data-path="rust_elementary_I.html">
             
-                <a href="../linux/rust_elementary_I.html">
+                <a href="rust_elementary_I.html">
             
                     
                     Rust Elementary I
@@ -160,9 +160,9 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.2" data-path="../linux/docker_sources_switch.html">
+        <li class="chapter active" data-level="2.1.2" data-path="docker_sources_switch.html">
             
-                <a href="../linux/docker_sources_switch.html">
+                <a href="docker_sources_switch.html">
             
                     
                     Docker Sources Switch
@@ -391,7 +391,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Papers</a>
+        <a href=".." >Docker Sources Switch</a>
     </h1>
 </div>
 
@@ -403,10 +403,37 @@
                             
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="index-of-papers">Index of Papers</h1>
-<ul>
-<li><a href="papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md">SoK: Prudent Evaluation Practices for Fuzzing</a></li>
-</ul>
+                                <h1 id="docker-sources-switching">Docker Sources Switching</h1>
+<p>&#x56FD;&#x5185;&#x4F7F;&#x7528; docker &#x7ECF;&#x5E38;&#x4F1A;&#x9047;&#x5230;&#x7F51;&#x7EDC;&#x9650;&#x5236;&#x6216;&#x8005;&#x7F51;&#x7EDC;&#x5931;&#x8D25;&#x7684;&#x60C5;&#x51B5;, &#x6240;&#x4EE5;&#x9700;&#x8981;</p>
+<h2 id="docker-&#x66F4;&#x6362;&#x56FD;&#x5185;&#x955C;&#x50CF;&#x6E90;">Docker &#x66F4;&#x6362;&#x56FD;&#x5185;&#x955C;&#x50CF;&#x6E90;</h2>
+<p>&#x5BF9;&#x4E8E; Ubuntu &#x7CFB;&#x7EDF;</p>
+<p><code>sudo vim /etc/docker/daemon.json</code> &#x66FF;&#x6362;&#x5176;&#x4E2D;&#x5185;&#x5BB9;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-json">{
+  <span class="hljs-string">&quot;data-root&quot;</span>: <span class="hljs-string">&quot;/docker2/&quot;</span>,
+  <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [
+    <span class="hljs-string">&quot;https://ccr.ccs.tencentyun.com&quot;</span>,
+    <span class="hljs-string">&quot;https://docker.rainbond.cc&quot;</span>,
+    <span class="hljs-string">&quot;https://elastic.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://elastic.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://docker.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://gcr.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://ghcr.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://k8s-gcr.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://k8s.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://mcr.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://nvcr.m.daocloud.io&quot;</span>,
+    <span class="hljs-string">&quot;https://quay.m.daocloud.io&quot;</span>
+  ],
+  <span class="hljs-string">&quot;insecure-registries&quot;</span>: [<span class="hljs-string">&quot;0.0.0.0/0&quot;</span>],
+  <span class="hljs-string">&quot;exec-opts&quot;</span>: [<span class="hljs-string">&quot;native.cgroupdriver=systemd&quot;</span>],
+  <span class="hljs-string">&quot;log-driver&quot;</span>: <span class="hljs-string">&quot;json-file&quot;</span>,
+  <span class="hljs-string">&quot;log-opts&quot;</span>: {
+    <span class="hljs-string">&quot;max-size&quot;</span>: <span class="hljs-string">&quot;100m&quot;</span>
+  },
+  <span class="hljs-string">&quot;dns&quot;</span>: [<span class="hljs-string">&quot;8.8.8.8&quot;</span>, <span class="hljs-string">&quot;8.8.4.4&quot;</span>]
+}
+</code></pre>
+<p>&#x518D;&#x91CD;&#x542F;docker&#x670D;&#x52A1;, &#x542F;&#x7528;&#x955C;&#x50CF;&#x6E90;, &#x518D; <code>docker pull xxx</code> &#x5E94;&#x8BE5;&#x5C31;&#x53EF;&#x4EE5;&#x62C9;&#x53D6;&#x76EE;&#x6807;&#x955C;&#x50CF;.</p>
 
                                 
                                 </section>
@@ -418,12 +445,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="rust_elementary_I.html" class="navigation navigation-prev " aria-label="Previous page: Rust Elementary I">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html" class="navigation navigation-next " aria-label="Next page: SoK: Prudent Evaluation Practices for Fuzzing">
+                <a href="../fuzzing/" class="navigation navigation-next " aria-label="Next page: Fuzzing">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -434,7 +461,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Papers","level":"1.2","depth":1,"next":{"title":"SoK: Prudent Evaluation Practices for Fuzzing","level":"1.2.1","depth":2,"path":"papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md","ref":"papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"toggle-chapters":{"toggle":true},"livereload":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"papers/index.md","mtime":"2024-12-31T01:44:05.521Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-06T02:33:29.195Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Docker Sources Switch","level":"2.1.2","depth":2,"next":{"title":"Fuzzing","level":"3.1","depth":1,"path":"fuzzing/index.md","ref":"fuzzing/index.md","articles":[{"title":"AFLpp build for Magma","level":"3.1.1","depth":2,"path":"fuzzing/AFLpp_build_on_Magma.md","ref":"fuzzing/AFLpp_build_on_Magma.md","articles":[]},{"title":"FuzzBench Build","level":"3.1.2","depth":2,"path":"fuzzing/fuzzbench_build.md","ref":"fuzzing/fuzzbench_build.md","articles":[]}]},"previous":{"title":"Rust Elementary I","level":"2.1.1","depth":2,"path":"linux/rust_elementary_I.md","ref":"linux/rust_elementary_I.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"toggle-chapters":{"toggle":true},"livereload":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"linux/docker_sources_switch.md","mtime":"2025-01-05T08:59:01.559Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-06T02:33:29.195Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
