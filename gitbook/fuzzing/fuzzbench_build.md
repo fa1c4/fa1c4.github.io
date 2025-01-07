@@ -148,9 +148,9 @@ Fuzzers 和 Benchmarks 列表
 报错解决
 
 1. docker pull 网络失败: 
-   + 使用 docker 代理 `--network host` 
+   + 使用 docker 代理 `--network host`, 在 `experiment/run_experiment.py` 文件下的 `command` 增加 `'--network=host'` 并 `git commit fuzzbench`. 这里需要在 host 环境下配置代理, 默认 http(s) 和 socks5 协议走代理.
    + 或者使用 transparent proxy 
-   + 或者下载好所有需要的 images 之后再打包导入到实验服务器上
+   + 或者下载好所有需要的 images 之后再打包导入到实验服务器上 (这个方法依然需要保证运行时 docker 内环境有网络代理, 每次运行实验都需要访问 google 的资源, 所以还是需要按第一 / 二种解决方案)
 2. `test_plotting.py::test_pariwise_unique_coverage_heatmap_plot Fatal Python error: Aborted`: 使用无头后端 `Agg`
 
 ```shell
@@ -174,10 +174,4 @@ make presubmit
 [1] https://google.github.io/fuzzbench/
 
 [2] https://blog.csdn.net/u013648063/article/details/129348016
-
-
-
-
-
-
 

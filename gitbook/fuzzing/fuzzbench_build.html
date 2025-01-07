@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
                 <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
                 
             
@@ -121,19 +125,25 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.2" data-path="../papers/FOX.html">
+            
+                <a href="../papers/FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
         </li>
     
-
-    
-        
-        <li class="divider"></li>
-        
-        
-    
-        <li class="chapter " data-level="2.1" data-path="../linux/">
+        <li class="chapter " data-level="1.3" data-path="../linux/">
             
                 <a href="../linux/">
             
@@ -147,7 +157,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+        <li class="chapter " data-level="1.3.1" data-path="../linux/rust_elementary_I.html">
             
                 <a href="../linux/rust_elementary_I.html">
             
@@ -160,7 +170,7 @@
             
         </li>
     
-        <li class="chapter " data-level="2.1.2" data-path="../linux/docker_sources_switch.html">
+        <li class="chapter " data-level="1.3.2" data-path="../linux/docker_sources_switch.html">
             
                 <a href="../linux/docker_sources_switch.html">
             
@@ -185,7 +195,7 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="./">
+        <li class="chapter " data-level="2.1" data-path="./">
             
                 <a href="./">
             
@@ -199,7 +209,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="3.1.1" data-path="AFLpp_build_on_Magma.html">
+        <li class="chapter " data-level="2.1.1" data-path="AFLpp_build_on_Magma.html">
             
                 <a href="AFLpp_build_on_Magma.html">
             
@@ -212,7 +222,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.1.2" data-path="fuzzbench_build.html">
+        <li class="chapter active" data-level="2.1.2" data-path="fuzzbench_build.html">
             
                 <a href="fuzzbench_build.html">
             
@@ -237,7 +247,7 @@
         
         
     
-        <li class="chapter " data-level="4.1" data-path="../pwn/">
+        <li class="chapter " data-level="3.1" data-path="../pwn/">
             
                 <a href="../pwn/">
             
@@ -251,7 +261,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+        <li class="chapter " data-level="3.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
             
                 <a href="../pwn/glibc_IO_FILE_exploitation.html">
             
@@ -276,7 +286,7 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../reverse/">
+        <li class="chapter " data-level="4.1" data-path="../reverse/">
             
                 <a href="../reverse/">
             
@@ -296,7 +306,7 @@
         
         
     
-        <li class="chapter " data-level="6.1" data-path="../LLM/">
+        <li class="chapter " data-level="5.1" data-path="../LLM/">
             
                 <a href="../LLM/">
             
@@ -316,7 +326,7 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="../shell/">
+        <li class="chapter " data-level="6.1" data-path="../shell/">
             
                 <a href="../shell/">
             
@@ -330,7 +340,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="7.1.1" data-path="../shell/shell_programming_basic.html">
+        <li class="chapter " data-level="6.1.1" data-path="../shell/shell_programming_basic.html">
             
                 <a href="../shell/shell_programming_basic.html">
             
@@ -343,7 +353,7 @@
             
         </li>
     
-        <li class="chapter " data-level="7.1.2" data-path="../shell/shell_programming_techs_I.html">
+        <li class="chapter " data-level="6.1.2" data-path="../shell/shell_programming_techs_I.html">
             
                 <a href="../shell/shell_programming_techs_I.html">
             
@@ -545,9 +555,9 @@ PYTHONPATH=. python3 experiment/run_experiment.py \
 <p>&#x62A5;&#x9519;&#x89E3;&#x51B3;</p>
 <ol>
 <li>docker pull &#x7F51;&#x7EDC;&#x5931;&#x8D25;: <ul>
-<li>&#x4F7F;&#x7528; docker &#x4EE3;&#x7406; <code>--network host</code> </li>
+<li>&#x4F7F;&#x7528; docker &#x4EE3;&#x7406; <code>--network host</code>, &#x5728; <code>experiment/run_experiment.py</code> &#x6587;&#x4EF6;&#x4E0B;&#x7684; <code>command</code> &#x589E;&#x52A0; <code>&apos;--network=host&apos;</code> &#x5E76; <code>git commit fuzzbench</code>. &#x8FD9;&#x91CC;&#x9700;&#x8981;&#x5728; host &#x73AF;&#x5883;&#x4E0B;&#x914D;&#x7F6E;&#x4EE3;&#x7406;, &#x9ED8;&#x8BA4; http(s) &#x548C; socks5 &#x534F;&#x8BAE;&#x8D70;&#x4EE3;&#x7406;.</li>
 <li>&#x6216;&#x8005;&#x4F7F;&#x7528; transparent proxy </li>
-<li>&#x6216;&#x8005;&#x4E0B;&#x8F7D;&#x597D;&#x6240;&#x6709;&#x9700;&#x8981;&#x7684; images &#x4E4B;&#x540E;&#x518D;&#x6253;&#x5305;&#x5BFC;&#x5165;&#x5230;&#x5B9E;&#x9A8C;&#x670D;&#x52A1;&#x5668;&#x4E0A;</li>
+<li>&#x6216;&#x8005;&#x4E0B;&#x8F7D;&#x597D;&#x6240;&#x6709;&#x9700;&#x8981;&#x7684; images &#x4E4B;&#x540E;&#x518D;&#x6253;&#x5305;&#x5BFC;&#x5165;&#x5230;&#x5B9E;&#x9A8C;&#x670D;&#x52A1;&#x5668;&#x4E0A; (&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x4F9D;&#x7136;&#x9700;&#x8981;&#x4FDD;&#x8BC1;&#x8FD0;&#x884C;&#x65F6; docker &#x5185;&#x73AF;&#x5883;&#x6709;&#x7F51;&#x7EDC;&#x4EE3;&#x7406;, &#x6BCF;&#x6B21;&#x8FD0;&#x884C;&#x5B9E;&#x9A8C;&#x90FD;&#x9700;&#x8981;&#x8BBF;&#x95EE; google &#x7684;&#x8D44;&#x6E90;, &#x6240;&#x4EE5;&#x8FD8;&#x662F;&#x9700;&#x8981;&#x6309;&#x7B2C;&#x4E00; / &#x4E8C;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;)</li>
 </ul>
 </li>
 <li><code>test_plotting.py::test_pariwise_unique_coverage_heatmap_plot Fatal Python error: Aborted</code>: &#x4F7F;&#x7528;&#x65E0;&#x5934;&#x540E;&#x7AEF; <code>Agg</code></li>
@@ -590,7 +600,7 @@ make presubmit
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"FuzzBench Build","level":"3.1.2","depth":2,"next":{"title":"Pwn","level":"4.1","depth":1,"path":"pwn/index.md","ref":"pwn/index.md","articles":[{"title":"Glibc _IO_FILE Exploitation Introduction","level":"4.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]}]},"previous":{"title":"AFLpp build for Magma","level":"3.1.1","depth":2,"path":"fuzzing/AFLpp_build_on_Magma.md","ref":"fuzzing/AFLpp_build_on_Magma.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"toggle-chapters":{"toggle":true},"livereload":{},"highlight":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"fuzzing/fuzzbench_build.md","mtime":"2025-01-01T14:11:16.886Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-06T02:33:29.195Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"FuzzBench Build","level":"2.1.2","depth":2,"next":{"title":"Pwn","level":"3.1","depth":1,"path":"pwn/index.md","ref":"pwn/index.md","articles":[{"title":"Glibc _IO_FILE Exploitation Introduction","level":"3.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]}]},"previous":{"title":"AFLpp build for Magma","level":"2.1.1","depth":2,"path":"fuzzing/AFLpp_build_on_Magma.md","ref":"fuzzing/AFLpp_build_on_Magma.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"katex":{},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"fuzzing/fuzzbench_build.md","mtime":"2025-01-07T03:36:45.477Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-07T04:14:35.423Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

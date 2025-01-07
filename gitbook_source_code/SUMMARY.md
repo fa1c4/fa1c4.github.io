@@ -9,7 +9,7 @@
 <!-- relative path must be without ./ prefix or will occur bugs -->
 * [Papers](papers/index.md)
   * [SoK: Prudent Evaluation Practices for Fuzzing](papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md)
-
+  * [FOX: Coverage-guided Fuzzing as Online Stochastic Control](papers/FOX.md)
 
 * [Linux](linux/index.md)
   <!-- * [Kernel I](linux/kernel_I.md) -->

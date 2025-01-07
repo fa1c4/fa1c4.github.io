@@ -1,5 +1,5 @@
 {
-    "plugins": ["theme-default", "toggle-chapters"],
+    "plugins": ["theme-default", "toggle-chapters", "katex"],
     "styles": {
         "website": "styles/website.css"
     },
