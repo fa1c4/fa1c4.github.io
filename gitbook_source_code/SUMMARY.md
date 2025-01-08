@@ -20,6 +20,9 @@
 * [Fuzzing](fuzzing/index.md)
   * [AFLpp build for Magma](fuzzing/AFLpp_build_on_Magma.md)
   * [FuzzBench Build](fuzzing/fuzzbench_build.md)
+  <!-- * [Magma new Fuzzer](fuzzing/magma_new_fuzzer.md) -->
+  * [Fuzzbench new Fuzzer](fuzzing/fuzzbench_new_fuzzer.md)
+  
 
 
 * [Pwn](pwn/index.md)
