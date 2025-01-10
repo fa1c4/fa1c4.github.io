@@ -2,6 +2,7 @@
 
 ## Rust Programing Language
 * [Rust Elementary I](rust_elementary_I.md)
+* [Rust Elementary II](rust_elementary_II.md)
 
 ## Kernel 
 
