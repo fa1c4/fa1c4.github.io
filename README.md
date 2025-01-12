@@ -102,6 +102,11 @@ gitbook serve # for local testing
 cp -r ./_book/* ../gitbook/ 
 ```
 
+versions:
++ npm 6.14.12
++ gitbook-cli 2.3.2
++ gitbook 3.2.3
+
 
 ### Other
 - If you would like to replace the website icon, you can use [this](https://favicon.io/) website to create one and replace the downloaded icon at `favicon.io`.

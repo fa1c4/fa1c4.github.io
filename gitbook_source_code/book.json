@@ -1,5 +1,7 @@
 {
-    "plugins": ["theme-default", "toggle-chapters", "katex", "sharing", "lunr"],
+    "plugins": ["theme-default", "toggle-chapters", "katex", 
+                "sharing", "lunr", "search", "livereload",
+                "fontsettings", "highlight", "theme-comscore"],
     "styles": {
         "website": "styles/website.css"
     },

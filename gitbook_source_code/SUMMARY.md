@@ -11,11 +11,16 @@
   * [SoK: Prudent Evaluation Practices for Fuzzing](papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md)
   * [FOX: Coverage-guided Fuzzing as Online Stochastic Control](papers/FOX.md)
 
+
+
 * [Linux](linux/index.md)
   <!-- * [Kernel I](linux/kernel_I.md) -->
   * [Rust Elementary I](linux/rust_elementary_I.md)
   * [Rust Elementary II](linux/rust_elementary_II.md)
+  * [Rust Elementary III](linux/rust_elementary_III.md)
+  * [Rust Elementary IV](linux/rust_elementary_IV.md)
   * [Docker Sources Switch](linux/docker_sources_switch.md)
+
 
 
 * [Fuzzing](fuzzing/index.md)
@@ -30,16 +35,20 @@
   * [Glibc _IO_FILE Exploitation Introduction](pwn/glibc_IO_FILE_exploitation.md)
 
 
+
 * [Reverse](reverse/index.md)
+
 
 
 * [LLM](LLM/index.md)
   <!-- * [Reproduction of KAG](LLM/Reproduction_KAG.md) -->
 
 
+
 * [Shell](shell/index.md)
   * [shell programming basic](shell/shell_programming_basic.md)
   * [shell programming techs I](shell/shell_programming_techs_I.md)
+
 
 
 <!-- no need to use details tag to trigger toggle function -->
