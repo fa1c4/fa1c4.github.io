@@ -9,7 +9,7 @@ FuzzBench 是 Google 的模糊测试评估基准, 本文为 FuzzBench 在 Ubuntu
 
 ## 下载 & 安装
 
-FuzzBench 需要下载很多 Docker 镜像, 因此最好有 200GB+ 的硬盘空间
+FuzzBench 需要下载很多 Docker 镜像, 因此最好有 400GB+ 的硬盘空间
 
 
 
@@ -141,7 +141,18 @@ Fuzzers 和 Benchmarks 列表
 /path/to/report-data/$EXPERIMENT_NAME/index.html
 ```
 
+如果是在远程服务器上, 则通过端口转发来访问实验报告页面
 
+```shell
+# local run the command
+ssh -L8080:localhost:8080 username@ip_addr -p server_connecting_port
+# or in vscode add port transporting 8080 to localhost:8080
+
+# then cd to report-data directory run python built-in http server
+python -m http.server 8080
+```
+
+![image-20250114212559576](assets/image-20250114212559576.png)
 
 
 

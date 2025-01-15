@@ -484,7 +484,189 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="add-new-fuzzer-for-fuzzbench">Add New Fuzzer for Fuzzbench</h1>
-<h2 id="docker-baselines">Docker Baselines</h2>
+<p>&#x5728; Fuzzbench &#x4E2D;&#x589E;&#x52A0;&#x65B0;&#x7684; fuzzer &#x9002;&#x914D;&#x5B9E;&#x9A8C;&#x73AF;&#x5883;. Refer to <a href="https://google.github.io/fuzzbench/getting-started/adding-a-new-fuzzer/" target="_blank">https://google.github.io/fuzzbench/getting-started/adding-a-new-fuzzer/</a></p>
+<p>&#x76F4;&#x63A5;&#x589E;&#x52A0;&#x7684; Fuzzer &#x6761;&#x4EF6;: 1.&#x4E0D;&#x4F9D;&#x8D56; IDApro &#x7684;&#x9759;&#x6001;&#x5206;&#x6790;&#x73AF;&#x5883;, &#x6216;&#x8005;&#x9884;&#x5904;&#x7406;&#x6D41;&#x7A0B;&#x80FD;&#x591F;&#x5728; ubuntu20.04 &#x73AF;&#x5883;&#x4E0B;&#x5B8C;&#x6210;, 2.&#x52A8;&#x6001;&#x8C03;&#x6574;&#x6D41;&#x7A0B;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x4E2A; fuzzing docker &#x5185;&#x8FDB;&#x884C;.</p>
+<h2 id="create-fuzzer-directory">Create fuzzer directory</h2>
+<p>&#x5728; <code>fuzzbench/fuzzers</code> &#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5939; (&#x53EA;&#x80FD;&#x662F;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;&#x548C; _ &#x7EC4;&#x6210;), &#x7528;&#x6765;&#x5B58;&#x653E;&#x65B0;&#x589E;&#x7684; fuzzer &#x6587;&#x4EF6;</p>
+<pre><code class="lang-shell">cd fuzzbench/fuzzers
+mkdir new_fuzzer_name
+
+# test if the name valid
+# cd to fuzzbench root directory
+make presubmit
+</code></pre>
+<p>&#x786E;&#x4FDD;&#x65B0;&#x589E;&#x7684; fuzzer_name &#x80FD;&#x901A;&#x8FC7;&#x68C0;&#x67E5;, &#x5426;&#x5219;&#x6309;&#x62A5;&#x9519;&#x4FE1;&#x606F;&#x6392;&#x67E5;&#x89E3;&#x51B3;</p>
+<h2 id="create-fuzzer-files">Create fuzzer files</h2>
+<p>&#x5728;&#x5DF2;&#x6709;&#x7684; <code>fuzzers</code> &#x76EE;&#x5F55;&#x4E0B;&#x67E5;&#x770B;&#x5404;&#x4E2A; fuzzer &#x76EE;&#x5F55;&#x6587;&#x4EF6;, &#x4E3B;&#x8981;&#x5305;&#x62EC;&#x4E09;&#x4E2A;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-shell">builder.Dockerfile  fuzzer.py  runner.Dockerfile
+</code></pre>
+<p>&#x9996;&#x5148;&#x662F; <code>builder.Dockerfile</code> </p>
+<pre><code class="lang-dockerfile">ARG parent_image                           <span class="hljs-comment"># being set outside docker</span>
+<span class="hljs-keyword">FROM</span> $parent_image                         <span class="hljs-comment"># Base builder image (Ubuntu 20.04, with latest Clang).</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; \                    <span class="hljs-comment"># Install any system dependencies to build your fuzzer.</span>
+</span>    apt-get install -y pkg1 pkg2 ...
+
+<span class="hljs-keyword">RUN</span><span class="bash"> git <span class="hljs-built_in">clone</span> &lt;git_url&gt; /fuzzer_src        <span class="hljs-comment"># Clone your fuzzer&apos;s sources.</span>
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> <span class="hljs-built_in">cd</span> /fuzzer_src &amp;&amp; make                 <span class="hljs-comment"># Build your fuzzer using its preferred build system.</span>
+</span>
+<span class="hljs-comment"># Build your `FUZZER_LIB`.</span>
+<span class="hljs-comment"># See section below on &quot;What is `FUZZER_LIB`?&quot; for more details.</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> git <span class="hljs-built_in">clone</span> &lt;git_url&gt; /fuzzer_lib_src
+</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> <span class="hljs-built_in">cd</span> /fuzzer_lib_src &amp;&amp; clang++ fuzzer_lib.o
+</span></code></pre>
+<p>&#x7136;&#x540E;&#x662F; <code>runner.Dockerfile</code></p>
+<pre><code class="lang-dockerfile"><span class="hljs-keyword">FROM</span> gcr.io/fuzzbench/base-image           <span class="hljs-comment"># Base image (Ubuntu 20.04).</span>
+
+<span class="hljs-keyword">RUN</span><span class="bash"> apt-get update &amp;&amp; \                    <span class="hljs-comment"># Install any runtime dependencies for your fuzzer.</span>
+</span>    apt-get install -y pkg1 pkg2 ...
+</code></pre>
+<p>&#x6700;&#x540E;&#x662F; <code>fuzzer.py</code>, &#x4E00;&#x822C;&#x57FA;&#x4E8E; <code>afl</code> &#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x7684; <code>aflxx</code> &#x7248;&#x672C;, &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6CBF;&#x7528; <code>fuzzers/afl</code> &#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>fuzzer.py</code></p>
+<pre><code class="lang-python"><span class="hljs-string">&quot;&quot;&quot;Integration code for AFL fuzzer.&quot;&quot;&quot;</span>
+
+<span class="hljs-keyword">import</span> json
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> shutil
+<span class="hljs-keyword">import</span> subprocess
+
+<span class="hljs-keyword">from</span> fuzzers <span class="hljs-keyword">import</span> utils
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prepare_build_environment</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Set environment variables used to build targets for AFL-based
+    fuzzers.&quot;&quot;&quot;</span>
+    cflags = [<span class="hljs-string">&apos;-fsanitize-coverage=trace-pc-guard&apos;</span>]
+    utils.append_flags(<span class="hljs-string">&apos;CFLAGS&apos;</span>, cflags)
+    utils.append_flags(<span class="hljs-string">&apos;CXXFLAGS&apos;</span>, cflags)
+
+    os.environ[<span class="hljs-string">&apos;CC&apos;</span>] = <span class="hljs-string">&apos;clang&apos;</span>
+    os.environ[<span class="hljs-string">&apos;CXX&apos;</span>] = <span class="hljs-string">&apos;clang++&apos;</span>
+    os.environ[<span class="hljs-string">&apos;FUZZER_LIB&apos;</span>] = <span class="hljs-string">&apos;/libAFL.a&apos;</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">build</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Build benchmark.&quot;&quot;&quot;</span>
+    prepare_build_environment()
+
+    utils.build_benchmark()
+
+    print(<span class="hljs-string">&apos;[post_build] Copying afl-fuzz to $OUT directory&apos;</span>)
+    <span class="hljs-comment"># Copy out the afl-fuzz binary as a build artifact.</span>
+    shutil.copy(<span class="hljs-string">&apos;/afl/afl-fuzz&apos;</span>, os.environ[<span class="hljs-string">&apos;OUT&apos;</span>])
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_stats</span><span class="hljs-params">(output_corpus, fuzzer_log)</span>:</span>  <span class="hljs-comment"># pylint: disable=unused-argument</span>
+    <span class="hljs-string">&quot;&quot;&quot;Gets fuzzer stats for AFL.&quot;&quot;&quot;</span>
+    <span class="hljs-comment"># Get a dictionary containing the stats AFL reports.</span>
+    stats_file = os.path.join(output_corpus, <span class="hljs-string">&apos;fuzzer_stats&apos;</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(stats_file):
+        print(<span class="hljs-string">&apos;Can\&apos;t find fuzzer_stats&apos;</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;{}&apos;</span>
+    <span class="hljs-keyword">with</span> open(stats_file, encoding=<span class="hljs-string">&apos;utf-8&apos;</span>) <span class="hljs-keyword">as</span> file_handle:
+        stats_file_lines = file_handle.read().splitlines()
+    stats_file_dict = {}
+    <span class="hljs-keyword">for</span> stats_line <span class="hljs-keyword">in</span> stats_file_lines:
+        key, value = stats_line.split(<span class="hljs-string">&apos;: &apos;</span>)
+        stats_file_dict[key.strip()] = value.strip()
+
+    <span class="hljs-comment"># Report to FuzzBench the stats it accepts.</span>
+    stats = {<span class="hljs-string">&apos;execs_per_sec&apos;</span>: float(stats_file_dict[<span class="hljs-string">&apos;execs_per_sec&apos;</span>])}
+    <span class="hljs-keyword">return</span> json.dumps(stats)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prepare_fuzz_environment</span><span class="hljs-params">(input_corpus)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Prepare to fuzz with AFL or another AFL-based fuzzer.&quot;&quot;&quot;</span>
+    <span class="hljs-comment"># Tell AFL to not use its terminal UI so we get usable logs.</span>
+    os.environ[<span class="hljs-string">&apos;AFL_NO_UI&apos;</span>] = <span class="hljs-string">&apos;1&apos;</span>
+    <span class="hljs-comment"># Skip AFL&apos;s CPU frequency check (fails on Docker).</span>
+    os.environ[<span class="hljs-string">&apos;AFL_SKIP_CPUFREQ&apos;</span>] = <span class="hljs-string">&apos;1&apos;</span>
+    <span class="hljs-comment"># No need to bind affinity to one core, Docker enforces 1 core usage.</span>
+    os.environ[<span class="hljs-string">&apos;AFL_NO_AFFINITY&apos;</span>] = <span class="hljs-string">&apos;1&apos;</span>
+    <span class="hljs-comment"># AFL will abort on startup if the core pattern sends notifications to</span>
+    <span class="hljs-comment"># external programs. We don&apos;t care about this.</span>
+    os.environ[<span class="hljs-string">&apos;AFL_I_DONT_CARE_ABOUT_MISSING_CRASHES&apos;</span>] = <span class="hljs-string">&apos;1&apos;</span>
+    <span class="hljs-comment"># Don&apos;t exit when crashes are found. This can happen when corpus from</span>
+    <span class="hljs-comment"># OSS-Fuzz is used.</span>
+    os.environ[<span class="hljs-string">&apos;AFL_SKIP_CRASHES&apos;</span>] = <span class="hljs-string">&apos;1&apos;</span>
+    <span class="hljs-comment"># Shuffle the queue</span>
+    os.environ[<span class="hljs-string">&apos;AFL_SHUFFLE_QUEUE&apos;</span>] = <span class="hljs-string">&apos;1&apos;</span>
+
+    <span class="hljs-comment"># AFL needs at least one non-empty seed to start.</span>
+    utils.create_seed_file_for_empty_corpus(input_corpus)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_skip_det_compatible</span><span class="hljs-params">(additional_flags)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot; Checks if additional flags are compatible with &apos;-d&apos; option&quot;&quot;&quot;</span>
+    <span class="hljs-comment"># AFL refuses to take in &apos;-d&apos; with &apos;-M&apos; or &apos;-S&apos; options for parallel mode.</span>
+    <span class="hljs-comment"># (cf. https://github.com/google/AFL/blob/8da80951/afl-fuzz.c#L7477)</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&apos;-M&apos;</span> <span class="hljs-keyword">in</span> additional_flags <span class="hljs-keyword">or</span> <span class="hljs-string">&apos;-S&apos;</span> <span class="hljs-keyword">in</span> additional_flags:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run_afl_fuzz</span><span class="hljs-params">(input_corpus,
+                 output_corpus,
+                 target_binary,
+                 additional_flags=None,
+                 hide_output=False)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Run afl-fuzz.&quot;&quot;&quot;</span>
+    <span class="hljs-comment"># Spawn the afl fuzzing process.</span>
+    print(<span class="hljs-string">&apos;[run_afl_fuzz] Running target with afl-fuzz&apos;</span>)
+    command = [
+        <span class="hljs-string">&apos;./afl-fuzz&apos;</span>,
+        <span class="hljs-string">&apos;-i&apos;</span>,
+        input_corpus,
+        <span class="hljs-string">&apos;-o&apos;</span>,
+        output_corpus,
+        <span class="hljs-comment"># Use no memory limit as ASAN doesn&apos;t play nicely with one.</span>
+        <span class="hljs-string">&apos;-m&apos;</span>,
+        <span class="hljs-string">&apos;none&apos;</span>,
+        <span class="hljs-string">&apos;-t&apos;</span>,
+        <span class="hljs-string">&apos;1000+&apos;</span>,  <span class="hljs-comment"># Use same default 1 sec timeout, but add &apos;+&apos; to skip hangs.</span>
+    ]
+    <span class="hljs-comment"># Use &apos;-d&apos; to skip deterministic mode, as long as it it compatible with</span>
+    <span class="hljs-comment"># additional flags.</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> additional_flags <span class="hljs-keyword">or</span> check_skip_det_compatible(additional_flags):
+        command.append(<span class="hljs-string">&apos;-d&apos;</span>)
+    <span class="hljs-keyword">if</span> additional_flags:
+        command.extend(additional_flags)
+    dictionary_path = utils.get_dictionary_path(target_binary)
+    <span class="hljs-keyword">if</span> dictionary_path:
+        command.extend([<span class="hljs-string">&apos;-x&apos;</span>, dictionary_path])
+    command += [
+        <span class="hljs-string">&apos;--&apos;</span>,
+        target_binary,
+        <span class="hljs-comment"># Pass INT_MAX to afl the maximize the number of persistent loops it</span>
+        <span class="hljs-comment"># performs.</span>
+        <span class="hljs-string">&apos;2147483647&apos;</span>
+    ]
+    print(<span class="hljs-string">&apos;[run_afl_fuzz] Running command: &apos;</span> + <span class="hljs-string">&apos; &apos;</span>.join(command))
+    output_stream = subprocess.DEVNULL <span class="hljs-keyword">if</span> hide_output <span class="hljs-keyword">else</span> <span class="hljs-keyword">None</span>
+    subprocess.check_call(command, stdout=output_stream, stderr=output_stream)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fuzz</span><span class="hljs-params">(input_corpus, output_corpus, target_binary)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;Run afl-fuzz on target.&quot;&quot;&quot;</span>
+    prepare_fuzz_environment(input_corpus)
+
+    run_afl_fuzz(input_corpus, output_corpus, target_binary)
+</code></pre>
+<h2 id="testing">Testing</h2>
+<pre><code class="lang-shell">export FUZZER_NAME=afl
+export BENCHMARK_NAME=libpng-1.2.56
+make build-$FUZZER_NAME-$BENCHMARK_NAME
+# make debug-builder-$FUZZER_NAME-$BENCHMARK_NAME
+
+make run-$FUZZER_NAME-$BENCHMARK_NAME
+# make test-run-$FUZZER_NAME-$BENCHMARK_NAME
+
+# build all benchmark
+make build-$FUZZER_NAME-all
+</code></pre>
+<h2 id="instance">Instance</h2>
+<p>tbc: &#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x5B9E;&#x9645; fuzzer &#x4F5C;&#x4E3A;&#x793A;&#x4F8B; ...</p>
 
                                 
                                 </section>
@@ -528,7 +710,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fuzzbench new Fuzzer","level":"3.1.3","depth":2,"next":{"title":"Pwn","level":"4.1","depth":1,"path":"pwn/index.md","ref":"pwn/index.md","articles":[{"title":"Glibc _IO_FILE Exploitation Introduction","level":"4.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]}]},"previous":{"title":"FuzzBench Build","level":"3.1.2","depth":2,"path":"fuzzing/fuzzbench_build.md","ref":"fuzzing/fuzzbench_build.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"fuzzing/fuzzbench_new_fuzzer.md","mtime":"2025-01-07T14:25:53.281Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-12T09:05:03.791Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fuzzbench new Fuzzer","level":"3.1.3","depth":2,"next":{"title":"Pwn","level":"4.1","depth":1,"path":"pwn/index.md","ref":"pwn/index.md","articles":[{"title":"Glibc _IO_FILE Exploitation Introduction","level":"4.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]}]},"previous":{"title":"FuzzBench Build","level":"3.1.2","depth":2,"path":"fuzzing/fuzzbench_build.md","ref":"fuzzing/fuzzbench_build.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"fuzzing/fuzzbench_new_fuzzer.md","mtime":"2025-01-15T06:59:19.864Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-15T07:12:41.354Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
