@@ -208,7 +208,35 @@ make run-$FUZZER_NAME-$BENCHMARK_NAME
 
 # build all benchmark
 make build-$FUZZER_NAME-all
+# make -j$(nproc) build-$FUZZER_NAME-all
 ```
+
+
+
+报错解决
+
+1. 网络访问 github 或者其他资源失败, 国内环境目前无法通过修改 `Dockerfile` 解决, 具体运行时 docker 命令在 `docker/generated.mk` 涉及非常多命令, 逐个修改增加 `--network=host` 还需要确保正确性, 工作量很大但不是不行. 更直接的方法是修改 `build.Dockerfile`, 增加代理环境变量
+
+```dockerfile
+ENV HTTP_PROXY=http://127.0.0.1:http_proxy_port
+ENV HTTPS_PROXY=http://127.0.0.1:http_proxy_port
+ENV ALL_PROXY=socks5://127.0.0.1:socks5_proxy_port
+```
+
+  再修改 `docker/generate_makefile.py`, 增加 `--network=host`
+
+```python
+# original code
+section += '\tdocker build \\\n'
+section += '\t--tag ' + os.path.join(BASE_TAG, image['tag']) + ' \\\n'
+    
+# modify to 
+section += '\tdocker build \\\n'
+section += '\t--network=host \\\n'
+section += '\t--tag ' + os.path.join(BASE_TAG, image['tag']) + ' \\\n'
+```
+
+`make presubmit` 确保检查通过, 如果有个别检查不通过, 如果实验没用到可以先忽略, 否则还需要修改 `docker/test_generate_makefile.py` 对应的检查代码让其通过检查.
 
 
 
