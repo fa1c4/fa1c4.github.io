@@ -146,6 +146,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.3" data-path="../On_Understanding.md">
+            
+                <span>
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -487,7 +500,7 @@
 <p>&#x9519;&#x8BEF;&#x5904;&#x7406;, &#x6CDB;&#x578B;, Trait, &#x751F;&#x547D;&#x5468;&#x671F;, &#x6D4B;&#x8BD5;</p>
 <h2 id="&#x9519;&#x8BEF;&#x5904;&#x7406;">&#x9519;&#x8BEF;&#x5904;&#x7406;</h2>
 <p>&#x901A;&#x5E38; Rust &#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x4F1A;&#x63D0;&#x793A;&#x9519;&#x8BEF;, &#x9700;&#x8981;&#x7A0B;&#x5E8F;&#x5458;&#x5904;&#x7406;. &#x8FD0;&#x884C;&#x65F6;&#x7684;&#x9519;&#x8BEF;, Rust &#x6CA1;&#x6709;&#x5F02;&#x5E38;&#x673A;&#x5236;, &#x4F7F;&#x7528;&#x4E24;&#x79CD;&#x9519;&#x8BEF;&#x5206;&#x7C7B;&#x5904;&#x7406;</p>
-<p><strong>&#x9519;&#x8BEF;&#x5206;&#x7C7B;</strong></p>
+<h3 id="&#x9519;&#x8BEF;&#x5206;&#x7C7B;">&#x9519;&#x8BEF;&#x5206;&#x7C7B;</h3>
 <ul>
 <li><p>&#x53EF;&#x6062;&#x590D;&#x9519;&#x8BEF;: &#x4F8B;&#x5982;&#x6587;&#x4EF6;&#x672A;&#x627E;&#x5230;, &#x53EF;&#x518D;&#x6B21;&#x5C1D;&#x8BD5; </p>
 <ul>
@@ -552,7 +565,7 @@ panic = <span class="hljs-symbol">&apos;abort</span>&apos;
 }
 </code></pre>
 <p>&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>.expect(&quot;error message&quot;)</code> &#x6765;&#x6253;&#x5370;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x9519;&#x8BEF;&#x4FE1;&#x606F;.</p>
-<p><strong>&#x4F20;&#x64AD;&#x9519;&#x8BEF;</strong> </p>
+<h3 id="&#x4F20;&#x64AD;&#x9519;&#x8BEF;">&#x4F20;&#x64AD;&#x9519;&#x8BEF;</h3>
 <p>&#x5C06;&#x9519;&#x8BEF;&#x4F20;&#x9012;&#x7ED9;&#x8C03;&#x7528;&#x8005;&#x5904;&#x7406;, <code>?</code> &#x8FD0;&#x7B97;&#x7B26;&#x662F; Rust &#x5185;&#x7F6E;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x903B;&#x8F91;&#x7B26;, <code>?</code> &#x4F1A;&#x8C03;&#x7528; <code>from</code> trait &#x9690;&#x5F0F;&#x8F6C;&#x6362; <code>Err(e)</code> &#x5230;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x7C7B;&#x578B;. <code>?</code> &#x8FD0;&#x7B97;&#x7B26;&#x53EA;&#x80FD;&#x7528;&#x4E8E;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x4E3A; <code>Result</code> &#x7684;&#x51FD;&#x6570;.</p>
 <pre><code class="lang-rust"><span class="hljs-keyword">let</span> t = &lt;operation&gt;?;
 <span class="hljs-comment">// &lt;=&gt;</span>
@@ -587,9 +600,348 @@ panic = <span class="hljs-symbol">&apos;abort</span>&apos;
 <li>&#x6D4B;&#x8BD5;: unwrap, expect</li>
 </ul>
 <h2 id="&#x6CDB;&#x578B;">&#x6CDB;&#x578B;</h2>
+<p>&#x6CDB;&#x578B;, &#x7B80;&#x5355;&#x7406;&#x89E3;&#x4E3A;&#x4EE3;&#x7801;&#x6A21;&#x677F;, &#x91CC;&#x9762;&#x7684;&quot;&#x5360;&#x4F4D;&#x7B26;&quot;&#x4F1A;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x66FF;&#x6362;&#x4E3A;&#x5177;&#x4F53;&#x7C7B;&#x578B;</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">largest</span></span>&lt;T&gt;(list: &amp;[T]) -&gt; T {
+    ...
+}
+</code></pre>
+<p>struct &#x4E2D;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;, &#x53CA;&#x5176;&#x65B9;&#x6CD5;&#x5B9A;&#x4E49;</p>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Point</span></span>&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+<span class="hljs-comment">// define T type method</span>
+<span class="hljs-keyword">impl</span>&lt;T&gt; Point&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">x</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; &amp;T {
+        &amp;<span class="hljs-keyword">self</span>.x
+    }
+}
+
+<span class="hljs-comment">// define specific type method</span>
+<span class="hljs-keyword">impl</span> Point&lt;<span class="hljs-keyword">i32</span>&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">x_i32</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; &amp;<span class="hljs-keyword">i32</span> {
+        &amp;<span class="hljs-keyword">self</span>.x
+    }
+}
+</code></pre>
+<p>Enum &#x4E2D;&#x5B9A;&#x4E49;&#x6CDB;&#x578B;</p>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Option</span></span>&lt;T&gt; {
+    <span class="hljs-literal">Some</span>(T),
+    <span class="hljs-literal">None</span>,
+}
+
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Result</span></span>&lt;T, E&gt; {
+    <span class="hljs-literal">Ok</span>(T),
+    <span class="hljs-literal">Err</span>(E),
+}
+</code></pre>
 <h2 id="trait">Trait</h2>
+<p><code>trait</code> &#x5C06;&#x65B9;&#x6CD5;&#x7B7E;&#x540D;&#x7EC4;&#x5408;&#x5B9E;&#x73B0;&#x7279;&#x5B9A;&#x903B;&#x8F91;, &#x53EA;&#x5305;&#x542B;&#x65B9;&#x6CD5;&#x7B7E;&#x540D;, &#x4E0D;&#x5305;&#x542B;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Summary</span></span> {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">summarize</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">String</span>;
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">NewsArticle</span></span> {
+    <span class="hljs-keyword">pub</span> headline: <span class="hljs-built_in">String</span>,
+    <span class="hljs-keyword">pub</span> location: <span class="hljs-built_in">String</span>,
+    <span class="hljs-keyword">pub</span> author: <span class="hljs-built_in">String</span>,
+    <span class="hljs-keyword">pub</span> content: <span class="hljs-built_in">String</span>,
+}
+
+<span class="hljs-keyword">impl</span> Summary <span class="hljs-keyword">for</span> NewsArticle {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">summarize</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">String</span> {
+        <span class="hljs-built_in">format!</span>(<span class="hljs-string">&quot;{} by {} ({})&quot;</span>, <span class="hljs-keyword">self</span>.headline, <span class="hljs-keyword">self</span>.author, <span class="hljs-keyword">self</span>.location)
+    }
+}
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Tweet</span></span> {
+    <span class="hljs-keyword">pub</span> username: <span class="hljs-built_in">String</span>,
+    <span class="hljs-keyword">pub</span> content: <span class="hljs-built_in">String</span>,
+    <span class="hljs-keyword">pub</span> reply: <span class="hljs-keyword">bool</span>,
+    <span class="hljs-keyword">pub</span> retweet: <span class="hljs-keyword">bool</span>,
+}
+
+<span class="hljs-keyword">impl</span> Summary <span class="hljs-keyword">for</span> Tweet {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">summarize</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">String</span> {
+        <span class="hljs-built_in">format!</span>(<span class="hljs-string">&quot;{}:\n{}&quot;</span>, <span class="hljs-keyword">self</span>.username, <span class="hljs-keyword">self</span>.content)
+    }
+}
+
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> tweet = Tweet {
+        username: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;horse ebooks&quot;</span>),
+        content: <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;testing content&quot;</span>),
+        reply: <span class="hljs-literal">false</span>,
+        retweet: <span class="hljs-literal">false</span>,
+    };
+
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;one new tweet\n{}&quot;</span>, tweet.summarize())
+}
+</code></pre>
+<p>trait &#x7EA6;&#x675F;&#x53EA;&#x80FD;&#x5728;&#x5F53;&#x524D; crate &#x5B9A;&#x4E49;, <strong>&#x6B64;&#x89C4;&#x5219;</strong>&#x786E;&#x4FDD;&#x5176;&#x4ED6;&#x4EE3;&#x7801;&#x4E0D;&#x4F1A;&#x7834;&#x574F;&#x5F53;&#x524D;&#x4EE3;&#x7801;. </p>
+<p>&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x8C03;&#x7528; trait &#x4E2D;&#x5176;&#x4ED6;&#x65B9;&#x6CD5; (&#x5141;&#x8BB8;&#x6CA1;&#x6709;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;). </p>
+<p>trait &#x4F5C;&#x4E3A;&#x53C2;&#x6570;. impl trait &#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x5FC5;&#x987B;&#x552F;&#x4E00;.</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::fmt::Display;
+
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Summary</span></span> {...}
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">NewsArticle</span></span> {...}
+<span class="hljs-keyword">impl</span> Summary <span class="hljs-keyword">for</span> NewsArticle {...}
+<span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Tweet</span></span> {...}
+<span class="hljs-keyword">impl</span> Summary <span class="hljs-keyword">for</span> Tweet {...}
+
+<span class="hljs-comment">// impl trait</span>
+<span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">notify</span></span>(item: <span class="hljs-keyword">impl</span> Summary + Display) {
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Breaking news! {}&quot;</span>, item.summarize())
+}
+
+<span class="hljs-comment">// trait bound</span>
+<span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">notify</span></span>&lt;T: Summary + Display&gt;(item: T) {
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Breaking news! {}&quot;</span>, item.summarize())
+}
+</code></pre>
+<p>&#x4F7F;&#x7528; trait bound &#x6709;&#x6761;&#x4EF6;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;. &#x4E3A;&#x6EE1;&#x8DB3; trait bound &#x6240;&#x6709;&#x7C7B;&#x578B;&#x4E0A;&#x5B9E;&#x73B0; trait &#x662F;&#x8986;&#x76D6;&#x5B9E;&#x73B0; (Blanket Implementations)</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::fmt::Display;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Pair</span></span>&lt;T&gt; {
+    x: T,
+    y: T,
+}
+
+<span class="hljs-comment">// any type has the method</span>
+<span class="hljs-keyword">impl</span>&lt;T&gt; Pair&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>(x: T, y: T) -&gt; <span class="hljs-keyword">Self</span> {
+        <span class="hljs-keyword">Self</span> {x, y}
+    }
+}
+
+<span class="hljs-comment">// only types with traits Display &amp; PartialOrd have the method</span>
+<span class="hljs-keyword">impl</span> &lt;T: Display + <span class="hljs-built_in">PartialOrd</span>&gt; Pair&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">cmp_display</span></span>(&amp;<span class="hljs-keyword">self</span>) {
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">self</span>.x &gt;= <span class="hljs-keyword">self</span>.y {
+            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;x is larger&quot;</span>);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;y is larger&quot;</span>);
+        }
+    }
+}
+</code></pre>
+<p>&#x591A; trait &#x7EA6;&#x675F;&#x7684;&#x7B80;&#x5316;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">notify</span></span>&lt;T: Summary + Display, U: <span class="hljs-built_in">Clone</span> + Debug&gt;(a: T, b: U) -&gt; <span class="hljs-built_in">String</span> {
+    <span class="hljs-built_in">format!</span>(<span class="hljs-string">&quot;Breaking news! {}&quot;</span>, a.summarize())
+}
+
+<span class="hljs-comment">// equivalence</span>
+<span class="hljs-keyword">pub</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">notify</span></span>&lt;T, U&gt;(a: T, b: U) -&gt; <span class="hljs-built_in">String</span>
+<span class="hljs-keyword">where</span>
+    T: Summary + Display,
+    U: <span class="hljs-built_in">Clone</span> + Debug,
+{
+    <span class="hljs-built_in">format!</span>(<span class="hljs-string">&quot;Breaking news! {}&quot;</span>, a.summarize())
+}
+</code></pre>
 <h2 id="&#x751F;&#x547D;&#x5468;&#x671F;">&#x751F;&#x547D;&#x5468;&#x671F;</h2>
+<p>&#x751F;&#x547D;&#x5468;&#x671F;: &#x5F15;&#x7528;&#x4FDD;&#x6301;&#x6709;&#x6548;&#x7684;&#x4F5C;&#x7528;&#x57DF;. &#x751F;&#x547D;&#x5468;&#x671F;&#x901A;&#x5E38;&#x662F;&#x9690;&#x5F0F;&#x53EF;&#x63A8;&#x65AD;&#x7684;. &#x5F53;&#x751F;&#x547D;&#x5468;&#x671F;&#x6709;&#x4E0D;&#x540C;&#x65B9;&#x5F0F;&#x4E92;&#x76F8;&#x5173;&#x8054;&#x65F6;, &#x9700;&#x8981;&#x624B;&#x52A8;&#x6807;&#x6CE8;&#x751F;&#x547D;&#x5468;&#x671F;.</p>
+<p>&#x5982;&#x679C;&#x53C2;&#x6570;&#x6216;&#x8005;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x5305;&#x542B;&#x5F15;&#x7528;&#x7C7B;&#x578B;, &#x9700;&#x8981;&#x6807;&#x6CE8;&#x751F;&#x547D;&#x5468;&#x671F;. &#x6CE8;&#x610F;: &#x6807;&#x6CE8;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x5B9E;&#x9645;&#x751F;&#x547D;&#x5468;&#x671F;&#x957F;&#x5EA6;, &#x6307;&#x5B9A;&#x6CDB;&#x578B;&#x751F;&#x547D;&#x5468;&#x671F;&#x53C2;&#x6570;&#x65F6;, &#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x5E26;&#x6709;&#x4EFB;&#x4F55;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x5F15;&#x7528;. &#x4F7F;&#x7528; <code>&apos;a</code> (&#x6216;&#x8005; <code>&apos;</code> &#x52A0;&#x5C0F;&#x5199;&#x5B57;&#x6BCD;) &#x6807;&#x6CE8;&#x751F;&#x547D;&#x5468;&#x671F;, &#x4E14;&#x5728; <code>&amp;</code> &#x53F7;&#x540E;&#x9762;&#x4E0E;&#x7C7B;&#x578B;&#x5173;&#x952E;&#x5B57;&#x7528;&#x7A7A;&#x683C;&#x5206;&#x5F00;.</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// real lifetime is the shortest of lifetime of parameters x &amp; y</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">longer</span></span>&lt;<span class="hljs-symbol">&apos;a</span>&gt;(x: &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span>, y: &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span>) -&gt; &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span> {
+    <span class="hljs-keyword">if</span> x.len() &gt; y.len() {
+        x
+    } <span class="hljs-keyword">else</span> {
+        y
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> string1 = <span class="hljs-built_in">String</span>::from(<span class="hljs-string">&quot;test1&quot;</span>);
+    <span class="hljs-keyword">let</span> string2 = <span class="hljs-string">&quot;test233&quot;</span>;
+    <span class="hljs-keyword">let</span> result = longer(string1.as_str(), string2);
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;The longer string is {}&quot;</span>, result);
+}
+</code></pre>
+<p>&#x751F;&#x547D;&#x5468;&#x671F;&#x7701;&#x7565;&#x89C4;&#x5219;: rust &#x56E2;&#x961F;&#x5728;&#x5927;&#x91CF;&#x5B9E;&#x8DF5;&#x540E;&#x603B;&#x7ED3;&#x4E86;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x6A21;&#x5F0F;, &#x7F16;&#x5165;&#x7F16;&#x8BD1;&#x5668;&#x4EE3;&#x7801;&#x4E2D;, &#x4F7F;&#x5F97;&#x5F00;&#x53D1;&#x8005;&#x4E0D;&#x5FC5;&#x663E;&#x793A;&#x58F0;&#x660E;&#x751F;&#x547D;&#x5468;&#x671F;. &#x5982;&#x679C;&#x4E0D;&#x80FD;&#x9690;&#x5F0F;&#x63A8;&#x65AD;, &#x5219;&#x7F16;&#x8BD1;&#x65F6;&#x629B;&#x51FA;&#x9519;&#x8BEF;, &#x9700;&#x8981;&#x5F00;&#x53D1;&#x8005;&#x4EBA;&#x5DE5;&#x6807;&#x6CE8;&#x7C7B;&#x578B;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;.</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">first_word</span></span>&lt;<span class="hljs-symbol">&apos;a</span>&gt;(s: &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span>) -&gt; &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span> {
+    <span class="hljs-keyword">let</span> bytes = s.as_bytes();
+    <span class="hljs-keyword">for</span> (i, &amp;item) <span class="hljs-keyword">in</span> bytes.iter().enumerate() {
+        <span class="hljs-keyword">if</span> item == <span class="hljs-string">b&apos; &apos;</span> {
+            <span class="hljs-keyword">return</span> &amp;s[<span class="hljs-number">0</span>..i];
+        }
+    }
+    &amp;s[..]
+}
+
+<span class="hljs-comment">// equivelence</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">first_word</span></span>(s: &amp;<span class="hljs-keyword">str</span>) -&gt; &amp;<span class="hljs-keyword">str</span> {
+    <span class="hljs-keyword">let</span> bytes = s.as_bytes();
+    <span class="hljs-keyword">for</span> (i, &amp;item) <span class="hljs-keyword">in</span> bytes.iter().enumerate() {
+        <span class="hljs-keyword">if</span> item == <span class="hljs-string">b&apos; &apos;</span> {
+            <span class="hljs-keyword">return</span> &amp;s[<span class="hljs-number">0</span>..i];
+        }
+    }
+    &amp;s[..]
+}
+</code></pre>
+<p>&#x751F;&#x547D;&#x5468;&#x671F;&#x63A8;&#x65AD;&#x89C4;&#x5219; (&#x6240;&#x6709;&#x89C4;&#x5219;&#x90FD;&#x4E0D;&#x9002;&#x7528;&#x65F6;, &#x5219;&#x7F16;&#x8BD1;&#x62A5;&#x9519;)</p>
+<ul>
+<li>&#x6BCF;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x90FD;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</li>
+<li>&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x751F;&#x547D;&#x5468;&#x671F;&#x53C2;&#x6570;, &#x5219;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x53C2;&#x6570;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0E;&#x8BE5;&#x53C2;&#x6570;&#x76F8;&#x540C;</li>
+<li>&#x591A;&#x4E2A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x65F6;, &#x5982;&#x679C;&#x5305;&#x542B; <code>&amp;self</code> &#x6216;&#x8005; <code>&amp;mut self</code>, &#x5219;&#x6240;&#x6709;&#x8F93;&#x51FA;&#x53C2;&#x6570;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0E; <code>self</code> &#x53C2;&#x6570;&#x76F8;&#x540C;</li>
+</ul>
+<p><code>&apos;static</code> &#x751F;&#x547D;&#x5468;&#x671F;&#x662F;&#x6574;&#x4E2A;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65F6;&#x95F4;, &#x6240;&#x6709;&#x5B57;&#x7B26;&#x4E32;&#x5B57;&#x9762;&#x503C;&#x9ED8;&#x8BA4;&#x4E3A; <code>&apos;static</code> &#x751F;&#x547D;&#x5468;&#x671F;.</p>
+<p>&#x590D;&#x5408;&#x4F8B;&#x5B50;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::fmt::Display;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">longer_with_an_announcement</span></span>&lt;<span class="hljs-symbol">&apos;a</span>, T&gt; 
+    (x: &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span>, y: &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span>, ann: T) -&gt; &amp;<span class="hljs-symbol">&apos;a</span> <span class="hljs-keyword">str</span>
+<span class="hljs-keyword">where</span>
+    T: Display,
+{
+    <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Announcement! {}&quot;</span>, ann);
+    <span class="hljs-keyword">if</span> x.len() &gt; y.len() {
+        x
+    } <span class="hljs-keyword">else</span> {
+        y
+    }
+}
+</code></pre>
 <h2 id="&#x6D4B;&#x8BD5;">&#x6D4B;&#x8BD5;</h2>
+<p>rust &#x7684;&#x6D4B;&#x8BD5;, &#x5C31;&#x662F;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;, &#x5305;&#x62EC;&#x4E09;&#x4E2A;&#x64CD;&#x4F5C;: &#x51C6;&#x5907;&#x6570;&#x636E;, &#x8FD0;&#x884C;&#x4EE3;&#x7801;, &#x65AD;&#x8A00;&#x7ED3;&#x679C;. &#x5728;&#x51FD;&#x6570;&#x4E0A;&#x52A0; <code>#[test]</code>, &#x5C31;&#x53EF;&#x4EE5;&#x58F0;&#x660E;&#x51FD;&#x6570;&#x4E3A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;.</p>
+<p>&#x4F7F;&#x7528; <code>cargo test</code> &#x8FD0;&#x884C;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;, rust &#x4F1A;&#x6784;&#x5EFA;&#x4E00;&#x4E2A; <code>test runner</code> &#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x5E76;&#x6267;&#x884C;. &#x6D4B;&#x8BD5;&#x6210;&#x529F;&#x63D0;&#x793A; <code>ok</code>, &#x5931;&#x8D25;&#x63D0;&#x793A; <code>panic</code>.</p>
+<p><code>assert!</code> &#x5B8F;, &#x6765;&#x81EA;&#x6807;&#x51C6;&#x5E93;, &#x68C0;&#x67E5;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;, &#x8FD4;&#x56DE; <code>true</code> &#x6D4B;&#x8BD5;&#x901A;&#x8FC7;, &#x8FD4;&#x56DE; <code>false</code> &#x5219;&#x8C03;&#x7528; <code>panic!</code> &#x6D4B;&#x8BD5;&#x5931;&#x8D25;. </p>
+<pre><code class="lang-rust"><span class="hljs-meta">#[test]</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">larger_can_hold_smaller</span></span>() {
+    <span class="hljs-keyword">let</span> larger = Rectangle {
+        length: <span class="hljs-number">8</span>,
+        width: <span class="hljs-number">7</span>,
+    };
+    <span class="hljs-keyword">let</span> smaller = Rectangle {
+        length: <span class="hljs-number">5</span>,
+        width: <span class="hljs-number">1</span>,
+    };
+
+    <span class="hljs-built_in">assert!</span>(larger.can_hold(&amp;smaller));
+}
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x5411; <code>assert!</code>, <code>assert_eq!</code>, <code>assert_ne!</code> &#x6DFB;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;, &#x5728;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x65F6;&#x6253;&#x5370;&#x51FA;&#x6765;. &#x5BF9;&#x4E8E; <code>assert!</code> &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x81EA;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;, &#x5BF9;&#x4E8E;<code>assert_eq!</code>, <code>assert_ne!</code> &#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x81EA;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;. &#x81EA;&#x5B9A;&#x4E49;&#x4FE1;&#x606F;&#x53C2;&#x6570;&#x4F1A;&#x88AB;&#x4F20;&#x9012;&#x7ED9; <code>format!</code> &#x5B8F;, &#x53EF;&#x4F7F;&#x7528;&#x5360;&#x4F4D;&#x7B26; <code>{}</code> &#x8FDB;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#x5904;&#x7406;.</p>
+<pre><code class="lang-rust"><span class="hljs-meta">#[test]</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">greetings_contain_name</span></span>() {
+    <span class="hljs-keyword">let</span> result = greetings(<span class="hljs-string">&quot;falca&quot;</span>);
+    <span class="hljs-built_in">assert!</span>(
+        result.contains(<span class="hljs-string">&quot;falca&quot;</span>),
+        <span class="hljs-string">&quot;greetings do not contain name, whose value is &apos;{}&apos;&quot;</span>,
+        result
+    );
+}
+</code></pre>
+<p><code>#[should_panic]</code> &#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#x9884;&#x671F;&#x5931;&#x8D25;&#x7684;&#x4EE3;&#x7801;.</p>
+<p>&#x6D4B;&#x8BD5;&#x9664;&#x4E86; <code>panic</code> &#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>Result&lt;T, E&gt;</code> &#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x903B;&#x8F91;, &#x6B64;&#x65F6;&#x4E0D;&#x8981;&#x6807;&#x6CE8; <code>#[should_panic]</code>.</p>
+<h3 id="&#x63A7;&#x5236;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;">&#x63A7;&#x5236;&#x6D4B;&#x8BD5;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;</h3>
+<p>&#x9ED8;&#x8BA4;&#x884C;&#x4E3A;:</p>
+<ul>
+<li>&#x5E76;&#x884C;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x6D4B;&#x8BD5;</li>
+<li>&#x6355;&#x83B7; (&#x5373;&#x6253;&#x5370;) &#x9664;&#x6D4B;&#x8BD5;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x4E4B;&#x5916;&#x7684;&#x6240;&#x6709;&#x8F93;&#x51FA;, &#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x770B;&#x4E0D;&#x5230; <code>println!</code> &#x7684;&#x8F93;&#x51FA;, &#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x5219;&#x4F1A;&#x770B;&#x5230;.</li>
+</ul>
+<pre><code class="lang-shell">cargo test --help
+Execute all unit and integration tests and build examples of a local package
+
+Usage: cargo test [OPTIONS] [TESTNAME] [-- [ARGS]...]
+
+Arguments:
+  [TESTNAME]  If specified, only run tests containing this string in their names
+  [ARGS]...   Arguments for the test binary
+
+Options:
+      --no-run                   Compile, but don&apos;t run tests
+      --no-fail-fast             Run all tests regardless of failure
+      --future-incompat-report   Outputs a future incompatibility report at the end of the build
+      --message-format &lt;FMT&gt;     Error format
+  -q, --quiet                    Display one character per test instead of one line
+  -v, --verbose...               Use verbose output (-vv very verbose/build.rs output)
+      --color &lt;WHEN&gt;             Coloring: auto, always, never
+      --config &lt;KEY=VALUE|PATH&gt;  Override a configuration value
+  -Z &lt;FLAG&gt;                      Unstable (nightly-only) flags to Cargo, see &apos;cargo -Z help&apos; for details
+  -h, --help                     Print help
+
+Package Selection:
+  -p, --package [&lt;SPEC&gt;]  Package to run tests for
+      --workspace         Test all packages in the workspace
+      --exclude &lt;SPEC&gt;    Exclude packages from the test
+      --all               Alias for --workspace (deprecated)
+
+Target Selection:
+      --lib               Test only this package&apos;s library
+      --bins              Test all binaries
+      --bin [&lt;NAME&gt;]      Test only the specified binary
+      --examples          Test all examples
+      --example [&lt;NAME&gt;]  Test only the specified example
+      --tests             Test all test targets
+      --test [&lt;NAME&gt;]     Test only the specified test target
+      --benches           Test all bench targets
+      --bench [&lt;NAME&gt;]    Test only the specified bench target
+      --all-targets       Test all targets (does not include doctests)
+      --doc               Test only this library&apos;s documentation
+
+Feature Selection:
+  -F, --features &lt;FEATURES&gt;  Space or comma separated list of features to activate
+      --all-features         Activate all available features
+      --no-default-features  Do not activate the `default` feature
+
+Compilation Options:
+  -j, --jobs &lt;N&gt;                Number of parallel jobs, defaults to # of CPUs.
+  -r, --release                 Build artifacts in release mode, with optimizations
+      --profile &lt;PROFILE-NAME&gt;  Build artifacts with the specified profile
+      --target [&lt;TRIPLE&gt;]       Build for the target triple
+      --target-dir &lt;DIRECTORY&gt;  Directory for all generated artifacts
+      --unit-graph              Output build graph in JSON (unstable)
+      --timings[=&lt;FMTS&gt;]        Timing output formats (unstable) (comma separated): html, json
+
+Manifest Options:
+      --manifest-path &lt;PATH&gt;  Path to Cargo.toml
+      --lockfile-path &lt;PATH&gt;  Path to Cargo.lock (unstable)
+      --ignore-rust-version   Ignore `rust-version` specification in packages
+      --locked                Assert that `Cargo.lock` will remain unchanged
+      --offline               Run without accessing the network
+      --frozen                Equivalent to specifying both --locked and --offline
+
+Run `cargo help test` for more detailed information.
+Run `cargo test -- --help` for test binary options.
+</code></pre>
+<p>&#x5982;&#x679C;&#x8981;&#x663E;&#x793A;&#x7F16;&#x8BD1;&#x7684;&#x76F8;&#x5173;&#x5E2E;&#x52A9;&#x4FE1;&#x606F;&#x4F7F;&#x7528;&#x547D;&#x4EE4; <code>cargo test -- --help</code> ...</p>
+<p>&#x6D4B;&#x8BD5;&#x7684;&#x89C4;&#x5B9A;, &#x7531;&#x4E8E;&#x6D4B;&#x8BD5;&#x5E76;&#x884C;&#x8FD0;&#x884C;, &#x6240;&#x4EE5;&#x8981;&#x6C42;</p>
+<ul>
+<li>&#x6D4B;&#x8BD5;&#x4E4B;&#x95F4;&#x4E0D;&#x4E92;&#x76F8;&#x4F9D;&#x8D56;</li>
+<li>&#x4E0D;&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;&#x72B6;&#x6001; (&#x73AF;&#x5883;, &#x5DE5;&#x4F5C;&#x76EE;&#x5F55;, &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7B49;)</li>
+</ul>
+<p>&#x4F7F;&#x7528; <code>--test-threads</code> &#x63A7;&#x5236;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;, &#x5982;&#x679C;&#x8981;&#x4F7F;&#x7528;&#x5355;&#x7EBF;&#x7A0B;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;, &#x8BBE;&#x7F6E; <code>--test-threads=1</code> &#x5373;&#x53EF;.</p>
+<p>&#x82E5;&#x8981;&#x67E5;&#x770B;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x65F6;&#x7684;&#x6807;&#x51C6;&#x8F93;&#x51FA;&#x6D41;, &#x4F7F;&#x7528; <code>--show-output</code> &#x6765;&#x6253;&#x5370;&#x8F93;&#x51FA;&#x4FE1;&#x606F;.</p>
+<p><code>cargo test xxx</code> &#x8FD0;&#x884C;&#x7279;&#x5B9A;&#x6D4B;&#x8BD5;, <code>xxx</code> &#x4E3A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x540D;.</p>
+<p>&#x8FD0;&#x884C;&#x591A;&#x4E2A;&#x6D4B;&#x8BD5;, &#x4F7F;&#x7528;&#x76F8;&#x540C;&#x524D;&#x7F00;&#x8FDB;&#x884C;&#x6307;&#x5B9A;&#x591A;&#x4E2A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;, &#x6BD4;&#x5982;&#x524D;&#x7F00;&#x4E3A; <code>add</code> &#x5219;&#x6D4B;&#x8BD5;&#x65F6;&#x4F1A;&#x8FD0;&#x884C;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x540D;&#x524D;&#x7F00;&#x4E3A; <code>add</code> &#x7684;&#x6D4B;&#x8BD5;.</p>
+<p><code>#[ignore]</code> &#x8BBE;&#x7F6E;&#x4E3A;&#x9ED8;&#x8BA4;&#x5FFD;&#x7565;&#x7684;&#x6D4B;&#x8BD5;, &#x4F7F;&#x7528; <code>cargo test -- --ignored</code> &#x5355;&#x72EC;&#x8FD0;&#x884C;&#x9ED8;&#x8BA4;&#x5FFD;&#x7565;&#x7684;&#x6D4B;&#x8BD5;.</p>
+<h3 id="&#x6D4B;&#x8BD5;&#x7684;&#x5206;&#x7C7B;">&#x6D4B;&#x8BD5;&#x7684;&#x5206;&#x7C7B;</h3>
+<ul>
+<li>&#x5355;&#x5143;&#x6D4B;&#x8BD5;: &#x9488;&#x5BF9;&#x5355;&#x4E2A;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;, &#x5305;&#x62EC; private &#x63A5;&#x53E3;, <code>#[cfg(test)]</code> &#x6807;&#x6CE8;</li>
+<li>&#x96C6;&#x6210;&#x6D4B;&#x8BD5;: &#x5E93;&#x5916;&#x90E8;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x591A;&#x4E2A;&#x6A21;&#x5757;, &#x53EA;&#x80FD;&#x6D4B;&#x8BD5; public &#x63A5;&#x53E3;, &#x65E0;&#x6807;&#x6CE8;, &#x8FFD;&#x6C42;&#x8986;&#x76D6;&#x7387;</li>
+</ul>
+<h4 id="&#x96C6;&#x6210;&#x6D4B;&#x8BD5;">&#x96C6;&#x6210;&#x6D4B;&#x8BD5;</h4>
+<p>&#x521B;&#x5EFA;&#x6D4B;&#x8BD5;&#x76EE;&#x5F55; <code>tests</code>, &#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5305; (crate). &#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x4E2D;&#x9700;&#x8981;&#x5BFC;&#x5165;&#x76EE;&#x6807;&#x5E93;. </p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> adder;
+
+<span class="hljs-meta">#[test]</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">it_adds_two</span></span>() {
+    <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">4</span>, adder::add_two(<span class="hljs-number">2</span>));
+}
+</code></pre>
+<p>&#x8FD0;&#x884C;&#x7279;&#x5B9A;&#x51FD;&#x6570; <code>cargo test function_name</code>, &#x8FD0;&#x884C;&#x7279;&#x5B9A;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x6240;&#x6709;&#x6D4B;&#x8BD5; <code>cargo test --test file_name</code>.</p>
+<p>&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x7EC4;&#x7EC7;&#x89C4;&#x8303;: &#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x590D;&#x7528;&#x65F6;, &#x5728; <code>tests/xxx</code> &#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA; <code>.rs</code> &#x6587;&#x4EF6;&#x5305;&#x542B;&#x9700;&#x8981;&#x590D;&#x7528;&#x7684;&#x4EE3;&#x7801;, &#x8FD9;&#x6837; <code>cargo test</code> &#x4E0D;&#x4F1A;&#x8FD0;&#x884C;&#x5B50;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;, &#x56E0;&#x4E3A; <code>cargo test</code> &#x53EA;&#x4EE5;&#x5305;&#x4E3A;&#x5355;&#x4F4D;&#x8FD0;&#x884C;&#x4EE3;&#x7801;. &#x6BD4;&#x5982;&#x521B;&#x5EFA; <code>tests/common</code> &#x76EE;&#x5F55;, &#x6DFB;&#x52A0; <code>mod.rs</code> &#x6587;&#x4EF6;, &#x5305;&#x542B;&#x9700;&#x8981;&#x590D;&#x7528;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;.</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">mod</span> common;
+
+<span class="hljs-meta">#[test]</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">testing</span></span>() {
+    common::test_xxx();
+}
+</code></pre>
+<p>&#x53EA;&#x6709; library crate &#x80FD;&#x66B4;&#x9732;&#x51FD;&#x6570;&#x7ED9;&#x5176;&#x4ED6; crate &#x4F7F;&#x7528;. binary crate &#x4E3A;&#x72EC;&#x7ACB;&#x8FD0;&#x884C;.</p>
 
                                 
                                 </section>
@@ -633,7 +985,7 @@ panic = <span class="hljs-symbol">&apos;abort</span>&apos;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"next":{"title":"Docker Sources Switch","level":"2.1.5","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]},"previous":{"title":"Rust Elementary III","level":"2.1.3","depth":2,"path":"linux/rust_elementary_III.md","ref":"linux/rust_elementary_III.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"linux/rust_elementary_IV.md","mtime":"2025-01-12T13:58:41.042Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-01-15T07:12:41.354Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"next":{"title":"Docker Sources Switch","level":"2.1.5","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]},"previous":{"title":"Rust Elementary III","level":"2.1.3","depth":2,"path":"linux/rust_elementary_III.md","ref":"linux/rust_elementary_III.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"linux/rust_elementary_IV.md","mtime":"2025-02-01T08:11:03.982Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-02-01T08:14:24.385Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -6,6 +6,7 @@
 * [Rust Elementary III](rust_elementary_III.md)
 * [Rust Elementary IV](rust_elementary_IV.md)
 * [Rust Elementary V](rust_elementary_V.md)
+* [Rust Elementary VI](rust_elementary_VI.md)
 
 ## Kernel 
 

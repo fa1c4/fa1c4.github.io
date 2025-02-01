@@ -10,6 +10,7 @@
 * [Papers](papers/index.md)
   * [SoK: Prudent Evaluation Practices for Fuzzing](papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md)
   * [FOX: Coverage-guided Fuzzing as Online Stochastic Control](papers/FOX.md)
+  * [On Understanding and Forecasting Fuzzers Performance with Static Analysis](On_Understanding.md)
 
 
 
@@ -19,6 +20,7 @@
   * [Rust Elementary II](linux/rust_elementary_II.md)
   * [Rust Elementary III](linux/rust_elementary_III.md)
   * [Rust Elementary IV](linux/rust_elementary_IV.md)
+  <!-- * [Rust Elementary V](rust_elementary_V.md) -->
   * [Docker Sources Switch](linux/docker_sources_switch.md)
 
 
