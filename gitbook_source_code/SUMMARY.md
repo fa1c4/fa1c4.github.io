@@ -20,7 +20,8 @@
   * [Rust Elementary II](linux/rust_elementary_II.md)
   * [Rust Elementary III](linux/rust_elementary_III.md)
   * [Rust Elementary IV](linux/rust_elementary_IV.md)
-  <!-- * [Rust Elementary V](rust_elementary_V.md) -->
+  * [Rust Elementary V](linux/rust_elementary_V.md)
+  <!-- * [Rust Elementary VI](linux/rust_elementary_VI.md) -->
   * [Docker Sources Switch](linux/docker_sources_switch.md)
 
 

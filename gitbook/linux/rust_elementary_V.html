@@ -1,0 +1,873 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Rust Elementary V · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="docker_sources_switch.html" />
+    
+    
+    <link rel="prev" href="rust_elementary_IV.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../papers/">
+            
+                <a href="../papers/">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../papers/FOX.html">
+            
+                <a href="../papers/FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../On_Understanding.md">
+            
+                <span>
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="rust_elementary_I.html">
+            
+                <a href="rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="rust_elementary_II.html">
+            
+                <a href="rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="rust_elementary_III.html">
+            
+                <a href="rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="rust_elementary_IV.html">
+            
+                <a href="rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.5" data-path="rust_elementary_V.html">
+            
+                <a href="rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="docker_sources_switch.html">
+            
+                <a href="docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                <a href="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../fuzzing/fuzzbench_build.html">
+            
+                <a href="../fuzzing/fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                <a href="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="7.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Rust Elementary V</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="rust-&#x57FA;&#x7840;-v">Rust &#x57FA;&#x7840; V</h1>
+<p>&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1; (TDD), &#x95ED;&#x5305;, &#x8FED;&#x4EE3;&#x5668;, &#x8F6F;&#x4EF6;&#x53D1;&#x5E03;&#x5DE5;&#x4F5C;&#x6D41;, &#x667A;&#x80FD;&#x6307;&#x9488;, &#x9AD8;&#x7EA7; trait, Rc, &#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x95EE;&#x9898;</p>
+<h2 id="tdd">TDD</h2>
+<p>&#x9A71;&#x52A8;&#x6D4B;&#x8BD5;&#x5F00;&#x53D1;&#x7684;&#x6D41;&#x7A0B;:</p>
+<ol>
+<li>&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x4F1A;&#x5931;&#x8D25;&#x7684;&#x6D4B;&#x8BD5;, &#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x786E;&#x4FDD;&#x6309;&#x9884;&#x671F;&#x539F;&#x56E0;&#x5931;&#x8D25;</li>
+<li>&#x7F16;&#x5199;&#x6216;&#x4FEE;&#x6539;&#x4EE3;&#x7801;, &#x8BA9;&#x65B0;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;</li>
+<li>&#x91CD;&#x6784;&#x4EE3;&#x7801;, &#x786E;&#x4FDD;&#x6D4B;&#x8BD5;&#x59CB;&#x7EC8;&#x901A;&#x8FC7;</li>
+<li>&#x8FD4;&#x56DE;&#x6B65;&#x9AA4;1&#x5FAA;&#x73AF;</li>
+</ol>
+<h2 id="&#x95ED;&#x5305;-closures">&#x95ED;&#x5305; (closures)</h2>
+<p>&#x95ED;&#x5305;&#x662F;<strong>&#x533F;&#x540D;&#x51FD;&#x6570;</strong>, &#x8FD9;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x4FDD;&#x5B58;&#x4E3A;<strong>&#x53D8;&#x91CF;</strong>&#x6216;&#x8005;<strong>&#x53C2;&#x6570;</strong>, &#x521B;&#x5EFA;&#x95ED;&#x5305;&#x540E;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x4ED6;&#x4F5C;&#x7528;&#x57DF;<strong>&#x4F7F;&#x7528;</strong>, &#x53EF;&#x4EE5;&#x4ECE;&#x5176;&#x4F5C;&#x7528;&#x57DF;&#x5185;<strong>&#x6355;&#x83B7;&#x503C;</strong>.</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::time::Duration;
+<span class="hljs-keyword">use</span> std::thread;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">generate_workout</span></span>(intensity: <span class="hljs-keyword">u32</span>, random_number: <span class="hljs-keyword">u32</span>) {
+    <span class="hljs-keyword">let</span> expensive_closure = |num| {
+        <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;calculating slowly ...&quot;</span>);
+        thread::sleep(Duration::from_secs(<span class="hljs-number">3</span>));
+        num
+    };
+
+    <span class="hljs-keyword">if</span> intensity &lt; <span class="hljs-number">33</span> {
+        <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Today, do {} pushups!&quot;</span>, expensive_closure(intensity));
+        <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Next, do {} situps!&quot;</span>, expensive_closure(intensity));
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> random_number == <span class="hljs-number">0</span> {
+            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Take a break today&quot;</span>);   
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;Today, run for {} miles&quot;</span>, expensive_closure(intensity));
+        }
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> intensity = <span class="hljs-number">34</span>;
+    <span class="hljs-keyword">let</span> random_number = <span class="hljs-number">1</span>;
+    generate_workout(intensity, random_number);
+}
+</code></pre>
+<p>&#x95ED;&#x5305;&#x7684;&#x5B9A;&#x4E49;&#x53EA;&#x4F1A;&#x4E3A;&#x5176;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#x786E;&#x5B9A;&#x552F;&#x4E00;&#x7C7B;&#x578B;, &#x5373;&#x591A;&#x5904;&#x4F7F;&#x7528;&#x95ED;&#x5305;&#x65F6;, &#x4F20;&#x5165;&#x548C;&#x8FD4;&#x56DE;&#x7684;&#x7C7B;&#x578B;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;, &#x6BD4;&#x5982;&#x4E0D;&#x80FD;&#x4E00;&#x5904;&#x8C03;&#x7528;&#x95ED;&#x5305;&#x4F7F;&#x7528; int &#x578B;, &#x53E6;&#x4E00;&#x5904;&#x4F7F;&#x7528; String &#x578B;.</p>
+<p>&#x95ED;&#x5305;&#x5305;&#x542B;&#x4EE5;&#x4E0B; traits &#x7684;&#x82E5;&#x5E72;:</p>
+<ul>
+<li>Fn: &#x4E0D;&#x53EF;&#x53D8;&#x501F;&#x7528;&#x53D8;&#x91CF; (&#x5B9E;&#x73B0;&#x8BE5; trait &#x4E5F;&#x5B9E;&#x73B0;&#x4E86; FnMut &#x548C; FnOnce)</li>
+<li>FnMut: &#x53EF;&#x53D8;&#x501F;&#x7528;&#x53D8;&#x91CF; (&#x5B9E;&#x73B0;&#x8BE5; trait &#x4E5F;&#x5B9E;&#x73B0;&#x4E86; FnOnce)</li>
+<li>FnOnce: &#x53D6;&#x5F97;&#x53D8;&#x91CF;&#x6240;&#x6709;&#x6743; (&#x6240;&#x6709;&#x95ED;&#x5305;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x8BE5; trait)</li>
+</ul>
+<p>&#x95ED;&#x5305;&#x53EF;&#x4EE5;&#x6355;&#x83B7;&#x5F53;&#x524D;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x53D8;&#x91CF;, &#x5373;&#x4E0D;&#x9700;&#x8981;&#x4F20;&#x5165;&#x53C2;&#x6570;, &#x4E5F;&#x80FD;<strong>&#x8C03;&#x7528;&#x76F8;&#x540C;&#x4F5C;&#x7528;&#x57DF;&#x7684;&#x53D8;&#x91CF;</strong>. &#x76F8;&#x6BD4;&#x51FD;&#x6570;, &#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x548C;&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x4E0D;&#x4E00;&#x81F4;, &#x6240;&#x4EE5;&#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x5916;&#x7684;&#x975E; static &#x53D8;&#x91CF;. </p>
+<h2 id="&#x8FED;&#x4EE3;&#x5668;-iterators">&#x8FED;&#x4EE3;&#x5668; (iterators)</h2>
+<p><code>iter()</code> &#x7528;&#x4E8E;&#x904D;&#x5386;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x5143;&#x7D20;</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> vec_test = <span class="hljs-built_in">vec!</span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+    <span class="hljs-keyword">for</span> val <span class="hljs-keyword">in</span> vec_test.iter() {
+        <span class="hljs-built_in">println!</span>(<span class="hljs-string">&quot;{}&quot;</span>, val);
+    }
+}
+</code></pre>
+<p>&#x6240;&#x6709;&#x8FED;&#x4EE3;&#x5668;&#x90FD;&#x5B9E;&#x73B0;&#x4E86; <code>iterator trait</code>, &#x4F7F;&#x7528;&#x8FED;&#x4EE3;&#x5668;&#x9700;&#x8981;&#x5B9A;&#x4E49; <code>item</code> &#x7528;&#x4E8E;&#x786E;&#x5B9A; <code>next</code> &#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;, &#x8FED;&#x4EE3;&#x5668;&#x53EA;&#x8981;&#x6C42;&#x5B9E;&#x73B0; <code>next</code> &#x65B9;&#x6CD5;. &#x4E0B;&#x9762;&#x662F;&#x6807;&#x51C6;&#x5E93;&#x4E2D;&#x7684;&#x5B9E;&#x73B0;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">pub</span> <span class="hljs-class"><span class="hljs-keyword">trait</span> <span class="hljs-title">Iterator</span></span> {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Item</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">next</span></span>(&amp;<span class="hljs-keyword">mut</span> <span class="hljs-keyword">self</span>) -&gt; <span class="hljs-built_in">Option</span>&lt;Self::Item&gt;;
+
+    <span class="hljs-comment">// methods with default implementations elided</span>
+}
+</code></pre>
+<p>&#x51E0;&#x79CD;&#x8FED;&#x4EE3;&#x65B9;&#x6CD5;</p>
+<ul>
+<li>iter &#x4E0D;&#x53EF;&#x53D8;&#x5F15;&#x7528;&#x7684;&#x8FED;&#x4EE3;</li>
+<li>into_iter &#x521B;&#x5EFA;&#x8FED;&#x4EE3;&#x5668;&#x4F1A;&#x83B7;&#x5F97;&#x6240;&#x6709;&#x6743;</li>
+<li>iter_mut &#x8FED;&#x4EE3;&#x53EF;&#x53D8;&#x7684;&#x5F15;&#x7528;</li>
+</ul>
+<p>&#x6D88;&#x8017;&#x578B;&#x9002;&#x914D;&#x5668;: <code>next()</code> &#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x4F1A;&#x6D88;&#x8017;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x5143;&#x7D20;.</p>
+<p>Iterator trait &#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x65B9;&#x6CD5;&#x8F6C;&#x6362;&#x8FED;&#x4EE3;&#x5668;&#x7C7B;&#x578B;, &#x6BD4;&#x5982; <code>collect</code> &#x53EF;&#x4EE5;&#x628A;&#x6D88;&#x8017;&#x578B;&#x9002;&#x914D;&#x5668;&#x6536;&#x96C6;&#x5230;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E2D;&#x63D0;&#x4F9B;&#x540E;&#x7EED;&#x8C03;&#x7528;.</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> v1: <span class="hljs-built_in">Vec</span>&lt;<span class="hljs-keyword">i32</span>&gt; = <span class="hljs-built_in">vec!</span>[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>];
+<span class="hljs-keyword">let</span> v2: <span class="hljs-built_in">Vec</span>&lt;_&gt; = v1.iter().map(|x| x + <span class="hljs-number">1</span>).collect(); <span class="hljs-comment">// &quot;Vec&lt;_&gt;&quot; let compiler itself infers the type of Vec elem</span>
+</code></pre>
+<h3 id="zero-cost-abstraction">Zero-Cost Abstraction</h3>
+<p>&#x96F6;&#x5F00;&#x9500;&#x62BD;&#x8C61;, rust &#x4E2D;&#x4F7F;&#x7528;&#x62BD;&#x8C61;&#x65F6;&#x4E0D;&#x5F15;&#x5165;&#x989D;&#x5916;&#x5F00;&#x9500;. &#x7531;&#x6B64;, &#x8FED;&#x4EE3;&#x5668;&#x6548;&#x7387;&#x6BD4;&#x5FAA;&#x73AF;&#x903B;&#x8F91;&#x66F4;&#x9AD8;.</p>
+<p>&#x97F3;&#x9891;&#x89E3;&#x7801;&#x5668;&#x4F8B;&#x5B50;, &#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x5C06;&#x5B9A;&#x957F;&#x6570;&#x7EC4;&#x76F8;&#x5173;&#x8BA1;&#x7B97;&#x903B;&#x8F91;&#x5C55;&#x5F00;, &#x63D0;&#x9AD8;&#x6548;&#x7387;</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">let</span> buffer: &amp;<span class="hljs-keyword">mut</span> [<span class="hljs-keyword">i32</span>];
+<span class="hljs-keyword">let</span> coefficients: [<span class="hljs-keyword">i64</span>; <span class="hljs-number">12</span>];
+<span class="hljs-keyword">let</span> qlp_shift: <span class="hljs-keyword">i16</span>;
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">12</span>..buffer.len() {
+    <span class="hljs-keyword">let</span> prediction = coefficients.iter()
+                                 .zip(&amp;buffer[i - <span class="hljs-number">12</span>..i])
+                                 .map(|(&amp;c, &amp;s)| c * s <span class="hljs-keyword">as</span> <span class="hljs-keyword">i64</span>)
+                                 .sum::&lt;<span class="hljs-keyword">i64</span>&gt;() &gt;&gt; qlp_shift;
+    <span class="hljs-keyword">let</span> delta = buffer[i];
+    buffer[i] = prediction <span class="hljs-keyword">as</span> <span class="hljs-keyword">i32</span> + delta;
+}
+</code></pre>
+<h2 id="&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#x6D41;">&#x5F00;&#x53D1;&#x5DE5;&#x4F5C;&#x6D41;</h2>
+<h3 id="release-profile-&#x81EA;&#x5B9A;&#x4E49;&#x6784;&#x5EFA;">release profile &#x81EA;&#x5B9A;&#x4E49;&#x6784;&#x5EFA;</h3>
+<p>cargo &#x4E3B;&#x8981;&#x6709;&#x4E24;&#x4E2A; profile &#x5BF9; build &#x8FDB;&#x884C;&#x914D;&#x7F6E;, &#x6BCF;&#x4E2A; profile &#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x4E92;&#x4E0D;&#x5F71;&#x54CD;</p>
+<ul>
+<li>dev profile</li>
+<li>release profile</li>
+</ul>
+<p>&#x81EA;&#x5B9A;&#x4E49; profile, &#x5728; <code>Cargo.toml</code> &#x91CC;&#x6DFB;&#x52A0; <code>[profile.your_profile]</code> &#x533A;&#x57DF;, &#x5E76;&#x81EA;&#x5B9A;&#x4E49;&#x914D;&#x7F6E;, build &#x65F6;&#x4F1A;&#x8986;&#x76D6;&#x6389;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-toml">[profile.dev]
+opt-level = 0
+...
+
+[profile.release]
+opt-level = 3
+...
+</code></pre>
+<p>&#x5BF9;&#x4E8E;&#x914D;&#x7F6E;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x548C;&#x5B8C;&#x6574;&#x9009;&#x9879;&#x53C2;&#x8003;<a href="https://doc.rust-lang.org/cargo/reference/profiles.html" target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>.</p>
+<h3 id="httpscratesio-&#x53D1;&#x5E03;&#x5E93;"><a href="https://crates.io/" target="_blank">https://crates.io/</a> &#x53D1;&#x5E03;&#x5E93;</h3>
+<p>&#x901A;&#x8FC7;&#x53D1;&#x5E03;&#x5305; (crates) &#x6765;&#x5171;&#x4EAB;&#x6E90;&#x4EE3;&#x7801;, crate &#x6CE8;&#x518C;&#x8868;&#x5728; <code>https://crates.io/</code>, &#x6258;&#x7BA1;&#x6E90;&#x4EE3;&#x7801;&#x5E76;&#x5206;&#x53D1;&#x5DF2;&#x6CE8;&#x518C;&#x7684;&#x5305;</p>
+<p>&#x6587;&#x6863;&#x6CE8;&#x91CA;: &#x4F7F;&#x7528; <code>///</code> &#x4E09;&#x659C;&#x7EBF;&#x8868;&#x793A;&#x6587;&#x6863;&#x6CE8;&#x91CA;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528; <code>cargo doc [--open]</code> &#x81EA;&#x52A8;&#x751F;&#x6210;&#x6587;&#x6863;, &#x7528;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#x53EF;&#x4EE5;&#x67E5;&#x770B;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x7684;&#x5BF9;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x6CE8;&#x91CA; (&#x5728; source code &#x91CC;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x4E0A;&#x65B9; <code>///</code> &#x6DFB;&#x52A0;&#x7684;&#x6CE8;&#x91CA;, &#x6240;&#x4EE5;&#x5176;&#x5B9E;&#x662F; code &#x91CC;&#x4EBA;&#x5DE5;&#x5B8C;&#x6210;&#x6CE8;&#x91CA;, <code>cargo doc</code> &#x7684;&#x529F;&#x80FD;&#x76F8;&#x5F53;&#x4E8E;&#x5C06;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x6587;&#x6863;&#x6CE8;&#x91CA;&#x81EA;&#x52A8;&#x5316;&#x7EC4;&#x7EC7;&#x6210; html &#x6587;&#x6863;)</p>
+<p>&#x5916;&#x5C42;&#x6CE8;&#x91CA;: <code>//!</code> &#x7528;&#x4E8E;&#x6DFB;&#x52A0;&#x5916;&#x5C42;&#x6761;&#x76EE;&#x4E5F;&#x5C31;&#x662F; crate &#x6216;&#x8005; module &#x7684;&#x6CE8;&#x91CA;, &#x800C;&#x4E0D;&#x662F;&#x5BF9;&#x7D27;&#x968F;&#x5176;&#x540E;&#x7684;&#x6761;&#x76EE; (function) &#x8FDB;&#x884C;&#x6CE8;&#x91CA;</p>
+<p>crate &#x7684;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x5728;&#x5F00;&#x53D1;&#x65F6;&#x5408;&#x7406;&#x7EC4;&#x7EC7;, &#x53EF;&#x80FD;&#x5BF9;&#x4F7F;&#x7528;&#x8005;&#x4E0D;&#x591F;&#x65B9;&#x4FBF;, &#x6BD4;&#x5982; <code>A_crate::B_module::C_module::TargetType</code> &#x662F;&#x5F00;&#x53D1;&#x8005;&#x5F00;&#x53D1;&#x65F6;&#x7EC4;&#x7EC7;&#x4EE3;&#x7801;&#x7684;&#x7ED3;&#x6784;, &#x4F46;&#x662F;&#x4F7F;&#x7528;&#x8005;&#x8981;&#x5BFB;&#x627E;&#x5230;&#x76EE;&#x6807;&#x7C7B;&#x578B;&#x5E76;&#x8C03;&#x7528;, &#x5219;&#x9700;&#x8981;&#x6DF1;&#x5165;&#x4EE3;&#x7801;&#x6A21;&#x5757;, &#x4E0D;&#x591F;&#x65B9;&#x4FBF;, &#x6700;&#x7406;&#x60F3;&#x7684;&#x60C5;&#x51B5;&#x662F;&#x76F4;&#x63A5;&#x53EF;&#x4EE5;&#x4ECE;&#x6700;&#x4E0A;&#x5C42;&#x7684; crate &#x5B8C;&#x6210;&#x8C03;&#x7528; <code>A_crate::TargetType</code>. &#x7531;&#x6B64; rust &#x63D0;&#x4F9B; <code>pub use</code> &#x5BFC;&#x51FA;&#x65B9;&#x4FBF;&#x8C03;&#x7528;&#x7684;&#x516C;&#x5171; <code>API</code>, &#x8BE5;&#x529F;&#x80FD;&#x91CD;&#x65B0;&#x5BFC;&#x51FA;&#x4E00;&#x4E2A;&#x4E0E;&#x5185;&#x90E8;&#x79C1;&#x6709;&#x7ED3;&#x6784;&#x4E0D;&#x540C;, &#x4F46;&#x903B;&#x8F91;&#x4E00;&#x81F4;&#x7684;&#x5BF9;&#x5916;&#x516C;&#x5171;&#x7ED3;&#x6784;.</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// in crate root (lib.rs)</span>
+<span class="hljs-keyword">pub</span> <span class="hljs-keyword">use</span> self::a_module::b_module::TargetTypeA;
+<span class="hljs-keyword">pub</span> <span class="hljs-keyword">use</span> self::c_module::d_module::e_module::TargetTypeB;
+<span class="hljs-comment">// pub use ...;</span>
+
+<span class="hljs-comment">// in other crate you can use TargetTypeA(B) by directly use crate::TargetType</span>
+<span class="hljs-keyword">use</span> crate_name::TargetTypeA;
+<span class="hljs-keyword">use</span> crate_name::TargetTypeB;
+<span class="hljs-comment">// use ...;</span>
+</code></pre>
+<p>&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00; <code>https://crates.io/</code>, &#x7528; github &#x8D26;&#x53F7;&#x767B;&#x5F55;, <code>add token</code> &#x7136;&#x540E;&#x5728;&#x672C;&#x5730; <code>cargo login personal_token</code>, &#x9700;&#x8981;&#x5728; <code>Cargo.toml</code> &#x7684; [package] &#x533A;&#x57DF;&#x6DFB;&#x52A0;&#x5143;&#x6570;&#x636E;</p>
+<ul>
+<li>crate: &#x552F;&#x4E00;&#x540D;</li>
+<li>description: &#x7528;&#x4E8E; crate &#x641C;&#x7D22;</li>
+<li>license: &#x4F7F;&#x7528;&#x7684;&#x8BB8;&#x53EF;&#x8BC1;, &#x53C2;&#x8003; <a href="http://spdx.org/licenses/" target="_blank">http://spdx.org/licenses/</a></li>
+</ul>
+<p>&#x7136;&#x540E; <code>cargo publish</code> &#x53D1;&#x5E03;&#x5F53;&#x524D; crate. (&#x4E0D;&#x6210;&#x529F;&#x7684;&#x6309;&#x7167;&#x63D0;&#x793A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x89E3;&#x51B3;)</p>
+<p>&#x6CE8;&#x610F;: &#x4E00;&#x7ECF;&#x53D1;&#x5E03;&#x7684; crate <strong>&#x6C38;&#x4E45;&#x4FDD;&#x5B58;</strong>&#x4E8E; <code>cargo.io</code>, &#x65E0;&#x6CD5;&#x8986;&#x76D6;&#x548C;&#x5220;&#x9664;. </p>
+<p>&#x76F8;&#x540C; crate &#x53D1;&#x5E03;&#x65B0;&#x7248;&#x672C;: &#x4FEE;&#x6539; <code>Cargo.toml</code> &#x7684; <code>version</code> &#x503C;, &#x8BED;&#x4E49;&#x7248;&#x672C;&#x53C2;&#x8003; <a href="http://semver.org/" target="_blank">http://semver.org/</a>. &#x7136;&#x540E;&#x6267;&#x884C; <code>cargo publish</code>.</p>
+<p>&#x64A4;&#x56DE;&#x7248;&#x672C;: <code>cargo yank --vers 1.0.1</code> &#x9632;&#x6B62;&#x65B0;&#x9879;&#x76EE;&#x4F9D;&#x8D56;&#x4E8E;&#x53D1;&#x5E03;&#x7684; crate, &#x65E7;&#x9879;&#x76EE;&#x5DF2;&#x7ECF;&#x4F9D;&#x8D56;&#x4E8E;&#x8BE5; crate &#x5219;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;. (&#x5DF2;&#x53D1;&#x5E03;&#x7684; crate &#x4EE3;&#x7801;&#x4F9D;&#x7136;&#x4FDD;&#x5B58;&#x4E8E; <code>crates.io</code>)</p>
+<p>&#x53D6;&#x6D88;&#x64A4;&#x56DE;: <code>cargo yank --vers 1.0.1 --undo</code></p>
+<h3 id="workspaces-&#x7EC4;&#x7EC7;&#x5927;&#x5DE5;&#x7A0B;">workspaces &#x7EC4;&#x7EC7;&#x5927;&#x5DE5;&#x7A0B;</h3>
+<p><code>Cargo.toml</code> &#x914D;&#x7F6E;&#x5DE5;&#x4F5C;&#x7A7A;&#x95F4;&#x7EF4;&#x62A4;&#x76F8;&#x4E92;&#x5173;&#x8054;&#x7684; crates.</p>
+<p>&#x6700;&#x4E0A;&#x5C42; <code>Cargo.toml</code>, &#x914D;&#x7F6E;&#x6240;&#x6709; crates</p>
+<pre><code class="lang-toml">[workspace]
+
+members = [
+    &quot;crate1&quot;,
+    &quot;crate2&quot;,
+    ...,
+]
+</code></pre>
+<p>&#x5728;&#x6839;&#x76EE;&#x5F55;&#x4E0B; <code>cargo new crate1 crate2 ...</code> &#x521B;&#x5EFA;&#x6BCF;&#x4E2A; crate, &#x5E76;&#x914D;&#x7F6E;&#x5176;&#x4E2D;&#x7684; <code>Cargo.toml</code>, &#x5728; <code>[dependencies]</code> &#x663E;&#x5F0F;&#x58F0;&#x660E;&#x6BCF;&#x4E2A;&#x4F9D;&#x8D56;&#x9879;, &#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684; <code>crate1</code> &#x7684; <code>Cargo.toml</code> &#x9700;&#x8981;&#x914D;&#x7F6E;&#x4F9D;&#x8D56;&#x4E8E; <code>crate2</code></p>
+<pre><code class="lang-toml">[package]
+...
+
+[dependencies]
+crate2 = {path = &quot;../crate2&quot;}
+</code></pre>
+<p>&#x6240;&#x6709; crates &#x53EA;&#x6709;&#x4E00;&#x4E2A; <code>Cargo.lock</code> &#x5728;&#x6839;&#x76EE;&#x5F55;, &#x8FD9;&#x6837;&#x786E;&#x4FDD;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x5E93; version &#x4E00;&#x81F4;.</p>
+<h3 id="httpscratesio-&#x5B89;&#x88C5;&#x5E93;"><a href="https://crates.io/" target="_blank">https://crates.io/</a> &#x5B89;&#x88C5;&#x5E93;</h3>
+<p><code>cargo install xxx</code> &#x5B89;&#x88C5;&#x5E93;, &#x53EA;&#x80FD;&#x5B89;&#x88C5;&#x5177;&#x6709;&#x4E8C;&#x8FDB;&#x5236;&#x7684; crate. &#x4E8C;&#x8FDB;&#x5236; crate &#x7531; <code>src/main.rs</code> &#x6216;&#x8005;&#x5176;&#x4ED6;&#x88AB;&#x6307;&#x5B9A;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684; crate &#x751F;&#x6210;.</p>
+<p>&#x5B89;&#x88C5;&#x7684;&#x5E93;&#x4F1A;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x5230;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;, &#x5728;&#x547D;&#x4EE4;&#x884C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;.</p>
+<h3 id="&#x6269;&#x5C55;-cargo">&#x6269;&#x5C55; cargo</h3>
+<p>&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; <code>cargo xxx</code> &#x5B50;&#x547D;&#x4EE4;&#x7684;&#x5F62;&#x5F0F;&#x8C03;&#x7528;, &#x5217;&#x51FA;&#x6240;&#x6709;&#x81EA;&#x5B9A;&#x4E49;&#x547D;&#x4EE4; <code>cargo --list</code>.</p>
+<h2 id="&#x667A;&#x80FD;&#x6307;&#x9488;">&#x667A;&#x80FD;&#x6307;&#x9488;</h2>
+<p>&#x901A;&#x8FC7;&#x5F15;&#x7528;&#x8BA1;&#x6570; (reference counting) &#x8BB0;&#x5F55;&#x6240;&#x6709;&#x8005;&#x7684;&#x6570;&#x91CF;, &#x5E76;&#x5728;&#x6CA1;&#x6709;&#x6240;&#x6709;&#x8005;&#x65F6;&#x81EA;&#x52A8;&#x6E05;&#x7406;&#x6570;&#x636E;.</p>
+<ul>
+<li><code>Box&lt;T&gt;</code>: &#x5728; heap &#x5185;&#x5B58;&#x4E0A;&#x5206;&#x914D;&#x503C;</li>
+<li><code>Rc&lt;T&gt;</code>: &#x542F;&#x7528;&#x591A;&#x91CD;&#x6240;&#x6709;&#x6743;&#x7684;&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x7C7B;&#x578B;</li>
+<li><code>Ref&lt;T&gt;</code>: &#x901A;&#x8FC7; <code>RefCell&lt;T&gt;</code> &#x8BBF;&#x95EE;, &#x5728;&#x8FD0;&#x884C;&#x65F6;&#x501F;&#x7528;&#x89C4;&#x5219;&#x7684;&#x7C7B;&#x578B;, &#x4E0D;&#x53EF;&#x53D8;</li>
+<li><code>RefMut&lt;T&gt;</code>: &#x901A;&#x8FC7; <code>RefCell&lt;T&gt;</code> &#x8BBF;&#x95EE;, &#x5728;&#x8FD0;&#x884C;&#x65F6;&#x501F;&#x7528;&#x89C4;&#x5219;&#x7684;&#x7C7B;&#x578B;, &#x53EF;&#x53D8;</li>
+</ul>
+<h3 id="box">Box</h3>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x667A;&#x80FD;&#x6307;&#x9488;, stack &#x4E0A;&#x6307;&#x5411; heap &#x7684;&#x6307;&#x9488;, &#x6CA1;&#x6709;&#x6027;&#x80FD;&#x5F00;&#x9500;. &#x5B9E;&#x73B0; <code>Deref Trait</code> &#x89E3;&#x5F15;&#x7528; &#x548C; <code>Drop Trait</code> &#x6E05;&#x7406;. &#x5728;<strong>&#x7F16;&#x8BD1;&#x65F6;</strong>&#x68C0;&#x67E5;&#x501F;&#x7528;&#x89C4;&#x5219;. </p>
+<p>&#x4F7F;&#x7528;&#x573A;&#x666F;:</p>
+<ul>
+<li>&#x7F16;&#x8BD1;&#x65F6;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;&#x5927;&#x5C0F;, &#x4F46;&#x662F;&#x4F7F;&#x7528;&#x65F6;&#x9700;&#x8981;&#x786E;&#x5B9A;&#x5927;&#x5C0F;</li>
+<li>&#x5927;&#x91CF;&#x6570;&#x636E;&#x79FB;&#x4EA4;&#x6240;&#x6709;&#x6743;, &#x4F46;&#x662F;&#x4E0D;&#x590D;&#x5236;</li>
+<li>&#x4F7F;&#x7528;&#x503C;&#x65F6;&#x53EA;&#x5173;&#x5FC3; trait, &#x800C;&#x4E0D;&#x5173;&#x5FC3;&#x7C7B;&#x578B;</li>
+</ul>
+<p>&#x4E3A; Box &#x667A;&#x80FD;&#x6307;&#x9488;&#x5B9E;&#x73B0; Deref Trait </p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::ops::Deref;
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">fBox</span></span>&lt;T&gt;(T); <span class="hljs-comment">// Box&lt;T&gt; is tuple struct</span>
+<span class="hljs-keyword">impl</span>&lt;T&gt; fBox&lt;T&gt; {
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">new</span></span>(x: T) -&gt; fBox&lt;T&gt; {
+        fBox(x)
+    }
+}
+
+<span class="hljs-keyword">impl</span>&lt;T&gt; Deref <span class="hljs-keyword">for</span> fBox&lt;T&gt; {
+    <span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-title">Target</span></span> = T;
+
+    <span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">deref</span></span>(&amp;<span class="hljs-keyword">self</span>) -&gt; &amp;T {
+        &amp;<span class="hljs-keyword">self</span>.<span class="hljs-number">0</span>
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> x = <span class="hljs-number">233</span>;
+    <span class="hljs-keyword">let</span> y = fBox::new(x);
+    <span class="hljs-comment">// let y = Box::new(x);</span>
+    <span class="hljs-comment">// let y = &amp;x;</span>
+
+    <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">5</span>, x);
+    <span class="hljs-built_in">assert_eq!</span>(<span class="hljs-number">5</span>, *y); <span class="hljs-comment">// is equivelent to *(y.deref())</span>
+}
+</code></pre>
+<p>Deref Coercion &#x9690;&#x5F0F;&#x89E3;&#x5F15;&#x7528;&#x8F6C;&#x5316;, &#x5F53;&#x4F20;&#x5165;&#x51FD;&#x6570;&#x7684;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x548C;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E0D;&#x5339;&#x914D;&#x65F6;, &#x5C31;&#x4F1A;&#x53D1;&#x751F;&#x9690;&#x5F0F;&#x89E3;&#x5F15;&#x7528;&#x8F6C;&#x5316; (&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x5B8C;&#x6210;, &#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x989D;&#x5916;&#x6027;&#x80FD;&#x5F00;&#x9500;). &#x7B80;&#x5355;&#x7406;&#x89E3;, rust &#x4F1A;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x53CD;&#x590D;&#x8C03;&#x7528; <code>deref()</code> &#x76F4;&#x5230;&#x4F20;&#x5165;&#x7C7B;&#x578B;&#x548C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E00;&#x81F4;.</p>
+<p>&#x9690;&#x5F0F;&#x89E3;&#x5F15;&#x7528;&#x89C4;&#x5219;:</p>
+<ul>
+<li>T: Deref<target=u>, &#x5141;&#x8BB8; &amp;T &#x8F6C;&#x6362;&#x4E3A; &amp;U (&#x90FD;&#x662F;&#x5E38;&#x91CF;)</target=u></li>
+<li>T: DerefMut<target=u>, &#x5141;&#x8BB8; &amp;mut T &#x8F6C;&#x6362;&#x4E3A; &amp;mut U</target=u></li>
+<li>T: Deref<target=u>, &#x5141;&#x8BB8; &amp;mut T &#x8F6C;&#x6362;&#x4E3A; &amp;U, &#x4F46;&#x4E0D;&#x5141;&#x8BB8; &amp;T &#x8F6C;&#x6362;&#x4E3A; &amp;U (&#x5E38;&#x91CF;&#x4E0D;&#x80FD;&#x8F6C;&#x53D8;&#x91CF;)</target=u></li>
+</ul>
+<p>Drop Trait, &#x5B9A;&#x4E49;&#x5F53;&#x503C;&#x79BB;&#x5F00;&#x4F5C;&#x7528;&#x57DF;&#x65F6;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;. rust &#x4E0D;&#x5141;&#x8BB8;&#x4EBA;&#x5DE5;&#x8C03;&#x7528; <code>drop()</code>, &#x53EA;&#x80FD;&#x503C;&#x79BB;&#x5F00;&#x4F5C;&#x7528;&#x57DF;&#x65F6;&#x81EA;&#x52A8;&#x8C03;&#x7528;. &#x4E0D;&#x8FC7;&#x5141;&#x8BB8;&#x8C03;&#x7528; <code>std::mem::drop</code> &#x6765;&#x4E3B;&#x52A8; drop &#x503C;.</p>
+<h2 id="rc">Rc</h2>
+<p>&#x5F15;&#x7528;&#x8BA1;&#x6570;&#x7684;&#x667A;&#x80FD;&#x6307;&#x9488; <code>Rc&lt;T&gt;</code>, Reference Counting. &#x5F53;&#x5F15;&#x7528;&#x6570;&#x4E3A;0&#x65F6;, &#x4F1A;&#x81EA;&#x52A8;&#x6E05;&#x7406;. </p>
+<p>&#x4F7F;&#x7528;&#x573A;&#x666F;:</p>
+<ul>
+<li>&#x9700;&#x8981;&#x5728; heap &#x4E0A;&#x5206;&#x914D;&#x6570;&#x636E;, &#x4E14;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;&#x4E0D;&#x540C;&#x51FD;&#x6570;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x4F7F;&#x7528;&#x987A;&#x5E8F;</li>
+<li>&#x4EC5;&#x5728;&#x5355;&#x7EBF;&#x7A0B;&#x9002;&#x7528;</li>
+</ul>
+<p>&#x6CE8;&#x610F;, <code>Rc&lt;T&gt;</code> &#x4E0D;&#x5728;&#x9884;&#x5BFC;&#x5165;&#x6A21;&#x5757;&#x4E2D;, &#x9700;&#x8981;&#x4E3B;&#x52A8;&#x5BFC;&#x5165;&#x5E93;; <code>Rc::clone(&amp;a)</code> &#x4F1A;&#x589E;&#x52A0;&#x8BA1;&#x6570;; <code>Rc::strong_count(&amp;a)</code> &#x83B7;&#x5F97;&#x5F15;&#x7528;&#x8BA1;&#x6570;. &#x9ED8;&#x8BA4;&#x4E3A;&#x4E0D;&#x53EF;&#x53D8;&#x5F15;&#x7528;, &#x53EA;&#x80FD;&#x8BFB;&#x4E0D;&#x80FD;&#x5199;.</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::rc::Rc;
+</code></pre>
+<p><code>Rc::clone()</code> &#x548C; <code>clone()</code> &#x7684;&#x533A;&#x522B;, &#x524D;&#x8005;&#x53EA;&#x589E;&#x52A0;&#x5F15;&#x7528;&#x8BA1;&#x6570;, &#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x6DF1;&#x5EA6;&#x62F7;&#x8D1D;, &#x540E;&#x8005;&#x901A;&#x5E38;&#x4F1A;&#x8FDB;&#x884C;&#x6DF1;&#x5EA6;&#x62F7;&#x8D1D;.</p>
+<p><code>Rc&lt;T&gt;</code> &#x4F7F;&#x7528;&#x5185;&#x90E8;&#x53EF;&#x53D8;&#x6027;, &#x5B9E;&#x73B0;&#x4E0D;&#x53EF;&#x53D8;&#x5F15;&#x7528;&#x7684;&#x6570;&#x636E;&#x4FEE;&#x6539; (unsafe)</p>
+<p>&#x5185;&#x90E8;&#x53EF;&#x53D8;&#x6A21;&#x5F0F; (Interior Mutability Pattern): &#x4E0D;&#x53EF;&#x53D8;&#x7C7B;&#x578B;&#x63D0;&#x4F9B;&#x53EF;&#x4FEE;&#x6539;&#x5176;&#x5185;&#x90E8;&#x503C;&#x7684;API. </p>
+<p><code>RefCell&lt;T&gt;</code> &#x662F;&#x552F;&#x4E00;&#x6240;&#x6709;&#x6743;&#x7684;&#x5F15;&#x7528;, &#x53EA;&#x5728;<strong>&#x8FD0;&#x884C;&#x65F6;</strong>&#x68C0;&#x67E5;&#x501F;&#x7528;&#x89C4;&#x5219;, &#x4E0D;&#x6EE1;&#x8DB3;&#x501F;&#x7528;&#x89C4;&#x5219;&#x4F1A; panic. &#x7528;&#x4E8E;&#x7ED5;&#x8FC7; rust &#x7F16;&#x8BD1;&#x5668;&#x7684;&#x4FDD;&#x5B88;&#x501F;&#x7528;&#x89C4;&#x5219;&#x68C0;&#x67E5;.</p>
+<ul>
+<li><code>borrow</code> &#x8FD4;&#x56DE;&#x667A;&#x80FD;&#x6307;&#x9488; <code>Ref&lt;T&gt;</code>, &#x5DF2;&#x5B9E;&#x73B0; <code>Deref</code>, &#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x65F6;, &#x4E0D;&#x53EF;&#x53D8;&#x6280;&#x672F;+1, &#x79BB;&#x5F00;&#x4F5C;&#x7528;&#x57DF;-1</li>
+<li><code>borrow_mut</code> &#x8FD4;&#x56DE;&#x667A;&#x80FD;&#x6307;&#x9488; <code>RefMut&lt;T&gt;</code>, &#x5DF2;&#x5B9E;&#x73B0; <code>Deref</code>, &#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x65F6;, &#x53EF;&#x53D8;&#x6280;&#x672F;+1, &#x79BB;&#x5F00;&#x4F5C;&#x7528;&#x57DF;-1</li>
+</ul>
+<p><img src="assets/image-20250212121402854.png" alt="image-20250212121402854" style="zoom: 50%;"></p>
+<h3 id="&#x5FAA;&#x73AF;&#x5F15;&#x7528;">&#x5FAA;&#x73AF;&#x5F15;&#x7528;</h3>
+<p>&#x5F15;&#x7528;&#x5FAA;&#x73AF; (Reference Cycles): &#x53EF;&#x80FD;&#x6CC4;&#x9732;&#x5185;&#x5B58;, &#x9700;&#x8981;&#x9632;&#x6B62;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x7684;&#x53D1;&#x751F;. rust &#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;, &#x90A3;&#x5C31;&#x662F;&#x4F7F;&#x7528; <code>Rc&lt;T&gt;</code>, <code>RefCell&lt;T&gt;</code> &#x53EF;&#x4EE5;&#x6784;&#x9020;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x5F15;&#x53D1;&#x5185;&#x5B58;&#x6CC4;&#x9732;. &#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x65F6;, &#x6BCF;&#x4E2A;&#x9879;&#x7684;&#x5F15;&#x7528;&#x4E0D;&#x4F1A;&#x5F52;&#x96F6;, &#x6240;&#x4EE5;&#x4E00;&#x76F4;&#x4E0D;&#x6E05;&#x7406;&#x56DE;&#x6536;.</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> a = Rc::new(Cons(<span class="hljs-number">5</span>, RefCell::new(Rc::new(Nil))));
+    <span class="hljs-keyword">let</span> b = Rc::new(Cons(<span class="hljs-number">10</span>, RefCell::new(Rc::clone(&amp;a))));
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">let</span> <span class="hljs-literal">Some</span>(link) = a.tail() {
+        *link.borrow_mut() = Rc::clone(&amp;b);
+    }
+}
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x6784;&#x9020;&#x4E86; a &#x548C; b &#x4E4B;&#x95F4;&#x7684;&#x5FAA;&#x73AF;&#x5F15;&#x7528;.</p>
+<p>&#x9632;&#x6B62;&#x5FAA;&#x73AF;&#x5F15;&#x7528;&#x7684;&#x65B9;&#x6CD5;: <code>Weak&lt;T&gt;</code> &#x5F31;&#x5F15;&#x7528;&#x4E0D;&#x5F71;&#x54CD;&#x5F15;&#x7528;&#x8BA1;&#x6570;. &#x8C03;&#x7528; <code>Rc::downgrade</code> &#x521B;&#x5EFA; Weak Reference &#x5E76;&#x4F7F; weak_count + 1. &#x5F31;&#x5F15;&#x7528;&#x8F6C;&#x6362;&#x4E3A;&#x5F3A;&#x5F15;&#x7528;, &#x4F7F;&#x7528; <code>Rc::upgrade</code> &#x65B9;&#x6CD5;.</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">use</span> std::cell::RefCell;
+<span class="hljs-keyword">use</span> std::rc::{Rc, Weak};
+
+<span class="hljs-meta">#[derive(Debug)]</span>
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Node</span></span> {
+    value: <span class="hljs-keyword">i32</span>,
+    parent: RefCell&lt;Weak&lt;Node&gt;&gt;,
+    children: RefCell&lt;<span class="hljs-built_in">Vec</span>&lt;Rc&lt;Node&gt;&gt;&gt;,
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>() {
+    <span class="hljs-keyword">let</span> leaf = Rc::new(Node {
+        value: <span class="hljs-number">2</span>,
+        parent: RefCell::new(Weak::new()),
+        children: RefCell::new(<span class="hljs-built_in">vec!</span>[]),
+    });
+
+    <span class="hljs-keyword">let</span> branch = Rc::new(Node {
+        value: <span class="hljs-number">33</span>,
+        parent: RefCell::new(Weak::new()),
+        children: RefCell::new(<span class="hljs-built_in">vec!</span>[Rc::clone(&amp;leaf)]),
+    });
+
+    <span class="hljs-comment">// use weak reference to avoid reference cycle</span>
+    *leaf.parent.borrow_mut() = Rc::downgrade(&amp;branch);
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="rust_elementary_IV.html" class="navigation navigation-prev " aria-label="Previous page: Rust Elementary IV">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="docker_sources_switch.html" class="navigation navigation-next " aria-label="Next page: Docker Sources Switch">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Rust Elementary V","level":"2.1.5","depth":2,"next":{"title":"Docker Sources Switch","level":"2.1.6","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]},"previous":{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"path":"linux/rust_elementary_IV.md","ref":"linux/rust_elementary_IV.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore","livereload"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"linux/rust_elementary_V.md","mtime":"2025-02-12T04:55:00.887Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-02-12T05:10:26.316Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
