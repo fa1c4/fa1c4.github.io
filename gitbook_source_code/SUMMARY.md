@@ -10,7 +10,8 @@
 * [Papers](papers/index.md)
   * [SoK: Prudent Evaluation Practices for Fuzzing](papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.md)
   * [FOX: Coverage-guided Fuzzing as Online Stochastic Control](papers/FOX.md)
-  * [On Understanding and Forecasting Fuzzers Performance with Static Analysis](On_Understanding.md)
+  * [On Understanding and Forecasting Fuzzers Performance with Static Analysis](papers/On_Understanding.md)
+  * [autofz: Automated Fuzzer Composition at Runtime](papers/autofz.md)
 
 
 

@@ -188,6 +188,21 @@ export MPLBACKEND=Agg
 make presubmit
 ```
 
+3. `docker build` 网络链接一直失败, 则在`fuzzbench/docker/generate_makefile.py` 修改 docker build 代码, 使用 host 的网络进行 build
+
+```python
+    if 'base-' in name:
+        section += '\tdocker pull ubuntu:focal\n'
+    section += '\tdocker build \\\n'
+    section += '\t--network=host \\\n' # modify here: network need host or not? yes!
+    section += '\t--tag ' + os.path.join(BASE_TAG, image['tag']) + ' \\\n'
+    section += '\t--build-arg BUILDKIT_INLINE_CACHE=1 \\\n'
+    section += ('\t--cache-from ' + os.path.join(BASE_TAG, image['tag']) +
+                ' \\\n')
+```
+
+
+
 
 
 注意事项: 
