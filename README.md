@@ -98,7 +98,13 @@ gitbook install
 cd /gitbook_source_code
 rm -r ./_book
 gitbook build
-gitbook serve # for local testing
+
+# either test 1: for local testing
+gitbook serve
+# or test 2: python server
+cd _book
+python -m http.server 4000
+
 cp -r ./_book/* ../gitbook/ 
 ```
 

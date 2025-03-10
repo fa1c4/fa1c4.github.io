@@ -3,5 +3,6 @@
   * [FOX: Coverage-guided Fuzzing as Online Stochastic Control](FOX.md)
   * [On Understanding and Forecasting Fuzzers Performance with Static Analysis](On_Understanding.md)
   * [autofz: Automated Fuzzer Composition at Runtime](autofz.md)
-  * [Fuzz to the Future:  Uncovering Occluded Future Vulnerabilities via Robust Fuzzing](Fuzz_to_the_Future.md)
+  * [Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing](Fuzz_to_the_Future.md)
+  * [DSFuzz: Detecting Deep State Bugs with Dependent State Exploration](DSFuzz.md)
   
