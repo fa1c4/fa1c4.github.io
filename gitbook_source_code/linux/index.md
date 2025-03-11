@@ -9,7 +9,9 @@
 * [Rust Elementary VI](rust_elementary_VI.md)
 
 ## Kernel 
-
+<!-- * [Kernel Dev I (todo)]()
+* [Kernel Dev II (todo)]()
+* [Kernel Dev III (todo)]() -->
 
 ## Docker
 * [Docker Sources Switch](docker_sources_switch.md)

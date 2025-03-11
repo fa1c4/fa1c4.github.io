@@ -14,6 +14,7 @@
   * [autofz: Automated Fuzzer Composition at Runtime](papers/autofz.md)
   * [Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing](papers/Fuzz_to_the_Future.md)
   * [DSFuzz: Detecting Deep State Bugs with Dependent State Exploration](papers/DSFuzz.md)
+  * [Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation](papers/Rubick.md)
 
 
 
