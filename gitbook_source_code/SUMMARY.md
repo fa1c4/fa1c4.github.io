@@ -15,6 +15,8 @@
   * [Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing](papers/Fuzz_to_the_Future.md)
   * [DSFuzz: Detecting Deep State Bugs with Dependent State Exploration](papers/DSFuzz.md)
   * [Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation](papers/Rubick.md)
+  <!-- * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](papers/graphuzz.md) -->
+  * [Fuzz4All: Universal Fuzzing with Large Language Models](papers/Fuzz4All.md)
 
 
 
