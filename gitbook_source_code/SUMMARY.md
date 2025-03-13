@@ -17,6 +17,7 @@
   * [Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation](papers/Rubick.md)
   <!-- * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](papers/graphuzz.md) -->
   * [Fuzz4All: Universal Fuzzing with Large Language Models](papers/Fuzz4All.md)
+  * [KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation](papers/kag.md)
 
 
 
