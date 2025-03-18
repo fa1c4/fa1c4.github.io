@@ -20,6 +20,7 @@
   * [KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation](papers/kag.md)
   * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](papers/graphuzz.md)
   * [Seed Selection for Successful Fuzzing](papers/Seed_Selection.md)
+  * [Balance Seed Scheduling via Monte Carlo Planning](papers/belieffuzz.md)
 
 
 

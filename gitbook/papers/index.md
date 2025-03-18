@@ -33,4 +33,4 @@
 ## Fuzzing - Seed Scheduling
 * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](graphuzz.md)
 * [Effective Seed Scheduling for Fuzzing with  Graph Centrality Analysis](K_Scheduler.md)
-* [Balance Seed Scheduling via Monte Carlo Planning](BELIEFFuzz.md)
+* [Balance Seed Scheduling via Monte Carlo Planning](belieffuzz.md)

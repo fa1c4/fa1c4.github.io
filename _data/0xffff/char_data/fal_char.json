@@ -1,0 +1,20 @@
+{
+    "level": 1,
+    "cultivating_experience": 1,
+    "coding_level": 1,
+    "coding_lines": 1,
+    "CTF": {
+        "PWN": {
+            "solved": 1,
+            "level": 1
+        },
+        "REV": {
+            "solved": 1,
+            "level": 1
+        }
+    },
+    "paper_published": {
+        "water": 1,
+        "solid": 0
+    }
+}
