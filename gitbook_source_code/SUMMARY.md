@@ -21,6 +21,7 @@
   * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](papers/graphuzz.md)
   * [Seed Selection for Successful Fuzzing](papers/Seed_Selection.md)
   * [Balance Seed Scheduling via Monte Carlo Planning](papers/belieffuzz.md)
+  * [Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis](papers/K_Scheduler.md)
 
 
 
@@ -41,7 +42,7 @@
   * [FuzzBench Build](fuzzing/fuzzbench_build.md)
   <!-- * [Magma new Fuzzer](fuzzing/magma_new_fuzzer.md) -->
   * [Fuzzbench new Fuzzer](fuzzing/fuzzbench_new_fuzzer.md)
-  
+
 
 
 * [Pwn](pwn/index.md)
