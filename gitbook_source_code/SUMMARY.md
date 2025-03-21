@@ -15,13 +15,13 @@
   * [Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing](papers/Fuzz_to_the_Future.md)
   * [DSFuzz: Detecting Deep State Bugs with Dependent State Exploration](papers/DSFuzz.md)
   * [Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation](papers/Rubick.md)
-  <!-- * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](papers/graphuzz.md) -->
   * [Fuzz4All: Universal Fuzzing with Large Language Models](papers/Fuzz4All.md)
   * [KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation](papers/kag.md)
   * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](papers/graphuzz.md)
   * [Seed Selection for Successful Fuzzing](papers/Seed_Selection.md)
   * [Balance Seed Scheduling via Monte Carlo Planning](papers/belieffuzz.md)
   * [Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis](papers/K_Scheduler.md)
+  * [Boosting Fuzzer Efficiency: An Information Theoretic Perspective](papers/entropic.md)
 
 
 
@@ -51,6 +51,11 @@
 
 
 * [Reverse](reverse/index.md)
+
+
+
+* [Theory](theory/index.md)
+  * [Practical Statistics](theory/prac_statistics.md)
 
 
 
