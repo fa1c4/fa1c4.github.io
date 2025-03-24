@@ -5,6 +5,7 @@
 * [Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing](Fuzz_to_the_Future.md)
 * [DSFuzz: Detecting Deep State Bugs with Dependent State Exploration](DSFuzz.md)
 * [Seed Selection for Successful Fuzzing](Seed_Selection.md)
+* [FuzzInMem: Fuzzing Programs via In-memory Structures](FuzzInMem.md)
 
 
 
@@ -35,3 +36,4 @@
 * [Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing](graphuzz.md)
 * [Effective Seed Scheduling for Fuzzing with  Graph Centrality Analysis](K_Scheduler.md)
 * [Balance Seed Scheduling via Monte Carlo Planning](belieffuzz.md)
+

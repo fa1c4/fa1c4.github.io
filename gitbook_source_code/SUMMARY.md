@@ -22,6 +22,7 @@
   * [Balance Seed Scheduling via Monte Carlo Planning](papers/belieffuzz.md)
   * [Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis](papers/K_Scheduler.md)
   * [Boosting Fuzzer Efficiency: An Information Theoretic Perspective](papers/entropic.md)
+  * [FuzzInMem: Fuzzing Programs via In-memory Structures](papers/FuzzInMem.md)
 
 
 
