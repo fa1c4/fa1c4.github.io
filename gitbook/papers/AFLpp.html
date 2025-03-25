@@ -1,0 +1,911 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AFL++: Combining Incremental Steps of Fuzzing Research · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../linux/" />
+    
+    
+    <link rel="prev" href="FuzzInMem.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="FOX.html">
+            
+                <a href="FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="On_Understanding.html">
+            
+                <a href="On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="autofz.html">
+            
+                <a href="autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="Fuzz_to_the_Future.html">
+            
+                <a href="Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="DSFuzz.html">
+            
+                <a href="DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="Rubick.html">
+            
+                <a href="Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="Fuzz4All.html">
+            
+                <a href="Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="kag.html">
+            
+                <a href="kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="graphuzz.html">
+            
+                <a href="graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="Seed_Selection.html">
+            
+                <a href="Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="belieffuzz.html">
+            
+                <a href="belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="K_Scheduler.html">
+            
+                <a href="K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="entropic.html">
+            
+                <a href="entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="FuzzInMem.html">
+            
+                <a href="FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.16" data-path="AFLpp.html">
+            
+                <a href="AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                <a href="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../fuzzing/fuzzbench_build.html">
+            
+                <a href="../fuzzing/fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                <a href="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AFL++: Combining Incremental Steps of Fuzzing Research</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="afl-combining-incremental-steps-of-fuzzing-research-woot-2020">AFL++: Combining Incremental Steps of Fuzzing Research [WOOT 2020]</h1>
+<p><img src="assets/image-20250325110129319.png" alt="image-20250325110129319" style="zoom: 67%;"></p>
+<p><strong>AFL++</strong>, &#x7531;&#x793E;&#x533A;&#x9A71;&#x52A8;&#x7684;&#x5F00;&#x6E90; Fuzzer, &#x7ED3;&#x5408;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7814;&#x7A76;&#x6210;&#x679C;, &#x4F7F;&#x5F97;&#x7814;&#x7A76;&#x6210;&#x679C;&#x53EF;&#x4EE5;&#x6BD4;&#x8F83;, &#x590D;&#x73B0;, &#x7EC4;&#x5408;&#x4EE5;&#x53CA;&#x4F7F;&#x7528;. &#x63D0;&#x4F9B;&#x5B9A;&#x5236;&#x53D8;&#x5F02;&#x5668; API, &#x53EF;&#x5728;&#x591A;&#x9636;&#x6BB5;&#x6269;&#x5C55;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;. &#x6700;&#x540E;&#x63ED;&#x793A;&#x4E00;&#x4E2A;&#x4E8B;&#x5B9E;: &#x6BCF;&#x79CD;&#x6A21;&#x7CCA;&#x5668;&#x5728;&#x4E0D;&#x540C;&#x76EE;&#x6807;&#x4E0A;&#x4E0D;&#x5177;&#x6709;&#x6CDB;&#x5316;&#x6027;.</p>
+<h2 id="contributions">Contributions</h2>
+<ol>
+<li>&#x5C06;&#x8FD1;&#x671F;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7814;&#x7A76;&#x6574;&#x5408;&#x5230;&#x4E00;&#x4E2A;&#x5DE5;&#x5177; AFL++ &#x4E2D;</li>
+<li>&#x521B;&#x65B0;&#x5B9A;&#x5236;&#x53D8;&#x5F02;&#x5668; API</li>
+<li>&#x8BC4;&#x4F30;&#x96C6;&#x6210;&#x7684;&#x6280;&#x672F;&#x548C;&#x7279;&#x6027;</li>
+<li><a href="https://github.com/AFLplusplus" target="_blank">https://github.com/AFLplusplus</a></li>
+</ol>
+<h2 id="afl">AFL</h2>
+<h3 id="coverage-guided-feedback">Coverage Guided Feedback</h3>
+<p>AFL &#x7684;&#x8986;&#x76D6;&#x53CD;&#x9988;&#x7ED3;&#x5408;&#x8FB9;&#x8986;&#x76D6;&#x7387;&#x548C;&#x5728;&#x4E00;&#x6B21;&#x8FD0;&#x884C;&#x4E2D;&#x6BCF;&#x4E2A;&#x8FB9;&#x88AB;&#x6267;&#x884C;&#x7684;&#x6B21;&#x6570;. &#x8FD9;&#x4E2A;&#x8BA1;&#x6570;&#x88AB;&#x4EE5; 2 &#x7684;&#x5E42;&#x6B21;&#x8FDB;&#x884C;&#x5206;&#x6876;, &#x4EE5;&#x907F;&#x514D;&#x8DEF;&#x5F84;&#x7206;&#x70B8;. &#x5982;&#x679C;&#x67D0;&#x4E2A;&#x8F93;&#x5165;&#x63A2;&#x7D22;&#x4E86;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8FB9;&#x7684;&#x5206;&#x6876;, &#x5B83;&#x5C31;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6709;&#x8DA3;&#x7684; (&#x5373;&#x4FDD;&#x5B58;&#x5230;&#x961F;&#x5217;&#x4E2D;). &#x8FD9;&#x4E9B;&#x5206;&#x6876;, &#x6216;&#x79F0;&#x4E3A;&#x547D;&#x4E2D;&#x8BA1;&#x6570;, &#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x88AB;&#x8BB0;&#x5F55;&#x5230;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x7684;&#x4F4D;&#x56FE;&#x4E2D;, &#x5176;&#x4E2D;&#x6BCF;&#x4E2A;&#x5B57;&#x8282;&#x8868;&#x793A;&#x4E00;&#x8FB9; (&#x8BE5;&#x4F4D;&#x56FE;&#x7684;&#x5927;&#x5C0F;&#x6709;&#x9650;, &#x56E0;&#x6B64;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x751F;&#x51B2;&#x7A81;). &#x901A;&#x8FC7;&#x8986;&#x76D6;&#x53CD;&#x9988;, AFL &#x5C1D;&#x8BD5;&#x5728;&#x4FEE;&#x526A;&#x9636;&#x6BB5;&#x5BF9;&#x961F;&#x5217;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FDB;&#x884C;&#x88C1;&#x526A;, &#x4EE5;&#x51CF;&#x5C11;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x5927;&#x5C0F;&#x5E76;&#x63D0;&#x9AD8;&#x76EE;&#x6807;&#x7684;&#x901F;&#x5EA6;, &#x540C;&#x65F6;&#x4FDD;&#x6301;&#x8986;&#x76D6;&#x7387;&#x4E0D;&#x53D8;. </p>
+<h3 id="mutations">Mutations</h3>
+<p>AFL &#x7684;&#x53D8;&#x5F02;&#x5206;&#x4E3A;&#x4E24;&#x7C7B;: &#x786E;&#x5B9A;&#x6027;&#x53D8;&#x5F02;&#x548C;&#x6DF7;&#x4E71; (havoc) &#x53D8;&#x5F02;. &#x786E;&#x5B9A;&#x6027;&#x53D8;&#x5F02;&#x5305;&#x62EC;&#x5BF9;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x5355;&#x4E00;&#x786E;&#x5B9A;&#x53D8;&#x5F02;, &#x5982;&#x4F4D;&#x7FFB;&#x8F6C;&#x3001;&#x6DFB;&#x52A0;&#x3001;&#x4F7F;&#x7528;&#x4E00;&#x7EC4;&#x5E38;&#x89C1;&#x6709;&#x8DA3;&#x503C; (&#x5982;-1&#x3001;INT_MAX&#x7B49;) &#x8FDB;&#x884C;&#x66FF;&#x4EE3;&#x7B49;. &#x5728;&#x6DF7;&#x4E71;&#x9636;&#x6BB5;, &#x53D8;&#x5F02;&#x662F;&#x968F;&#x673A;&#x5806;&#x53E0;&#x7684;, &#x8FD8;&#x5305;&#x62EC;&#x5BF9;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5927;&#x5C0F;&#x7684;&#x4FEE;&#x6539; (&#x4F8B;&#x5982;&#x6DFB;&#x52A0;&#x6216;&#x5220;&#x9664;&#x8F93;&#x5165;&#x7684;&#x67D0;&#x4E9B;&#x90E8;&#x5206;). &#x6B64;&#x5916;, &#x5728;&#x540E;&#x7EED;&#x62FC;&#x63A5;&#x9636;&#x6BB5;, AFL &#x4F1A;&#x5C06;&#x4E24;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;, &#x5E76;&#x5E94;&#x7528;&#x6DF7;&#x4E71;&#x53D8;&#x5F02;. </p>
+<h3 id="forkserver">Forkserver</h3>
+<p>&#x6A21;&#x7CCA;&#x5668;&#x5C06;&#x4E00;&#x4E2A;&#x901A;&#x8FC7; IPC &#x673A;&#x5236;&#x63A7;&#x5236;&#x7684; forkserver &#x6CE8;&#x5165;&#x5230;&#x76EE;&#x6807;&#x4E2D;. &#x6BCF;&#x5F53; AFL &#x9700;&#x8981;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x65F6;, &#x5B83;&#x4F1A;&#x5199;&#x5165;&#x8F93;&#x5165;&#x6570;&#x636E;, &#x7136;&#x540E;&#x544A;&#x8BC9;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;&#x8FDB;&#x884C; fork. &#x5B50;&#x8FDB;&#x7A0B;&#x5C06;&#x6267;&#x884C;&#x8BE5;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;, &#x800C;&#x7236;&#x8FDB;&#x7A0B;&#x5219;&#x5728;&#x6B64;&#x671F;&#x95F4;&#x7B49;&#x5F85;. forkserver &#x53EF;&#x4EE5;&#x907F;&#x514D;&#x7A0B;&#x5E8F;&#x521D;&#x59CB;&#x5316;&#x548C;&#x542F;&#x52A8;&#x4F8B;&#x7A0B;&#x7684;&#x6210;&#x672C;.</p>
+<h3 id="persistent-mode">Persistent Mode</h3>
+<p>&#x6301;&#x4E45;&#x6A21;&#x5F0F;&#x4E0B;, &#x76EE;&#x6807;&#x7A0B;&#x5E8F;&#x4E0D;&#x4F1A;&#x4E3A;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FDB;&#x884C; fork. &#x76F8;&#x53CD;, &#x53EF;&#x4EE5;&#x5C06;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x4FEE;&#x8865;&#x5230;&#x76EE;&#x6807;&#x7A0B;&#x5E8F;&#x4E2D;, &#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;. &#x4E3A;&#x4E86;&#x4F7F;&#x5176;&#x6B63;&#x5E38;&#x5DE5;&#x4F5C;, &#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x9700;&#x8981;&#x5C3D;&#x91CF;&#x51CF;&#x5C11;&#x72B6;&#x6001;&#x53D8;&#x5316;.</p>
+<h2 id="integrated-fuzzers">Integrated Fuzzers</h2>
+<ul>
+<li>AFLFast</li>
+<li>MOpt</li>
+<li>LAF-Intel</li>
+<li>RedQueen</li>
+<li>AFLSmart</li>
+</ul>
+<h2 id="afl">AFL++</h2>
+<h3 id="seed-scheduling">Seed Scheduling</h3>
+<p>AFL++ &#x7ED3;&#x5408; AFLfast, &#x5E76;&#x5728;&#x6B64;&#x57FA;&#x7840;&#x4E0A;&#x6269;&#x5C55;&#x989D;&#x5916;&#x7684;&#x529F;&#x7387;&#x8C03;&#x5EA6;&#x7B56;&#x7565;. </p>
+<p>&#x5305;&#x62EC; AFLfast &#x4E2D;&#x7684;&#x6240;&#x6709;&#x8C03;&#x5EA6;&#x7B56;&#x7565;: fast&#x3001;coe&#x3001;explore&#x3001;quad&#x3001;lin &#x548C; exploit. &#x8FD9;&#x4E9B;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x662F;&#x4EE5;&#x4E0B;&#x53D8;&#x91CF;&#x7684;&#x51FD;&#x6570;:</p>
+<ol>
+<li>&#x4ECE;&#x961F;&#x5217;&#x4E2D;&#x9009;&#x62E9;&#x79CD;&#x5B50;&#x7684;&#x6B21;&#x6570;</li>
+<li>&#x5177;&#x6709;&#x76F8;&#x540C;&#x8986;&#x76D6;&#x7387;&#x7684;&#x751F;&#x6210;&#x8F93;&#x5165;&#x6570;&#x91CF;</li>
+<li>&#x901A;&#x5E38;&#x5177;&#x6709;&#x76F8;&#x540C;&#x8986;&#x76D6;&#x7387;&#x7684;&#x751F;&#x6210;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x5E73;&#x5747;&#x6570;&#x91CF;</li>
+</ol>
+<p>&#x9ED8;&#x8BA4;&#x7684;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x662F; explore. &#x6B64;&#x5916;, AFL++ &#x6DFB;&#x52A0; mmopt &#x548C; rare &#x8C03;&#x5EA6;&#x7B56;&#x7565;. Mmopt &#x589E;&#x52A0;&#x6700;&#x65B0;&#x79CD;&#x5B50;&#x7684;&#x5F97;&#x5206;, &#x4EE5;&#x5E2E;&#x52A9;&#x6DF1;&#x5165;&#x6316;&#x6398;&#x65B0;&#x53D1;&#x73B0;&#x7684;&#x8DEF;&#x5F84;. Rare &#x5219;&#x5FFD;&#x7565;&#x79CD;&#x5B50;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;, &#x5E76;&#x4E14;&#x7279;&#x522B;&#x5173;&#x6CE8;&#x90A3;&#x4E9B;&#x5176;&#x4ED6;&#x79CD;&#x5B50;&#x5F88;&#x5C11;&#x8986;&#x76D6;&#x7684;&#x8FB9;.</p>
+<h3 id="mutators">Mutators</h3>
+<h4 id="custom-mutator-api">Custom Mutator API</h4>
+<p>AFL++ &#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x6269;&#x5C55;&#x4EE5;&#x9002;&#x5E94;&#x5B66;&#x672F;&#x754C;&#x7684;&#x65B0;&#x7814;&#x7A76;, &#x5E76;&#x80FD;&#x591F;&#x4E3A;&#x6F0F;&#x6D1E;&#x53D1;&#x73B0;&#x5B9A;&#x5236;&#x7279;&#x5B9A;&#x7684;&#x76EE;&#x6807;. &#x4E3A;&#x6B64;, &#x5B83;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x4E0D;&#x65AD;&#x6269;&#x5C55;&#x7684;API. </p>
+<p>&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x5141;&#x8BB8;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7814;&#x7A76;&#x5728; AFL++ &#x57FA;&#x7840;&#x4E0A;&#x6784;&#x5EFA;&#x65B0;&#x7684;&#x8C03;&#x5EA6;&#x3001;&#x53D8;&#x5F02;&#x548C;&#x6700;&#x5C0F;&#x5316;&#x529F;&#x80FD;, &#x65E0;&#x9700;&#x50CF;&#x8BB8;&#x591A;&#x73B0;&#x6709;&#x5DE5;&#x5177;&#x90A3;&#x6837;&#x5206;&#x53C9;&#x548C;&#x4FEE;&#x8865; AFL. &#x63D2;&#x4EF6;&#x53EF;&#x4EE5;&#x7528;&#x4E0E; C ABI &#x517C;&#x5BB9;&#x7684;&#x8BED;&#x8A00;&#x7F16;&#x5199;, &#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x7528; Python &#x539F;&#x578B;&#x5316;. &#x901A;&#x8FC7;&#x5F53;&#x524D;&#x7684; API, &#x5982; AFLsmart &#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x91CD;&#x5199;&#x4E3A; AFL++ &#x63D2;&#x4EF6;.</p>
+<p>&#x76EE;&#x524D;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;: </p>
+<ul>
+<li><strong>afl<em>custom</em>(de)init</strong>: &#x6BCF;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x81EA;&#x89E3;&#x91CA;&#x51FD;&#x6570;&#x6765;&#x521D;&#x59CB;&#x5316;&#x6216;&#x53CD;&#x521D;&#x59CB;&#x5316;&#x6A21;&#x5757;, &#x5206;&#x522B;&#x4E3A; <code>afl_custom_init</code> &#x548C; <code>afl_custom_deinit</code>. AFL++ &#x7684;&#x4F2A;&#x968F;&#x673A;&#x751F;&#x6210;&#x5668;&#x79CD;&#x5B50;&#x4F1A;&#x4F20;&#x9012;&#x7ED9; <code>init</code> &#x51FD;&#x6570;. &#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x5E94;&#x786E;&#x4FDD;&#x7ED9;&#x5B9A;&#x76F8;&#x540C;&#x79CD;&#x5B50;&#x65F6;, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x662F;&#x53EF;&#x590D;&#x73B0;&#x7684;</li>
+<li><strong>afl_custom_queue_get</strong>: &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;, &#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x662F;&#x5426;&#x5E94;&#x5BF9;&#x5F53;&#x524D;&#x961F;&#x5217;&#x9879;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. &#x5728;&#x8FD9;&#x4E2A;&#x4F8B;&#x7A0B;&#x4E2D;, &#x7528;&#x6237;&#x8FD8;&#x53EF;&#x4EE5;&#x521D;&#x59CB;&#x5316;&#x4E0E;&#x8F93;&#x5165;&#x76F8;&#x5173;&#x7684;&#x5143;&#x6570;&#x636E;, &#x4F8B;&#x5982;, &#x7528;&#x4E8E;&#x7ED3;&#x6784;&#x5316;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x865A;&#x62DF;&#x7ED3;&#x6784;</li>
+<li><strong>afl_custom_fuzz</strong>: &#x5728;&#x7ED9;&#x5B9A;&#x8F93;&#x5165;&#x4E0A;&#x6267;&#x884C;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;. &#x5B83;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x989D;&#x5916;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;.</li>
+<li><strong>afl_custom_havoc_mutation</strong>: &#x5728;&#x7ED9;&#x5B9A;&#x8F93;&#x5165;&#x4E0A;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;. &#x8FD9;&#x4E2A;&#x53D8;&#x5F02;&#x5C06;&#x4E0E;&#x6DF7;&#x4E71;&#x9636;&#x6BB5;&#x4E2D;&#x7684;&#x5176;&#x4ED6;&#x53D8;&#x5F02;&#x53E0;&#x52A0;</li>
+<li><strong>afl_custom_havoc_mutation_probability</strong>: &#x8FD4;&#x56DE;&#x5728;&#x6DF7;&#x4E71;&#x9636;&#x6BB5;&#x8C03;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x7684;&#x6982;&#x7387;, &#x542F;&#x7528;&#x8C03;&#x4F18; (&#x9ED8;&#x8BA4;&#x4E3A;6%, &#x7075;&#x611F;&#x6765;&#x81EA;AFLsmart)</li>
+<li><strong>afl_custom_post_process</strong>: &#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;, &#x6765;&#x81EA;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x7684;&#x53D8;&#x5F02;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x4E0D;&#x9002;&#x5408;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8BE5;&#x8F93;&#x5165;&#x6267;&#x884C;&#x76EE;&#x6807;. &#x4F8B;&#x5982;, &#x5728;&#x4F7F;&#x7528;libprotobuf-mutator&#x65F6;, &#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x662F; protobuf &#x683C;&#x5F0F;, &#x7B26;&#x5408;&#x7279;&#x5B9A;&#x8BED;&#x6CD5;, &#x5FC5;&#x987B;&#x5148;&#x8F6C;&#x6362;&#x4E3A;&#x76EE;&#x6807;&#x7684;&#x7EAF;&#x6587;&#x672C;&#x683C;&#x5F0F;. &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;, &#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49; <code>afl_custom_post_process</code> &#x51FD;&#x6570;</li>
+<li><strong>afl_custom_queue_new_entry</strong>: &#x5728;&#x5C06;&#x65B0;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6DFB;&#x52A0;&#x5230;&#x961F;&#x5217;&#x540E;&#x8C03;&#x7528;, &#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x7528;&#x7684;&#x94A9;&#x5B50;, &#x53EF;&#x4EE5;&#x5C06;&#x5143;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5230;&#x78C1;&#x76D8;&#x4E2D;</li>
+</ul>
+<p><strong>Trimming Support</strong></p>
+<p>AFL++ &#x5B9E;&#x73B0;&#x7684;&#x901A;&#x7528;&#x4FEE;&#x526A;&#x4F8B;&#x7A0B;, &#x53EF;&#x80FD;&#x4F1A;&#x7834;&#x574F;&#x590D;&#x6742;&#x683C;&#x5F0F;&#x7684;&#x7ED3;&#x6784;. &#x8FD9;&#x5C24;&#x5176;&#x9002;&#x7528;&#x4E8E;&#x5F53;&#x76EE;&#x6807;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x8F93;&#x5165;&#x7684;&#x67D0;&#x4E00;&#x90E8;&#x5206; (&#x4EA7;&#x751F;&#x8986;&#x76D6;), &#x4F46;&#x5728;&#x5904;&#x7406;&#x5269;&#x4F59;&#x8F93;&#x5165;&#x65F6;&#x51FA;&#x9519;&#x7684;&#x60C5;&#x51B5;. &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;, &#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;&#x4FEE;&#x526A;&#x4F8B;&#x7A0B;&#x662F;&#x6709;&#x610F;&#x4E49;&#x7684;. &#x8BE5; API &#x5305;&#x542B;&#x591A;&#x4E2A;&#x65B9;&#x6CD5;, &#x56E0;&#x4E3A;&#x5728;&#x6BCF;&#x4E2A;&#x4FEE;&#x526A;&#x6B65;&#x9AA4;&#x540E;, &#x8986;&#x76D6;&#x4F4D;&#x56FE;&#x5FC5;&#x987B;&#x4E0E;&#x4FEE;&#x526A;&#x524D;&#x7684;&#x4F4D;&#x56FE;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;</p>
+<ul>
+<li><strong>afl_custom_init_trim</strong>: &#x5728;&#x6BCF;&#x6B21;&#x4FEE;&#x526A;&#x64CD;&#x4F5C;&#x5F00;&#x59CB;&#x65F6;&#x8C03;&#x7528;, &#x63A5;&#x6536;&#x521D;&#x59CB;&#x7F13;&#x51B2;&#x533A;. &#x5B83;&#x5E94;&#x8FD4;&#x56DE;&#x6B64;&#x8F93;&#x5165;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7684;&#x8FED;&#x4EE3;&#x6B65;&#x9AA4;&#x6570; (&#x4F8B;&#x5982;, &#x5982;&#x679C;&#x8F93;&#x5165;&#x6709; n &#x4E2A;&#x5143;&#x7D20;, &#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x5E94;&#x88AB;&#x79FB;&#x9664;, &#x5219;&#x8FD4;&#x56DE; n-1). &#x5982;&#x679C;&#x5B9E;&#x73B0;&#x7684;&#x4FEE;&#x526A;&#x7B97;&#x6CD5;&#x65E0;&#x6CD5;&#x786E;&#x5B9A; (&#x5269;&#x4F59;&#x7684;) &#x6B65;&#x9AA4;&#x6570;&#x91CF;, &#x5219;&#x53EF;&#x4EE5;&#x8FD4;&#x56DE;1, &#x8868;&#x793A;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x4FEE;&#x526A;, &#x76F4;&#x5230; <code>afl_custom_post_trim</code> &#x8FD4;&#x56DE; 0 &#x4E3A;&#x6B62;</li>
+<li><strong>afl_custom_trim</strong>: &#x6BCF;&#x6B21;&#x4FEE;&#x526A;&#x64CD;&#x4F5C;&#x65F6;&#x8C03;&#x7528;. &#x5B83;&#x8BB0;&#x4F4F;&#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;, &#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x6B21;&#x8FED;&#x4EE3;&#x8282;&#x7701;&#x91CD;&#x65B0;&#x89E3;&#x6790;&#x6B65;&#x9AA4;. &#x5B83;&#x5E94;&#x8FD4;&#x56DE;&#x4FEE;&#x526A;&#x540E;&#x7684;&#x8F93;&#x5165;&#x7F13;&#x51B2;&#x533A;, &#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x957F;&#x5EA6;&#x4E0D;&#x5F97;&#x8D85;&#x8FC7;&#x521D;&#x59CB;&#x8F93;&#x5165;&#x6570;&#x636E;&#x7684;&#x957F;&#x5EA6;</li>
+<li><strong>afl_custom_post_trim</strong>: &#x6BCF;&#x6B21;&#x4FEE;&#x526A;&#x64CD;&#x4F5C;&#x540E;&#x8C03;&#x7528;, &#x7528;&#x4E8E;&#x6307;&#x793A;&#x4FEE;&#x526A;&#x6B65;&#x9AA4;&#x662F;&#x5426;&#x6210;&#x529F; (&#x5C31;&#x76F8;&#x540C;&#x7684;&#x8986;&#x76D6;&#x7387;&#x800C;&#x8A00;). &#x6B64;&#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x8FD4;&#x56DE;&#x4E0B;&#x4E00;&#x4E2A;&#x4FEE;&#x526A;&#x8FED;&#x4EE3;&#x7684;&#x7D22;&#x5F15; (&#x4ECE; 0 &#x5230; <code>afl_custom_init_trim</code> &#x4E2D;&#x8FD4;&#x56DE;&#x7684;&#x6700;&#x5927;&#x6B65;&#x9AA4;&#x6570;)</li>
+</ul>
+<h4 id="others">Others</h4>
+<p>&#x5176;&#x4ED6;&#x53D8;&#x5F02;&#x5668;&#x652F;&#x6301;</p>
+<ul>
+<li>Input-To-State Mutator</li>
+<li>MOpt Mutator</li>
+</ul>
+<h3 id="instrumentations">Instrumentations</h3>
+<p>&#x4E0E;&#x63D2;&#x6869;&#x5668;&#x7684;&#x540E;&#x7AEF;&#x65E0;&#x5173;, &#x4F5C;&#x8005;&#x4E3A; AFL &#x7684;&#x547D;&#x4E2D;&#x8BA1;&#x6570;&#x673A;&#x5236;&#x5F00;&#x53D1;&#x4E00;&#x79CD;&#x4F18;&#x5316;&#x65B9;&#x6CD5;. &#x4F7F;&#x7528;&#x5B57;&#x8282;&#x6765;&#x8868;&#x793A;&#x4F4D;&#x56FE;&#x6761;&#x76EE;&#x7684;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#x662F;, &#x8FB9;&#x7684;&#x6267;&#x884C;&#x6B21;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x751F;&#x6EA2;&#x51FA;. &#x5F53;&#x53D1;&#x751F;&#x6EA2;&#x51FA;&#x65F6;, &#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8FB9;&#x88AB;&#x6267;&#x884C;&#x591A;&#x6B21;, &#x8FBE;&#x5230;256&#x7684;&#x500D;&#x6570;, &#x5BFC;&#x81F4;&#x76F8;&#x5E94;&#x7684;&#x4F4D;&#x56FE;&#x6761;&#x76EE;&#x6EA2;&#x51FA;&#x4E3A;0, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x4E0D;&#x4E00;&#x81F4;&#x72B6;&#x6001;. &#x4F5C;&#x8005;&#x5C1D;&#x8BD5;&#x901A;&#x8FC7;&#x4E24;&#x79CD;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;: NeverZero &#x548C;&#x9971;&#x548C;&#x8BA1;&#x6570;&#x5668; (Saturated Counters). </p>
+<ul>
+<li><strong>NeverZero</strong>&#xFF1A;&#x6B64;&#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x59CB;&#x7EC8;&#x5C06;&#x8FDB;&#x4F4D;&#x6807;&#x5FD7;&#x6DFB;&#x52A0;&#x5230;&#x4F4D;&#x56FE;&#x6761;&#x76EE;, &#x907F;&#x514D;&#x6EA2;&#x51FA;&#x4E3A; 0 &#x7684;&#x95EE;&#x9898;. &#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8FB9;&#x81F3;&#x5C11;&#x88AB;&#x6267;&#x884C;&#x4E00;&#x6B21;, &#x6761;&#x76EE;&#x5C06;&#x59CB;&#x7EC8;&#x975E;&#x96F6;. </li>
+<li><strong>Saturated Counters</strong>: &#x6B64;&#x65B9;&#x6CD5;&#x5728;&#x8BA1;&#x6570;&#x5668;&#x8FBE;&#x5230; 255 &#x65F6;&#x51BB;&#x7ED3;&#x8BA1;&#x6570;&#x5668;</li>
+</ul>
+<p>&#x5728;&#x4E00;&#x7CFB;&#x5217;&#x5B9E;&#x9A8C;&#x4E2D;, &#x4F5C;&#x8005;&#x53D1;&#x73B0; NeverZero &#x975E;&#x5E38;&#x6709;&#x6548;, &#x5E76;&#x4E14;&#x5728;&#x8986;&#x76D6;&#x7387;&#x548C;&#x901F;&#x5EA6;&#x65B9;&#x9762;&#x63D0;&#x5347; AFL (&#x73B0;&#x5728;&#x79CD;&#x5B50;&#x9009;&#x62E9;&#x8003;&#x8651;&#x4E4B;&#x524D;&#x88AB;&#x9690;&#x85CF;&#x7684;&#x8FB9;). &#x7136;&#x800C;, &#x9971;&#x548C;&#x8BA1;&#x6570;&#x5668;&#x53CD;&#x800C;&#x964D;&#x4F4E;&#x4E86; AFL &#x7684;&#x6574;&#x4F53;&#x6027;&#x80FD;. &#x4F5C;&#x8005;&#x9009;&#x62E9;&#x5C06; NeverZero &#x4F5C;&#x4E3A; AFL++ &#x5728;&#x5927;&#x591A;&#x6570;&#x53EF;&#x7528;&#x63D2;&#x6869;&#x5668;&#x540E;&#x7AEF;&#x7684;&#x9ED8;&#x8BA4;&#x9009;&#x9879;. </p>
+<h4 id="llvm">LLVM</h4>
+<p>&#x652F;&#x6301;&#x4ECE; LLVM 3.4 &#x5230; LLVM 11 (beta&#x7248;&#x672C;) &#x7684;&#x8303;&#x56F4;. &#x5728;LLVM&#x6A21;&#x5F0F;&#x4E0B;, AFL++ &#x9664;&#x652F;&#x6301;&#x8FB9;&#x8986;&#x76D6;&#x7387;&#x5916;, &#x8FD8;&#x652F;&#x6301;&#x4E00;&#x7CFB;&#x5217;&#x8986;&#x76D6;&#x5EA6;&#x91CF;: </p>
+<ul>
+<li><strong>&#x4E0A;&#x4E0B;&#x6587;&#x654F;&#x611F;&#x7684;&#x8FB9;&#x8986;&#x76D6;</strong>: &#x8FB9;&#x8986;&#x76D6;&#x901A;&#x8FC7;&#x5BF9;&#x6BCF;&#x4E2A;&#x5757;&#x5206;&#x914D;&#x7684; ID &#x4E0E;&#x88AB;&#x8C03;&#x7528;&#x8005;&#x7684;&#x552F;&#x4E00; ID &#x8FDB;&#x884C; XOR &#x64CD;&#x4F5C;. &#x8FD9;&#x4E00;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x5728;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x65B9;&#x9762;&#x6709;&#x6548;, &#x5C3D;&#x7BA1;&#x5176;&#x7F3A;&#x70B9;&#x662F;&#x4F1A;&#x589E;&#x52A0;&#x78B0;&#x649E;&#x5E76;&#x964D;&#x4F4E;&#x901F;&#x5EA6;.</li>
+<li><strong>N-gram</strong>: &#x4E0E;&#x8003;&#x8651;&#x524D;&#x4E00;&#x4E2A;&#x5757;&#x548C;&#x76EE;&#x6807;&#x5757;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;, &#x5728;&#x8BB0;&#x5F55;&#x8FB9;&#x65F6;, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x8003;&#x8651;&#x76EE;&#x6807;&#x5757;&#x548C; N-1 &#x4E2A;&#x524D;&#x5757;, &#x5176;&#x4E2D; N &#x662F;&#x4E00;&#x4E2A;&#x4ECB;&#x4E8E; 2 &#x548C; 16 &#x4E4B;&#x95F4;&#x7684;&#x6570;&#x5B57;.</li>
+</ul>
+<h4 id="others">Others</h4>
+<p>&#x5176;&#x4ED6;&#x7684;&#x63D2;&#x6869;&#x652F;&#x6301;&#x5305;&#x62EC;</p>
+<ul>
+<li>GCC</li>
+<li>QEMU</li>
+<li>Unicornafl</li>
+<li>QBDI</li>
+</ul>
+<h2 id="evaluation">Evaluation</h2>
+<p><img src="assets/image-20250325222735507.png" alt="image-20250325222735507"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="FuzzInMem.html" class="navigation navigation-prev " aria-label="Previous page: FuzzInMem: Fuzzing Programs via In-memory Structures">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../linux/" class="navigation navigation-next " aria-label="Next page: Linux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AFL++: Combining Incremental Steps of Fuzzing Research","level":"1.2.16","depth":2,"next":{"title":"Linux","level":"2.1","depth":1,"path":"linux/index.md","ref":"linux/index.md","articles":[{"title":"Rust Elementary I","level":"2.1.1","depth":2,"path":"linux/rust_elementary_I.md","ref":"linux/rust_elementary_I.md","articles":[]},{"title":"Rust Elementary II","level":"2.1.2","depth":2,"path":"linux/rust_elementary_II.md","ref":"linux/rust_elementary_II.md","articles":[]},{"title":"Rust Elementary III","level":"2.1.3","depth":2,"path":"linux/rust_elementary_III.md","ref":"linux/rust_elementary_III.md","articles":[]},{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"path":"linux/rust_elementary_IV.md","ref":"linux/rust_elementary_IV.md","articles":[]},{"title":"Rust Elementary V","level":"2.1.5","depth":2,"path":"linux/rust_elementary_V.md","ref":"linux/rust_elementary_V.md","articles":[]},{"title":"Rust Elementary VI","level":"2.1.6","depth":2,"path":"linux/rust_elementary_VI.md","ref":"linux/rust_elementary_VI.md","articles":[]},{"title":"Docker Sources Switch","level":"2.1.7","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]}]},"previous":{"title":"FuzzInMem: Fuzzing Programs via In-memory Structures","level":"1.2.15","depth":2,"path":"papers/FuzzInMem.md","ref":"papers/FuzzInMem.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"papers/AFLpp.md","mtime":"2025-03-25T15:10:13.467Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-03-25T15:11:13.656Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

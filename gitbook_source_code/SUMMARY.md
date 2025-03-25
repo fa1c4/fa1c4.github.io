@@ -23,6 +23,7 @@
   * [Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis](papers/K_Scheduler.md)
   * [Boosting Fuzzer Efficiency: An Information Theoretic Perspective](papers/entropic.md)
   * [FuzzInMem: Fuzzing Programs via In-memory Structures](papers/FuzzInMem.md)
+  * [AFL++: Combining Incremental Steps of Fuzzing Research](papers/AFLpp.md)
 
 
 
@@ -43,7 +44,7 @@
   * [FuzzBench Build](fuzzing/fuzzbench_build.md)
   <!-- * [Magma new Fuzzer](fuzzing/magma_new_fuzzer.md) -->
   * [Fuzzbench new Fuzzer](fuzzing/fuzzbench_new_fuzzer.md)
-
+  <!-- * [AFL++ new Fuzzer](fuzzing/aflpp_new_fuzzer.md) -->
 
 
 * [Pwn](pwn/index.md)
