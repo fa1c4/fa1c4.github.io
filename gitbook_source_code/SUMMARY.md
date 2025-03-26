@@ -24,6 +24,7 @@
   * [Boosting Fuzzer Efficiency: An Information Theoretic Perspective](papers/entropic.md)
   * [FuzzInMem: Fuzzing Programs via In-memory Structures](papers/FuzzInMem.md)
   * [AFL++: Combining Incremental Steps of Fuzzing Research](papers/AFLpp.md)
+  * [Fuzzing with Data Dependency Information](papers/DDFuzz.md)
 
 
 

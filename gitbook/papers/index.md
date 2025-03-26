@@ -7,6 +7,7 @@
 * [DSFuzz: Detecting Deep State Bugs with Dependent State Exploration](DSFuzz.md)
 * [Seed Selection for Successful Fuzzing](Seed_Selection.md)
 * [FuzzInMem: Fuzzing Programs via In-memory Structures](FuzzInMem.md)
+* [Fuzzing with Data Dependency Information](DDFuzz.md)
 
 
 
