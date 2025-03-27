@@ -25,6 +25,7 @@
   * [FuzzInMem: Fuzzing Programs via In-memory Structures](papers/FuzzInMem.md)
   * [AFL++: Combining Incremental Steps of Fuzzing Research](papers/AFLpp.md)
   * [Fuzzing with Data Dependency Information](papers/DDFuzz.md)
+  * [Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing](papers/Hier.md)
 
 
 
