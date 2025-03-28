@@ -1,0 +1,913 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../linux/" />
+    
+    
+    <link rel="prev" href="Hier.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="FOX.html">
+            
+                <a href="FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="On_Understanding.html">
+            
+                <a href="On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="autofz.html">
+            
+                <a href="autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="Fuzz_to_the_Future.html">
+            
+                <a href="Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="DSFuzz.html">
+            
+                <a href="DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="Rubick.html">
+            
+                <a href="Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="Fuzz4All.html">
+            
+                <a href="Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="kag.html">
+            
+                <a href="kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="graphuzz.html">
+            
+                <a href="graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="Seed_Selection.html">
+            
+                <a href="Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="belieffuzz.html">
+            
+                <a href="belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="K_Scheduler.html">
+            
+                <a href="K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="entropic.html">
+            
+                <a href="entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="FuzzInMem.html">
+            
+                <a href="FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="AFLpp.html">
+            
+                <a href="AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="DDFuzz.html">
+            
+                <a href="DDFuzz.html">
+            
+                    
+                    Fuzzing with Data Dependency Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="Hier.html">
+            
+                <a href="Hier.html">
+            
+                    
+                    Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.19" data-path="LLM_Fuzzing_BusyBox.html">
+            
+                <a href="LLM_Fuzzing_BusyBox.html">
+            
+                    
+                    Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                <a href="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../fuzzing/fuzzbench_build.html">
+            
+                <a href="../fuzzing/fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                <a href="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="fuzzing-busybox-leveraging-llm-and-crash-reuse-for-embedded-bug-unearthing-usenix-2024">Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing [USENIX 2024]</h1>
+<p><img src="assets/image-20250328094559963.png" alt="image-20250328094559963"></p>
+<p>BusyBox &#x662F;&#x5C06; 300 &#x591A;&#x4E2A; Linux &#x5FC5;&#x5907;&#x547D;&#x4EE4;&#x6253;&#x5305;&#x6210;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;, &#x5728;&#x57FA;&#x4E8E; Linux &#x7684;&#x5D4C;&#x5165;&#x5F0F;&#x8BBE;&#x5907;&#x4E2D;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;. &#x7814;&#x7A76;&#x63ED;&#x793A;&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x5D4C;&#x5165;&#x5F0F;&#x4EA7;&#x54C1;&#x4E2D;, &#x65E7;&#x7248;&#x672C;&#x7684; BusyBox &#x5E7F;&#x6CDB;&#x5B58;&#x5728;, &#x8FD9;&#x4FC3;&#x4F7F;&#x6211;&#x4EEC;&#x5BF9; BusyBox &#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. &#x5728;&#x672C;&#x7814;&#x7A76;&#x4E2D;, &#x4F5C;&#x8005;&#x63D0;&#x51FA;&#x4E24;&#x79CD;&#x5F3A;&#x5316;&#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;&#x7684;&#x6280;&#x672F;. &#x7B2C;&#x4E00;&#x79CD;&#x6280;&#x672F;&#x901A;&#x8FC7;&#x5229;&#x7528;&#x5927;&#x578B;&#x8BED;&#x8A00;&#x6A21;&#x578B; (LLM) &#x751F;&#x6210;&#x7279;&#x5B9A;&#x76EE;&#x6807;&#x7684;&#x521D;&#x59CB;&#x79CD;&#x5B50;, &#x4ECE;&#x800C;&#x589E;&#x5F3A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. &#x7814;&#x7A76;&#x8868;&#x660E;, &#x5728;&#x4F7F;&#x7528; LLM &#x751F;&#x6210;&#x7684;&#x521D;&#x59CB;&#x79CD;&#x5B50;&#x65F6;, &#x5D29;&#x6E83;&#x6570;&#x91CF;&#x5927;&#x5E45;&#x589E;&#x52A0;, &#x7A81;&#x663E; LLM &#x5728;&#x9AD8;&#x6548;&#x5904;&#x7406;&#x901A;&#x5E38;&#x9700;&#x8981;&#x5927;&#x91CF;&#x4EBA;&#x5DE5;&#x7684;&#x76EE;&#x6807;&#x7279;&#x5B9A;&#x521D;&#x59CB;&#x79CD;&#x5B50;&#x751F;&#x6210;&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x6F5C;&#x529B;. &#x7B2C;&#x4E8C;&#x79CD;&#x6280;&#x672F;&#x662F;&#x5728;&#x5BF9;&#x65B0;&#x76EE;&#x6807;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E4B;&#x524D;, &#x91CD;&#x65B0;&#x5229;&#x7528;&#x4ECE;&#x76F8;&#x4F3C;&#x6A21;&#x7CCA;&#x76EE;&#x6807;&#x4E2D;&#x83B7;&#x53D6;&#x7684;&#x5D29;&#x6E83;&#x6570;&#x636E;. &#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x901A;&#x8FC7;&#x5728;&#x5F00;&#x59CB;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E4B;&#x524D;&#x76F4;&#x63A5;&#x5C06;&#x5D29;&#x6E83;&#x6570;&#x636E;&#x63D0;&#x4F9B;&#x7ED9;&#x65B0;&#x76EE;&#x6807;, &#x4ECE;&#x800C;&#x7B80;&#x5316;&#x8D39;&#x65F6;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;. &#x4F5C;&#x8005;&#x6210;&#x529F;&#x5730;&#x5728;&#x6700;&#x65B0;&#x7684; BusyBox &#x76EE;&#x6807;&#x4E2D;&#x8BC6;&#x522B;&#x51FA;&#x5D29;&#x6E83;, &#x800C;&#x65E0;&#x9700;&#x8FDB;&#x884C;&#x4F20;&#x7EDF;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;, &#x5F3A;&#x8C03; LLM &#x548C;&#x5D29;&#x6E83;&#x6570;&#x636E;&#x91CD;&#x7528;&#x6280;&#x672F;&#x5728;&#x589E;&#x5F3A;&#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;&#x548C;&#x63D0;&#x9AD8;&#x5D4C;&#x5165;&#x5F0F;&#x7CFB;&#x7EDF;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x65B9;&#x9762;&#x7684;&#x6709;&#x6548;&#x6027;. </p>
+<h2 id="contributions">Contributions</h2>
+<p><img src="assets/image-20250328100545463.png" alt="image-20250328100545463" style="zoom: 80%;"></p>
+<ol>
+<li>&#x8BC6;&#x522B;&#x4ECD;&#x5728;&#x5546;&#x4E1A;&#x5D4C;&#x5165;&#x5F0F;&#x8BBE;&#x5907;&#x4E2D;&#x4F7F;&#x7528;&#x7684; BusyBox &#x7248;&#x672C;, &#x5F3A;&#x8C03;&#x66F4;&#x65B0;&#x8FD9;&#x4E9B;&#x7248;&#x672C;&#x7684;&#x5FC5;&#x8981;&#x6027;</li>
+<li>&#x5B9E;&#x73B0;&#x57FA;&#x4E8E;&#x5927;&#x578B;&#x8BED;&#x8A00;&#x6A21;&#x578B; (LLM) &#x7684;&#x79CD;&#x5B50;&#x751F;&#x6210;, &#x901A;&#x8FC7;&#x5229;&#x7528; LLM &#x751F;&#x6210;&#x76EE;&#x6807;&#x7279;&#x5B9A;&#x7684;&#x521D;&#x59CB;&#x79CD;&#x5B50;&#x6765;&#x589E;&#x5F3A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;, &#x8FDB;&#x800C;&#x5B9E;&#x73B0;&#x66F4;&#x5FEB;&#x901F;&#x3001;&#x66F4;&#x9AD8;&#x6548;&#x7684;&#x79CD;&#x5B50;&#x751F;&#x6210;, &#x66F4;&#x591A;&#x7684;&#x5D29;&#x6E83;&#x4EE5;&#x53CA;&#x66F4;&#x591A;&#x7684;&#x9009;&#x9879;&#x6765;&#x8FDB;&#x884C;&#x6F0F;&#x6D1E;&#x7B5B;&#x9009;. &#x4F5C;&#x8005;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x81EA;&#x52A8;&#x5316;&#x811A;&#x672C;, &#x53EF;&#x4EE5;&#x5BF9;&#x5927;&#x91CF;&#x7684; BusyBox &#x76EE;&#x6807;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;, &#x65E0;&#x9700;&#x4EBA;&#x5DE5;&#x5E72;&#x9884;, &#x4E14;&#x8BE5;&#x811A;&#x672C;&#x5F00;&#x6E90;: <a href="https://github.com/asmitaj08/FuzzingBusyBox_LLM" target="_blank">https://github.com/asmitaj08/FuzzingBusyBox_LLM</a></li>
+<li>&#x63D0;&#x51FA;&#x5D29;&#x6E83;&#x91CD;&#x7528;&#x4F5C;&#x4E3A;&#x9996;&#x6B21;&#x6F0F;&#x6D1E;&#x53D1;&#x73B0;&#x7B56;&#x7565;, &#x8BE5;&#x7B56;&#x7565;&#x5C06;&#x5D29;&#x6E83;&#x8F93;&#x5165;&#x91CD;&#x7528;&#x4E8E;&#x4E0D;&#x540C;&#x7684;&#x7A0B;&#x5E8F;&#x53D8;&#x79CD;, &#x4EE5;&#x4FBF;&#x5728;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;&#x6761;&#x4EF6;&#x4E0B;&#x5FEB;&#x901F;&#x627E;&#x5230;&#x91CD;&#x590D;&#x7684;&#x6F0F;&#x6D1E;</li>
+<li>&#x5728;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684; BusyBox &#x4E2D;&#x7684; awk &#x5C0F;&#x7A0B;&#x5E8F;&#x4E2D;&#x8BC6;&#x522B;&#x4E86;&#x5D29;&#x6E83;, &#x5E76;&#x8FDB;&#x884C;&#x624B;&#x52A8;&#x5D29;&#x6E83;&#x5206;&#x7C7B;, &#x4EE5;&#x786E;&#x5B9A;&#x5B83;&#x4EEC;&#x662F;&#x6E90;&#x81EA; BusyBox &#x8FD8;&#x662F;&#x5E95;&#x5C42;&#x5E93;&#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x9879;. &#x968F;&#x540E;&#x5C06;&#x8FD9;&#x4E9B;&#x6280;&#x672F;&#x5E94;&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x5C0F;&#x7A0B;&#x5E8F;, &#x5305;&#x62EC; dc&#x3001;man &#x548C; ash</li>
+</ol>
+<h2 id="methods">Methods</h2>
+<h3 id="analyzing-busybox-versions-in-real-world-products">Analyzing BusyBox Versions in Real-World Products</h3>
+<p>&#x4F5C;&#x8005;&#x5BF9;&#x65E7;&#x7248;&#x672C; BusyBox &#x5728;&#x73B0;&#x5B9E;&#x4EA7;&#x54C1;&#x4E2D;&#x7684;&#x666E;&#x53CA;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x7B80;&#x8981;&#x8C03;&#x67E5;. &#x4E3A;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x76EE;&#x6807;, &#x5229;&#x7528;&#x516C;&#x53F8;&#x63D0;&#x4F9B;&#x7684;&#x4E13;&#x6709;&#x56FA;&#x4EF6;&#x6570;&#x636E;&#x96C6;. &#x8BE5;&#x6570;&#x636E;&#x96C6;&#x901A;&#x8FC7;&#x516C;&#x53F8;&#x7684;&#x5E73;&#x53F0;&#x8FDB;&#x884C;&#x7B56;&#x5212;, &#x5E76;&#x4F7F;&#x7528;&#x8BE5;&#x5E73;&#x53F0;&#x63D0;&#x53D6;&#x6536;&#x96C6;&#x5230;&#x7684;&#x56FA;&#x4EF6;&#x6837;&#x672C;. &#x5728;&#x8FD9;&#x4E9B;&#x63D0;&#x53D6;&#x7684;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;, &#x8BC6;&#x522B; BusyBox ELF &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;. &#x5728;&#x63D0;&#x4F9B;&#x7684;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5C0F;&#x8303;&#x56F4;&#x5185;, &#x8BC6;&#x522B;&#x5206;&#x5E03;&#x5728;&#x5404;&#x79CD;&#x73B0;&#x5B9E;&#x56FA;&#x4EF6;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x4E2D;&#x7684; 293 &#x4E2A; BusyBox ELF &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;. &#x5728;&#x5206;&#x6790;&#x8303;&#x56F4;&#x5185;, &#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x7EA6; 80 &#x4E2A;&#x6765;&#x81EA; ARM_32 &#x548C; x86_64 &#x67B6;&#x6784;&#x7684; ELF &#x6587;&#x4EF6;, &#x5176;&#x4E2D;&#x5305;&#x542B; 30 &#x4E2A;&#x4E0D;&#x540C;&#x7684; BusyBox &#x53D8;&#x79CD;. &#x6BCF;&#x4E2A; BusyBox ELF &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x90FD;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x72EC;&#x7279;&#x7684;&#x6587;&#x4EF6;&#x54C8;&#x5E0C;&#x540D;&#x79F0;. &#x4E3A;&#x4ECE;&#x8FD9;&#x4E9B;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x4E2D;&#x63D0;&#x53D6;&#x7248;&#x672C;&#x4FE1;&#x606F;, &#x4F5C;&#x8005;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684; Python &#x811A;&#x672C;, &#x8BE5;&#x811A;&#x672C;&#x4F7F;&#x7528;&#x547D;&#x4EE4;: <code>strings $busybox_file | grep &#x2019;BusyBox v&#x2019;</code> &#x6765;&#x626B;&#x63CF;&#x6BCF;&#x4E2A; ELF &#x6587;&#x4EF6;&#x4E2D;&#x7684; <code>BusyBox v</code> &#x5B57;&#x7B26;&#x4E32;. &#x6B64;&#x5916;&#x8FD8;&#x91C7;&#x7528;&#x57FA;&#x4E8E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x7248;&#x672C;&#x6A21;&#x5F0F;&#x5339;&#x914D;&#x6280;&#x672F;&#x6765;&#x63D0;&#x53D6;&#x7248;&#x672C;&#x4FE1;&#x606F;. &#x4F5C;&#x8005;&#x8BC6;&#x522B;&#x51FA;&#x7684;&#x8FD9; 80 &#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x88AB;&#x7528;&#x4F5C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5B9E;&#x9A8C;&#x548C;&#x5D29;&#x6E83;&#x91CD;&#x7528;&#x5206;&#x6790;&#x7684;&#x6570;&#x636E;&#x96C6;. </p>
+<h3 id="leveraging-llms-for-initial-seed-generation">Leveraging LLMs for Initial Seed Generation</h3>
+<p>&#x9488;&#x5BF9; x86 &#x67B6;&#x6784;&#x7F16;&#x8BD1;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5728; Ubuntu x86_64 &#x4E0A;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;, &#x9488;&#x5BF9; ARM &#x67B6;&#x6784;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x5219;&#x5728; QEMU &#x4EFF;&#x771F;&#x5668;&#x4E2D;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;. &#x516C;&#x53F8;&#x7684;&#x5E73;&#x53F0;&#x6B64;&#x524D;&#x5DF2;&#x63D0;&#x53D6;&#x76EE;&#x6807;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x5B8C;&#x6574;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;, &#x5176;&#x4E2D;&#x5305;&#x542B;&#x6240;&#x9700;&#x7684;&#x4F9D;&#x8D56;&#x6587;&#x4EF6;. &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x7684;&#x53C2;&#x6570;&#x7531;&#x7528;&#x6237;&#x5B9A;&#x4E49;, &#x5305;&#x62EC;&#x521D;&#x59CB;&#x8F93;&#x5165;&#x96C6;&#x3001;&#x9700;&#x8981;&#x8BBE;&#x7F6E;&#x7684; AFL &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x4EE5;&#x53CA;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7EC8;&#x6B62;&#x6807;&#x51C6;. &#x8FD9;&#x4E9B;&#x6807;&#x51C6;&#x5305;&#x62EC;&#x7EDF;&#x8BA1;&#x6307;&#x6807;, &#x5982;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x3001;&#x5D29;&#x6E83;&#x6570;&#x91CF;&#x3001;&#x5FAA;&#x73AF;&#x6B21;&#x6570;&#x548C;&#x5176;&#x4ED6;&#x76F8;&#x5173;&#x56E0;&#x7D20;. &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x7684;&#x7ED3;&#x679C;&#x4F1A;&#x88AB;&#x5355;&#x72EC;&#x5B58;&#x50A8;, &#x5E76;&#x6309;&#x5404;&#x81EA;&#x76EE;&#x6807;&#x8FDB;&#x884C;&#x5206;&#x7C7B;, &#x4EE5;&#x4FBF;&#x540E;&#x7EED;&#x5206;&#x6790;. &#x5931;&#x8D25;&#x7684;&#x76EE;&#x6807;&#x4F1A;&#x88AB;&#x6807;&#x8BB0;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x68C0;&#x67E5;&#x548C;&#x8BCA;&#x65AD;. &#x6B64;&#x5916;, &#x8FD8;&#x4F1A;&#x6536;&#x96C6;&#x4E0E;&#x6BCF;&#x4E2A;&#x76EE;&#x6807;&#x5BF9;&#x5E94;&#x7684;&#x7EDF;&#x8BA1;&#x6587;&#x4EF6;&#x7684; JSON &#x8F6C;&#x50A8;, &#x5E76;&#x5B58;&#x50A8;&#x5728;&#x5171;&#x4EAB;&#x76EE;&#x5F55;&#x4E2D;, &#x4FBF;&#x4E8E;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x548C;&#x5206;&#x6790;. &#x56FE; 2 &#x5C55;&#x793A;&#x6846;&#x67B6;&#x6574;&#x4F53;&#x5DE5;&#x4F5C;&#x6D41;&#x7A0B;, &#x4ECE;&#x4F9D;&#x8D56;&#x6027;&#x7BA1;&#x7406;&#x5230;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x548C;&#x7ED3;&#x679C;&#x6536;&#x96C6;&#x7684;&#x6B65;&#x9AA4;&#x987A;&#x5E8F;. </p>
+<p><img src="assets/image-20250328111721461.png" alt="image-20250328111721461"></p>
+<p>&#x56FE; 3 &#x5C55;&#x793A;&#x901A;&#x8FC7; LLM &#x751F;&#x6210;&#x521D;&#x59CB;&#x79CD;&#x5B50;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x65B9;&#x6CD5;. &#x5728;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x9700;&#x8981;&#x751F;&#x6210;&#x521D;&#x59CB;&#x79CD;&#x5B50;: &#x5F53;&#x76EE;&#x6807;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x5DF2;&#x660E;&#x786E;&#x548C; / &#x6216;&#x6807;&#x51C6;&#x5316;&#x65F6;, &#x4EE5;&#x53CA;&#x5F53;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x5B9A;&#x4E49;&#x6216;&#x672A;&#x77E5;&#x65F6;. &#x5F53;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x660E;&#x786E;&#x65F6;, LLM &#x4E0D;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x8BAD;&#x7EC3;, &#x56E0;&#x4E3A;&#x5B83;&#x5DF2;&#x7ECF;&#x901A;&#x8FC7;&#x521D;&#x6B65;&#x7684;&#x4E92;&#x8054;&#x7F51;&#x8BAD;&#x7EC3;&#x4E86;&#x89E3;&#x4E86;&#x9884;&#x671F;&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;. &#x7136;&#x800C;, &#x5F53;&#x76EE;&#x6807;&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x4E0D;&#x660E;&#x786E;&#x6216;&#x672A;&#x77E5;&#x65F6;, &#x5982;&#x81EA;&#x5B9A;&#x4E49;&#x901A;&#x4FE1;&#x534F;&#x8BAE;, LLM &#x5219;&#x9700;&#x8981;&#x5FAE;&#x8C03;. &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;, LLM &#x9700;&#x8981;&#x4F7F;&#x7528;&#x5DF2;&#x77E5;&#x6837;&#x672C;&#x8FDB;&#x884C;&#x521D;&#x6B65;&#x8BAD;&#x7EC3;, &#x4EE5;&#x4FBF;&#x7406;&#x89E3;&#x9884;&#x671F;&#x7684;&#x8F93;&#x5165;&#x683C;&#x5F0F;. &#x5728; BusyBox awk &#x5C0F;&#x7A0B;&#x5E8F;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;, GPT-4 &#x5DF2;&#x7ECF;&#x4E86;&#x89E3;&#x8F93;&#x5165;&#x683C;&#x5F0F;. &#x56E0;&#x6B64;, &#x4F5C;&#x8005;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x5FAE;&#x8C03; (<del>&#x672C;&#x6765;&#x5C31;&#x5FAE;&#x8C03;&#x4E0D;&#x4E86;</del>). </p>
+<p><img src="assets/image-20250328122608352.png" alt="image-20250328122608352"></p>
+<p>&#x5728;&#x79CD;&#x5B50;&#x751F;&#x6210;&#x65B9;&#x9762;, &#x63D0;&#x4F9B;&#x4EE5;&#x4E0B;&#x63D0;&#x793A;&#x6765;&#x5F15;&#x5BFC; awk &#x7684;&#x79CD;&#x5B50;&#x751F;&#x6210;&#x8FC7;&#x7A0B;: </p>
+<pre><code class="lang-json"><span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;system&quot;</span>, 
+<span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;You are initial seed generator for a fuzzer that has to fuzz BusyBox awk applet. In response only provide the list of awk scripts&quot;</span> 
+<span class="hljs-string">&quot;role&quot;</span>: <span class="hljs-string">&quot;user&quot;</span>, 
+<span class="hljs-string">&quot;content&quot;</span>: <span class="hljs-string">&quot;Generate initial seed to fuzz BusyBox awk applet&quot;</span>
+</code></pre>
+<p>LLM &#x8FD4;&#x56DE;&#x7684;&#x7ED3;&#x679C;&#x5904;&#x7406;&#x540E;, &#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x8BED;&#x6599;&#x5E93;&#x4F5C;&#x4E3A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x7684;&#x521D;&#x59CB;&#x79CD;&#x5B50;&#x96C6;. </p>
+<h3 id="crash-reuse">Crash Reuse</h3>
+<p>&#x5D29;&#x6E83;&#x91CD;&#x7528;&#x5728;&#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;&#x4E2D;&#x63D0;&#x4F9B;&#x51E0;&#x4E2A;&#x4F18;&#x52BF;: </p>
+<ol>
+<li><strong>&#x6548;&#x7387;</strong>: &#x6700;&#x521D;&#x901A;&#x8FC7;&#x5C06;&#x65B0;&#x76EE;&#x6807;&#x4E0E;&#x6574;&#x5408;&#x7684;&#x5D29;&#x6E83;&#x6570;&#x636E;&#x5E93;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#x6D4B;&#x8BD5;, &#x6709;&#x53EF;&#x80FD;&#x663E;&#x8457;&#x8282;&#x7701;&#x65F6;&#x95F4;&#x548C;&#x8D44;&#x6E90;. &#x901A;&#x8FC7;&#x5229;&#x7528;&#x5728;&#x5BF9;&#x76F8;&#x4F3C;&#x76EE;&#x6807;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x65F6;&#x53D1;&#x73B0;&#x7684;&#x5D29;&#x6E83;, &#x53EF;&#x4EE5;&#x5C06;&#x4E4B;&#x524D;&#x5728;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x6295;&#x5165;&#x7684;&#x8D44;&#x6E90;&#x52A0;&#x4EE5;&#x5229;&#x7528;, &#x5E76;&#x901A;&#x8FC7;&#x5C06;&#x8FD9;&#x4E9B;&#x5D29;&#x6E83;&#x5305;&#x542B;&#x5728;&#x672A;&#x6765;&#x7684;&#x79CD;&#x5B50;&#x4E2D;, &#x6765;&#x52A0;&#x901F;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x7684;&#x8986;&#x76D6;&#x7387;&#x63A2;&#x7D22;. &#x56E0;&#x6B64;, &#x53EF;&#x4EE5;&#x5728;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x5E7F;&#x6CDB;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x6F5C;&#x5728;&#x5730;&#x8BC6;&#x522B;&#x65B0;&#x53D8;&#x79CD;&#x4E2D;&#x5DF2;&#x7ECF;&#x53D1;&#x73B0;&#x7684;&#x5D29;&#x6E83;</li>
+<li><strong>&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;</strong>: &#x8FD9;&#x79CD;&#x6280;&#x672F;&#x5728;&#x5BF9;&#x4E4B;&#x524D;&#x5DF2;&#x6D4B;&#x8BD5;&#x8FC7;&#x7684;&#x76EE;&#x6807;&#x7684;&#x65B0;&#x53D8;&#x79CD;&#x8FDB;&#x884C;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;&#x65F6;&#x975E;&#x5E38;&#x6709;&#x7528;. &#x5B83;&#x5728;&#x76EE;&#x6807;&#x4F7F;&#x7528;&#x53EF;&#x8BBF;&#x95EE;&#x6216;&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;&#x7EC4;&#x4EF6;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5C24;&#x4E3A;&#x4F18;&#x52BF;, &#x5373;&#x4F7F;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x7EC6;&#x8282;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;. &#x901A;&#x8FC7;&#x5BF9;&#x5F00;&#x6E90;&#x53D8;&#x79CD;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;, &#x6536;&#x96C6;&#x5D29;&#x6E83;&#x8F93;&#x5165;, &#x5E76;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x9AD8;&#x8D28;&#x91CF;&#x7684;&#x79CD;&#x5B50;, &#x8FD9;&#x4E9B;&#x79CD;&#x5B50;&#x53EF;&#x80FD;&#x6709;&#x52A9;&#x4E8E;&#x53D1;&#x73B0;&#x91CD;&#x590D;&#x7684;&#x6F0F;&#x6D1E;. &#x8FD9;&#x6BD4;&#x8FDB;&#x884C;&#x8D44;&#x6E90;&#x5BC6;&#x96C6;&#x578B;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x9ED1;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x66F4;&#x4E3A;&#x53EF;&#x53D6;, &#x56E0;&#x4E3A;&#x6839;&#x636E;&#x88AB;&#x6D4B;&#x8BD5;&#x7CFB;&#x7EDF;&#x7684;&#x590D;&#x6742;&#x6027;, &#x8FD9;&#x79CD;&#x6D4B;&#x8BD5;&#x53EF;&#x80FD;&#x975E;&#x5E38;&#x56F0;&#x96BE;</li>
+</ol>
+<p>&#x56FE; 4 &#x5C55;&#x793A;&#x5D29;&#x6E83;&#x91CD;&#x7528;&#x65B9;&#x6CD5;. &#x4F5C;&#x8005;&#x79EF;&#x6781;&#x7B56;&#x5212;&#x4E00;&#x4E2A;&#x5D29;&#x6E83;&#x6570;&#x636E;&#x5E93;, &#x6536;&#x96C6;&#x4ECE;&#x5148;&#x524D;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7684;&#x8F6F;&#x4EF6;&#x7EC4;&#x4EF6;&#x4E2D;&#x83B7;&#x5F97;&#x7684;&#x5D29;&#x6E83;&#x6570;&#x636E;. &#x7136;&#x540E;, &#x5728;&#x672A;&#x6765;&#x9047;&#x5230;&#x8FD9;&#x4E9B;&#x8F6F;&#x4EF6;&#x7EC4;&#x4EF6;&#x7684;&#x53D8;&#x79CD;&#x65F6;, &#x5229;&#x7528;&#x5DF2;&#x6536;&#x96C6;&#x7684;&#x5D29;&#x6E83;&#x6570;&#x636E;&#x6765;&#x8BC6;&#x522B;&#x65B0;&#x53D8;&#x79CD;&#x4E2D;&#x7684;&#x6F5C;&#x5728;&#x95EE;&#x9898;, &#x800C;&#x65E0;&#x9700;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. &#x8FD9;&#x6837;, &#x80FD;&#x5FEB;&#x901F;&#x5BF9;&#x65B0;&#x76EE;&#x6807;&#x8FDB;&#x884C;&#x521D;&#x6B65;&#x8BC4;&#x4F30;, &#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x66F4;&#x6DF1;&#x5165;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4EE5;&#x8FDB;&#x884C;&#x8BE6;&#x7EC6;&#x68C0;&#x67E5;.</p>
+<p><img src="assets/image-20250328125509795.png" alt="image-20250328125509795"></p>
+<h3 id="evaluating-a-new-target">Evaluating a New Target</h3>
+<p>&#x6D4B;&#x8BD5;&#x6700;&#x65B0;&#x7248;&#x672C; BusyBox &#x7684;&#x65B9;&#x6CD5;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x9636;&#x6BB5;, &#x4EE5;&#x6709;&#x6548;&#x5730;&#x5229;&#x7528;&#x8FD9;&#x4E24;&#x79CD;&#x6280;&#x672F;: </p>
+<p><strong>&#x9636;&#x6BB5; 1: &#x5D29;&#x6E83;&#x91CD;&#x7528;</strong>
+&#x5728;&#x6B64;&#x9636;&#x6BB5;, &#x5E94;&#x7528;&#x5D29;&#x6E83;&#x91CD;&#x7528;&#x6280;&#x672F;. &#x8FD9;&#x4E00;&#x6280;&#x672F;&#x6D89;&#x53CA;&#x5C06;&#x6700;&#x65B0;&#x7248;&#x672C;&#x4E0E;&#x6211;&#x4EEC;&#x7814;&#x7A76;&#x4E2D;&#x83B7;&#x5F97;&#x7684;&#x6240;&#x6709;&#x5D29;&#x6E83;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#x6D4B;&#x8BD5;, &#x800C;&#x4E0D;&#x8FDB;&#x884C;&#x989D;&#x5916;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. &#x76EE;&#x6807;&#x662F;&#x786E;&#x5B9A;&#x67D0;&#x4E9B;&#x5DF2;&#x6709;&#x7684;&#x5D29;&#x6E83;&#x662F;&#x5426;&#x80FD;&#x5BFC;&#x81F4;&#x6700;&#x65B0;&#x7248;&#x672C;&#x7684; BusyBox &#x5D29;&#x6E83;, &#x5373;&#x5728;&#x4E0D;&#x8FDB;&#x884C;&#x6570;&#x5C0F;&#x65F6;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6269;&#x5C55;&#x6F0F;&#x6D1E;&#x53D1;&#x73B0;&#x7684;&#x8303;&#x56F4;</p>
+<p><strong>&#x9636;&#x6BB5; 2: &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</strong>
+&#x7B2C;&#x4E8C;&#x9636;&#x6BB5;, &#x4F7F;&#x7528; GPT-4 &#x751F;&#x6210;&#x7684;&#x521D;&#x59CB;&#x79CD;&#x5B50;, &#x5728; AFL-QEMU &#x6A21;&#x5F0F;&#x4E0B;&#x5BF9;&#x76EE;&#x6807;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;, &#x76EE;&#x7684;&#x662F;&#x63ED;&#x793A;&#x989D;&#x5916;&#x7684;&#x6F5C;&#x5728;&#x5D29;&#x6E83;&#x548C;&#x6F0F;&#x6D1E;. &#x5728;&#x8FD0;&#x884C; Ubuntu 22.04 &#x7684; x86_64 &#x4E3B;&#x673A;&#x4E0A;&#x5BF9;&#x6700;&#x65B0;&#x7684; BusyBox &#x8FDB;&#x884C; 10 &#x5C0F;&#x65F6;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</p>
+<p>&#x5728;&#x6D4B;&#x8BD5;&#x9636;&#x6BB5;&#x540E;, &#x5206;&#x6790;&#x6536;&#x96C6;&#x5230;&#x7684;&#x5D29;&#x6E83;&#x6570;&#x636E;, &#x4EE5;&#x8BC6;&#x522B;&#x72EC;&#x7279;&#x7684;&#x5D29;&#x6E83;, &#x786E;&#x5B9A;&#x6839;&#x672C;&#x539F;&#x56E0;, &#x5E76;&#x67E5;&#x660E;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#x662F;&#x5426;&#x5728;&#x4EE5;&#x524D;&#x5DF2;&#x88AB;&#x8BB0;&#x5F55;. &#x6839;&#x636E;&#x7814;&#x7A76;&#x60C5;&#x51B5;, <strong>&#x5C1A;&#x4E0D;&#x5B58;&#x5728;&#x80FD;&#x591F;&#x53EF;&#x9760;&#x4E14;&#x5168;&#x9762;&#x5730;&#x5206;&#x6790;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5F15;&#x53D1;&#x7684;&#x5D29;&#x6E83;&#x7684;&#x5B8C;&#x5168;&#x81EA;&#x52A8;&#x5316;&#x5DE5;&#x5177;</strong>, &#x56E0;&#x6B64;&#x5DE5;&#x5177;&#x8F85;&#x52A9;&#x7684;&#x4EBA;&#x5DE5;&#x5206;&#x6790;&#x6210;&#x4E3A;&#x6700;&#x53EF;&#x9760;&#x7684;&#x8C03;&#x67E5;&#x65B9;&#x6CD5;. &#x56FE; 5 &#x5C55;&#x793A;&#x5D29;&#x6E83;&#x5206;&#x7C7B;&#x8FC7;&#x7A0B;&#x7684;&#x6982;&#x89C8;. </p>
+<p><img src="assets/image-20250328133734198.png" alt="image-20250328133734198"></p>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="busybox-versions-in-real-world-embedded-devices">BusyBox Versions in Real-World Embedded Devices</h3>
+<p><img src="assets/image-20250328134553992.png" alt="image-20250328134553992"></p>
+<h3 id="leveraging-llms-for-initial-seed-generation">Leveraging LLMs for Initial Seed Generation</h3>
+<p><img src="assets/image-20250328134650997.png" alt="image-20250328134650997"></p>
+<p><img src="assets/image-20250328134735196.png" alt="image-20250328134735196"></p>
+<h3 id="crash-reuse">Crash Reuse</h3>
+<p><img src="assets/image-20250328134850942.png" alt="image-20250328134850942"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Hier.html" class="navigation navigation-prev " aria-label="Previous page: Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../linux/" class="navigation navigation-next " aria-label="Next page: Linux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing","level":"1.2.19","depth":2,"next":{"title":"Linux","level":"2.1","depth":1,"path":"linux/index.md","ref":"linux/index.md","articles":[{"title":"Rust Elementary I","level":"2.1.1","depth":2,"path":"linux/rust_elementary_I.md","ref":"linux/rust_elementary_I.md","articles":[]},{"title":"Rust Elementary II","level":"2.1.2","depth":2,"path":"linux/rust_elementary_II.md","ref":"linux/rust_elementary_II.md","articles":[]},{"title":"Rust Elementary III","level":"2.1.3","depth":2,"path":"linux/rust_elementary_III.md","ref":"linux/rust_elementary_III.md","articles":[]},{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"path":"linux/rust_elementary_IV.md","ref":"linux/rust_elementary_IV.md","articles":[]},{"title":"Rust Elementary V","level":"2.1.5","depth":2,"path":"linux/rust_elementary_V.md","ref":"linux/rust_elementary_V.md","articles":[]},{"title":"Rust Elementary VI","level":"2.1.6","depth":2,"path":"linux/rust_elementary_VI.md","ref":"linux/rust_elementary_VI.md","articles":[]},{"title":"Docker Sources Switch","level":"2.1.7","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]}]},"previous":{"title":"Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing","level":"1.2.18","depth":2,"path":"papers/Hier.md","ref":"papers/Hier.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"papers/LLM_Fuzzing_BusyBox.md","mtime":"2025-03-28T05:49:02.188Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-03-28T05:52:17.896Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -31,6 +31,7 @@
 * [On Understanding and Forecasting Fuzzers Performance with Static Analysis](On_Understanding.md)
 * [Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation](Rubick.md)
 * [Fuzz4All: Universal Fuzzing with Large Language Models](Fuzz4All.md)
+* [Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing](LLM_Fuzzing_BusyBox.md)
 
 
 
