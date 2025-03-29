@@ -13,6 +13,7 @@
 
 ## Main List of AI
 * [KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation](kag.md)
+* [LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders](llm2vec.md)
 
 
 

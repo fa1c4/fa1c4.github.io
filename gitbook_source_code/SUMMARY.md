@@ -27,6 +27,7 @@
   * [Fuzzing with Data Dependency Information](papers/DDFuzz.md)
   * [Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing](papers/Hier.md)
   * [Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing](papers/LLM_Fuzzing_BusyBox.md)
+  * [LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders](papers/llm2vec.md)
 
 
 
