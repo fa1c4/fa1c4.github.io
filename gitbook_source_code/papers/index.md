@@ -25,6 +25,7 @@
 ## Elementary Theory
 * [FOX: Coverage-guided Fuzzing as Online Stochastic Control](FOX.md)
 * [Boosting Fuzzer Efficiency: An Information Theoretic Perspective](entropic.md)
+* [SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection](ShapFuzz.md)
 
 
 
