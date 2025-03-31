@@ -29,6 +29,7 @@
   * [Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing](papers/LLM_Fuzzing_BusyBox.md)
   * [LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders](papers/llm2vec.md)
   * [SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection](papers/ShapFuzz.md)
+  * [Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization](papers/TortoiseFuzz.md)
 
 
 
