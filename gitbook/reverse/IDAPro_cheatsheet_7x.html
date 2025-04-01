@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Reverse · FA1C4 PATHs</title>
+        <title>IDAPro Cheat Sheet 7.7 · FA1C4 PATHs</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="IDAPro_cheatsheet_7x.html" />
+    <link rel="next" href="../theory/" />
     
     
-    <link rel="prev" href="../pwn/glibc_IO_FILE_exploitation.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -639,7 +639,7 @@
         
         
     
-        <li class="chapter active" data-level="5.1" data-path="./">
+        <li class="chapter " data-level="5.1" data-path="./">
             
                 <a href="./">
             
@@ -653,7 +653,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1.1" data-path="IDAPro_cheatsheet_7x.html">
+        <li class="chapter active" data-level="5.1.1" data-path="IDAPro_cheatsheet_7x.html">
             
                 <a href="IDAPro_cheatsheet_7x.html">
             
@@ -812,7 +812,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Reverse</a>
+        <a href=".." >IDAPro Cheat Sheet 7.7</a>
     </h1>
 </div>
 
@@ -827,11 +827,275 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="index-of-reverse">Index of Reverse</h1>
-<h2 id="reversing-tools">Reversing Tools</h2>
-<ul>
-<li><a href="IDAPro_cheatsheet_7x.html">IDAPro Cheat Sheet 7.7</a></li>
-</ul>
+                                <h1 id="idapro-77-cheat-sheet">IDAPro-7.7 Cheat Sheet</h1>
+<p>&#x6700;&#x8FD1;&#x5728;&#x5199;&#x63D2;&#x6869;&#x540E;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x6D41;&#x7B49;&#x6570;&#x636E;&#x7684;&#x62BD;&#x53D6;&#x7684; IDAPro &#x811A;&#x672C;, &#x9700;&#x8981;&#x7528;&#x5230;&#x5F88;&#x591A; IDAPro &#x63D0;&#x4F9B;&#x7684; APIs, &#x8FD9;&#x91CC;&#x505A;&#x4E00;&#x4E2A;&#x603B;&#x7ED3;. (&#x6301;&#x7EED;&#x66F4;&#x65B0;&#x4E2D;</p>
+<blockquote>
+<p> Environments: IDAPro 7.7, Python=3.9</p>
+</blockquote>
+<h2 id="one-figure-for-all">One Figure for All</h2>
+<p><img src="assets/IDAPython-7.x_cheatsheet_print_en.png" alt="IDAPython-7.x_cheatsheet_print_en" style="zoom:200%;"></p>
+<h2 id="constants">Constants</h2>
+<pre><code class="lang-python">ida_idaapi.BADADDR == <span class="hljs-number">0xFFFFFFFF</span>
+ida_idaapi.SIZE_MAX == <span class="hljs-number">0xFFFFFFFF</span>
+
+FUNC_LIB == <span class="hljs-number">0x4</span>
+FUNCATTR_FLAGS == <span class="hljs-number">0x10</span>
+INF_MIN_EA == <span class="hljs-number">0x13</span>
+INF_MAX_EA == <span class="hljs-number">0x14</span>
+FUNC_THUNK == <span class="hljs-number">0x80</span>
+</code></pre>
+<h2 id="entry">Entry</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_entry</span><span class="hljs-params">(*args)</span> -&gt; &quot;bool&quot;:</span>
+    <span class="hljs-string">r&quot;&quot;&quot;
+    add_entry(ord, ea, name, makecode, flags=0) -&gt; bool
+    Add an entry point to the list of entry points.
+
+    @param ord: (C++: uval_t) ordinal number if ordinal number is equal to &apos;ea&apos; then ordinal is
+                not used
+    @param ea: (C++: ea_t) linear address
+    @param name: (C++: const char *) name of entry point. If the specified location already has a name,
+                 the old name will be appended to the regular comment. If name ==
+                 nullptr, then the old name will be retained.
+    @param makecode: (C++: bool) should the kernel convert bytes at the entry point to
+                     instruction(s)
+    @param flags: (C++: int) See AEF_*
+    @return: success (currently always true)
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> _ida_entry.add_entry(*args)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_entry</span><span class="hljs-params">(*args)</span> -&gt; &quot;ea_t&quot;:</span>
+    <span class="hljs-string">r&quot;&quot;&quot;
+    get_entry(ord) -&gt; ea_t
+    Get entry point address by its ordinal
+
+    @param ord: (C++: uval_t) ordinal number of entry point
+    @return: address or BADADDR
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> _ida_entry.get_entry(*args)
+</code></pre>
+<h2 id="cross-references-xref">Cross References (XRef)</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CodeRefsTo</span><span class="hljs-params">(ea, flow)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Get a list of code references to &apos;ea&apos;
+
+    @param ea:   Target address
+    @param flow: Follow normal code flow or not
+    @type  flow: Boolean (0/1, False/True)
+
+    @return: list of references (may be empty list)
+
+    Example::
+
+        for ref in CodeRefsTo(get_screen_ea(), 1):
+            print(ref)
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># TO_REFACTOR_ON_PY2_REMOVAL</span>
+    <span class="hljs-comment"># we can use the new generators</span>
+    <span class="hljs-comment"># xref = ida_xref.xrefblk_t()</span>
+    <span class="hljs-comment"># if flow == 1:</span>
+    <span class="hljs-comment">#     yield from xref.crefs_to(ea)</span>
+    <span class="hljs-comment"># else:</span>
+    <span class="hljs-comment">#     yield from xref.fcrefs_to(ea)</span>
+    <span class="hljs-keyword">if</span> flow == <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">return</span> refs(ea, ida_xref.get_first_cref_to, ida_xref.get_next_cref_to)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> refs(ea, ida_xref.get_first_fcref_to, ida_xref.get_next_fcref_to)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CodeRefsFrom</span><span class="hljs-params">(ea, flow)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Get a list of code references from &apos;ea&apos;
+
+    @param ea:   Target address
+    @param flow: Follow normal code flow or not
+    @type  flow: Boolean (0/1, False/True)
+
+    @return: list of references (may be empty list)
+
+    Example::
+
+        for ref in CodeRefsFrom(get_screen_ea(), 1):
+            print(ref)
+    &quot;&quot;&quot;</span>
+    <span class="hljs-comment"># TO_REFACTOR_ON_PY2_REMOVAL</span>
+    <span class="hljs-keyword">if</span> flow == <span class="hljs-number">1</span>:
+        <span class="hljs-keyword">return</span> refs(ea, ida_xref.get_first_cref_from, ida_xref.get_next_cref_from)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> refs(ea, ida_xref.get_first_fcref_from, ida_xref.get_next_fcref_from)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">XrefsFrom</span><span class="hljs-params">(ea, flags=<span class="hljs-number">0</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Return all references from address &apos;ea&apos;
+
+    @param ea: Reference address
+    @param flags: one of ida_xref.XREF_ALL (default), ida_xref.XREF_FAR, ida_xref.XREF_DATA
+
+    Example::
+           for xref in XrefsFrom(here(), 0):
+               print(xref.type, XrefTypeName(xref.type), \
+                         &apos;from&apos;, hex(xref.frm), &apos;to&apos;, hex(xref.to))
+    &quot;&quot;&quot;</span>
+    xref = ida_xref.xrefblk_t()
+    <span class="hljs-keyword">return</span> xref.refs_from(ea, flags)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">XrefsTo</span><span class="hljs-params">(ea, flags=<span class="hljs-number">0</span>)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Return all references to address &apos;ea&apos;
+
+    @param ea: Reference address
+    @param flags: one of ida_xref.XREF_ALL (default), ida_xref.XREF_FAR, ida_xref.XREF_DATA
+
+    Example::
+           for xref in XrefsTo(here(), 0):
+               print(xref.type, XrefTypeName(xref.type), \
+                         &apos;from&apos;, hex(xref.frm), &apos;to&apos;, hex(xref.to))
+    &quot;&quot;&quot;</span>
+    xref = ida_xref.xrefblk_t()
+    <span class="hljs-keyword">return</span> xref.refs_to(ea, flags)
+</code></pre>
+<h2 id="functions">Functions</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Functions</span><span class="hljs-params">(start=None, end=None)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Get a list of functions
+
+    @param start: start address (default: inf.min_ea)
+    @param end:   end address (default: inf.max_ea)
+
+    @return: list of function entrypoints between start and end
+
+    @note: The last function that starts before &apos;end&apos; is included even
+    if it extends beyond &apos;end&apos;. Any function that has its chunks scattered
+    in multiple segments will be reported multiple times, once in each segment
+    as they are listed.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">if</span> start <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>: start = ida_ida.cvar.inf.min_ea
+    <span class="hljs-keyword">if</span> end <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:   end = ida_ida.cvar.inf.max_ea
+
+    <span class="hljs-comment"># find first function head chunk in the range</span>
+    chunk = ida_funcs.get_fchunk(start)
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> chunk:
+        chunk = ida_funcs.get_next_fchunk(start)
+    <span class="hljs-keyword">while</span> chunk <span class="hljs-keyword">and</span> chunk.start_ea &lt; end <span class="hljs-keyword">and</span> (chunk.flags &amp; ida_funcs.FUNC_TAIL) != <span class="hljs-number">0</span>:
+        chunk = ida_funcs.get_next_fchunk(chunk.start_ea)
+    func = chunk
+
+    <span class="hljs-keyword">while</span> func <span class="hljs-keyword">and</span> func.start_ea &lt; end:
+        startea = func.start_ea
+        <span class="hljs-keyword">yield</span> startea
+        func = ida_funcs.get_next_func(startea)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_func</span><span class="hljs-params">(*args)</span> -&gt; &quot;func_t *&quot;:</span>
+    <span class="hljs-string">r&quot;&quot;&quot;
+    get_func(ea) -&gt; func_t
+    Get pointer to function structure by address.
+
+    @param ea: (C++: ea_t) any address in a function
+    @return: ptr to a function or nullptr. This function returns a function entry
+             chunk.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> _ida_funcs.get_func(*args)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_func_name</span><span class="hljs-params">(*args)</span> -&gt; &quot;qstring *&quot;:</span>
+    <span class="hljs-string">r&quot;&quot;&quot;
+    get_func_name(ea) -&gt; str
+    Get function name.
+
+    @param ea: (C++: ea_t) any address in the function
+    @return: length of the function name
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> _ida_funcs.get_func_name(*args)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_frame_id</span><span class="hljs-params">(ea)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Get ID of function frame structure
+
+    @param ea: any address belonging to the function
+
+    @return: ID of function frame or None In order to access stack variables
+             you need to use structure member manipulaion functions with the
+             obtained ID.
+    &quot;&quot;&quot;</span>
+    frame = ida_frame.get_frame(ea)
+
+    <span class="hljs-keyword">if</span> frame:
+        <span class="hljs-keyword">return</span> frame.id
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">None</span>
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_func_cmt</span><span class="hljs-params">(*args)</span> -&gt; &quot;qstring *&quot;:</span>
+    <span class="hljs-string">r&quot;&quot;&quot;
+    get_func_cmt(pfn, repeatable) -&gt; str
+    Get function comment.
+
+    @param pfn: (C++: const func_t *) ptr to function structure
+    @param repeatable: (C++: bool) get repeatable comment?
+    @return: size of comment or -1 In fact this function works with function chunks
+             too.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> _ida_funcs.get_func_cmt(*args)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_prev_func</span><span class="hljs-params">(ea)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Find previous function
+
+    @param ea: any address belonging to the function
+
+    @return: BADADDR - no more functions
+            otherwise returns the previous function start address
+    &quot;&quot;&quot;</span>
+    func = ida_funcs.get_prev_func(ea)
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> func:
+        <span class="hljs-keyword">return</span> BADADDR
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> func.start_ea
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_prev_func</span><span class="hljs-params">(ea)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Find previous function
+
+    @param ea: any address belonging to the function
+
+    @return: BADADDR - no more functions
+            otherwise returns the previous function start address
+    &quot;&quot;&quot;</span>
+    func = ida_funcs.get_prev_func(ea)
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> func:
+        <span class="hljs-keyword">return</span> BADADDR
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> func.start_ea
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_next_func</span><span class="hljs-params">(ea)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Find next function
+
+    @param ea: any address belonging to the function
+
+    @return:        BADADDR - no more functions
+            otherwise returns the next function start address
+    &quot;&quot;&quot;</span>
+    func = ida_funcs.get_next_func(ea)
+
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> func:
+        <span class="hljs-keyword">return</span> BADADDR
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> func.start_ea
+</code></pre>
+<h2 id="reference">Reference</h2>
+<p>[1] <a href="https://github.com/inforion/idapython-cheatsheet" target="_blank">https://github.com/inforion/idapython-cheatsheet</a></p>
+<p>[2] <a href="https://python.docs.hex-rays.com/annotated.html" target="_blank">https://python.docs.hex-rays.com/annotated.html</a></p>
+<p>[3] <a href="https://skyi23.github.io/2024/11/11/IDA%20Python%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" target="_blank">https://skyi23.github.io/2024/11/11/IDA%20Python%20%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/</a></p>
 
                                 
                                 </section>
@@ -859,12 +1123,12 @@
 
             
                 
-                <a href="../pwn/glibc_IO_FILE_exploitation.html" class="navigation navigation-prev " aria-label="Previous page: Glibc _IO_FILE Exploitation Introduction">
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Reverse">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="IDAPro_cheatsheet_7x.html" class="navigation navigation-next " aria-label="Next page: IDAPro Cheat Sheet 7.7">
+                <a href="../theory/" class="navigation navigation-next " aria-label="Next page: Theory">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -875,7 +1139,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reverse","level":"5.1","depth":1,"next":{"title":"IDAPro Cheat Sheet 7.7","level":"5.1.1","depth":2,"path":"reverse/IDAPro_cheatsheet_7x.md","ref":"reverse/IDAPro_cheatsheet_7x.md","articles":[]},"previous":{"title":"Glibc _IO_FILE Exploitation Introduction","level":"4.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"reverse/index.md","mtime":"2025-04-01T07:57:33.593Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-01T14:55:58.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"IDAPro Cheat Sheet 7.7","level":"5.1.1","depth":2,"next":{"title":"Theory","level":"6.1","depth":1,"path":"theory/index.md","ref":"theory/index.md","articles":[{"title":"Practical Statistics","level":"6.1.1","depth":2,"path":"theory/prac_statistics.md","ref":"theory/prac_statistics.md","articles":[]}]},"previous":{"title":"Reverse","level":"5.1","depth":1,"path":"reverse/index.md","ref":"reverse/index.md","articles":[{"title":"IDAPro Cheat Sheet 7.7","level":"5.1.1","depth":2,"path":"reverse/IDAPro_cheatsheet_7x.md","ref":"reverse/IDAPro_cheatsheet_7x.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"reverse/IDAPro_cheatsheet_7x.md","mtime":"2025-04-01T14:55:03.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-01T14:55:58.385Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

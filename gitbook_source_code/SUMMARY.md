@@ -59,6 +59,7 @@
 
 
 * [Reverse](reverse/index.md)
+  * [IDAPro Cheat Sheet 7.7](reverse/IDAPro_cheatsheet_7x.md)
 
 
 
