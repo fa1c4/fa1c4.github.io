@@ -838,11 +838,86 @@
 <pre><code class="lang-python">ida_idaapi.BADADDR == <span class="hljs-number">0xFFFFFFFF</span>
 ida_idaapi.SIZE_MAX == <span class="hljs-number">0xFFFFFFFF</span>
 
-FUNC_LIB == <span class="hljs-number">0x4</span>
-FUNCATTR_FLAGS == <span class="hljs-number">0x10</span>
-INF_MIN_EA == <span class="hljs-number">0x13</span>
-INF_MAX_EA == <span class="hljs-number">0x14</span>
-FUNC_THUNK == <span class="hljs-number">0x80</span>
+<span class="hljs-comment"># in idc.py</span>
+idc.FUNC_LIB == <span class="hljs-number">0x4</span>
+idc.FUNCATTR_FLAGS == <span class="hljs-number">0x10</span>
+idc.INF_MIN_EA == <span class="hljs-number">0x13</span>
+idc.INF_MAX_EA == <span class="hljs-number">0x14</span>
+idc.FUNC_THUNK == <span class="hljs-number">0x80</span>
+</code></pre>
+<p><code>_INF_attrs</code> &#x5B9A;&#x4E49;&#x5728; <code>idc.py</code> </p>
+<pre><code class="lang-python">_INF_attrs_accessors = {
+    INF_ABIBITS               : (ida_ida.inf_get_abibits,               ida_ida.inf_set_abibits),
+    INF_AF                    : (ida_ida.inf_get_af,                    ida_ida.inf_set_af),
+    INF_AF2                   : (ida_ida.inf_get_af2,                   ida_ida.inf_set_af2),
+    INF_APPCALL_OPTIONS       : (ida_ida.inf_get_appcall_options,       ida_ida.inf_set_appcall_options),
+    INF_APPTYPE               : (ida_ida.inf_get_apptype,               ida_ida.inf_set_apptype),
+    INF_ASMTYPE               : (ida_ida.inf_get_asmtype,               ida_ida.inf_set_asmtype),
+    INF_BASEADDR              : (ida_ida.inf_get_baseaddr,              ida_ida.inf_set_baseaddr),
+    INF_BIN_PREFIX_SIZE       : (ida_ida.inf_get_bin_prefix_size,       ida_ida.inf_set_bin_prefix_size),
+    INF_CC_CM                 : (ida_ida.inf_get_cc_cm,                 ida_ida.inf_set_cc_cm),
+    INF_CC_DEFALIGN           : (ida_ida.inf_get_cc_defalign,           ida_ida.inf_set_cc_defalign),
+    INF_CC_ID                 : (ida_ida.inf_get_cc_id,                 ida_ida.inf_set_cc_id),
+    INF_CC_SIZE_B             : (ida_ida.inf_get_cc_size_b,             ida_ida.inf_set_cc_size_b),
+    INF_CC_SIZE_E             : (ida_ida.inf_get_cc_size_e,             ida_ida.inf_set_cc_size_e),
+    INF_CC_SIZE_I             : (ida_ida.inf_get_cc_size_i,             ida_ida.inf_set_cc_size_i),
+    INF_CC_SIZE_L             : (ida_ida.inf_get_cc_size_l,             ida_ida.inf_set_cc_size_l),
+    INF_CC_SIZE_LDBL          : (ida_ida.inf_get_cc_size_ldbl,          ida_ida.inf_set_cc_size_ldbl),
+    INF_CC_SIZE_LL            : (ida_ida.inf_get_cc_size_ll,            ida_ida.inf_set_cc_size_ll),
+    INF_CC_SIZE_S             : (ida_ida.inf_get_cc_size_s,             ida_ida.inf_set_cc_size_s),
+    INF_CMTFLAG               : (ida_ida.inf_get_cmtflg,                ida_ida.inf_set_cmtflg),
+    INF_CMT_INDENT            : (ida_ida.inf_get_cmt_indent,            ida_ida.inf_set_cmt_indent),
+    INF_DATABASE_CHANGE_COUNT : (ida_ida.inf_get_database_change_count, ida_ida.inf_set_database_change_count),
+    INF_DATATYPES             : (ida_ida.inf_get_datatypes,             ida_ida.inf_set_datatypes),
+    INF_DEMNAMES              : (ida_ida.inf_get_demnames,              ida_ida.inf_set_demnames),
+    INF_END_PRIVRANGE         : (ida_ida.inf_get_privrange_end_ea,      ida_ida.inf_set_privrange_end_ea),
+    INF_FILETYPE              : (ida_ida.inf_get_filetype,              ida_ida.inf_set_filetype),
+    INF_GENFLAGS              : (ida_ida.inf_get_genflags,              ida_ida.inf_set_genflags),
+    INF_HIGHOFF               : (ida_ida.inf_get_highoff,               ida_ida.inf_set_highoff),
+    INF_INDENT                : (ida_ida.inf_get_indent,                ida_ida.inf_set_indent),
+    INF_LENXREF               : (ida_ida.inf_get_lenxref,               ida_ida.inf_set_lenxref),
+    INF_LFLAGS                : (ida_ida.inf_get_lflags,                ida_ida.inf_set_lflags),
+    INF_LIMITER               : (ida_ida.inf_get_limiter,               ida_ida.inf_set_limiter),
+    INF_LISTNAMES             : (ida_ida.inf_get_listnames,             ida_ida.inf_set_listnames),
+    INF_LONG_DEMNAMES         : (ida_ida.inf_get_long_demnames,         ida_ida.inf_set_long_demnames),
+    INF_LOWOFF                : (ida_ida.inf_get_lowoff,                ida_ida.inf_set_lowoff),
+    INF_MAIN                  : (ida_ida.inf_get_main,                  ida_ida.inf_set_main),
+    INF_MARGIN                : (ida_ida.inf_get_margin,                ida_ida.inf_set_margin),
+    INF_MAXREF                : (ida_ida.inf_get_maxref,                ida_ida.inf_set_maxref),
+    INF_MAX_AUTONAME_LEN      : (ida_ida.inf_get_max_autoname_len,      ida_ida.inf_set_max_autoname_len),
+    INF_MAX_EA                : (ida_ida.inf_get_max_ea,                ida_ida.inf_set_max_ea),
+    INF_MIN_EA                : (ida_ida.inf_get_min_ea,                ida_ida.inf_set_min_ea),
+    INF_MODEL                 : (ida_ida.inf_get_cc_cm,                 ida_ida.inf_set_cc_cm),
+    INF_NAMETYPE              : (ida_ida.inf_get_nametype,              ida_ida.inf_set_nametype),
+    INF_NETDELTA              : (ida_ida.inf_get_netdelta,              ida_ida.inf_set_netdelta),
+    INF_OMAX_EA               : (ida_ida.inf_get_omax_ea,               ida_ida.inf_set_omax_ea),
+    INF_OMIN_EA               : (ida_ida.inf_get_omin_ea,               ida_ida.inf_set_omin_ea),
+    INF_OSTYPE                : (ida_ida.inf_get_ostype,                ida_ida.inf_set_ostype),
+    INF_OUTFLAGS              : (ida_ida.inf_get_outflags,              ida_ida.inf_set_outflags),
+    INF_PREFFLAG              : (ida_ida.inf_get_prefflag,              ida_ida.inf_set_prefflag),
+    INF_PRIVRANGE_END_EA      : (ida_ida.inf_get_privrange_end_ea,      ida_ida.inf_set_privrange_end_ea),
+    INF_PRIVRANGE_START_EA    : (ida_ida.inf_get_privrange_start_ea,    ida_ida.inf_set_privrange_start_ea),
+    INF_PROCNAME              : (ida_ida.inf_get_procname,              ida_ida.inf_set_procname),
+    INF_REFCMTNUM             : (ida_ida.inf_get_refcmtnum,             ida_ida.inf_set_refcmtnum),
+    INF_SHORT_DEMNAMES        : (ida_ida.inf_get_short_demnames,        ida_ida.inf_set_short_demnames),
+    INF_SPECSEGS              : (ida_ida.inf_get_specsegs,              ida_ida.inf_set_specsegs),
+    INF_START_CS              : (ida_ida.inf_get_start_cs,              ida_ida.inf_set_start_cs),
+    INF_START_EA              : (ida_ida.inf_get_start_ea,              ida_ida.inf_set_start_ea),
+    INF_START_IP              : (ida_ida.inf_get_start_ip,              ida_ida.inf_set_start_ip),
+    INF_START_PRIVRANGE       : (ida_ida.inf_get_privrange_start_ea,    ida_ida.inf_set_privrange_start_ea),
+    INF_START_SP              : (ida_ida.inf_get_start_sp,              ida_ida.inf_set_start_sp),
+    INF_START_SS              : (ida_ida.inf_get_start_ss,              ida_ida.inf_set_start_ss),
+    INF_STRLIT_BREAK          : (ida_ida.inf_get_strlit_break,          ida_ida.inf_set_strlit_break),
+    INF_STRLIT_FLAGS          : (ida_ida.inf_get_strlit_flags,          ida_ida.inf_set_strlit_flags),
+    INF_STRLIT_PREF           : (ida_ida.inf_get_strlit_pref,           ida_ida.inf_set_strlit_pref),
+    INF_STRLIT_SERNUM         : (ida_ida.inf_get_strlit_sernum,         ida_ida.inf_set_strlit_sernum),
+    INF_STRLIT_ZEROES         : (ida_ida.inf_get_strlit_zeroes,         ida_ida.inf_set_strlit_zeroes),
+    INF_STRTYPE               : (ida_ida.inf_get_strtype,               ida_ida.inf_set_strtype),
+    INF_TYPE_XREFNUM          : (ida_ida.inf_get_type_xrefnum,          ida_ida.inf_set_type_xrefnum),
+    INF_VERSION               : (ida_ida.inf_get_version,               ida_ida.inf_set_version),
+    INF_XREFFLAG              : (ida_ida.inf_get_xrefflag,              ida_ida.inf_set_xrefflag),
+    INF_XREFNUM               : (ida_ida.inf_get_xrefnum,               ida_ida.inf_set_xrefnum),
+}
 </code></pre>
 <h2 id="entry">Entry</h2>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_entry</span><span class="hljs-params">(*args)</span> -&gt; &quot;bool&quot;:</span>
@@ -873,6 +948,14 @@ FUNC_THUNK == <span class="hljs-number">0x80</span>
     @return: address or BADADDR
     &quot;&quot;&quot;</span>
     <span class="hljs-keyword">return</span> _ida_entry.get_entry(*args)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_input_file_path</span><span class="hljs-params">(*args)</span> -&gt; &quot;size_t&quot;:</span>
+    <span class="hljs-string">r&quot;&quot;&quot;
+    get_input_file_path() -&gt; str
+    Get full path of the input file.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-keyword">return</span> _ida_nalt.get_input_file_path(*args)
 </code></pre>
 <h2 id="cross-references-xref">Cross References (XRef)</h2>
 <pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">CodeRefsTo</span><span class="hljs-params">(ea, flow)</span>:</span>
@@ -1011,6 +1094,20 @@ FUNC_THUNK == <span class="hljs-number">0x80</span>
     <span class="hljs-keyword">return</span> _ida_funcs.get_func_name(*args)
 
 
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_func_attr</span><span class="hljs-params">(ea, attr)</span>:</span>
+    <span class="hljs-string">&quot;&quot;&quot;
+    Get a function attribute
+
+    @param ea: any address belonging to the function
+    @param attr: one of FUNCATTR_... constants
+
+    @return: BADADDR - error otherwise returns the attribute value
+    &quot;&quot;&quot;</span>
+    func = ida_funcs.get_func(ea)
+
+    <span class="hljs-keyword">return</span> _IDC_GetAttr(func, _FUNCATTRMAP, attr) <span class="hljs-keyword">if</span> func <span class="hljs-keyword">else</span> BADADDR
+
+
 <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_frame_id</span><span class="hljs-params">(ea)</span>:</span>
     <span class="hljs-string">&quot;&quot;&quot;
     Get ID of function frame structure
@@ -1092,6 +1189,56 @@ FUNC_THUNK == <span class="hljs-number">0x80</span>
     <span class="hljs-keyword">else</span>:
         <span class="hljs-keyword">return</span> func.start_ea
 </code></pre>
+<h2 id="flow">Flow</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FlowChart</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">r&quot;&quot;&quot;
+    Flowchart class used to determine basic blocks.
+    Check ex_gdl_qflow_chart.py for sample usage.
+    &quot;&quot;&quot;</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, f=None, bounds=None, flags=<span class="hljs-number">0</span>)</span>:</span>
+        <span class="hljs-string">r&quot;&quot;&quot;
+        Constructor
+        @param f: A func_t type, use get_func(ea) to get a reference
+        @param bounds: A tuple of the form (start, end). Used if &quot;f&quot; is None
+        @param flags: one of the FC_xxxx flags.
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> (f <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>) <span class="hljs-keyword">and</span> (bounds <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">or</span> type(bounds) != tuple):
+            <span class="hljs-keyword">raise</span> Exception(<span class="hljs-string">&quot;Please specifiy either a function or start/end pair&quot;</span>)
+
+        <span class="hljs-keyword">if</span> bounds <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+            bounds = (_ida_idaapi.BADADDR, _ida_idaapi.BADADDR)
+
+<span class="hljs-comment"># Create the flowchart</span>
+        self._q = qflow_chart_t(<span class="hljs-string">&quot;&quot;</span>, f, bounds[<span class="hljs-number">0</span>], bounds[<span class="hljs-number">1</span>], flags)
+
+    size = property(<span class="hljs-keyword">lambda</span> self: self._q.size())
+    <span class="hljs-string">r&quot;&quot;&quot;
+    Number of blocks in the flow chart
+    &quot;&quot;&quot;</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">refresh</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">r&quot;&quot;&quot;
+        Refreshes the flow chart
+        &quot;&quot;&quot;</span>
+        self._q.refresh()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_getitem</span><span class="hljs-params">(self, index)</span>:</span>
+        <span class="hljs-keyword">return</span> BasicBlock(index, self._q[index], self)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> (self._getitem(index) <span class="hljs-keyword">for</span> index <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, self.size))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__getitem__</span><span class="hljs-params">(self, index)</span>:</span>
+        <span class="hljs-string">r&quot;&quot;&quot;
+        Returns a basic block
+
+        @return: BasicBlock
+        &quot;&quot;&quot;</span>
+        <span class="hljs-keyword">if</span> index &gt;= self.size:
+            <span class="hljs-keyword">raise</span> KeyError
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">return</span> self._getitem(index)
+</code></pre>
 <h2 id="reference">Reference</h2>
 <p>[1] <a href="https://github.com/inforion/idapython-cheatsheet" target="_blank">https://github.com/inforion/idapython-cheatsheet</a></p>
 <p>[2] <a href="https://python.docs.hex-rays.com/annotated.html" target="_blank">https://python.docs.hex-rays.com/annotated.html</a></p>
@@ -1139,7 +1286,7 @@ FUNC_THUNK == <span class="hljs-number">0x80</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"IDAPro Cheat Sheet 7.7","level":"5.1.1","depth":2,"next":{"title":"Theory","level":"6.1","depth":1,"path":"theory/index.md","ref":"theory/index.md","articles":[{"title":"Practical Statistics","level":"6.1.1","depth":2,"path":"theory/prac_statistics.md","ref":"theory/prac_statistics.md","articles":[]}]},"previous":{"title":"Reverse","level":"5.1","depth":1,"path":"reverse/index.md","ref":"reverse/index.md","articles":[{"title":"IDAPro Cheat Sheet 7.7","level":"5.1.1","depth":2,"path":"reverse/IDAPro_cheatsheet_7x.md","ref":"reverse/IDAPro_cheatsheet_7x.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"reverse/IDAPro_cheatsheet_7x.md","mtime":"2025-04-01T14:55:03.091Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-01T14:55:58.385Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"IDAPro Cheat Sheet 7.7","level":"5.1.1","depth":2,"next":{"title":"Theory","level":"6.1","depth":1,"path":"theory/index.md","ref":"theory/index.md","articles":[{"title":"Practical Statistics","level":"6.1.1","depth":2,"path":"theory/prac_statistics.md","ref":"theory/prac_statistics.md","articles":[]}]},"previous":{"title":"Reverse","level":"5.1","depth":1,"path":"reverse/index.md","ref":"reverse/index.md","articles":[{"title":"IDAPro Cheat Sheet 7.7","level":"5.1.1","depth":2,"path":"reverse/IDAPro_cheatsheet_7x.md","ref":"reverse/IDAPro_cheatsheet_7x.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to struggle"},"file":{"path":"reverse/IDAPro_cheatsheet_7x.md","mtime":"2025-04-02T06:18:58.069Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-02T11:25:46.709Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
