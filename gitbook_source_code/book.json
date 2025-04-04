@@ -8,10 +8,13 @@
     "pluginsConfig": {
         "toggle-chapters": {
           "toggle": true
+        },
+        "fontsettings": {
+            "fontFamily": "Arial Unicode MS"
         }
     },
     "title": "FA1C4 PATHs",
     "author": "fa1c4",
     "language": "en",
-    "description": "Paths of fa1c4 to struggle"
+    "description": "Paths of fa1c4 to strive"
 }

@@ -8,6 +8,7 @@
 * [Seed Selection for Successful Fuzzing](Seed_Selection.md)
 * [FuzzInMem: Fuzzing Programs via In-memory Structures](FuzzInMem.md)
 * [Fuzzing with Data Dependency Information](DDFuzz.md)
+* [Accelerating Fuzzing through Prefix-Guided Execution](prefix_guided_execution.md)
 
 
 
