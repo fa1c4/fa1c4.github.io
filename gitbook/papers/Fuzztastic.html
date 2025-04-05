@@ -1,0 +1,980 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Extrapolating Coverage Rate in Greybox Fuzzing · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../linux/" />
+    
+    
+    <link rel="prev" href="prefix_guided_execution.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="FOX.html">
+            
+                <a href="FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="On_Understanding.html">
+            
+                <a href="On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="autofz.html">
+            
+                <a href="autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="Fuzz_to_the_Future.html">
+            
+                <a href="Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="DSFuzz.html">
+            
+                <a href="DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="Rubick.html">
+            
+                <a href="Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="Fuzz4All.html">
+            
+                <a href="Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="kag.html">
+            
+                <a href="kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="graphuzz.html">
+            
+                <a href="graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="Seed_Selection.html">
+            
+                <a href="Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="belieffuzz.html">
+            
+                <a href="belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="K_Scheduler.html">
+            
+                <a href="K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="entropic.html">
+            
+                <a href="entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="FuzzInMem.html">
+            
+                <a href="FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="AFLpp.html">
+            
+                <a href="AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="DDFuzz.html">
+            
+                <a href="DDFuzz.html">
+            
+                    
+                    Fuzzing with Data Dependency Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="Hier.html">
+            
+                <a href="Hier.html">
+            
+                    
+                    Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="LLM_Fuzzing_BusyBox.html">
+            
+                <a href="LLM_Fuzzing_BusyBox.html">
+            
+                    
+                    Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="llm2vec.html">
+            
+                <a href="llm2vec.html">
+            
+                    
+                    LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="ShapFuzz.html">
+            
+                <a href="ShapFuzz.html">
+            
+                    
+                    SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="TortoiseFuzz.html">
+            
+                <a href="TortoiseFuzz.html">
+            
+                    
+                    Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="prefix_guided_execution.html">
+            
+                <a href="prefix_guided_execution.html">
+            
+                    
+                    Accelerating Fuzzing through Prefix-Guided Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.24" data-path="Fuzztastic.html">
+            
+                <a href="Fuzztastic.html">
+            
+                    
+                    Extrapolating Coverage Rate in Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                <a href="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../fuzzing/fuzzbench_build.html">
+            
+                <a href="../fuzzing/fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                <a href="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                <a href="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                    
+                    IDAPro Cheat Sheet 7.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Extrapolating Coverage Rate in Greybox Fuzzing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="extrapolating-coverage-rate-in-greybox-fuzzing-icse-2024">Extrapolating Coverage Rate in Greybox Fuzzing [ICSE 2024]</h1>
+<p><img src="assets/image-20250405143336034.png" alt="image-20250405143336034" style="zoom:80%;"></p>
+<p>&#x4E3A;&#x5E94;&#x5BF9;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x56FA;&#x6709;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x504F;&#x5DEE; (&#x5373;&#x6837;&#x672C;&#x4E0D;&#x662F;&#x72EC;&#x7ACB;&#x540C;&#x5206;&#x5E03;&#x7684;), &#x672C;&#x6587;&#x8BC4;&#x4F30;&#x73B0;&#x6709;&#x7EDF;&#x8BA1;&#x6280;&#x672F;&#x5728;&#x9884;&#x6D4B;&#x8986;&#x76D6;&#x7387; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>U</mi><mo>(</mo><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mi>k</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">U(t_0 + k)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.10903em;">U</span><span class="mopen">(</span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span></span></span> (&#x4ECE;&#x5F53;&#x524D;&#x65F6;&#x523B; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">t_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x8D77;&#x7ECF;&#x8FC7; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.69444em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.03148em;">k</span></span></span></span> &#x4E2A;&#x65F6;&#x95F4;&#x5355;&#x4F4D;&#x4E4B;&#x540E;&#x7684;&#x8986;&#x76D6;&#x7387;) &#x65B9;&#x9762;&#x7684;&#x8868;&#x73B0;; &#x5E76;&#x63D0;&#x51FA;&#x4E00;&#x79CD;&#x65B0;&#x7684;&#x5916;&#x63A8;&#x65B9;&#x6CD5;, &#x7528;&#x4E8E;&#x5E94;&#x5BF9;&#x81EA;&#x9002;&#x5E94;&#x504F;&#x5DEE;&#x95EE;&#x9898;. &#x672C;&#x6587;&#x65B9;&#x6CD5; Fuzztastic, &#x4ECE;&#x5DF2;&#x6536;&#x96C6;&#x7684;&#x8986;&#x76D6;&#x7387;&#x6570;&#x636E;&#x4E2D;&#x9AD8;&#x6548;&#x6A21;&#x62DF;&#x5927;&#x91CF;&#x9ED1;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;, &#x4F30;&#x8BA1;&#x6BCF;&#x4E2A;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;&#x7684;&#x8986;&#x76D6;&#x7387;, &#x5E76;&#x901A;&#x8FC7;&#x7B80;&#x5355;&#x7684;&#x56DE;&#x5F52;&#x65B9;&#x6CD5;&#x5BF9;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x8986;&#x76D6;&#x7387;&#x8FDB;&#x884C;&#x5916;&#x63A8;. </p>
+<p>Fuzztastic &#x5728; 5 &#x4E2A;&#x5B9E;&#x9A8C;&#x5BF9;&#x8C61;&#x4E2D;&#x7684; 4 &#x4E2A;&#x4E0A;, &#x9884;&#x6D4B;&#x8BEF;&#x5DEE;&#x6BD4;&#x73B0;&#x6709;&#x57FA;&#x51C6;&#x65B9;&#x6CD5;&#x81F3;&#x5C11;&#x4F4E;&#x4E00;&#x4E2A;&#x6570;&#x91CF;&#x7EA7;. &#x4E0E;&#x73B0;&#x6709;&#x7684;&#x5916;&#x63A8;&#x65B9;&#x6CD5;&#x76F8;&#x6BD4;, Fuzztastic &#x5728;&#x8FDB;&#x884C;&#x957F;&#x671F;&#x9884;&#x6D4B; (&#x5982;&#x9884;&#x6D4B;&#x5F53;&#x524D;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x65F6;&#x957F;&#x7684;&#x4E09;&#x500D;) &#x65F6;&#x8868;&#x73B0;&#x5C24;&#x4E3A;&#x51FA;&#x8272;. </p>
+<h2 id="contributions">Contributions</h2>
+<ol>
+<li>&#x9996;&#x6B21;&#x63D0;&#x51FA;&#x5728;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x573A;&#x666F;&#x4E0B;&#x8986;&#x76D6;&#x7387;&#x5916;&#x63A8;&#x7684;&#x95EE;&#x9898;, &#x5E76;&#x8BC4;&#x4F30; Chao &#x548C; Jost &#x63D0;&#x51FA;&#x7684;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x751F;&#x7269;&#x7EDF;&#x8BA1;&#x5B66;&#x5916;&#x63A8;&#x65B9;&#x6CD5;</li>
+<li>&#x63D0;&#x51FA;&#x4E00;&#x79CD;&#x65B0;&#x9896;&#x7684;&#x5916;&#x63A8;&#x65B9;&#x6CD5;, &#x901A;&#x8FC7;&#x4ECE;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x5404;&#x5B50;&#x6D4B;&#x8BD5;&#x9636;&#x6BB5;&#x7684;&#x7A33;&#x5B9A;&#x5E73;&#x5747;&#x5206;&#x5E03;&#x4E2D;&#x6784;&#x9020;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;, &#x5E76;&#x5BF9;&#x5176;&#x4F30;&#x7B97;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x56DE;&#x5F52;, &#x4EE5;&#x6B64;&#x89E3;&#x51B3;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x504F;&#x5DEE;&#x95EE;&#x9898;</li>
+<li>&#x5728;&#x591A;&#x4E2A;&#x771F;&#x5B9E;&#x8F6F;&#x4EF6;&#x7A0B;&#x5E8F;&#x4E0A;&#x5F00;&#x5C55;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5B9E;&#x9A8C;, &#x6DB5;&#x76D6;&#x4E0D;&#x540C;&#x6D4B;&#x8BD5;&#x65F6;&#x957F;&#x548C;&#x9884;&#x6D4B;&#x8DE8;&#x5EA6;. &#x8FD8;&#x8FDB;&#x884C;&#x6D88;&#x878D;&#x5B9E;&#x9A8C;, &#x8BC4;&#x4F30;&#x4F30;&#x7B97;&#x6027;&#x80FD;&#x5BF9;&#x53C2;&#x6570;&#x9009;&#x62E9;&#x7684;&#x654F;&#x611F;&#x7A0B;&#x5EA6;</li>
+<li><a href="https://doi.org/10.5281/zenodo.10575734" target="_blank">https://doi.org/10.5281/zenodo.10575734</a></li>
+</ol>
+<h2 id="methods">Methods</h2>
+<p>&#x5728;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x4E2D;, &#x6BCF;&#x5F53;&#x4E00;&#x4E2A;&#x80FD;&#x63D0;&#x9AD8;&#x8986;&#x76D6;&#x7387;&#x7684;&#x8F93;&#x5165;&#x88AB;&#x751F;&#x6210;&#x5E76;&#x52A0;&#x5165;&#x8BED;&#x6599;&#x5E93;&#x65F6;, &#x5176;&#x5BF9;&#x5E94;&#x7684;&#x8986;&#x76D6;&#x5143;&#x7D20;&#x96C6;&#x5408; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>D</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">D_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.02778em;">D</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02778em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x7684;&#x5206;&#x5E03; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>{</mo><msub><mi>&#x3C0;</mi><mi>i</mi></msub><msubsup><mo>}</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>S</mi></msubsup></mrow><annotation encoding="application/x-tex">\{\pi_i\}^S_{i=1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.8413309999999999em;"></span><span class="strut bottom" style="height:1.0999949999999998em;vertical-align:-0.258664em;"></span><span class="base textstyle uncramped"><span class="mopen">{</span><span class="mord"><span class="mord mathit" style="margin-right:0.03588em;">&#x3C0;</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.03588em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose"><span class="mclose">}</span><span class="msupsub"><span class="vlist"><span style="top:0.258664em;margin-left:0em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mathit mtight">i</span><span class="mrel mtight">=</span><span class="mord mathrm mtight">1</span></span></span></span><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord mathit mtight" style="margin-right:0.05764em;">S</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x5C31;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;, &#x4ECE;&#x800C;&#x5F15;&#x5165;&#x81EA;&#x9002;&#x5E94;&#x504F;&#x5DEE;. &#x7136;&#x800C;, &#x5728;&#x7070;&#x76D2;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x7684;<strong>&#x5C40;&#x90E8;&#x533A;&#x57DF;</strong>&#x4E2D;, &#x8FD9;&#x79CD;&#x5206;&#x5E03;&#x53D8;&#x5316;&#x8981;&#x5C0F;&#x5F97;&#x591A;. &#x5982;&#x679C;&#x80FD;&#x591F;&#x4ECE;&#x8FD9;&#x4E9B;&#x5C40;&#x90E8;&#x533A;&#x57DF;&#x7684;<strong>&#x7A33;&#x5B9A;&#x5E73;&#x5747;&#x5206;&#x5E03;</strong>&#x4E2D;&#x81EA;&#x52A8;&#x6784;&#x9020;&#x51FA;&#x968F;&#x673A;&#x7684;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B; (&#x5373; bootstrap &#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;), &#x5C31;&#x80FD;&#x9010;&#x6B65;&#x7F13;&#x89E3;&#x6BCF;&#x4E2A;&#x5C40;&#x90E8;&#x533A;&#x57DF;&#x4E2D;&#x7684;&#x81EA;&#x9002;&#x5E94;&#x504F;&#x5DEE;&#x95EE;&#x9898;. <strong>&#x56FE; 1</strong> &#x5C55;&#x793A; Fuzzstatic &#x7684;&#x6574;&#x4F53;&#x6D41;&#x7A0B;: </p>
+<p><img src="assets/image-20250405153439135.png" alt="image-20250405153439135"></p>
+<ol>
+<li><p>&#x4ECE;&#x7070;&#x76D2;&#x6D4B;&#x8BD5;&#x7684;&#x8986;&#x76D6;&#x77E9;&#x9635; (incidence matrix) &#x4E2D;&#x63D0;&#x53D6;&#x4EFB;&#x610F;&#x5B50;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B; (sub-campaign), &#x76F8;&#x5F53;&#x4E8E;&#x5BF9;&#x77E9;&#x9635;&#x8FDB;&#x884C;&#x5B50;&#x96C6;&#x64CD;&#x4F5C;</p>
+</li>
+<li><p>&#x5BF9;&#x5F97;&#x5230;&#x7684;&#x5B50;&#x77E9;&#x9635;&#x6309;&#x5217;&#x6253;&#x4E71;&#x987A;&#x5E8F;, &#x4ECE;&#x800C;&#x91C7;&#x6837;&#x8BE5;&#x7070;&#x76D2;&#x5B50;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684; (&#x4E0D;&#x53D8;&#x7684;) &#x5E73;&#x5747;&#x8986;&#x76D6;&#x5206;&#x5E03;, &#x8FD9;&#x4E2A;&#x6B65;&#x9AA4;&#x88AB;&#x79F0;&#x4E3A;&#x9ED1;&#x76D2;&#x8FD1;&#x4F3C; (blackbox approximation)</p>
+</li>
+<li><p>&#x6240;&#x5F97;&#x9ED1;&#x76D2;&#x8FC7;&#x7A0B;&#x7684;&#x8986;&#x76D6;&#x6982;&#x51B5;&#x4E0E;&#x539F;&#x7070;&#x76D2;&#x5B50;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x4FDD;&#x6301;&#x4E00;&#x81F4;, &#x4F8B;&#x5982;: &#x82E5;&#x7070;&#x76D2;&#x6D4B;&#x8BD5;&#x4E2D;&#x67D0;&#x4E2A;&#x8986;&#x76D6;&#x5143;&#x7D20; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.65952em;"></span><span class="strut bottom" style="height:0.65952em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit">i</span></span></span></span> &#x88AB;&#x8986;&#x76D6; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>Y</mi><mi>i</mi></msub><mo>=</mo><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">Y_i = 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.22222em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span> &#x6B21;, &#x5219;&#x9ED1;&#x76D2;&#x8FD1;&#x4F3C;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x8BE5;&#x5143;&#x7D20;&#x540C;&#x6837;&#x4F1A;&#x88AB;&#x8986;&#x76D6; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msubsup><mi>Y</mi><mi>i</mi><mrow><mi mathvariant="normal">&#x2032;</mi></mrow></msubsup><mo>=</mo><mn>1</mn><mn>0</mn></mrow><annotation encoding="application/x-tex">Y_i&apos; = 10</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.751892em;"></span><span class="strut bottom" style="height:1.010556em;vertical-align:-0.258664em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.22222em;">Y</span><span class="msupsub"><span class="vlist"><span style="top:0.258664em;margin-left:-0.22222em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathit mtight">i</span></span></span><span style="top:-0.363em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped mtight"><span class="mord scriptstyle uncramped mtight"><span class="mord mathrm mtight">&#x2032;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mrel">=</span><span class="mord mathrm">1</span><span class="mord mathrm">0</span></span></span></span> &#x6B21;. &#x4F46;&#x5173;&#x952E;&#x5728;&#x4E8E;: &#x9ED1;&#x76D2;&#x8FD1;&#x4F3C;&#x5E76;&#x4E0D;&#x53D7;&#x5230;&#x81EA;&#x9002;&#x5E94;&#x504F;&#x5DEE;&#x7684;&#x5F71;&#x54CD;</p>
+</li>
+</ol>
+<p><img src="assets/image-20250405161136084.png" alt="image-20250405161136084"></p>
+<p><strong>&#x7B97;&#x6CD5; 1</strong> &#x66F4;&#x8BE6;&#x7EC6;&#x5730;&#x5C55;&#x793A;&#x63D0;&#x51FA;&#x7684;&#x8986;&#x76D6;&#x7387;&#x5916;&#x63A8;&#x65B9;&#x6CD5;&#x7684;&#x5177;&#x4F53;&#x6D41;&#x7A0B;</p>
+<p>&#x8F93;&#x5165;: &#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x4E2D;&#x751F;&#x6210;&#x7684;<strong>&#x8986;&#x76D6;&#x77E9;&#x9635;</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>W</mi><mrow><msub><mi>t</mi><mn>0</mn></msub><mo>&#xD7;</mo><mi>S</mi></mrow></msub></mrow><annotation encoding="application/x-tex">W_{t_0 \times S}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.93343em;vertical-align:-0.2501em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">W</span><span class="msupsub"><span class="vlist"><span style="top:0.15000000000000002em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord scriptstyle cramped mtight"><span class="mord mtight"><span class="mord mathit mtight">t</span><span class="msupsub"><span class="vlist"><span style="top:0.143em;margin-right:0.07142857142857144em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-scriptstyle scriptscriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin mtight">&#xD7;</span><span class="mord mathit mtight" style="margin-right:0.05764em;">S</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>, &#x5176;&#x4E2D; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">t_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span> &#x8868;&#x793A;&#x5F53;&#x524D;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x65F6;&#x95F4;&#x6B65;&#x6570; (&#x6216;&#x6837;&#x672C;&#x6570;&#x91CF;), <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>S</mi></mrow><annotation encoding="application/x-tex">S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.68333em;"></span><span class="strut bottom" style="height:0.68333em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05764em;">S</span></span></span></span> &#x8868;&#x793A;&#x8986;&#x76D6;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;, <strong>&#x9884;&#x6D4B;&#x8DE8;&#x5EA6;</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><msub><mi>t</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">mt_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.61508em;"></span><span class="strut bottom" style="height:0.76508em;vertical-align:-0.15em;"></span><span class="base textstyle uncramped"><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span>, &#x4E24;&#x4E2A;<strong>&#x53EF;&#x8C03;&#x53C2;&#x6570;</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B1;</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span></span></span></span> &#x548C; <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>&#x3B2;</mi></mrow><annotation encoding="application/x-tex">\beta</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.69444em;"></span><span class="strut bottom" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="base textstyle uncramped"><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span></span></span></span>, &#x7528;&#x4E8E;&#x63A7;&#x5236;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x6743;&#x8861; (&#x4F8B;&#x5982;&#x5B50;&#x8FC7;&#x7A0B;&#x7684;&#x9009;&#x53D6;&#x6BD4;&#x4F8B;&#x3001;&#x9ED1;&#x76D2;&#x6837;&#x672C;&#x6570;&#x91CF;) </p>
+<p>&#x8F93;&#x51FA;: <strong>&#x9884;&#x6D4B;&#x7684;&#x8986;&#x76D6;&#x7387;&#x4F30;&#x8BA1;&#x503C;</strong> <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mover accent="true"><mrow><mi>U</mi></mrow><mo>^</mo></mover><mo>(</mo><msub><mi>t</mi><mn>0</mn></msub><mo>+</mo><mi>m</mi><msub><mi>t</mi><mn>0</mn></msub><mo>)</mo></mrow><annotation encoding="application/x-tex">\hat{U}(t_0 + mt_0)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.9467699999999999em;"></span><span class="strut bottom" style="height:1.19677em;vertical-align:-0.25em;"></span><span class="base textstyle uncramped"><span class="mord accent"><span class="vlist"><span style="top:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="mord textstyle cramped"><span class="mord mathit" style="margin-right:0.10903em;">U</span></span></span><span style="top:-0.25233em;margin-left:0.05556em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="accent-body"><span>^</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mopen">(</span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mbin">+</span><span class="mord mathit">m</span><span class="mord"><span class="mord mathit">t</span><span class="msupsub"><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped mtight"><span class="mord mathrm mtight">0</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span><span class="mclose">)</span></span></span></span></p>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="rq1-a-coverage-rate-prediction-accuracy">RQ1-A. Coverage Rate Prediction Accuracy</h3>
+<p><img src="assets/image-20250405162330480.png" alt="image-20250405162330480" style="zoom:80%;"></p>
+<h3 id="rq1-b-point-in-time-prediction-accuracy">RQ1-B. Point-in-Time Prediction Accuracy</h3>
+<p><img src="assets/image-20250405162216304.png" alt="image-20250405162216304"></p>
+<h3 id="rq2-evaluation-of-parameter-sensitivity">RQ2. Evaluation of Parameter Sensitivity</h3>
+<p><img src="assets/image-20250405162103657.png" alt="image-20250405162103657"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="prefix_guided_execution.html" class="navigation navigation-prev " aria-label="Previous page: Accelerating Fuzzing through Prefix-Guided Execution">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../linux/" class="navigation navigation-next " aria-label="Next page: Linux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Extrapolating Coverage Rate in Greybox Fuzzing","level":"1.2.24","depth":2,"next":{"title":"Linux","level":"2.1","depth":1,"path":"linux/index.md","ref":"linux/index.md","articles":[{"title":"Rust Elementary I","level":"2.1.1","depth":2,"path":"linux/rust_elementary_I.md","ref":"linux/rust_elementary_I.md","articles":[]},{"title":"Rust Elementary II","level":"2.1.2","depth":2,"path":"linux/rust_elementary_II.md","ref":"linux/rust_elementary_II.md","articles":[]},{"title":"Rust Elementary III","level":"2.1.3","depth":2,"path":"linux/rust_elementary_III.md","ref":"linux/rust_elementary_III.md","articles":[]},{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"path":"linux/rust_elementary_IV.md","ref":"linux/rust_elementary_IV.md","articles":[]},{"title":"Rust Elementary V","level":"2.1.5","depth":2,"path":"linux/rust_elementary_V.md","ref":"linux/rust_elementary_V.md","articles":[]},{"title":"Rust Elementary VI","level":"2.1.6","depth":2,"path":"linux/rust_elementary_VI.md","ref":"linux/rust_elementary_VI.md","articles":[]},{"title":"Docker Sources Switch","level":"2.1.7","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]}]},"previous":{"title":"Accelerating Fuzzing through Prefix-Guided Execution","level":"1.2.23","depth":2,"path":"papers/prefix_guided_execution.md","ref":"papers/prefix_guided_execution.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"papers/Fuzztastic.md","mtime":"2025-04-05T08:26:36.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-05T08:26:56.362Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

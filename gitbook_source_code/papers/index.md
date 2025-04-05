@@ -9,6 +9,7 @@
 * [FuzzInMem: Fuzzing Programs via In-memory Structures](FuzzInMem.md)
 * [Fuzzing with Data Dependency Information](DDFuzz.md)
 * [Accelerating Fuzzing through Prefix-Guided Execution](prefix_guided_execution.md)
+* [Extrapolating Coverage Rate in Greybox Fuzzing](Fuzztastic.md)
 
 
 

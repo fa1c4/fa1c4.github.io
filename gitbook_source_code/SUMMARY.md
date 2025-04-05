@@ -31,6 +31,7 @@
   * [SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection](papers/ShapFuzz.md)
   * [Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization](papers/TortoiseFuzz.md)
   * [Accelerating Fuzzing through Prefix-Guided Execution](papers/prefix_guided_execution.md)
+  * [Extrapolating Coverage Rate in Greybox Fuzzing](papers/Fuzztastic.md)
 
 
 
