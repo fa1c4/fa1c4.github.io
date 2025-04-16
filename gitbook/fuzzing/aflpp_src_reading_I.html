@@ -1,0 +1,1986 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AFLpp Src Reading I - History · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../pwn/" />
+    
+    
+    <link rel="prev" href="fuzzbench_new_fuzzer.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../papers/">
+            
+                <a href="../papers/">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../papers/FOX.html">
+            
+                <a href="../papers/FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../papers/On_Understanding.html">
+            
+                <a href="../papers/On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../papers/autofz.html">
+            
+                <a href="../papers/autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../papers/Fuzz_to_the_Future.html">
+            
+                <a href="../papers/Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../papers/DSFuzz.html">
+            
+                <a href="../papers/DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../papers/Rubick.html">
+            
+                <a href="../papers/Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../papers/Fuzz4All.html">
+            
+                <a href="../papers/Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../papers/kag.html">
+            
+                <a href="../papers/kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../papers/graphuzz.html">
+            
+                <a href="../papers/graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../papers/Seed_Selection.html">
+            
+                <a href="../papers/Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../papers/belieffuzz.html">
+            
+                <a href="../papers/belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../papers/K_Scheduler.html">
+            
+                <a href="../papers/K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../papers/entropic.html">
+            
+                <a href="../papers/entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../papers/FuzzInMem.html">
+            
+                <a href="../papers/FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../papers/AFLpp.html">
+            
+                <a href="../papers/AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../papers/DDFuzz.html">
+            
+                <a href="../papers/DDFuzz.html">
+            
+                    
+                    Fuzzing with Data Dependency Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../papers/Hier.html">
+            
+                <a href="../papers/Hier.html">
+            
+                    
+                    Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="../papers/LLM_Fuzzing_BusyBox.html">
+            
+                <a href="../papers/LLM_Fuzzing_BusyBox.html">
+            
+                    
+                    Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="../papers/llm2vec.html">
+            
+                <a href="../papers/llm2vec.html">
+            
+                    
+                    LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="../papers/ShapFuzz.html">
+            
+                <a href="../papers/ShapFuzz.html">
+            
+                    
+                    SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="../papers/TortoiseFuzz.html">
+            
+                <a href="../papers/TortoiseFuzz.html">
+            
+                    
+                    Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="../papers/prefix_guided_execution.html">
+            
+                <a href="../papers/prefix_guided_execution.html">
+            
+                    
+                    Accelerating Fuzzing through Prefix-Guided Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="../papers/Fuzztastic.html">
+            
+                <a href="../papers/Fuzztastic.html">
+            
+                    
+                    Extrapolating Coverage Rate in Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="AFLpp_build_on_Magma.html">
+            
+                <a href="AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="fuzzbench_build.html">
+            
+                <a href="fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="fuzzbench_new_fuzzer.html">
+            
+                <a href="fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.4" data-path="aflpp_src_reading_I.html">
+            
+                <a href="aflpp_src_reading_I.html">
+            
+                    
+                    AFLpp Src Reading I - History
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                <a href="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                    
+                    IDAPro Cheat Sheet 7.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AFLpp Src Reading I - History</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="afl-source-code-reading-i---history">AFL++ Source Code Reading I - History</h1>
+<p>AFL++ &#x6E90;&#x7801;&#x9605;&#x8BFB;&#x8BB0;&#x5F55;, &#x548C; AFL &#x539F;&#x7248;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x5BF9;&#x6BD4;&#x5206;&#x6790;. &#x5206;&#x591A;&#x7BC7; blogs &#x8FDB;&#x884C;, &#x9996;&#x5148;&#x4ECE;&#x7248;&#x672C;&#x8FED;&#x4EE3;&#x66F4;&#x65B0;&#x7684;&#x5185;&#x5BB9;&#x5F00;&#x59CB;, &#x5230; AFL++ &#x6574;&#x4F53;&#x5B9E;&#x73B0;&#x7684;&#x6A21;&#x5F0F;, &#x518D;&#x5230;&#x6BCF;&#x4E2A;&#x5177;&#x4F53;&#x7EC4;&#x4EF6;&#x7684;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</p>
+<h2 id="history">History</h2>
+<p>AFL &#x4ECE; 2.52b &#x5F00;&#x59CB;&#x91CD;&#x6784;&#x4EE3;&#x7801;, fuzzing &#x903B;&#x8F91;&#x7684;&#x5B9E;&#x73B0;&#x51FA;&#x73B0;&#x8F83;&#x5927;&#x7684;&#x6539;&#x52A8;. &#x4ECE; 2019 &#x5E74;&#x7684; 2.52 &#x7248;&#x672C;&#x5230; 2025 &#x5E74;&#x7684; 4.31 &#x7248;&#x672C;, &#x6309;&#x987A;&#x5E8F;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x53D8;&#x8FC1;&#x603B;&#x7ED3;. &#x91CD;&#x8981;&#x7248;&#x672C;&#x8FED;&#x4EE3;&#x7528; <code>&lt;!&gt;</code> &#x6807;&#x51FA;.</p>
+<h3 id="252b">2.52b</h3>
+<p>&#x65E9;&#x671F;&#x7248;&#x672C;</p>
+<ul>
+<li><p>QEMU &#x4ECE; 2.3.0 &#x5347;&#x7EA7;&#x81F3; 2.10.0</p>
+</li>
+<li><p><code>afl-showmap</code> &#x6DFB;&#x52A0; <code>setsid</code> &#x652F;&#x6301;. </p>
+</li>
+<li><code>fuzzer_stats</code> &#x8BB0;&#x5F55;&#x76EE;&#x6807;&#x6A21;&#x5F0F; (&#x6301;&#x4E45;&#x5316;/QEMU &#x7B49;) </li>
+<li><code>afl-tmin</code> &#x652F;&#x6301; Ctrl-C &#x65F6;&#x4FDD;&#x5B58;&#x90E8;&#x5206;&#x7ED3;&#x679C;. </li>
+<li><code>afl-analyze</code> &#x652F;&#x6301;&#x5341;&#x516D;&#x8FDB;&#x5236;&#x504F;&#x79FB;&#x91CF;&#x8F93;&#x51FA;. </li>
+</ul>
+<h3 id="252c">&lt;!&gt; 2.52c</h3>
+<p>&#x8FD9;&#x4E2A;&#x7248;&#x672C;&#x5F00;&#x59CB;&#x6574;&#x5408;&#x5DF2;&#x6709;&#x4EE3;&#x7801;&#x548C;&#x4F18;&#x5316;&#x65B9;&#x6CD5;</p>
+<ul>
+<li><p><strong>&#x793E;&#x533A;&#x8865;&#x4E01;</strong></p>
+<ul>
+<li><p>&#x65B0;&#x589E; <code>-e EXTENSION</code> &#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879; (<code>afl-fuzz</code>) </p>
+</li>
+<li><p>LAF-Intel &#x6027;&#x80FD;&#x6539;&#x8FDB; (&#x9700;&#x624B;&#x52A8;&#x542F;&#x7528;) </p>
+</li>
+</ul>
+</li>
+<li><p>&#x65B0;&#x589E; <strong>AFLfast &#x529F;&#x7387;&#x8C03;&#x5EA6;</strong> (&#x9ED8;&#x8BA4;&#x4ECD;&#x4E3A; AFL &#x539F;&#x7248;) </p>
+</li>
+<li><p>&#x65B0;&#x589E; <code>afl-system-config</code> &#x811A;&#x672C; (&#x4E00;&#x952E;&#x4F18;&#x5316;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;) </p>
+</li>
+<li><strong>&#x517C;&#x5BB9;&#x6027;&#x5347;&#x7EA7;</strong><ul>
+<li>LLVM &#x652F;&#x6301; 3.9 &#x5230; 8.0 &#x7248;&#x672C;. </li>
+<li>QEMU &#x4ECE; 2.1 &#x5347;&#x7EA7;&#x81F3; 3.1 (&#x57FA;&#x4E8E; <code>andreafioraldi/afl</code>) </li>
+</ul>
+</li>
+</ul>
+<h3 id="253c">2.53c</h3>
+<ul>
+<li><p>README &#x8F6C;&#x6362;&#x4E3A; Markdown &#x683C;&#x5F0F; (README.md) </p>
+</li>
+<li><p>&#x65B0;&#x589E; <code>unicorn_mode</code> &#x652F;&#x6301; (&#x57FA;&#x4E8E; domenukk &#x7684;&#x8865;&#x4E01;) </p>
+</li>
+<li>&#x65B0;&#x589E; <code>libcompcov</code> (QEMU &#x6A21;&#x5F0F;&#x7684; LAF-Intel &#x5B9E;&#x73B0;) </li>
+<li>&#x65B0;&#x589E; <code>instrim</code> (&#x66F4;&#x5FEB;&#x7684; LLVM &#x6A21;&#x5F0F;&#x63D2;&#x6869;, &#x4F46;&#x727A;&#x7272;&#x8DEF;&#x5F84;&#x53D1;&#x73B0;) </li>
+<li>&#x65B0;&#x589E; <strong>MOpt &#x6A21;&#x5F0F;</strong> (&#x57FA;&#x4E8E; <code>puppet-meteor/MOpt-AFL</code>) </li>
+<li>LLVM/QEMU &#x6A21;&#x5F0F;&#x4FEE;&#x590D;&#x548C;&#x4F18;&#x5316; (&#x5982; <code>AFL_LLVM_NEVER_ZERO</code> &#x8BA1;&#x6570;&#x5668;) </li>
+<li>&#x65B0;&#x589E;&#x767D;&#x540D;&#x5355;&#x652F;&#x6301; (<code>AFL_LLVM_WHITELIST</code>) </li>
+<li>&#x65B0;&#x589E; Python &#x6A21;&#x5757;&#x53D8;&#x5F02;&#x5668;&#x652F;&#x6301; (&#x9700; Python 2.7-dev) </li>
+<li><code>afl-tmin</code> &#x6027;&#x80FD;&#x63D0;&#x5347; (&#x96C6;&#x6210; TriforceAFL &#x7684; forkserver &#x8865;&#x4E01;) </li>
+<li><strong>&#x529F;&#x80FD;&#x589E;&#x5F3A;</strong><ul>
+<li>&#x663E;&#x793A; CPU &#x6838;&#x5FC3;&#x7F16;&#x53F7; (&#x72B6;&#x6001;&#x5C4F;&#x5E55;&#x4E2D;&#x7684; <code>{#}</code>) </li>
+<li>&#x65B0;&#x589E;&#x65F6;&#x95F4; / &#x6267;&#x884C;&#x6B21;&#x6570;&#x9650;&#x5236;&#x9009;&#x9879; (<code>-V time</code> &#x548C; <code>-E execs</code>) </li>
+<li>&#x652F;&#x6301;&#x56FA;&#x5B9A;&#x968F;&#x673A;&#x79CD;&#x5B50; (<code>-s seed</code>) </li>
+<li>&#x961F;&#x5217;&#x6587;&#x4EF6;&#x547D;&#x540D;&#x5305;&#x542B;&#x53D1;&#x73B0;&#x65F6;&#x95F4;. </li>
+</ul>
+</li>
+<li><strong>&#x517C;&#x5BB9;&#x6027;</strong><ul>
+<li>&#x63D0;&#x5347;&#x8DE8;&#x5E73;&#x53F0;&#x652F;&#x6301; (&#x975E; Intel / Linux &#x73AF;&#x5883;) </li>
+<li>LLVM &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7EDF;&#x4E00;&#x524D;&#x7F00; (<code>AFL_LLVM_LAF_...</code>) </li>
+</ul>
+</li>
+</ul>
+<h3 id="254c">&lt;!&gt; 2.54c</h3>
+<ul>
+<li><strong>&#x4EE3;&#x7801;&#x91CD;&#x6784;</strong><ul>
+<li>&#x7EDF;&#x4E00;&#x4EE3;&#x7801;&#x7ED3;&#x6784; (<code>include/</code> &#x548C; <code>src/</code> &#x76EE;&#x5F55;) </li>
+<li>&#x62C6;&#x5206; <code>afl-fuzz</code> &#x903B;&#x8F91;&#x5230;&#x6A21;&#x5757;&#x5316;&#x6587;&#x4EF6; (&#x5982; forkserver&#x3001;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x7B49;) </li>
+</ul>
+</li>
+<li><strong>&#x65B0;&#x7279;&#x6027;</strong><ul>
+<li>&#x81EA;&#x52A8;&#x751F;&#x6210;&#x5DE5;&#x5177;&#x624B;&#x518C;&#x9875; (man pages) </li>
+<li>&#x65B0;&#x589E; <code>AFL_FORCE_UI</code> &#x5F3A;&#x5236;&#x663E;&#x793A; UI. </li>
+<li>&#x652F;&#x6301; LLVM 9 &#x548C; Android (&#x9700;&#x4FEE;&#x6539; Makefile) </li>
+<li>&#x4FEE;&#x590D; QEMU &#x5728; Ubuntu &#x7684;&#x6784;&#x5EFA;&#x95EE;&#x9898; (&#x611F;&#x8C22; floyd) </li>
+</ul>
+</li>
+<li><strong>&#x529F;&#x80FD;&#x589E;&#x5F3A;</strong><ul>
+<li>&#x652F;&#x6301;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5E93; (&#x611F;&#x8C22; kyakdan) </li>
+<li><code>afl-showmap</code> &#x65B0;&#x589E; <code>-r</code> &#x9009;&#x9879; (&#x663E;&#x793A;&#x771F;&#x5B9E;&#x7684;&#x6876;&#x503C;) </li>
+<li>&#x6539;&#x8FDB; *BSD &#x517C;&#x5BB9;&#x6027;</li>
+</ul>
+</li>
+</ul>
+<h3 id="254d---257c">&lt;!&gt; 2.54d - 2.57c</h3>
+<ul>
+<li><strong>&#x6838;&#x5FC3;&#x6539;&#x8FDB;</strong><ul>
+<li><strong>QEMU &#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F;</strong> (&#x8BE6;&#x89C1; <code>qemu_mode/README.md</code>) </li>
+<li>&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5E93;&#x6539;&#x4E3A;&#x9644;&#x52A0;&#x9009;&#x9879;. </li>
+<li>&#x65B0;&#x589E; <code>qemu_mode/unsigaction</code> &#x5E93; (&#x8FC7;&#x6EE4; <code>sigaction</code> &#x4E8B;&#x4EF6;) </li>
+</ul>
+</li>
+<li><strong>&#x65B0;&#x529F;&#x80FD;</strong><ul>
+<li><code>afl-fuzz</code>: <ul>
+<li>&#x65B0;&#x589E; <code>-I</code> &#x9009;&#x9879; (&#x53D1;&#x73B0;&#x5D29;&#x6E83;&#x65F6;&#x6267;&#x884C;&#x547D;&#x4EE4;) </li>
+<li>&#x652F;&#x6301;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x4E3A; FIFO &#x6216;&#x78C1;&#x76D8;&#x5206;&#x533A; (&#x53D6;&#x6D88;&#x94FE;&#x63A5;&#x8F93;&#x5165;)</li>
+<li>&#x65B0;&#x589E;&#x53D8;&#x5F02;&#x6587;&#x6863;&#x529F;&#x80FD; (<code>make document</code> &#x751F;&#x6210; <code>afl-fuzz-document</code>) </li>
+</ul>
+</li>
+<li><strong>Wine &#x6A21;&#x5F0F;</strong> (<code>-W</code> &#x9009;&#x9879;&#x652F;&#x6301; Win32 &#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;) </li>
+<li><strong>ARM &#x652F;&#x6301;</strong> (QEMU/Unicorn &#x7684; CompareCoverage) </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;&#x4F18;&#x5316;</strong><ul>
+<li>&#x4EE3;&#x7801;&#x91CD;&#x6784; (&#x62C6;&#x5206; <code>afl-fuzz</code> &#x903B;&#x8F91;&#x5230;&#x72EC;&#x7ACB;&#x6587;&#x4EF6;) </li>
+<li>&#x65B0;&#x589E; <code>make help</code> &#x548C;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x6846;&#x67B6; (<code>make tests</code>) </li>
+<li>&#x6539;&#x8FDB; *BSD &#x652F;&#x6301; (&#x5982; FreeBSD &#x7684; CPU &#x7ED1;&#x5B9A;) </li>
+</ul>
+</li>
+</ul>
+<h3 id="258c">2.58c</h3>
+<ul>
+<li><strong>&#x6027;&#x80FD;&#x4FEE;&#x590D;</strong><ul>
+<li>&#x56DE;&#x9000;&#x53D6;&#x6D88;&#x94FE;&#x63A5;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x8865;&#x4E01; (&#x907F;&#x514D; 10% &#x6027;&#x80FD;&#x635F;&#x5931;)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>&#x65B0;&#x589E;&#x529F;&#x80FD;</strong></p>
+<ul>
+<li><p>&#x6DFB;&#x52A0;&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x811A;&#x672C; (<code>test/test-performance.sh</code>) </p>
+</li>
+<li><p>&#x91CD;&#x65B0;&#x5F15;&#x5165; <strong>GCC &#x63D2;&#x4EF6;&#x6A21;&#x5F0F;</strong> (&#x652F;&#x6301;&#x767D;&#x540D;&#x5355;&#x548C;&#x6301;&#x4E45;&#x5316;) </p>
+</li>
+<li><p>&#x4E3A; GCC &#x63D2;&#x4EF6;&#x6DFB;&#x52A0;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;. </p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="259c">2.59c</h3>
+<ul>
+<li><strong>&#x65B0;&#x652F;&#x6301;&#x6A21;&#x5F0F;</strong><ul>
+<li>QBDI &#x6A21;&#x5F0F;: &#x652F;&#x6301; Android &#x539F;&#x751F;&#x5E93;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. </li>
+<li>Unicorn &#x6A21;&#x5F0F;: &#x5347;&#x7EA7;&#x81F3; <code>unicornafl</code> (&#x57FA;&#x4E8E; <a href="https://github.com/vanhauser-thc/unicorn" target="_blank">vanhauser-thc/unicorn</a>) </li>
+</ul>
+</li>
+<li><strong>&#x529F;&#x80FD;&#x589E;&#x5F3A;</strong><ul>
+<li><code>afl-fuzz</code>: <ul>
+<li>&#x53EF;&#x9009; Radamsa &#x53D8;&#x5F02;&#x9636;&#x6BB5; (<code>-R[R]</code>) </li>
+<li>&#x65B0;&#x589E; <code>-u</code> &#x9009;&#x9879; (&#x7981;&#x6B62;&#x53D6;&#x6D88;&#x94FE;&#x63A5;&#x8F93;&#x5165;&#x6587;&#x4EF6;) </li>
+<li><strong>&#x652F;&#x6301; Python3</strong> (&#x81EA;&#x52A8;&#x68C0;&#x6D4B;) </li>
+<li>&#x65B0;&#x589E; <code>AFL_DISABLE_TRIM</code> &#x7981;&#x7528;&#x4FEE;&#x526A;&#x9636;&#x6BB5;. </li>
+<li>&#x652F;&#x6301; DragonFly BSD &#x7684; CPU &#x4EB2;&#x548C;&#x6027;. </li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x6D6E;&#x70B9;&#x6570;&#x62C6;&#x5206;&#x901A;&#x8FC7; <code>AFL_LLVM_LAF_SPLIT_FLOATS</code> &#x914D;&#x7F6E;. </li>
+<li>&#x652F;&#x6301; LLVM 10. </li>
+</ul>
+</li>
+<li><strong>libtokencap/compcov</strong>: <ul>
+<li>&#x652F;&#x6301; *BSD/OSX/DragonFly. </li>
+<li>&#x6302;&#x94A9;&#x5E38;&#x89C1;&#x5E93;&#x7684; <code>*cmp</code> &#x51FD;&#x6570;. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;&#x6539;&#x8FDB;</strong><ul>
+<li>QEMU &#x6A21;&#x5F0F;: &#x65B0;&#x589E; <code>AFL_QEMU_DISABLE_CACHE</code> &#x7981;&#x7528;&#x7F13;&#x5B58;. </li>
+<li>&#x65B0;&#x589E;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5B57;&#x5178; (<code>regex.dictionary</code>) </li>
+<li>&#x4F18;&#x5316; Android &#x652F;&#x6301; (&#x96C6;&#x6210; Google AFL &#x7684;&#x90E8;&#x5206;&#x529F;&#x80FD;) </li>
+</ul>
+</li>
+</ul>
+<h3 id="259d--260c">2.59d | 2.60c</h3>
+<ul>
+<li><strong>&#x5173;&#x952E;&#x4FEE;&#x590D;</strong><ul>
+<li>&#x4FEE;&#x590D; <code>afl-tmin</code> &#x5728; 2.53d &#x7248;&#x672C;&#x4E2D;&#x5F15;&#x5165;&#x7684;&#x4E25;&#x91CD; bug. </li>
+</ul>
+</li>
+<li><strong>&#x65B0;&#x589E;&#x529F;&#x80FD;</strong><ul>
+<li>&#x4E3A; <code>afl-cmin</code> &#x548C; <code>afl-tmin</code> &#x6DFB;&#x52A0;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B; (<code>test/test.sh</code>) </li>
+<li>&#x65B0;&#x589E; <code>./experimental/argv_fuzzing</code> (<code>ld_preload</code> &#x5E93;) </li>
+<li>&#x96C6;&#x6210; <code>preeny</code> &#x7684; <code>desock_dup</code> &#x5E93; (<code>./experimental/socket_fuzzing</code>), &#x652F;&#x6301;&#x7F51;&#x7EDC;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. </li>
+</ul>
+</li>
+<li><strong>&#x73AF;&#x5883;&#x53D8;&#x91CF;</strong><ul>
+<li>&#x65B0;&#x589E; <code>AFL_AS_FORCE_INSTRUMENT</code> (&#x652F;&#x6301; <code>retrorewrite</code> &#x9879;&#x76EE;) </li>
+<li>QEMU &#x6A21;&#x5F0F;&#x4E0B;&#x81EA;&#x52A8;&#x4ECE; <code>AFL_PRELOAD</code> &#x8BBE;&#x7F6E; <code>QEMU_SET_ENV</code>. </li>
+</ul>
+</li>
+</ul>
+<h3 id="261c">&lt;!&gt; 2.61c</h3>
+<ul>
+<li><strong>&#x6027;&#x80FD;&#x4E0E;&#x517C;&#x5BB9;&#x6027;</strong><ul>
+<li>&#x652F;&#x6301; GCC 10, &#x9ED8;&#x8BA4;&#x542F;&#x7528; <code>-march=native</code> &#x4F18;&#x5316;. </li>
+<li>&#x7981;&#x7528;&#x5185;&#x5B58;&#x5B89;&#x5168;&#x68C0;&#x67E5;&#x4EE5;&#x63D0;&#x5347;&#x901F;&#x5EA6; (&#x53EF;&#x901A;&#x8FC7; <code>config.h</code> &#x914D;&#x7F6E;) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz &#x6539;&#x8FDB;</strong><ul>
+<li>&#x4FEE;&#x590D; MOpt &#x8D8A;&#x754C;&#x5199;&#x5165;&#x5D29;&#x6E83;. </li>
+<li>&#x652F;&#x6301; <strong>Python 2/3 &#x5168;&#x7248;&#x672C;</strong>. </li>
+<li>&#x65B0;&#x589E; <strong>RedQueen &#x8F93;&#x5165;&#x5230;&#x72B6;&#x6001;&#x53D8;&#x5F02;&#x5668;</strong> (&#x57FA;&#x4E8E;&#x6BD4;&#x8F83;&#x6307;&#x4EE4;) </li>
+<li>Android &#x4F18;&#x5148;&#x7ED1;&#x5B9A;&#x5927;&#x6838; CPU. </li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;&#x4FEE;&#x590D;</strong><ul>
+<li>&#x4FEE;&#x590D; InsTrim &#x63D2;&#x6869;&#x7684; 3 &#x4E2A;&#x5173;&#x952E;&#x95EE;&#x9898; (&#x5305;&#x62EC; <code>prev_loc</code> &#x5199;&#x5165;&#x9519;&#x8BEF;) </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;&#x589E;&#x5F3A;</strong><ul>
+<li>&#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F;&#x652F;&#x6301; ARM / AArch64. </li>
+<li>&#x65B0;&#x589E; <strong>CmpLog &#x63D2;&#x6869;</strong> (x86/ARM &#x67B6;&#x6784;) </li>
+<li>&#x652F;&#x6301;&#x6307;&#x4EE4;&#x7EA7;&#x5165;&#x53E3;&#x70B9; (<code>AFL_ENTRYPOINT</code>) </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x94FE;&#x4F18;&#x5316;</strong><ul>
+<li><code>afl-cmin</code> &#x6539;&#x7528; POSIX <code>sh</code> &#x811A;&#x672C;&#x63D0;&#x5347;&#x517C;&#x5BB9;&#x6027; (&#x539F;&#x7248;&#x4FDD;&#x7559;&#x4E3A; <code>afl-cmin.bash</code>) </li>
+<li><code>afl-showmap</code> &#x652F;&#x6301;&#x591A;&#x8F93;&#x5165;&#x5E76;&#x884C;&#x5904;&#x7406; (&#x52A0;&#x901F; <code>afl-cmin</code>) </li>
+</ul>
+</li>
+</ul>
+<h3 id="262c">2.62c</h3>
+<ul>
+<li><strong>&#x5173;&#x952E;&#x4FEE;&#x590D;</strong><ul>
+<li>&#x4FEE;&#x590D;&#x5185;&#x5B58;&#x5206;&#x914D;&#x51FD;&#x6570;&#x5BFC;&#x81F4;&#x7684;&#x5D29;&#x6E83;&#x68C0;&#x6D4B;&#x5931;&#x6548;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>CmpLog &#x4F18;&#x5316;</strong><ul>
+<li>&#x4E0D;&#x518D;&#x4F9D;&#x8D56; <code>sancov</code>. </li>
+</ul>
+</li>
+<li><strong>&#x5C0F;&#x6539;&#x8FDB;</strong><ul>
+<li>&#x4FEE;&#x590D; <code>-E/-V</code> &#x9009;&#x9879;&#x7684; CPU &#x91CA;&#x653E;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="263c">&lt;!!&gt; 2.63c</h3>
+<ul>
+<li><strong>&#x9879;&#x76EE;&#x91CD;&#x7EC4;</strong>: &#x4EE3;&#x7801;&#x5E93;&#x8FC1;&#x79FB;&#x81F3; <strong>AFLplusplus</strong> &#x7EC4;&#x7EC7;, &#x5F00;&#x53D1;&#x96C6;&#x4E2D;&#x5728; <code>dev</code> &#x5206;&#x652F;. </li>
+<li><strong>&#x591A;&#x7EBF;&#x7A0B;&#x4E0E;&#x7A33;&#x5B9A;&#x6027;</strong><ul>
+<li>&#x91CD;&#x6784;&#x4EE3;&#x7801;&#x4F7F; <code>afl-fuzz</code> &#x7EBF;&#x7A0B;&#x5B89;&#x5168;, &#x4E3A;&#x591A;&#x7EBF;&#x7A0B;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x94FA;&#x8DEF;. </li>
+<li>&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x5206;&#x914D;&#x6B21;&#x6570;, &#x63D0;&#x5347;&#x6027;&#x80FD;. </li>
+</ul>
+</li>
+<li><strong>afl-fuzz &#x65B0;&#x7279;&#x6027;</strong><ul>
+<li>Python &#x548C;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x63A5;&#x53E3;&#x7EDF;&#x4E00; (API &#x53D8;&#x66F4;) </li>
+<li><code>AFL_AUTORESUME</code> &#x652F;&#x6301;&#x81EA;&#x52A8;&#x6062;&#x590D;&#x4F1A;&#x8BDD; (&#x65E0;&#x9700; <code>-i -</code>) </li>
+<li>&#x65B0;&#x589E;&#x5B9E;&#x9A8C;&#x6027;&#x8C03;&#x5EA6;&#x7B56;&#x7565;: <ul>
+<li><code>mmopt</code>: &#x5FFD;&#x7565;&#x8FD0;&#x884C;&#x65F6;, &#x4FA7;&#x91CD;&#x6700;&#x8FD1; 5 &#x4E2A;&#x961F;&#x5217;&#x6761;&#x76EE;. </li>
+<li><code>rare</code>: &#x805A;&#x7126;&#x7A00;&#x6709;&#x5206;&#x652F;&#x8DEF;&#x5F84;. </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;&#x91CD;&#x5927;&#x66F4;&#x65B0;</strong><ul>
+<li><strong>LTO &#x65E0;&#x78B0;&#x649E;&#x63D2;&#x6869;</strong> (&#x9700;&#x624B;&#x52A8;&#x7F16;&#x8BD1; LLVM 11) </li>
+<li><strong>NGRAM &#x8986;&#x76D6;&#x7387;</strong> (<code>AFL_LLVM_NGRAM_SIZE</code>) </li>
+<li><strong>&#x4E0A;&#x4E0B;&#x6587;&#x654F;&#x611F;&#x5206;&#x652F;&#x8986;&#x76D6;</strong> (<code>AFL_LLVM_INSTRUMENT=CTX</code>) </li>
+<li><strong>&#x63A7;&#x5236;&#x6D41;&#x5B8C;&#x6574;&#x6027;&#x68C0;&#x67E5;</strong> (<code>AFL_USE_CFISAN</code>) </li>
+<li>&#x79FB;&#x9664; <code>USE_TRACE_PC</code> &#x7F16;&#x8BD1;&#x9009;&#x9879;. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong><ul>
+<li>&#x4F7F;&#x7528;&#x5185;&#x7F6E; Capstone &#x4FEE;&#x590D;&#x73B0;&#x4EE3; Linux &#x6784;&#x5EFA;&#x95EE;&#x9898;. </li>
+<li>x86 &#x76EE;&#x6807;&#x652F;&#x6301; CmpLog &#x8BB0;&#x5F55;&#x51FD;&#x6570;&#x53C2;&#x6570;. </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;&#x5DE5;&#x5177;&#x6539;&#x8FDB;</strong><ul>
+<li><code>afl-tmin</code> &#x652F;&#x6301;&#x6302;&#x8D77; (hang)&#x6700;&#x5C0F;&#x5316;&#x6A21;&#x5F0F; (<code>-H</code>) </li>
+<li>&#x81EA;&#x5B9A;&#x4E49; API &#x91CD;&#x5199; (Python &#x548C;&#x5171;&#x4EAB;&#x5E93;&#x63A5;&#x53E3;&#x7EDF;&#x4E00;) </li>
+</ul>
+</li>
+</ul>
+<h3 id="264c">2.64c</h3>
+<ul>
+<li><strong>LLVM LTO &#x6A21;&#x5F0F;&#x589E;&#x5F3A;</strong><ul>
+<li>&#x8981;&#x6C42; LLVM 11+, &#x652F;&#x6301;&#x7F16;&#x8BD1;&#x6240;&#x6709;&#x76EE;&#x6807;. </li>
+<li>&#x65B0;&#x589E; <strong>&#x81EA;&#x52A8;&#x5B57;&#x5178;&#x751F;&#x6210;</strong> (<code>AFL_LLVM_LTO_AUTODICTIONARY</code>) </li>
+<li>&#x652F;&#x6301; <strong>&#x53EF;&#x53D8;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x5927;&#x5C0F;</strong> (&#x4EC5; LTO &#x6A21;&#x5F0F;&#x53EF;&#x7528;) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz &#x6539;&#x8FDB;</strong><ul>
+<li>&#x5FEB;&#x7167; (Snapshot)&#x529F;&#x80FD;&#x5728; UI &#x4E2D;&#x53EF;&#x89C1;. </li>
+<li><code>-L -1</code> &#x5141;&#x8BB8; MOpt &#x4E0E;&#x5E38;&#x89C4;&#x53D8;&#x5F02;&#x5E76;&#x884C;&#x8FD0;&#x884C; (&#x540C;&#x65F6;&#x652F;&#x6301;&#x5B57;&#x5178;&#x3001;Radamsa &#x548C; CmpLog) </li>
+<li>&#x4FEE;&#x590D; CmpLog/RedQueen &#x6A21;&#x5F0F;&#x5728; stdin &#x8F93;&#x5165;&#x65F6;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong><ul>
+<li>&#x4FEE;&#x590D;&#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F;&#x53EF;&#x80FD;&#x5361;&#x6B7B;&#x6216;&#x65E0;&#x6CD5;&#x9000;&#x51FA;&#x7684;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>&#x6BD4;&#x8F83;&#x8F6C;&#x6362;&#x4F18;&#x5316;</strong><ul>
+<li><code>AFL_LLVM_LAF_TRANSFORM_COMPARES</code> &#x652F;&#x6301;&#x9759;&#x6001;&#x5168;&#x5C40;/&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x6BD4;&#x8F83;&#x8F6C;&#x6362;. </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;&#x5173;&#x952E;&#x53D8;&#x66F4;</strong><ul>
+<li>&#x65B0;&#x589E; <code>AFL_MAP_SIZE</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x6307;&#x5B9A;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5927;&#x5C0F;. </li>
+<li>&#x4FEE;&#x590D; <code>AFL_CC/AFL_CXX</code> &#x4E3A;&#x7A7A;&#x65F6;&#x7684;&#x7F16;&#x8BD1;&#x95EE;&#x9898; (&#x539F;&#x7248; AFL &#x4E5F;&#x5B58;&#x5728;&#x6B64;&#x95EE;&#x9898;) </li>
+<li>&#x65B0;&#x589E; <code>NO_PYTHON</code> &#x7F16;&#x8BD1;&#x9009;&#x9879;&#x7981;&#x7528; Python &#x652F;&#x6301;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="265c">2.65c</h3>
+<ul>
+<li><strong>afl-fuzz &#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x4FEE;&#x590D; <code>AFL_MAP_SIZE</code> &#x95EE;&#x9898;. </li>
+<li>&#x5F03;&#x7528; <code>AFL_POST_LIBRARY</code>, &#x63A8;&#x8350;&#x4F7F;&#x7528; <code>AFL_CUSTOM_MUTATOR_LIBRARY</code>. </li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x9ED8;&#x8BA4;&#x4E0D;&#x8DF3;&#x8FC7;&#x5355;&#x5757;&#x51FD;&#x6570; (&#x53EF;&#x901A;&#x8FC7; <code>AFL_LLVM_SKIPSINGLEBLOCK</code> &#x542F;&#x7528;) </li>
+<li>&#x652F;&#x6301; LLVM 11 &#x7684;&#x56FA;&#x5B9A;&#x5730;&#x5740;&#x5171;&#x4EAB;&#x5185;&#x5B58; (&#x63D0;&#x5347;&#x901F;&#x5EA6;) </li>
+<li>&#x65B0;&#x589E; LTO &#x7248;&#x672C;&#x7684; InsTrim (&#x6700;&#x5FEB;&#x6A21;&#x5F0F;) </li>
+<li>&#x4FEE;&#x590D; LTO &#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x8FB9;&#x7F18;&#x8BA1;&#x6570;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>&#x65B0;&#x589E;&#x793A;&#x4F8B;</strong>: <ul>
+<li><code>afl_network_proxy</code> (&#x7F51;&#x7EDC;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;)&#x3001;<code>afl_untracer</code> (&#x4E8C;&#x8FDB;&#x5236;&#x5185;&#x5B58;&#x4FEE;&#x6539;)&#x3001;<code>afl_proxy</code> (&#x975E;&#x6807;&#x51C6;&#x76EE;&#x6807;&#x63D2;&#x6869;) </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;</strong>: <ul>
+<li>&#x6539;&#x8FDB; 32 &#x4F4D;&#x6784;&#x5EFA;&#x9009;&#x9879;&#x548C;&#x9519;&#x8BEF;&#x62A5;&#x544A;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="266c">&lt;!&gt; 2.66c</h3>
+<ul>
+<li><strong>&#x547D;&#x540D;&#x89C4;&#x8303;</strong>: <ul>
+<li>&#x4E3B;&#x5206;&#x652F;&#x66F4;&#x540D;&#x4E3A; <code>stable</code>, &#x5F03;&#x7528; <code>master/slave</code> &#x548C; <code>blacklist/whitelist</code>. </li>
+</ul>
+</li>
+<li><strong>afl-fuzz &#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x6B21;&#x7EA7;&#x8282;&#x70B9; (<code>-S</code>)&#x4EC5;&#x4ECE;&#x4E3B;&#x8282;&#x70B9;&#x540C;&#x6B65;&#x4EE5;&#x63D0;&#x9AD8;&#x6027;&#x80FD;. </li>
+<li>&#x6539;&#x7528; xxh3 &#x548C; xoshiro256** &#x54C8;&#x5E0C;&#x7B97;&#x6CD5; (&#x6027;&#x80FD;&#x63D0;&#x5347; 5.5%) </li>
+<li>&#x65B0;&#x589E; <code>SEEK</code> &#x8C03;&#x5EA6;&#x7B56;&#x7565; (&#x5FFD;&#x7565;&#x8FD0;&#x884C;&#x65F6;, &#x4E13;&#x6CE8;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x957F;&#x5EA6;) </li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x9ED8;&#x8BA4;&#x63D2;&#x6869;&#x6539;&#x4E3A; PCGUARD (LLVM &#x2265; 7), &#x652F;&#x6301;&#x907F;&#x514D;&#x78B0;&#x649E;. </li>
+<li>&#x652F;&#x6301; LLVM 3.4+ (&#x6700;&#x4F4E;&#x7248;&#x672C;&#x8981;&#x6C42;&#x964D;&#x4F4E;) </li>
+<li>&#x6539;&#x8FDB; LTO &#x7684; <code>instrument_files</code> &#x529F;&#x80FD; (&#x652F;&#x6301;&#x901A;&#x914D;&#x7B26;) </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;</strong>: <ul>
+<li>Unicornafl &#x65B0;&#x589E; PowerPC &#x652F;&#x6301;&#x548C; Rust &#x7ED1;&#x5B9A;. </li>
+<li>&#x6301;&#x4E45;&#x6A21;&#x5F0F;&#x652F;&#x6301;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x4F20;&#x9012;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B; (&#x6027;&#x80FD;&#x63D0;&#x5347; 10-100%) </li>
+<li>&#x4FEE;&#x590D; afl-cmin.bash &#x548C; 64 &#x4F4D;&#x67B6;&#x6784;&#x652F;&#x6301;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="267c">&lt;!&gt; 2.67c</h3>
+<ul>
+<li><strong>&#x5FEB;&#x7167;&#x6A21;&#x5757;</strong>: &#x652F;&#x6301;&#x6539;&#x8FDB;&#x7684; AFL++ Snapshot LKM. </li>
+<li><strong>afl-fuzz &#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>-F</code> &#x9009;&#x9879;&#x652F;&#x6301;&#x540C;&#x6B65;&#x5916;&#x90E8;&#x6A21;&#x7CCA;&#x5668; (&#x5982; honggfuzz) </li>
+<li>&#x65B0;&#x589E; <code>-b</code> &#x9009;&#x9879;&#x7ED1;&#x5B9A;&#x5230;&#x7279;&#x5B9A; CPU. </li>
+<li>&#x4FEE;&#x590D; CPU &#x4EB2;&#x548C;&#x6027;&#x7ADE;&#x4E89;&#x6761;&#x4EF6;. </li>
+<li>&#x6269;&#x5C55; havoc &#x6A21;&#x5F0F; (&#x589E;&#x52A0;&#x62FC;&#x63A5;&#x548C; MOpt) </li>
+<li>&#x4FEE;&#x590D; Redqueen &#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5904;&#x7406;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x652F;&#x6301; LLVM 12. </li>
+<li>&#x65B0;&#x589E; <code>AFL_LLVM_ALLOWLIST/DENYLIST</code> (&#x66FF;&#x4EE3;&#x65E7;&#x7684;&#x767D;&#x540D;&#x5355;/&#x9ED1;&#x540D;&#x5355;) </li>
+<li>&#x6539;&#x8FDB; LTO &#x7684;&#x7A33;&#x5B9A;&#x6027;&#x548C;&#x529F;&#x80FD; (&#x5982;&#x81EA;&#x52A8;&#x5B57;&#x5178;&#x3001;&#x8FB9;&#x7F18; ID &#x8BB0;&#x5F55;) </li>
+<li>&#x4FEE;&#x590D; laf-intel &#x6D6E;&#x70B9;&#x5206;&#x5272;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;</strong>: <ul>
+<li>&#x65B0;&#x589E; honggfuzz &#x53D8;&#x5F02;&#x5668;&#x548C; Frida &#x96C6;&#x6210;&#x793A;&#x4F8B;. </li>
+<li>&#x4FEE;&#x590D; afl-plot &#x548C; afl-whatsup &#x7684;&#x5C0F;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="268c">2.68c</h3>
+<ul>
+<li><strong>&#x65B0;&#x589E;&#x529F;&#x80FD;</strong>: &#x96C6;&#x6210;&#x8BED;&#x6CD5;&#x53D8;&#x5F02;&#x5668; (Grammar-Mutator) </li>
+<li><strong>afl-fuzz &#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x4FEE;&#x590D;&#x81EA;&#x52A8;&#x5B57;&#x5178;&#x4E0E; <code>-x</code> &#x5B57;&#x5178;&#x7684;&#x51B2;&#x7A81;. </li>
+<li>&#x65B0;&#x589E; <code>AFL_MAX_DET_EXTRAS</code> &#x548C; <code>AFL_FORKSRV_INIT_TMOUT</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;. </li>
+<li>&#x4FEE;&#x590D; cmplog &#x7684;&#x5806;&#x6EA2;&#x51FA;&#x95EE;&#x9898;. </li>
+<li>&#x8BB0;&#x5F55;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x914D;&#x7F6E;&#x5230; <code>out/fuzzer_setup</code>. </li>
+</ul>
+</li>
+<li><strong>&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>afl_custom_fuzz_count</code> &#x51FD;&#x6570;&#x63A7;&#x5236;&#x53D8;&#x5F02;&#x6B21;&#x6570;. </li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x652F;&#x6301; LLVM 12. </li>
+<li>&#x5F03;&#x7528; <code>LLVM_SKIPSINGLEBLOCK</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;. </li>
+<li>&#x6539;&#x8FDB; LTO &#x548C; SanCov &#x7684;&#x63D2;&#x6869;&#x4F4D;&#x7F6E;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="300c">&lt;!&gt; 3.00c</h3>
+<ul>
+<li><strong>&#x4EE3;&#x7801;&#x91CD;&#x7EC4;</strong>: <ul>
+<li>&#x5408;&#x5E76; <code>llvm_mode/</code> &#x548C; <code>gcc_plugin/</code> &#x5230; <code>instrumentation/</code>. </li>
+<li>&#x91CD;&#x547D;&#x540D; <code>examples/</code> &#x4E3A; <code>utils/</code>, &#x5E76;&#x79FB;&#x52A8;&#x90E8;&#x5206;&#x5DE5;&#x5177;&#x5230;&#x8BE5;&#x76EE;&#x5F55;. </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x5408;&#x5E76;&#x6240;&#x6709;&#x7F16;&#x8BD1;&#x5668;&#x5230; <code>afl-cc</code>, &#x7EDF;&#x4E00;&#x6A21;&#x62DF;&#x4E4B;&#x524D;&#x7684;&#x529F;&#x80FD;. </li>
+<li>&#x5408;&#x5E76;&#x8FD0;&#x884C;&#x65F6;&#x5BF9;&#x8C61;&#x6587;&#x4EF6; (<code>afl-llvm/gcc-rt.o</code> &#x5230; <code>afl-compiler-rt.o</code>) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz &#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x9ED8;&#x8BA4;&#x542F;&#x7528; <code>-S default</code> &#x6A21;&#x5F0F;. </li>
+<li>&#x786E;&#x5B9A;&#x6027;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5; (<code>-D</code>)&#x9ED8;&#x8BA4;&#x5173;&#x95ED;, &#x4E3B;&#x8282;&#x70B9; (<code>-M</code>)&#x4ECD;&#x9ED8;&#x8BA4;&#x542F;&#x7528;. </li>
+<li>&#x65B0;&#x7684;&#x79CD;&#x5B50;&#x9009;&#x62E9;&#x7B97;&#x6CD5; (&#x57FA;&#x4E8E;&#x6027;&#x80FD;&#x8BC4;&#x5206;), &#x65E7;&#x6A21;&#x5F0F;&#x53EF;&#x901A;&#x8FC7; <code>-Z</code> &#x542F;&#x7528;. </li>
+<li>&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x6539;&#x4E3A; <code>FAST</code>. </li>
+<li>&#x9ED8;&#x8BA4;&#x7981;&#x7528;&#x5185;&#x5B58;&#x9650;&#x5236; (&#x9700;&#x901A;&#x8FC7; <code>-m</code> &#x624B;&#x52A8;&#x8BBE;&#x7F6E;) </li>
+<li>&#x652F;&#x6301; <code>rpc.statsd</code> &#x7EDF;&#x8BA1;&#x548C;&#x56FE;&#x8868; (Edznux &#x8D21;&#x732E;) </li>
+<li>&#x652F;&#x6301;&#x4ECE; <code>-i</code> &#x76EE;&#x5F55;&#x9012;&#x5F52;&#x8BFB;&#x53D6;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;. </li>
+<li>&#x5141;&#x8BB8;&#x591A;&#x6B21;&#x4F7F;&#x7528; <code>-x</code> &#x9009;&#x9879; (&#x6700;&#x591A; 4 &#x6B21;) </li>
+<li>&#x6539;&#x8FDB;&#x5D29;&#x6E83;&#x79CD;&#x5B50;&#x5904;&#x7406; (&#x8DF3;&#x8FC7;&#x4F46;&#x7528;&#x4E8E;&#x62FC;&#x63A5;) </li>
+<li>&#x65B0;&#x589E; <code>NO_SPLICING</code> &#x7F16;&#x8BD1;&#x9009;&#x9879;&#x548C; <code>INTROSPECTION</code> &#x76EE;&#x6807;. </li>
+</ul>
+</li>
+<li><strong>&#x63D2;&#x6869;&#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x589E;&#x5F3A;&#x7684; GCC &#x63D2;&#x4EF6; (AdaCore &#x8D21;&#x732E;) </li>
+<li>&#x65B0;&#x589E; <code>AFL_LLVM_DICT2FILE</code> &#x9009;&#x9879;, &#x751F;&#x6210;&#x5B57;&#x7B26;&#x4E32;&#x6BD4;&#x8F83;&#x5B57;&#x5178;. </li>
+<li>LTO &#x81EA;&#x52A8;&#x5B57;&#x5178;&#x652F;&#x6301;&#x66F4;&#x591A;&#x6BD4;&#x8F83;&#x64CD;&#x4F5C; (&#x5982; <code>std::string</code> &#x6BD4;&#x8F83;) </li>
+</ul>
+</li>
+<li><strong>&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>symcc</code> &#x548C; <code>libfuzzer</code> &#x53D8;&#x5F02;&#x5668;. </li>
+<li>&#x6539;&#x8FDB;&#x8BED;&#x6CD5;&#x53D8;&#x5F02;&#x5668;&#x96C6;&#x6210;. </li>
+<li>&#x652F;&#x6301; Python &#x53D8;&#x5F02;&#x5668;&#x7684;&#x6027;&#x80FD;&#x4F18;&#x5316;. </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_NO_COLOR</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7981;&#x7528;&#x5F69;&#x8272;&#x8F93;&#x51FA;. </li>
+<li>&#x4FEE;&#x590D; <code>-n</code> &#x6A21;&#x5F0F; (dumb fuzzing)&#x7684;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="310c">3.10c</h3>
+<ul>
+<li><strong>&#x5E73;&#x53F0;&#x652F;&#x6301;</strong>: &#x65B0;&#x589E; <strong>Mac OS ARM64</strong> &#x548C; <strong>Android</strong> &#x652F;&#x6301;. </li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x52A8;&#x6001;&#x5B66;&#x4E60;&#x76EE;&#x6807;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5927;&#x5C0F; (<code>AFL_MAP_SIZE</code> &#x5E9F;&#x5F03;) </li>
+<li>&#x5347;&#x7EA7; cmplog / Redqueen: &#x652F;&#x6301;&#x6D6E;&#x70B9;&#x6570;&#x3001;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362; (&#x5982;&#x5927;&#x5C0F;&#x5199;&#x3001;&#x5341;&#x516D;&#x8FDB;&#x5236;) </li>
+<li>&#x65B0;&#x589E; <code>-l</code> &#x5F3A;&#x5EA6;&#x9009;&#x9879; (&#x63A8;&#x8350; <code>2</code>) </li>
+<li>&#x4F18;&#x5316;&#x8D85;&#x65F6;&#x5904;&#x7406; (<code>-t +</code> &#x6539;&#x4E3A;&#x81EA;&#x52A8;&#x8BA1;&#x7B97;&#x6700;&#x5927;&#x503C;) </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x652F;&#x6301;&#x9009;&#x62E9;&#x6027;&#x63D2;&#x6869; (<code>__AFL_COVERAGE_*</code> &#x6307;&#x4EE4;) </li>
+<li>&#x4FEE;&#x590D; LLVM &#x4F4D;&#x8F6C;&#x6362;&#x548C; LAF &#x529F;&#x80FD;&#x7684;&#x6F5C;&#x5728;&#x5D29;&#x6E83;. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x5F15;&#x5165; <strong>QASan</strong> (QEMU &#x7248; Address Sanitizer) </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;</strong>: <ul>
+<li>Unicornafl &#x63D0;&#x5347; Python / Rust &#x7ED1;&#x5B9A;&#x6027;&#x80FD;. </li>
+<li>&#x65B0;&#x589E; Rust &#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x7ED1;&#x5B9A;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="311c">3.11c</h3>
+<ul>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x4F18;&#x5316;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x81EA;&#x52A8;&#x68C0;&#x6D4B;. </li>
+<li>&#x4FEE;&#x590D; cmplog &#x7684; off-by-one &#x6EA2;&#x51FA;&#x95EE;&#x9898;. </li>
+<li>&#x65B0;&#x589E;&#x975E; Unicode &#x5B57;&#x5178;&#x6761;&#x76EE;&#x53D8;&#x4F53;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_NOOPT</code> &#x7ED5;&#x8FC7;&#x63D2;&#x6869; (&#x7528;&#x4E8E;&#x590D;&#x6742;&#x914D;&#x7F6E;&#x811A;&#x672C;) </li>
+<li>&#x4FEE;&#x590D; ASAN + CMPLOG &#x7684; Unicode &#x5904;&#x7406;&#x95EE;&#x9898;. </li>
+<li>&#x91CD;&#x547D;&#x540D; <code>CTX</code> &#x4E3A; <code>CALLER</code>, &#x6539;&#x8FDB;&#x4E0A;&#x4E0B;&#x6587;&#x63D2;&#x6869;. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_QEMU_EXCLUDE_RANGES</code> &#x6392;&#x9664;&#x5185;&#x5B58;&#x8303;&#x56F4; (@realmadsci &#x8D21;&#x732E;) </li>
+<li>&#x652F;&#x6301; <code>NO_CHECKOUT=1</code> &#x8DF3;&#x8FC7; Git &#x66F4;&#x65B0;. </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;</strong>: <ul>
+<li><code>afl-cmin</code> &#x652F;&#x6301;&#x542B;&#x7A7A;&#x683C;&#x7684;&#x6587;&#x4EF6;&#x540D;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="312c">3.12c</h3>
+<ul>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_TARGET_ENV</code> &#x4F20;&#x9012;&#x989D;&#x5916;&#x73AF;&#x5883;&#x53D8;&#x91CF; (&#x5982; <code>LD_LIBRARY_PATH</code>) </li>
+<li>&#x4F18;&#x5316;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x68C0;&#x6D4B; (<code>AFL_MAP_SIZE</code> &#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x4E0D;&#x518D;&#x9700;&#x8981;) </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x4FEE;&#x590D; cmplog &#x7684;&#x6307;&#x9488;&#x6570;&#x636E;&#x6536;&#x96C6;&#x95EE;&#x9898;. </li>
+<li>&#x786E;&#x4FDD;&#x5171;&#x4EAB;&#x5E93;&#x6B63;&#x786E;&#x63D2;&#x6869;. </li>
+<li>&#x652F;&#x6301; LLVM PCGUARD &#x539F;&#x751F;&#x6A21;&#x5F0F; (<code>NATIVE</code> &#x7F29;&#x5199;) </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x5C06; <code>AFL_PRELOAD</code> &#x548C; <code>AFL_USE_QASAN</code> &#x903B;&#x8F91;&#x79FB;&#x81F3; <code>afl-qemu-trace</code>. </li>
+<li>&#x65B0;&#x589E; <code>AFL_QEMU_CUSTOM_BIN</code> &#x652F;&#x6301;. </li>
+</ul>
+</li>
+<li><strong>&#x5B89;&#x5168;</strong>: <ul>
+<li>&#x9ED8;&#x8BA4;&#x6587;&#x4EF6;&#x6743;&#x9650;&#x8BBE;&#x4E3A; <code>0600</code> (&#x901A;&#x8FC7; <code>DEFAULT_PERMISSION</code> &#x914D;&#x7F6E;) </li>
+</ul>
+</li>
+</ul>
+<h3 id="313c">&lt;!&gt; 3.13c</h3>
+<ul>
+<li><strong>&#x65B0;&#x529F;&#x80FD;</strong>: <ul>
+<li>&#x65B0;&#x589E; <strong>Frida &#x6A21;&#x5F0F;</strong> (&#x4E8C;&#x8FDB;&#x5236;&#x76EE;&#x6807;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;, &#x652F;&#x6301;&#x6301;&#x4E45;&#x6A21;&#x5F0F;&#x548C; cmplog) </li>
+<li>&#x65B0;&#x589E; <strong>CodeQL &#x5B57;&#x5178;&#x751F;&#x6210;&#x5DE5;&#x5177;</strong> (<code>utils/autodict_ql</code>) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x652F;&#x6301; <code>@@</code> &#x4F5C;&#x4E3A;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570; (&#x5982; <code>--infile=@@</code>) </li>
+<li>&#x65B0;&#x589E; <code>AFL_PERSISTENT_RECORD</code> &#x8BB0;&#x5F55;&#x4E0D;&#x53EF;&#x590D;&#x73B0;&#x7684;&#x5D29;&#x6E83;. </li>
+<li>cmplog &#x9ED8;&#x8BA4;&#x5F3A;&#x5EA6;&#x6539;&#x4E3A; <code>-l 2</code>, <code>-l 3</code> &#x542F;&#x7528;&#x5168;&#x5C40; Redqueen. </li>
+<li>&#x65B0;&#x589E; <code>AFL_EXIT_ON_SEED_ISSUES</code> &#x548C; <code>AFL_EXIT_ON_TIME</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x6700;&#x4F4E; LLVM &#x7248;&#x672C;&#x8981;&#x6C42;&#x63D0;&#x5347;&#x81F3; 6.0. </li>
+<li>&#x65B0;&#x589E;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x8BA1;&#x6570;&#x5668; (<code>AFL_LLVM_THREADSAFE_INST</code>) </li>
+<li>&#x79FB;&#x9664; InsTrim &#x63D2;&#x6869; (&#x6027;&#x80FD;&#x4E0D;&#x5982; PCGUARD) </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;</strong>: <ul>
+<li>Unicornafl &#x4FEE;&#x590D; MIPS &#x5EF6;&#x8FDF;&#x69FD;&#x548C; aarch64 &#x9000;&#x51FA;&#x5730;&#x5740;&#x95EE;&#x9898;. </li>
+<li>&#x66F4;&#x65B0;&#x8BED;&#x6CD5;&#x53D8;&#x5F02;&#x5668;&#x81F3;&#x6700;&#x65B0;&#x7248;&#x672C;. </li>
+<li>&#x65B0;&#x589E; <code>AFL_PRINT_FILENAMES</code> &#x652F;&#x6301; (&#x663E;&#x793A;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x540D;) </li>
+</ul>
+</li>
+</ul>
+<h3 id="314c">3.14c</h3>
+<ul>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x4FEE;&#x590D; <code>-F</code> &#x53C2;&#x6570;&#x5305;&#x542B; <code>/</code> &#x65F6;&#x7684;&#x9519;&#x8BEF;. </li>
+<li>&#x4FEE;&#x590D; cmplog &#x5BF9;&#x6781;&#x6162;&#x8F93;&#x5165;&#x7684;&#x5D29;&#x6E83;&#x95EE;&#x9898;. </li>
+<li>&#x79FB;&#x9664; <code>-M</code> &#x4E3B;&#x8282;&#x70B9;&#x9ED8;&#x8BA4;&#x7684; <code>-D</code> &#x786E;&#x5B9A;&#x6027;&#x6A21;&#x5F0F;. </li>
+<li>&#x65B0;&#x589E;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x68C0;&#x67E5; (<code>out/default/error.txt</code>) </li>
+<li>&#x4FEE;&#x590D;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x7684;&#x4FEE;&#x526A;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x4F18;&#x5316; COMPCOV/laf-intel &#x63D2;&#x6869;&#x901F;&#x5EA6;. </li>
+<li>&#x4FEE;&#x590D; C++ &#x5168;&#x5C40;&#x547D;&#x540D;&#x7A7A;&#x95F4;&#x51FD;&#x6570;&#x7684;&#x63D2;&#x6869;&#x95EE;&#x9898;. </li>
+<li>&#x652F;&#x6301; LLVM 3.8~5.0 &#x7248;&#x672C;. </li>
+<li>&#x4FEE;&#x590D;&#x90E8;&#x5206;&#x5B57;&#x7B26;&#x4E32;&#x63D2;&#x6869;&#x7684;&#x5931;&#x8D25;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>Frida &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x4FEE;&#x590D; cmplog &#x95EE;&#x9898;, &#x79FB;&#x9664; <code>AFL_FRIDA_PERSISTENT_RETADDR_OFFSET</code> &#x9700;&#x6C42;. </li>
+<li>&#x63D0;&#x5347; aarch64 &#x4E0E; x86 &#x7684;&#x529F;&#x80FD;&#x5BF9;&#x7B49;&#x6027; (&#x6301;&#x4E45;&#x6A21;&#x5F0F;&#x3001;cmplog&#x3001;ASAN) </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x6539;&#x8FDB;</strong>: <ul>
+<li><code>afl-cmin</code> &#x548C; <code>afl-showmap</code> &#x652F;&#x6301;&#x9012;&#x5F52;&#x8BFB;&#x53D6;&#x5B50;&#x76EE;&#x5F55;. </li>
+<li><code>afl_analyze</code> &#x65B0;&#x589E; forkserver &#x652F;&#x6301;&#x4EE5;&#x63D0;&#x5347;&#x6027;&#x80FD;. </li>
+<li>&#x65B0;&#x589E; <code>AFL_NO_FORKSRV</code> &#x73AF;&#x5883;&#x53D8;&#x91CF;&#x652F;&#x6301;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="400c">&lt;!!&gt; 4.00c</h3>
+<ul>
+<li><strong>&#x91CD;&#x5927;&#x66F4;&#x65B0;</strong>: <ul>
+<li>&#x6587;&#x6863;&#x5168;&#x9762;&#x91CD;&#x6784; (Google Season of Docs &#x652F;&#x6301;) </li>
+<li>&#x65B0;&#x589E; <strong>Nyx &#x6A21;&#x5F0F;</strong> (&#x5168;&#x7CFB;&#x7EDF;&#x4EFF;&#x771F;&#x5FEB;&#x7167;) </li>
+<li>&#x65B0;&#x589E; <strong>coresight_mode</strong> (ARM aarch64 &#x4E8C;&#x8FDB;&#x5236;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;) </li>
+</ul>
+</li>
+<li><strong>Unicorn &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x5347;&#x7EA7;&#x81F3; Unicorn2 (&#x6027;&#x80FD;&#x63D0;&#x5347;, &#x652F;&#x6301; RISC-V) </li>
+</ul>
+</li>
+<li><strong>&#x5B89;&#x5168;&#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x7981;&#x6B62; <code>dlopen()</code> &#x540E;&#x63D2;&#x6869;&#x5E93;&#x7684;&#x8986;&#x76D6;&#x51B2;&#x7A81; (&#x5F3A;&#x5236;&#x4FEE;&#x590D;&#x9519;&#x8BEF;&#x914D;&#x7F6E;) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x4FEE;&#x590D; 3.10c &#x5F15;&#x5165;&#x7684;&#x8986;&#x76D6;&#x7387;&#x68C0;&#x6D4B;&#x56DE;&#x5F52;. </li>
+<li>&#x66F4;&#x9AD8;&#x6548;&#x7684; CMPLOG &#x6A21;&#x5F0F;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x65B0;&#x589E; TSAN (Thread Sanitizer)&#x652F;&#x6301;. </li>
+<li>&#x4FEE;&#x590D; LAF &#x5B57;&#x7B26;&#x4E32;&#x5904;&#x7406;&#x548C;&#x5206;&#x5272;&#x5F00;&#x5173;&#x7684;&#x6F5C;&#x5728;&#x5D29;&#x6E83;. </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x4E0E;&#x811A;&#x672C;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>optimin</code> &#x8BED;&#x6599;&#x5E93;&#x6700;&#x5C0F;&#x5316;&#x5DE5;&#x5177;. </li>
+<li>&#x65B0;&#x589E; <code>afl-persistent-config</code> &#x7CFB;&#x7EDF;&#x914D;&#x7F6E;&#x811A;&#x672C;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="401c">4.01c</h3>
+<ul>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>-c 0</code> &#x590D;&#x7528;&#x4E3B;&#x4E8C;&#x8FDB;&#x5236;&#x8FDB;&#x884C; CMPLOG. </li>
+<li>&#x65B0;&#x589E; <code>-g/-G</code> &#x8BBE;&#x7F6E;&#x8F93;&#x5165;&#x6700;&#x5C0F;/&#x6700;&#x5927;&#x957F;&#x5EA6;. </li>
+<li>&#x91CD;&#x65B0;&#x5F15;&#x5165; <code>AFL_PERSISTENT</code> &#x548C; <code>AFL_DEFER_FORKSRV</code> &#x652F;&#x6301;&#x975E;&#x4E8C;&#x8FDB;&#x5236;&#x6301;&#x4E45;&#x6A21;&#x5F0F;. </li>
+<li>&#x4FEE;&#x590D; Mopt &#x7B97;&#x6CD5;&#x9009;&#x62E9;&#x3001;&#x6548;&#x5E94;&#x56FE;&#x8BA1;&#x7B97;&#x7B49;&#x5173;&#x952E;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x9002;&#x914D; LLVM 15 &#x7684;&#x65B0; Pass &#x7BA1;&#x7406;&#x5668; (LTO &#x6682;&#x4E0D;&#x53EF;&#x7528;) </li>
+<li>&#x4FEE;&#x590D; <strong>LLVM 15 &#x517C;&#x5BB9;&#x6027;</strong>&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>&#x65B0;&#x529F;&#x80FD;</strong>: <ul>
+<li>&#x65B0;&#x589E; LibAFL &#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668; (&#x652F;&#x6301; Token &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;) </li>
+<li>Frida &#x6A21;&#x5F0F;&#x652F;&#x6301; C++ &#x5F02;&#x5E38;&#x5904;&#x7406; (<code>throw/catch</code>) </li>
+</ul>
+</li>
+</ul>
+<h3 id="402c">4.02c</h3>
+<ul>
+<li><strong>&#x5173;&#x952E;&#x4FEE;&#x590D;</strong>: &#x4FEE;&#x590D; LLVM IR &#x5411;&#x91CF;&#x9009;&#x62E9;&#x5BFC;&#x81F4;&#x7684; PCGUARD &#x5D29;&#x6E83;. </li>
+<li><strong>GCC &#x63D2;&#x4EF6;</strong>: CMPLOG &#x652F;&#x6301;. </li>
+<li><strong>LLVM &#x6A21;&#x5F0F;</strong>: &#x4FEE;&#x590D; LAF &#x6BD4;&#x8F83;&#x5206;&#x5272;&#x7684;&#x66F4;&#x591A;&#x7C7B;&#x578B;&#x652F;&#x6301;. </li>
+<li><strong>Frida &#x6A21;&#x5F0F;</strong>: &#x65B0;&#x589E; Android &#x652F;&#x6301;. </li>
+</ul>
+<h3 id="403c">4.03c</h3>
+<ul>
+<li><strong>&#x6784;&#x5EFA;&#x6539;&#x8FDB;</strong>: &#x6784;&#x5EFA;&#x5B8C;&#x6210;&#x540E;&#x663E;&#x793A;&#x6210;&#x529F;/&#x5931;&#x8D25;&#x7684;&#x7EC4;&#x4EF6;&#x6458;&#x8981;. </li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_NO_STARTUP_CALIBRATION</code> &#x8DF3;&#x8FC7;&#x521D;&#x59CB;&#x6821;&#x51C6; (&#x9002;&#x5408;&#x5927;&#x578B;&#x961F;&#x5217;&#x6216; CI) </li>
+<li>&#x9ED8;&#x8BA4;&#x6821;&#x51C6;&#x5468;&#x671F;&#x4ECE; 8 &#x6B21;&#x964D;&#x81F3; 7 &#x6B21;, &#x53D8;&#x91CF;&#x961F;&#x5217;&#x9879;&#x6821;&#x51C6;&#x5468;&#x671F;&#x4ECE; 12 &#x6B21;&#x964D;&#x81F3; 5 &#x6B21;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x4FEE;&#x590D; PCGUARD &#x5B9E;&#x73B0;&#x7684; off-by-one &#x9519;&#x8BEF;. </li>
+<li>&#x652F;&#x6301; LLVM 15 &#x7684; LTO. </li>
+<li>&#x65B0;&#x589E; <code>AFL_DUMP_MAP_SIZE=1</code> &#x83B7;&#x53D6;&#x76EE;&#x6807;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5927;&#x5C0F;. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_QEMU_TRACK_UNSTABLE</code> &#x8BB0;&#x5F55;&#x4E0D;&#x7A33;&#x5B9A;&#x8FB9;&#x7F18;&#x5730;&#x5740; (&#x9700; <code>AFL_DEBUG=1</code>) </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x4FEE;&#x590D;</strong>: <ul>
+<li>&#x4FEE;&#x590D; <code>afl-analyze</code>. </li>
+<li><code>afl-cmin</code> &#x65B0;&#x589E; <code>-A</code> &#x9009;&#x9879;&#x4FDD;&#x7559;&#x5D29;&#x6E83;/&#x8D85;&#x65F6;&#x8F93;&#x5165;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="404c">4.04c</h3>
+<ul>
+<li><strong>&#x6784;&#x5EFA;&#x4E0E;&#x811A;&#x672C;</strong>: <ul>
+<li>&#x4FEE;&#x590D; <code>gramatron</code> &#x548C; <code>grammar_mutator</code> &#x7684;&#x6784;&#x5EFA;&#x811A;&#x672C;. </li>
+<li>&#x589E;&#x5F3A; <code>afl-persistent-config</code> &#x548C; <code>afl-system-config</code> &#x811A;&#x672C;. </li>
+</ul>
+</li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x5F3A;&#x5236;&#x9000;&#x51FA;&#x65F6;&#x5199;&#x5165;&#x6240;&#x6709;&#x7EDF;&#x8BA1;&#x4FE1;&#x606F;. </li>
+<li>&#x786E;&#x4FDD;&#x9000;&#x51FA;&#x65F6;&#x7EC8;&#x6B62;&#x6240;&#x6709;&#x76EE;&#x6807;&#x8FDB;&#x7A0B;. </li>
+<li>&#x65B0;&#x589E; <code>AFL_FORK_SERVER_KILL_SIGNAL</code>. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x652F;&#x6301; GCC 3.6+ &#x7248;&#x672C;&#x7684; <code>afl-gcc-fast</code>. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x4FEE;&#x590D; 4.03c &#x7248;&#x672C;&#x4E2D;&#x7684; 10 &#x500D;&#x6027;&#x80FD;&#x4E0B;&#x964D;. </li>
+<li>&#x65B0;&#x589E; <code>qemu_mode/fastexit</code> &#x8F85;&#x52A9;&#x5E93;. </li>
+</ul>
+</li>
+<li><strong>Unicorn &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x652F;&#x6301; Tricore &#x67B6;&#x6784;. </li>
+<li>&#x66F4;&#x65B0; Rust &#x7ED1;&#x5B9A;&#x7684; Capstone &#x7248;&#x672C;. </li>
+</ul>
+</li>
+<li><strong>LLVM &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x4F18;&#x5148;&#x901A;&#x8FC7;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x4F20;&#x9012;&#x8F93;&#x5165; (&#x5FFD;&#x7565;&#x547D;&#x4EE4;&#x884C;) </li>
+</ul>
+</li>
+</ul>
+<h3 id="405c">4.05c</h3>
+<ul>
+<li><strong>&#x5E73;&#x53F0;&#x517C;&#x5BB9;&#x6027;</strong>: <ul>
+<li>&#x73B0;&#x4EE3; macOS &#x4E0B; <code>libdislocator</code>&#x3001;<code>libtokencap</code> &#x7B49;&#x5DE5;&#x5177;&#x9700;&#x624B;&#x52A8;&#x4FEE;&#x590D;. </li>
+</ul>
+</li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>afl_custom_fuzz_send</code> &#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x529F;&#x80FD; (&#x652F;&#x6301;&#x901A;&#x8FC7; IPC &#x53D1;&#x9001;&#x6570;&#x636E;) </li>
+<li>cmplog &#x6A21;&#x5F0F;&#x65B0;&#x589E; <code>-l R</code> &#x9009;&#x9879; (&#x968F;&#x673A;&#x7740;&#x8272;) </li>
+<li>&#x542F;&#x7528; <code>INTROSPECTION</code> &#x65F6;, &#x6BCF; 30 &#x5206;&#x949F;&#x5199;&#x5165;&#x961F;&#x5217;&#x7EDF;&#x8BA1;&#x5230; <code>out/NAME/queue_data</code>. </li>
+<li>&#x65B0;&#x589E;&#x73AF;&#x5883;&#x53D8;&#x91CF; <code>AFL_FORK_SERVER_KILL_SIGNAL</code>. </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x6539;&#x8FDB;</strong>: <ul>
+<li><code>afl-showmap</code>/<code>afl-cmin</code> &#x7684; <code>-t none</code> &#x9ED8;&#x8BA4;&#x8D85;&#x65F6;&#x6539;&#x4E3A; 120 &#x79D2;. </li>
+</ul>
+</li>
+<li><strong>&#x5176;&#x4ED6;</strong>: <ul>
+<li>&#x66F4;&#x65B0; Unicorn &#x6A21;&#x5F0F;&#x3001;Rust &#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x4F9D;&#x8D56;. </li>
+<li>&#x4F18;&#x5316; Sanitizer &#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x5904;&#x7406;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="406c">4.06c</h3>
+<ul>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x4FEE;&#x590D; &quot;pizza &#x6A21;&#x5F0F;&quot; (&#x611A;&#x4EBA;&#x8282;&#x5F69;&#x86CB;)&#x7684;&#x5D29;&#x6E83;&#x95EE;&#x9898;. </li>
+<li>&#x65B0;&#x589E; <code>AFL_NO_WARN_INSTABILITY</code> &#x5FFD;&#x7565;&#x7A33;&#x5B9A;&#x6027;&#x8B66;&#x544A;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x652F;&#x6301; LLVM 16/17. </li>
+<li>&#x65B0;&#x589E; CFI Sanitizer &#x652F;&#x6301;. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x57FA;&#x672C; RISC-V &#x652F;&#x6301;. </li>
+</ul>
+</li>
+<li><strong>&#x65B0;&#x529F;&#x80FD;</strong>: <ul>
+<li><strong>autotoken</strong> &#x6587;&#x672C;&#x8F93;&#x5165;&#x7684;&#x65E0;&#x8BED;&#x6CD5;&#x53D8;&#x5F02;&#x5668;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="407c">4.07c</h3>
+<ul>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x91CD;&#x542F;&#x65F6;&#x53CD;&#x5411;&#x8BFB;&#x53D6;&#x79CD;&#x5B50; (&#x63D0;&#x5347;&#x6027;&#x80FD;) </li>
+<li>&#x65B0;&#x589E; <code>AFL_POST_PROCESS_KEEP_ORIGINAL</code> &#x4FDD;&#x7559;&#x539F;&#x59CB;&#x6570;&#x636E;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x652F;&#x6301; LLVM 15+ &#x7684; PCGUARD (&#x9700; LLVM 13+) </li>
+<li>&#x65B0;&#x589E; <code>AFL_LLVM_LTO_SKIPINIT</code> &#x652F;&#x6301; WASM &#x9879;&#x76EE;. </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: &#x652F;&#x6301; PPC32 &#x7684;&#x6301;&#x4E45;&#x6A21;&#x5F0F; + QASAN. </li>
+<li><strong>&#x65B0;&#x53D8;&#x5F02;&#x5668;</strong>: <strong>atnwalk</strong> (&#x8BED;&#x6CD5;&#x53D8;&#x5F02;&#x5668;) </li>
+</ul>
+<h3 id="408c">&lt;!&gt; 4.08c</h3>
+<ul>
+<li><strong>&#x7A81;&#x53D8;&#x5F15;&#x64CE;</strong>: <ul>
+<li>&#x65B0;&#x7B56;&#x7565;: &#x4F18;&#x5148;&#x53D1;&#x73B0;&#x8DEF;&#x5F84;&#x7684;&#x7A81;&#x53D8; (10 &#x5206;&#x949F;&#x540E;&#x5207;&#x6362;&#x81F3;&#x89E6;&#x53D1;&#x5D29;&#x6E83;&#x7684;&#x7A81;&#x53D8;, <code>-P</code> &#x53EF;&#x914D;&#x7F6E;) </li>
+<li>&#x65B0;&#x589E; <strong>&#x72EC;&#x7ACB;&#x547D;&#x4EE4;&#x884C;&#x5DE5;&#x5177;</strong> (<code>custom_mutators/aflpp/standalone/</code>) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>UI &#x663E;&#x793A;&#x8FD0;&#x884C;&#x72B6;&#x6001;. </li>
+<li>&#x652F;&#x6301;&#x7981;&#x7528; CMPLOG (<code>-c -</code>) </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x4FEE;&#x590D; LAF &#x6709;&#x7B26;&#x53F7;&#x6574;&#x6570;&#x6BD4;&#x8F83;&#x5206;&#x5272;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>&#x65B0;&#x5DE5;&#x5177;</strong>: <ul>
+<li><strong>TritonDSE</strong> &#x548C; <strong>SymQEMU</strong> &#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="409c">4.09c</h3>
+<ul>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_FINAL_SYNC</code> &#x5F3A;&#x5236;&#x7EC8;&#x6B62;&#x524D;&#x540C;&#x6B65;. </li>
+<li>CMPLOG &#x652F;&#x6301;&#x7F29;&#x653E; (<code>-l S</code>)&#x548C;&#x8DF3;&#x8FC7;&#x65E0;&#x7528;&#x63D2;&#x5165; (<code>u8</code>) </li>
+<li>&#x4FEE;&#x590D;&#x5B57;&#x5178;&#x89E3;&#x6790;&#x7684;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>afl-whatsup</strong>: <ul>
+<li>&#x663E;&#x793A;&#x542F;&#x52A8;&#x4E2D;&#x5B9E;&#x4F8B;&#x548C;&#x8986;&#x76D6;&#x7387;. </li>
+<li>&#x65B0;&#x589E; <code>-m</code> (&#x7CBE;&#x7B80;&#x7EDF;&#x8BA1;)&#x548C; <code>-n</code> (&#x65E0;&#x989C;&#x8272;&#x8F93;&#x51FA;) </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x94FE;</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>afl-addseeds</code> &#x5411;&#x8FD0;&#x884C;&#x4E2D;&#x4EFB;&#x52A1;&#x6DFB;&#x52A0;&#x79CD;&#x5B50;. </li>
+<li>&#x65B0;&#x589E;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;&#x811A;&#x672C; <code>benchmark/benchmark.py</code>. </li>
+</ul>
+</li>
+</ul>
+<h3 id="410c">&lt;!&gt; 4.10c</h3>
+<ul>
+<li><strong>&#x6838;&#x5FC3;&#x6539;&#x8FDB;</strong>: <ul>
+<li>&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x6539;&#x4E3A; <code>EXPLORE</code> (&#x4FEE;&#x590D; Fast &#x7B56;&#x7565;&#x95EE;&#x9898;&#x540E;&#x66F4;&#x4F18;) </li>
+<li>&#x65B0;&#x589E; <strong>&#x6CE8;&#x5165;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</strong> (SQL/LDAP/XSS, &#x89C1; <code>README.injections.md</code>) </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x5927;&#x578B;&#x4EE3;&#x7801;&#x91CD;&#x6784;. </li>
+<li>LTO &#x6A21;&#x5F0F;&#x8981;&#x6C42; LLVM 12+. </li>
+</ul>
+</li>
+<li><strong>&#x63D2;&#x6869;&#x4F18;&#x5316;</strong>: <ul>
+<li>&#x652F;&#x6301; LLVM 18. </li>
+<li>&#x4FEE;&#x590D; LAF &#x6D6E;&#x70B9;/&#x6574;&#x6570;&#x5206;&#x5272;&#x95EE;&#x9898; (LLVM 17 &#x7981;&#x7528;&#x6574;&#x6570;&#x5206;&#x5272;) </li>
+</ul>
+</li>
+<li><strong>QEMU &#x6A21;&#x5F0F;</strong>: <ul>
+<li>&#x9ED8;&#x8BA4;&#x542F;&#x7528;&#x63D2;&#x4EF6;, &#x65B0;&#x589E; <strong>drcov &#x8FFD;&#x8E2A;</strong>. </li>
+</ul>
+</li>
+</ul>
+<h3 id="420c">&lt;!&gt; 4.20c</h3>
+<ul>
+<li><strong>&#x91CD;&#x5927;&#x53D8;&#x66F4;</strong>: <ul>
+<li>&#x65B0; Forkserver &#x901A;&#x4FE1;&#x6A21;&#x578B; (&#x9700;&#x91CD;&#x65B0;&#x7F16;&#x8BD1; CMPLOG &#x76EE;&#x6807;) </li>
+<li>&#x652F;&#x6301; <strong>40 &#x4EBF;&#x8986;&#x76D6;&#x8FB9;</strong> (&#x539F; 600 &#x4E07;) </li>
+</ul>
+</li>
+<li><strong>&#x6027;&#x80FD;&#x589E;&#x5F3A;</strong>: <ul>
+<li><code>make PERFORMANCE=1</code> &#x542F;&#x7528; CPU &#x4E13;&#x5C5E;&#x4F18;&#x5316; (&#x8DE8;&#x5E73;&#x53F0;&#x517C;&#x5BB9;&#x6027;&#x964D;&#x4F4E;) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x9ED8;&#x8BA4;&#x542F;&#x7528;&#x65B0;&#x786E;&#x5B9A;&#x6027;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5; (<code>-z</code> &#x7981;&#x7528;) </li>
+<li>&#x4FEE;&#x590D; MOpt &#x4E0E; <code>-M</code> &#x7684;&#x51B2;&#x7A81;&#x95EE;&#x9898; (&#x672A;&#x6765;&#x53EF;&#x80FD;&#x79FB;&#x9664; MOpt) </li>
+<li><code>-e</code> &#x9009;&#x9879;&#x6269;&#x5C55;&#x540D;&#x652F;&#x6301;&#x4FDD;&#x5B58;&#x961F;&#x5217;&#x9879;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>LTO &#x6A21;&#x5F0F;&#x65B0;&#x589E;&#x65E0;&#x51B2;&#x7A81;&#x8C03;&#x7528;&#x8005;&#x63D2;&#x6869; (<code>AFL_LLVM_LTO_CALLER=1</code>) </li>
+<li>&#x4FEE;&#x590D; GCC &#x63D2;&#x4EF6; CMPLOG &#x7684; <code>std::string</code> &#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x6539;&#x8FDB;</strong>: <ul>
+<li><code>afl-whatsup</code> &#x663E;&#x793A;&#x5E73;&#x5747;&#x901F;&#x5EA6;&#x548C;&#x8986;&#x76D6;&#x7387;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="421c">4.21c</h3>
+<ul>
+<li><strong>&#x6027;&#x80FD;&#x4F18;&#x5316;</strong>: <ul>
+<li>&#x4FEE;&#x590D; <code>gettimeofday()</code> &#x5230; <code>clock_gettime()</code> &#x7684;&#x56DE;&#x5F52;&#x95EE;&#x9898; (&#x63D0;&#x5347; 5-10% &#x6027;&#x80FD;) </li>
+<li>&#x57FA;&#x4E8E; 2 CPU &#x5E74;&#x961F;&#x5217;&#x6570;&#x636E;&#x5206;&#x6790;&#x7684;&#x65B0;&#x961F;&#x5217;&#x9009;&#x62E9;&#x7B97;&#x6CD5; (&#x8986;&#x76D6;&#x63D0;&#x5347;&#x660E;&#x663E;) </li>
+</ul>
+</li>
+<li><strong>afl-fuzz</strong>: <ul>
+<li>&#x65B0;&#x589E; <code>AFL_DISABLE_REDREDUNDANT</code> (&#x9488;&#x5BF9;&#x5927;&#x578B;&#x961F;&#x5217;&#x4F18;&#x5316;) </li>
+<li>&#x65B0;&#x589E; <code>AFL_NO_SYNC</code> &#x7981;&#x7528;&#x540C;&#x6B65;. </li>
+<li>&#x4FEE;&#x590D; <code>AFL_PERSISTENT_RECORD</code> &#x548C;&#x6587;&#x4EF6;&#x540D;&#x7A7A;&#x683C;&#x95EE;&#x9898;. </li>
+<li>&#x6821;&#x51C6;/&#x4FEE;&#x526A;/&#x540C;&#x6B65;&#x65F6;&#x95F4;&#x5355;&#x72EC;&#x7EDF;&#x8BA1;. </li>
+</ul>
+</li>
+<li><strong>afl-cc</strong>: <ul>
+<li>&#x91CD;&#x65B0;&#x542F;&#x7528; i386 &#x652F;&#x6301;, &#x4FEE;&#x590D; LTO &#x548C;&#x65E7;&#x7248; LLVM &#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;. </li>
+<li>&#x7981;&#x7528; XML/cURL &#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x51FD;&#x6570; (&#x7A7A;&#x6307;&#x9488;&#x68C0;&#x67E5;&#x5F85;&#x5B9E;&#x73B0;) </li>
+</ul>
+</li>
+<li><strong>&#x5DE5;&#x5177;&#x4FEE;&#x590D;</strong>: <ul>
+<li>&#x4FEE;&#x590D; <code>afl-showmap</code> &#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;. </li>
+<li>&#x4FEE;&#x590D; macOS &#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x7684;&#x7F55;&#x89C1;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+</ul>
+<h3 id="430c">&lt;!!&gt; 4.30c</h3>
+<ul>
+<li><p><strong>&#x91CD;&#x5927;&#x53D8;&#x66F4;</strong>: <strong>&#x79FB;&#x9664;&#x8001;&#x65E7;&#x7F16;&#x8BD1;&#x5668;&#x652F;&#x6301;</strong>: &#x79FB;&#x9664; <code>afl-gcc</code> &#x548C; <code>afl-clang</code> &#x529F;&#x80FD;, &#x5168;&#x90E8;&#x96C6;&#x6210;&#x5230; <code>afl-cc</code>. </p>
+</li>
+<li><p><strong>afl-fuzz &#x6539;&#x8FDB;</strong>: <strong>&#x5FEB;&#x901F;&#x6062;&#x590D; (Fast Resume)</strong> </p>
+<ul>
+<li><p>&#x65B0;&#x589E; <code>-i -</code> &#x6216; <code>AFL_AUTORESUME=1</code> &#x65F6;, &#x82E5;&#x76EE;&#x6807;&#x4E8C;&#x8FDB;&#x5236;&#x672A;&#x6539;&#x52A8;, &#x8DF3;&#x8FC7;&#x6821;&#x51C6;&#x9636;&#x6BB5;&#x76F4;&#x63A5;&#x52A0;&#x8F7D;&#x8FDB;&#x5EA6; (&#x538B;&#x7F29;&#x5B58;&#x50A8;, &#x9700; zlib) </p>
+</li>
+<li><p>&#x7981;&#x7528;&#x9009;&#x9879;: <code>AFL_NO_FASTRESUME=1</code>. </p>
+</li>
+<li><p><strong>CMPLOG &#x517C;&#x5BB9;&#x6027;&#x7834;&#x574F;&#x6027;&#x66F4;&#x65B0;</strong>: &#x4FEE;&#x590D;&#x6570;&#x5B66;&#x8FD0;&#x7B97;&#x548C;&#x672A;&#x5B9A;&#x4E49;&#x884C;&#x4E3A;&#x95EE;&#x9898;, &#x9700;<strong>&#x91CD;&#x65B0;&#x7F16;&#x8BD1;&#x6240;&#x6709; CMPLOG &#x76EE;&#x6807;</strong>. </p>
+</li>
+<li><p><strong>&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x589E;&#x5F3A;</strong>: &#x65B0;&#x589E; <code>AFL_CUSTOM_MUTATOR_LATE_SEND=1</code>, &#x652F;&#x6301;&#x5728;&#x76EE;&#x6807;&#x91CD;&#x542F;&#x540E;&#x8C03;&#x7528; <code>send()</code> &#x51FD;&#x6570;. </p>
+</li>
+<li><p><strong>&#x884C;&#x4E3A;&#x8C03;&#x6574;</strong>: &#x6539;&#x8FDB; <code>AFL_EXIT_ON_TIME</code> &#x548C; <code>AFL_EXIT_WHEN_DONE</code> &#x7684;&#x903B;&#x8F91; (&#x540E;&#x8005;&#x73B0;&#x5728;&#x4F1A;&#x771F;&#x6B63;&#x7B49;&#x5F85;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;) </p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>&#x4E8C;&#x8FDB;&#x5236;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x6A21;&#x5F0F;&#x66F4;&#x65B0;</strong></p>
+<ul>
+<li><p><strong>Frida &#x6A21;&#x5F0F;</strong>: </p>
+<ul>
+<li><code>AFL_FRIDA_PERSISTENT_ADDR</code> &#x652F;&#x6301;&#x4EFB;&#x610F;&#x53EF;&#x8FBE;&#x5730;&#x5740; (&#x4E0D;&#x9650;&#x4E8E;&#x51FD;&#x6570;&#x5165;&#x53E3;) </li>
+<li>&#x7EDF;&#x4E00;&#x8C03;&#x8BD5;&#x6807;&#x5FD7;: <code>AFL_DEBUG</code> &#x7B49;&#x6548;&#x4E8E; <code>AFL_FRIDA_VERBOSE</code>. </li>
+</ul>
+</li>
+<li><p><strong>QEMU &#x6A21;&#x5F0F;</strong>: </p>
+<ul>
+<li>&#x65B0;&#x589E;&#x53EF;&#x9009;&#x94A9;&#x5B50;&#x652F;&#x6301; (&#x89C1; <code>qemu_mode/hooking_bridge</code>) </li>
+</ul>
+</li>
+<li><p><strong>Unicorn &#x6A21;&#x5F0F;</strong>: </p>
+<ul>
+<li>&#x4FEE;&#x590D;&#x5B89;&#x88C5;&#x548C; Forkserver &#x95EE;&#x9898;, &#x9501;&#x5B9A; Unicorn &#x7248;&#x672C;. </li>
+</ul>
+</li>
+<li><p><strong>Nyx &#x6A21;&#x5F0F;</strong>: </p>
+<ul>
+<li>&#x591A;&#x9879;&#x7A33;&#x5B9A;&#x6027;&#x4FEE;&#x590D;. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p><strong>&#x5DE5;&#x5177;&#x94FE;&#x4E0E;&#x751F;&#x6001;</strong></p>
+<ul>
+<li><p><strong>&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;</strong>: </p>
+<ul>
+<li>&#x65B0;&#x589E; <code>custom_send_tcp</code> &#x53D8;&#x5F02;&#x5668;, &#x652F;&#x6301; TCP &#x6570;&#x636E;&#x6D41;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. </li>
+<li>&#x6539;&#x8FDB; <code>aflpp-standalone</code> &#x548C; <code>autotokens-standalone</code> &#x5DE5;&#x5177;. </li>
+</ul>
+</li>
+<li><p><strong>afl-cc &#x589E;&#x5F3A;</strong>: </p>
+<ul>
+<li>&#x65B0;&#x589E; <code>AFL_OLD_FORKSERVER</code> &#x8FD0;&#x884C;&#x65F6;&#x53D8;&#x91CF;, &#x517C;&#x5BB9;&#x65E7;&#x7248; Forkserver (&#x7528;&#x4E8E; SymCC/SymQEMU &#x7B49;&#x5DE5;&#x5177;) </li>
+<li>&#x65B0;&#x589E; <code>AFL_OPT_LEVEL</code> &#x7F16;&#x8BD1;&#x9009;&#x9879;, &#x9ED8;&#x8BA4;&#x4F18;&#x5316;&#x7EA7;&#x522B;&#x4E3A; <code>3</code>. </li>
+<li>&#x4FEE;&#x590D; RedHat &#x7CFB;&#x7EDF;&#x4E2D; LLVM &#x5B9A;&#x4E49;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;. </li>
+</ul>
+</li>
+<li><p><strong>&#x5F00;&#x53D1;&#x8005;&#x4F53;&#x9A8C;</strong>: </p>
+<ul>
+<li>&#x4EE3;&#x7801;&#x683C;&#x5F0F;&#x5347;&#x7EA7;&#x81F3; LLVM 18 &#x6807;&#x51C6;. </li>
+<li>AFL++ &#x5934;&#x6587;&#x4EF6;&#x73B0;&#x5728;&#x5B89;&#x88C5;&#x5230; <code>$PREFIX/include/afl</code>. </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="431c">4.31c</h3>
+<ul>
+<li><p><strong>&#x6838;&#x5FC3;&#x65B0;&#x589E;&#x529F;&#x80FD;</strong> <strong>SAND &#x6A21;&#x5F0F;</strong> (Sanitizer-Aware Non-Deterministic Fuzzing): </p>
+<ul>
+<li><p>&#x65B0;&#x589E;&#x6587;&#x6863; <code>docs/SAND.md</code>, &#x4F18;&#x5316;&#x4E86;&#x4E0E; Sanitizer (&#x5982; ASAN&#x3001;UBSAN)&#x534F;&#x540C;&#x5DE5;&#x4F5C;&#x7684;&#x6548;&#x7387;. </p>
+</li>
+<li><p>&#x9002;&#x7528;&#x4E8E;&#x9700;&#x8981;&#x9AD8;&#x6548;&#x68C0;&#x6D4B;&#x5185;&#x5B58;&#x9519;&#x8BEF;&#x7684;&#x573A;&#x666F;. </p>
+</li>
+</ul>
+</li>
+<li><p><strong>afl-fuzz &#x6539;&#x8FDB;</strong>: <strong>&#x62FC;&#x63A5; (Splicing)&#x7B56;&#x7565;&#x8C03;&#x6574;</strong></p>
+<ul>
+<li><p>&#x9ED8;&#x8BA4;&#x7981;&#x7528;&#x62FC;&#x63A5; (&#x7814;&#x7A76;&#x663E;&#x793A;&#x5176;&#x6548;&#x679C;&#x4E0D;&#x4F73;), &#x9700;&#x901A;&#x8FC7; <code>-u</code> &#x624B;&#x52A8;&#x542F;&#x7528;. </p>
+</li>
+<li><p>&#x82E5;&#x8FDE;&#x7EED;&#x4E24;&#x8F6E;&#x672A;&#x53D1;&#x73B0;&#x65B0;&#x8DEF;&#x5F84;, &#x5219;&#x81EA;&#x52A8;&#x542F;&#x7528;&#x62FC;&#x63A5;. </p>
+</li>
+</ul>
+</li>
+<li><p><strong>&#x517C;&#x5BB9;&#x6027;&#x63D0;&#x5347;</strong>: </p>
+<ul>
+<li>&#x652F;&#x6301; Python 3.13+</li>
+<li><p>&#x653E;&#x5BBD; Android &#x548C; iPhone &#x4E0A;&#x7684;&#x6587;&#x4EF6;/&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6743;&#x9650;. </p>
+</li>
+<li><p>LLVM 20 &#x652F;&#x6301;: &#x518D;&#x6B21;&#x9002;&#x914D; LLVM 20 &#x7684; API &#x53D8;&#x52A8; (&#x5F00;&#x53D1;&#x8005;&#x5410;&#x69FD;: LLVM API &#x9891;&#x7E41;&#x53D8;&#x66F4;) </p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>Sanitizer &#x589E;&#x5F3A;</strong>: <ul>
+<li><code>-fsanitize=fuzzer</code> &#x65F6;&#x63D0;&#x524D;&#x94FE;&#x63A5; <code>libAFLDriver.a</code>, &#x89E3;&#x51B3;&#x9759;&#x6001;&#x5E93;&#x4E2D; <code>LLVMFuzzerTestOneInput</code> &#x7684;&#x7F16;&#x8BD1;&#x95EE;&#x9898;. </li>
+<li>&#x65B0;&#x589E; <code>__sanitizer_weak_hook_*</code> &#x51FD;&#x6570;&#x652F;&#x6301; (&#x7528;&#x4E8E;&#x7279;&#x6B8A;&#x573A;&#x666F;) </li>
+</ul>
+</li>
+<li><strong>Bug &#x4FEE;&#x590D;</strong>: &#x4FEE;&#x590D;&#x591A;&#x5E93;&#x52A0;&#x8F7D;&#x540E;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x8BA1;&#x7B97;&#x7684;&#x9519;&#x8BEF;. </li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>&#x603B;&#x7ED3;&#x4ECE; 2.52b &#x5230; 4.31c &#x7248;&#x672C;&#x7684;&#x91CD;&#x8981;&#x66F4;&#x65B0;&#x548C;&#x4EE3;&#x7801;&#x53D8;&#x52A8;</p>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Updates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.52c</td>
+<td>&#x65B0;&#x589E; AFLfast &#x529F;&#x7387;&#x8C03;&#x5EA6;</td>
+</tr>
+<tr>
+<td>2.54c</td>
+<td>&#x7EDF;&#x4E00;&#x4EE3;&#x7801;&#x7ED3;&#x6784; (<code>include/</code> &#x548C; <code>src/</code> &#x76EE;&#x5F55;)  &#x62C6;&#x5206; <code>afl-fuzz</code> &#x903B;&#x8F91;&#x5230;&#x6A21;&#x5757;&#x5316;&#x6587;&#x4EF6; (&#x5982; forkserver&#x3001;&#x5185;&#x5B58;&#x6620;&#x5C04;&#x7B49;) <br>&#x652F;&#x6301; LLVM-9, Android<br>&#x652F;&#x6301;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5E93;</td>
+</tr>
+<tr>
+<td>2.53c</td>
+<td>&#x65B0;&#x589E; MOpt</td>
+</tr>
+<tr>
+<td>2.54d - 2.57c</td>
+<td>Qemu &#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F;<br>&#x652F;&#x6301; Win32, ARM</td>
+</tr>
+<tr>
+<td>2.59c</td>
+<td>&#x652F;&#x6301; QBDI &#x6A21;&#x5F0F; (Android native)<br>&#x652F;&#x6301; Unicorn &#x6A21;&#x5F0F;</td>
+</tr>
+<tr>
+<td>2.61c</td>
+<td>&#x652F;&#x6301;&#x5168; python2 / 3<br>&#x65B0;&#x589E; Redqueen<br>&#x65B0;&#x589E; cmplog &#x63D2;&#x6869;</td>
+</tr>
+<tr>
+<td>2.63c</td>
+<td><strong>&#x8FC1;&#x79FB;&#x5230; AFL++</strong><br>&#x91CD;&#x6784; fuzzing &#x4EE3;&#x7801;&#x4E3A;&#x591A;&#x7EBF;&#x7A0B;&#x6A21;&#x5F0F;<br>&#x65B0;&#x589E; LTO &#x65E0;&#x78B0;&#x649E;&#x63D2;&#x6869; <br>&#x65B0;&#x589E; NGRAM &#x8986;&#x76D6;&#x7387; (<code>AFL_LLVM_NGRAM_SIZE</code>)<br>&#x65B0;&#x589E; &#x4E0A;&#x4E0B;&#x6587;&#x654F;&#x611F;&#x5206;&#x652F;&#x8986;&#x76D6; (<code>AFL_LLVM_INSTRUMENT=CTX</code>)<br>&#x65B0;&#x589E; &#x63A7;&#x5236;&#x6D41;&#x5B8C;&#x6574;&#x6027;&#x68C0;&#x67E5; (<code>AFL_USE_CFISAN</code>)</td>
+</tr>
+<tr>
+<td>2.67c</td>
+<td>&#x65B0;&#x589E;&#x5FEB;&#x7167;&#x6A21;&#x5F0F; AFL++ snapshot LKM<br>&#x652F;&#x6301; LLVM-12</td>
+</tr>
+<tr>
+<td>3.00c</td>
+<td>&#x7EDF;&#x4E00;&#x6240;&#x6709;&#x7F16;&#x8BD1;&#x5668;&#x5230; <code>afl-cc</code><br>&#x5408;&#x5E76; <code>llvm_mode/</code> &#x548C; <code>gcc_plugin/</code> &#x5230; <code>instrumentation/</code><br>&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x7B56;&#x7565;&#x6539;&#x4E3A; <code>FAST</code>.</td>
+</tr>
+<tr>
+<td>3.13c</td>
+<td>&#x65B0;&#x589E; Frida &#x6A21;&#x5F0F; (&#x4E8C;&#x8FDB;&#x5236;&#x76EE;&#x6807;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;, &#x652F;&#x6301;&#x6301;&#x4E45;&#x6A21;&#x5F0F;&#x548C; cmplog)</td>
+</tr>
+<tr>
+<td>4.00c</td>
+<td>&#x6587;&#x6863;&#x5168;&#x9762;&#x91CD;&#x6784; (Google Season of Docs &#x652F;&#x6301;)<br>&#x65B0;&#x589E; Nyx &#x6A21;&#x5F0F; (&#x5168;&#x7CFB;&#x7EDF;&#x4EFF;&#x771F;&#x5FEB;&#x7167;)  <br>&#x65B0;&#x589E; coresight_mode (ARM aarch64 &#x4E8C;&#x8FDB;&#x5236;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;)<br>&#x652F;&#x6301; LLVM-15</td>
+</tr>
+<tr>
+<td>4.10c</td>
+<td>&#x652F;&#x6301;&#x6CE8;&#x5165;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5; (SQL/XSS/LDAP)<br>&#x652F;&#x6301; LLVM-18</td>
+</tr>
+<tr>
+<td>4.20c</td>
+<td>&#x65B0; forkserver &#x6A21;&#x578B;, &#x652F;&#x6301; 40 &#x4EBF;&#x8986;&#x76D6;&#x8FB9; (&#x539F; 600 &#x4E07;)<br><code>make PERFORMANCE=1</code> &#x542F;&#x7528; CPU &#x4E13;&#x5C5E;&#x4F18;&#x5316; (&#x8DE8;&#x5E73;&#x53F0;&#x517C;&#x5BB9;&#x6027;&#x964D;&#x4F4E;)</td>
+</tr>
+<tr>
+<td>4.30c</td>
+<td>&#x79FB;&#x9664; afl-gcc, afl-clang &#x7B49;&#x7F16;&#x8BD1;&#x5668;, &#x7EDF;&#x4E00;&#x4F7F;&#x7528; afl-cc &#x9009;&#x62E9;&#x4E0D;&#x540C;&#x63D2;&#x6869;&#x65B9;&#x5F0F;<br>&#x65B0;&#x589E; <code>custom_send_tcp</code> &#x53D8;&#x5F02;&#x5668;, &#x652F;&#x6301; TCP &#x6570;&#x636E;&#x6D41;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</td>
+</tr>
+<tr>
+<td>4.31c</td>
+<td>&#x9ED8;&#x8BA4;&#x7981;&#x7528;&#x62FC;&#x63A5; splicing &#x7B56;&#x7565;, &#x9700;&#x901A;&#x8FC7; <code>-u</code> &#x624B;&#x52A8;&#x542F;&#x7528;<br>&#x652F;&#x6301; Python3.13+<br>&#x652F;&#x6301; LLVM-20</td>
+</tr>
+</tbody>
+</table>
+<h2 id="reference">Reference</h2>
+<p>[1] <a href="https://github.com/AFLplusplus/AFLplusplus" target="_blank">https://github.com/AFLplusplus/AFLplusplus</a></p>
+<p>[2] <a href="https://blog.ritsec.club/posts/afl-under-hood/" target="_blank">https://blog.ritsec.club/posts/afl-under-hood/</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="fuzzbench_new_fuzzer.html" class="navigation navigation-prev " aria-label="Previous page: Fuzzbench new Fuzzer">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../pwn/" class="navigation navigation-next " aria-label="Next page: Pwn">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AFLpp Src Reading I - History","level":"3.1.4","depth":2,"next":{"title":"Pwn","level":"4.1","depth":1,"path":"pwn/index.md","ref":"pwn/index.md","articles":[{"title":"Glibc _IO_FILE Exploitation Introduction","level":"4.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]}]},"previous":{"title":"Fuzzbench new Fuzzer","level":"3.1.3","depth":2,"path":"fuzzing/fuzzbench_new_fuzzer.md","ref":"fuzzing/fuzzbench_new_fuzzer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"fuzzing/aflpp_src_reading_I.md","mtime":"2025-04-15T07:57:23.202Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-15T07:58:31.453Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
