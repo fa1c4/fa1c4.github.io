@@ -1,0 +1,2841 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AFLpp Src Reading II - Forkserver · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../pwn/" />
+    
+    
+    <link rel="prev" href="aflpp_src_reading_I.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../papers/">
+            
+                <a href="../papers/">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../papers/FOX.html">
+            
+                <a href="../papers/FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../papers/On_Understanding.html">
+            
+                <a href="../papers/On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../papers/autofz.html">
+            
+                <a href="../papers/autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../papers/Fuzz_to_the_Future.html">
+            
+                <a href="../papers/Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../papers/DSFuzz.html">
+            
+                <a href="../papers/DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../papers/Rubick.html">
+            
+                <a href="../papers/Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../papers/Fuzz4All.html">
+            
+                <a href="../papers/Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../papers/kag.html">
+            
+                <a href="../papers/kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../papers/graphuzz.html">
+            
+                <a href="../papers/graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../papers/Seed_Selection.html">
+            
+                <a href="../papers/Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../papers/belieffuzz.html">
+            
+                <a href="../papers/belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../papers/K_Scheduler.html">
+            
+                <a href="../papers/K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../papers/entropic.html">
+            
+                <a href="../papers/entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../papers/FuzzInMem.html">
+            
+                <a href="../papers/FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../papers/AFLpp.html">
+            
+                <a href="../papers/AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../papers/DDFuzz.html">
+            
+                <a href="../papers/DDFuzz.html">
+            
+                    
+                    Fuzzing with Data Dependency Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../papers/Hier.html">
+            
+                <a href="../papers/Hier.html">
+            
+                    
+                    Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="../papers/LLM_Fuzzing_BusyBox.html">
+            
+                <a href="../papers/LLM_Fuzzing_BusyBox.html">
+            
+                    
+                    Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="../papers/llm2vec.html">
+            
+                <a href="../papers/llm2vec.html">
+            
+                    
+                    LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="../papers/ShapFuzz.html">
+            
+                <a href="../papers/ShapFuzz.html">
+            
+                    
+                    SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="../papers/TortoiseFuzz.html">
+            
+                <a href="../papers/TortoiseFuzz.html">
+            
+                    
+                    Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="../papers/prefix_guided_execution.html">
+            
+                <a href="../papers/prefix_guided_execution.html">
+            
+                    
+                    Accelerating Fuzzing through Prefix-Guided Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="../papers/Fuzztastic.html">
+            
+                <a href="../papers/Fuzztastic.html">
+            
+                    
+                    Extrapolating Coverage Rate in Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="AFLpp_build_on_Magma.html">
+            
+                <a href="AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="fuzzbench_build.html">
+            
+                <a href="fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="fuzzbench_new_fuzzer.html">
+            
+                <a href="fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="aflpp_src_reading_I.html">
+            
+                <a href="aflpp_src_reading_I.html">
+            
+                    
+                    AFLpp Src Reading I - History
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.5" data-path="aflpp_src_reading_II.html">
+            
+                <a href="aflpp_src_reading_II.html">
+            
+                    
+                    AFLpp Src Reading II - Forkserver
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                <a href="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                    
+                    IDAPro Cheat Sheet 7.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AFLpp Src Reading II - Forkserver</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="afl-source-code-reading-ii---forkserver">AFL++ Source Code Reading II - Forkserver</h1>
+<p>&#x672C;&#x6587;&#x4ECE;&#x4E3B;&#x903B;&#x8F91;&#x5F00;&#x59CB;&#x89E3;&#x6790; AFL++ &#x6E90;&#x4EE3;&#x7801;</p>
+<h2 id="afl-fuzz-entry">afl-fuzz Entry</h2>
+<p>AFL++ (AFL) &#x4E3B;&#x903B;&#x8F91;&#x5728; <code>afl-fuzz.c</code>, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x542F;&#x52A8;&#x7A0B;&#x5E8F;&#x4E3A; <code>afl-fuzz</code>, &#x901A;&#x5E38;&#x7684;&#x542F;&#x52A8;&#x547D;&#x4EE4;</p>
+<pre><code class="lang-shell">afl-fuzz -i [input_seed_corpus] -o [output_results] -- /path/to/target/binary [@@]
+</code></pre>
+<p>&#x5176;&#x4E2D;, <code>@@</code> &#x662F;&#x76EE;&#x6807;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x8BFB;&#x53D6;&#x7684;&#x8F93;&#x5165;&#x6587;&#x4EF6;, &#x5982;&#x679C;&#x6CA1;&#x6709;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x5219;&#x9ED8;&#x8BA4;&#x4ECE; <code>stdin</code> &#x8F93;&#x5165;.</p>
+<p><strong>&#x542F;&#x52A8;&#x6D41;&#x7A0B;</strong></p>
+<ol>
+<li><code>afl-fuzz</code> fork &#x51FA;&#x5B50;&#x8FDB;&#x7A0B;&#x5E76;&#x6267;&#x884C;&#x76EE;&#x6807;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;</li>
+<li>fork &#x7684;&#x5B50;&#x8FDB;&#x7A0B;&#x4F5C;&#x4E3A; <code>forkserver</code> &#x7EE7;&#x7EED; fork &#x5B50;&#x5B50;&#x8FDB;&#x7A0B; (fork &#x7684;&#x6027;&#x80FD;&#x6210;&#x672C;&#x6BD4;&#x6267;&#x884C;&#x6210;&#x672C;&#x8981;&#x4F4E;)</li>
+<li>&#x5B50;&#x5B50;&#x8FDB;&#x7A0B;&#x6267;&#x884C; fuzzing</li>
+</ol>
+<p><code>afl-fuzz</code> &#x548C; <code>target binary</code> &#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x4F7F;&#x7528; <code>control pipe</code> &#x548C; <code>status pipe</code> &#x8FDB;&#x884C;. </p>
+<p>&#x53EF;&#x89C1;&#x6E90;&#x4EE3;&#x7801;: <a href="https://github.com/AFLplusplus/AFLplusplus/blob/ea14f3fd40e32234989043a525e3853fcb33c1b6/src/afl-forkserver.c#L667" target="_blank">forkserver source code</a>. </p>
+<p><code>afl-fuzz</code> &#x901A;&#x8FC7; <code>control pipe</code> &#x53D1;&#x9001;&#x63A7;&#x5236;&#x6D88;&#x606F;&#x5230; <code>target binary</code>, &#x53CD;&#x8FC7;&#x6765;&#x5219;&#x662F;&#x901A;&#x8FC7; <code>status pipe</code>. <code>control pipe</code> &#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F; <code>FORKSRV_FD</code>, &#x800C; <code>status pipe</code> &#x7684;&#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x7B26;&#x662F; <code>FORKSRV_FD + 1</code>.</p>
+<pre><code class="lang-c">    <span class="hljs-keyword">if</span> (dup2(ctl_pipe[<span class="hljs-number">0</span>], FORKSRV_FD) &lt; <span class="hljs-number">0</span>) { PFATAL(<span class="hljs-string">&quot;dup2() failed&quot;</span>); }
+    <span class="hljs-keyword">if</span> (dup2(st_pipe[<span class="hljs-number">1</span>], FORKSRV_FD + <span class="hljs-number">1</span>) &lt; <span class="hljs-number">0</span>) { PFATAL(<span class="hljs-string">&quot;dup2() failed&quot;</span>); }
+</code></pre>
+<h2 id="instrumentation">Instrumentation</h2>
+<p>ELF &#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x6D41;&#x7A0B;&#x662F;&#x5148;&#x8FD0;&#x884C; <code>.init_array</code> &#x8282;&#x4E2D;&#x7684;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;, &#x518D;&#x5230; <code>main</code> &#x51FD;&#x6570; <sup>[3, 4]</sup>. &#x63D2;&#x6869;&#x540E;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F; <code>.init_array</code> &#x4E2D;&#x7684;&#x51FD;&#x6570;&#x4F1A;&#x6709;&#x6240;&#x533A;&#x522B;, &#x65B9;&#x4FBF;&#x8D77;&#x89C1;&#x8FD9;&#x91CC;&#x5217;&#x4E3E;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x4E2D;, &#x5E38;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x3001;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x548C;&#x5B8F;&#x5B9A;&#x4E49;.</p>
+<pre><code class="lang-c"><span class="hljs-comment">/* Regular Variables */</span>
+__afl_area_ptr <span class="hljs-comment">// - The coverage map pointer. By default this is __afl_area_initial. The size of __afl_area_initial is MAP_INITIAL_SIZE (ref [5])</span>
+__afl_final_loc <span class="hljs-comment">// - The last index in __afl_area_ptr accessed by instrumentation</span>
+__afl_map_addr <span class="hljs-comment">// - This is the address that the coverage map will be mmap&#x2019;d. As far as I know, this only really exists when AFL_LLVM_MAP_ADDR is set in LTO mode. Otherwise, it is 0.</span>
+__afl_map_size <span class="hljs-comment">// - The size of the coverage map</span>
+__afl_area_initial <span class="hljs-comment">// - The coverage map used before shared memory is mapped and if shared memory is not accessible (i.e. we are not running under AFL). This is created as an array in afl-compiler-rt.o.c</span>
+
+<span class="hljs-comment">/* Environment Variables */</span>
+__AFL_SHM_ID <span class="hljs-comment">// (Aliased to SHM_ENV_VAR) - Shared memory ID for the coverage map.</span>
+__AFL_SHM_FUZZ_ID <span class="hljs-comment">// (Aliased to SHM_FUZZ_ENV_VAR) - Shared memory ID for shared memory fuzzing.</span>
+AFL_MAP_SIZE <span class="hljs-comment">// - Used to set the size of the shared memory buffer allocated by afl-fuzz.</span>
+
+<span class="hljs-comment">/* Macros */</span>
+MAP_SIZE <span class="hljs-comment">// - a custom value that afl-fuzz can use to force the size of the shared memory map.</span>
+MAP_INITIAL_SIZE <span class="hljs-comment">// - size of __afl_area_initial</span>
+</code></pre>
+<p>&#x7ECF;&#x8FC7; <strong>PCGUARD</strong> &#x63D2;&#x6869;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F; <code>.init_array</code> &#x7684;&#x51FD;&#x6570;&#x8868;, &#x793A;&#x4F8B;</p>
+<p><img src="assets/image-20250415172106086.png" alt="image-20250415172106086"></p>
+<p>&#x5176;&#x4E2D;, &#x6240;&#x6709;&#x63D2;&#x6869;&#x51FD;&#x6570;&#x5747;&#x53EF;&#x4EE5;&#x5728; <code>afl-compiler-rt.o.c</code> <sup>[5]</sup> &#x4E2D;&#x627E;&#x5230;&#x5B9A;&#x4E49;. &#x9010;&#x4E2A;&#x67E5;&#x770B;&#x6E90;&#x7801;: </p>
+<p><code>__afl_auto_first</code> &#x8BBE;&#x7F6E;&#x53D8;&#x91CF; <code>__afl_already_initialized_first = 1</code></p>
+<pre><code class="lang-c">__attribute__((constructor(<span class="hljs-number">0</span>))) <span class="hljs-keyword">void</span> __afl_auto_first(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_first) <span class="hljs-keyword">return</span>;
+  __afl_already_initialized_first = <span class="hljs-number">1</span>;
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DISABLE_LLVM_INSTRUMENTATION&quot;</span>)) <span class="hljs-keyword">return</span>;
+
+  <span class="hljs-comment">/*
+    u8 *ptr = (u8 *)malloc(MAP_INITIAL_SIZE);
+
+    if (ptr &amp;&amp; (ssize_t)ptr != -1) {
+
+      __afl_area_ptr = ptr;
+      __afl_area_ptr_backup = __afl_area_ptr;
+
+    }
+
+  */</span>
+
+}  <span class="hljs-comment">// ptr memleak report is a false positive</span>
+</code></pre>
+<p><code>__afl_auto_second</code> &#x5728; PCGUARD &#x6A21;&#x5F0F;&#x4E0B;&#x65E0;&#x4F5C;&#x7528;, &#x56E0;&#x4E3A;&#x521D;&#x59CB;&#x5316;&#x65F6; <code>__afl_final_loc == 0</code></p>
+<pre><code class="lang-c">__attribute__((constructor(<span class="hljs-number">1</span>))) <span class="hljs-keyword">void</span> __afl_auto_second(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_second) <span class="hljs-keyword">return</span>;
+  __afl_already_initialized_second = <span class="hljs-number">1</span>;
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DEBUG&quot;</span>)) {
+
+    __afl_debug = <span class="hljs-number">1</span>;
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;DEBUG: debug enabled\n&quot;</span>);
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;DEBUG: AFL++ afl-compiler-rt&quot;</span> VERSION <span class="hljs-string">&quot;\n&quot;</span>);
+
+  }
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DISABLE_LLVM_INSTRUMENTATION&quot;</span>)) <span class="hljs-keyword">return</span>;
+  u8 *ptr;
+
+  <span class="hljs-keyword">if</span> (__afl_final_loc &gt; MAP_INITIAL_SIZE) {
+
+    __afl_first_final_loc = __afl_final_loc + <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">if</span> (__afl_area_ptr &amp;&amp; __afl_area_ptr != __afl_area_initial)
+      <span class="hljs-built_in">free</span>(__afl_area_ptr);
+
+    <span class="hljs-keyword">if</span> (__afl_map_addr)
+      ptr = (u8 *)mmap((<span class="hljs-keyword">void</span> *)__afl_map_addr, __afl_first_final_loc,
+                       PROT_READ | PROT_WRITE,
+                       MAP_FIXED_NOREPLACE | MAP_SHARED | MAP_ANONYMOUS, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
+    <span class="hljs-keyword">else</span>
+      ptr = (u8 *)<span class="hljs-built_in">malloc</span>(__afl_first_final_loc);
+
+    <span class="hljs-keyword">if</span> (ptr &amp;&amp; (<span class="hljs-keyword">ssize_t</span>)ptr != <span class="hljs-number">-1</span>) {
+
+      __afl_area_ptr = ptr;
+      __afl_area_ptr_dummy = __afl_area_ptr;
+      __afl_area_ptr_backup = __afl_area_ptr;
+
+    }
+
+  }
+
+}  <span class="hljs-comment">// ptr memleak report is a false positive</span>
+</code></pre>
+<p><code>sancov_module_ctor_trace_pc_guard</code> &#x8DDF;&#x8FDB;&#x4F1A;&#x53D1;&#x73B0;&#x5176;&#x8C03;&#x7528; <code>__sanitizer_cov_trace_pc_guard_init</code>. &#x5176;&#x63A5;&#x6536;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x4E2D;&#x6240;&#x6709;&#x63D2;&#x6869;&#x70B9;&#x7684; <code>start</code> &#x548C; <code>stop</code> &#x4E24;&#x4E2A;&#x53C2;&#x6570;, &#x521D;&#x59CB;&#x5316;&#x8986;&#x76D6;&#x7387;&#x6620;&#x5C04;&#x8868;, &#x4E3A;&#x6BCF;&#x4E2A;&#x63D2;&#x6869;&#x70B9;&#x5206;&#x914D;&#x552F;&#x4E00;&#x7684; ID (<code>__afl_final_loc</code>), &#x6839;&#x636E; <code>inst_ratio</code> &#x51B3;&#x5B9A;&#x662F;&#x5426;&#x8DF3;&#x8FC7;&#x67D0;&#x4E9B;&#x63D2;&#x6869;&#x70B9; (&#x8DF3;&#x8FC7;&#x65F6;&#x5199;0). </p>
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> __sanitizer_cov_trace_pc_guard_init(<span class="hljs-keyword">uint32_t</span> *start, <span class="hljs-keyword">uint32_t</span> *stop) {
+
+  u32   inst_ratio = <span class="hljs-number">100</span>;
+  <span class="hljs-keyword">char</span> *x;
+
+  _is_sancov = <span class="hljs-number">1</span>;
+
+  <span class="hljs-keyword">if</span> (!getenv(<span class="hljs-string">&quot;AFL_DUMP_MAP_SIZE&quot;</span>)) {
+
+    __afl_auto_first();
+    __afl_auto_second();
+    __afl_auto_early();
+
+  }
+
+  <span class="hljs-keyword">if</span> (__afl_debug) {
+
+    <span class="hljs-built_in">fprintf</span>(
+        <span class="hljs-built_in">stderr</span>,
+        <span class="hljs-string">&quot;DEBUG: Running __sanitizer_cov_trace_pc_guard_init: %p-%p (%lu edges) &quot;</span>
+        <span class="hljs-string">&quot;after_fs=%u *start=%u\n&quot;</span>,
+        start, stop, (<span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">long</span>)(stop - start),
+        __afl_already_initialized_forkserver, *start);
+
+  }
+
+  <span class="hljs-keyword">if</span> (start == stop || *start) { <span class="hljs-keyword">return</span>; }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __AFL_CODE_COVERAGE</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span>  <span class="hljs-comment">// __AFL_CODE_COVERAGE</span></span>
+
+  x = getenv(<span class="hljs-string">&quot;AFL_INST_RATIO&quot;</span>);
+  <span class="hljs-keyword">if</span> (x) {
+
+    inst_ratio = (u32)atoi(x);
+
+    <span class="hljs-keyword">if</span> (!inst_ratio || inst_ratio &gt; <span class="hljs-number">100</span>) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;[-] ERROR: Invalid AFL_INST_RATIO (must be 1-100).\n&quot;</span>);
+      <span class="hljs-built_in">abort</span>();
+
+    }
+
+  }
+
+  <span class="hljs-comment">// If a dlopen of an instrumented library happens after the forkserver then</span>
+  <span class="hljs-comment">// we have a problem as we cannot increase the coverage map anymore.</span>
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_forkserver) {
+
+    <span class="hljs-keyword">if</span> (!getenv(<span class="hljs-string">&quot;AFL_IGNORE_PROBLEMS&quot;</span>)) {
+
+      <span class="hljs-built_in">fprintf</span>(
+          <span class="hljs-built_in">stderr</span>,
+          <span class="hljs-string">&quot;[-] FATAL: forkserver is already up, but an instrumented dlopen() &quot;</span>
+          <span class="hljs-string">&quot;library loaded afterwards. You must AFL_PRELOAD such libraries to &quot;</span>
+          <span class="hljs-string">&quot;be able to fuzz them or LD_PRELOAD to run outside of afl-fuzz.\n&quot;</span>
+          <span class="hljs-string">&quot;To ignore this set AFL_IGNORE_PROBLEMS=1 but this will lead to &quot;</span>
+          <span class="hljs-string">&quot;ambiguous coverage data.\n&quot;</span>
+          <span class="hljs-string">&quot;In addition, you can set AFL_IGNORE_PROBLEMS_COVERAGE=1 to &quot;</span>
+          <span class="hljs-string">&quot;ignore the additional coverage instead (use with caution!).\n&quot;</span>);
+      <span class="hljs-built_in">abort</span>();
+
+    } <span class="hljs-keyword">else</span> {
+
+      u8 ignore_dso_after_fs = !!getenv(<span class="hljs-string">&quot;AFL_IGNORE_PROBLEMS_COVERAGE&quot;</span>);
+      <span class="hljs-keyword">if</span> (__afl_debug &amp;&amp; ignore_dso_after_fs) {
+
+        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+                <span class="hljs-string">&quot;DEBUG: Ignoring coverage from dynamically loaded code\n&quot;</span>);
+
+      }
+
+      <span class="hljs-keyword">static</span> u32 offset = <span class="hljs-number">5</span>;
+
+      <span class="hljs-keyword">while</span> (start &lt; stop) {
+
+        <span class="hljs-keyword">if</span> (!ignore_dso_after_fs &amp;&amp;
+            (likely(inst_ratio == <span class="hljs-number">100</span>) || R(<span class="hljs-number">100</span>) &lt; inst_ratio)) {
+
+          *(start++) = offset;
+
+        } <span class="hljs-keyword">else</span> {
+
+          *(start++) = <span class="hljs-number">0</span>;  <span class="hljs-comment">// write to map[0]</span>
+
+        }
+
+        <span class="hljs-keyword">if</span> (unlikely(++offset &gt;= __afl_final_loc)) { offset = <span class="hljs-number">5</span>; }
+
+      }
+
+    }
+
+    <span class="hljs-keyword">return</span>;  <span class="hljs-comment">// we are done for this special case</span>
+
+  }
+
+  <span class="hljs-comment">/* Make sure that the first element in the range is always set - we use that
+     to avoid duplicate calls (which can happen as an artifact of the underlying
+     implementation in LLVM). */</span>
+
+  <span class="hljs-keyword">if</span> (__afl_final_loc &lt; <span class="hljs-number">4</span>) __afl_final_loc = <span class="hljs-number">4</span>;  <span class="hljs-comment">// we skip the first 5 entries</span>
+
+  *(start++) = ++__afl_final_loc;
+
+  <span class="hljs-keyword">while</span> (start &lt; stop) {
+
+    <span class="hljs-keyword">if</span> (likely(inst_ratio == <span class="hljs-number">100</span>) || R(<span class="hljs-number">100</span>) &lt; inst_ratio) {
+
+      *(start++) = ++__afl_final_loc;
+
+    } <span class="hljs-keyword">else</span> {
+
+      *(start++) = <span class="hljs-number">0</span>;  <span class="hljs-comment">// write to map[0]</span>
+
+    }
+
+  }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __AFL_CODE_COVERAGE</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span>  <span class="hljs-comment">// __AFL_CODE_COVERAGE</span></span>
+
+  <span class="hljs-keyword">if</span> (__afl_debug) {
+
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+            <span class="hljs-string">&quot;DEBUG: Done __sanitizer_cov_trace_pc_guard_init: __afl_final_loc &quot;</span>
+            <span class="hljs-string">&quot;= %u\n&quot;</span>,
+            __afl_final_loc);
+
+  }
+
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_shm) {
+
+    <span class="hljs-keyword">if</span> (__afl_final_loc &gt; __afl_map_size) {
+
+      <span class="hljs-keyword">if</span> (__afl_debug) {
+
+        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;DEBUG: Reinit shm necessary (+%u)\n&quot;</span>,
+                __afl_final_loc - __afl_map_size);
+
+      }
+
+      __afl_unmap_shm();
+      __afl_map_shm();
+
+    }
+
+    __afl_map_size = __afl_final_loc + <span class="hljs-number">1</span>;
+
+  }
+
+}
+</code></pre>
+<p><code>__afl_auto_early</code> &#x8C03;&#x7528; <code>__afl_map_shm</code> &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x5185;&#x5B58; (shared memory) &#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x8986;&#x76D6;&#x7387;&#x6620;&#x5C04;&#x8868; (coverage map), &#x4E3B;&#x8FDB;&#x7A0B;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6240;&#x6709;&#x5B50;&#x8FDB;&#x7A0B;&#x4FEE;&#x6539;&#x7684;&#x8986;&#x76D6;&#x7387;&#x7ED3;&#x679C;. &#x5177;&#x4F53;&#x7EC6;&#x8282;, &#x8DF3;&#x8FC7;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x903B;&#x8F91;, &#x770B;&#x4E3B;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x7684;&#x6CE8;&#x91CA;. </p>
+<pre><code class="lang-c">__attribute__((constructor(CTOR_PRIO))) <span class="hljs-keyword">void</span> __afl_auto_early(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_early) <span class="hljs-keyword">return</span>;
+  __afl_already_initialized_early = <span class="hljs-number">1</span>;
+
+  is_persistent = !!getenv(PERSIST_ENV_VAR);
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DISABLE_LLVM_INSTRUMENTATION&quot;</span>)) <span class="hljs-keyword">return</span>;
+
+  __afl_map_shm();
+
+}
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> __afl_map_shm(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_shm) <span class="hljs-keyword">return</span>;
+  __afl_already_initialized_shm = <span class="hljs-number">1</span>;
+
+  <span class="hljs-comment">// if we are not running in afl ensure the map exists</span>
+  <span class="hljs-keyword">if</span> (!__afl_area_ptr) { __afl_area_ptr = __afl_area_ptr_dummy; }
+
+  <span class="hljs-keyword">char</span> *id_str = getenv(SHM_ENV_VAR); <span class="hljs-comment">// get the shared memory ID</span>
+
+  <span class="hljs-keyword">if</span> (__afl_final_loc) {
+
+    __afl_map_size = __afl_final_loc + <span class="hljs-number">1</span>;  <span class="hljs-comment">// as we count starting 0</span>
+
+    <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DUMP_MAP_SIZE&quot;</span>)) {
+
+      <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%u\n&quot;</span>, __afl_map_size);
+      <span class="hljs-built_in">exit</span>(<span class="hljs-number">-1</span>);
+
+    }
+
+    <span class="hljs-keyword">if</span> (__afl_debug) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;DEBUG: AFL_MAP_SIZE=%u\n&quot;</span>, __afl_map_size);
+
+    }
+
+    <span class="hljs-keyword">if</span> (__afl_final_loc &gt; MAP_SIZE) { <span class="hljs-comment">// expand the shared memory to fill in all edges</span>
+
+      <span class="hljs-keyword">char</span> *ptr;
+      u32   val = <span class="hljs-number">0</span>;
+      <span class="hljs-keyword">if</span> ((ptr = getenv(<span class="hljs-string">&quot;AFL_MAP_SIZE&quot;</span>)) != <span class="hljs-literal">NULL</span>) { val = atoi(ptr); }
+      <span class="hljs-keyword">if</span> (val &lt; __afl_final_loc) {
+
+        <span class="hljs-keyword">if</span> (__afl_final_loc &gt; MAP_INITIAL_SIZE &amp;&amp; !getenv(<span class="hljs-string">&quot;AFL_QUIET&quot;</span>)) {
+
+          <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+                  <span class="hljs-string">&quot;Warning: AFL++ tools might need to set AFL_MAP_SIZE to %u &quot;</span>
+                  <span class="hljs-string">&quot;to be able to run this instrumented program if this &quot;</span>
+                  <span class="hljs-string">&quot;crashes!\n&quot;</span>,
+                  __afl_final_loc);
+
+        }
+
+      }
+
+    }
+
+  }
+
+  <span class="hljs-keyword">if</span> (__afl_sharedmem_fuzzing &amp;&amp; (!id_str || !getenv(SHM_FUZZ_ENV_VAR) ||
+                                  fcntl(FORKSRV_FD, F_GETFD) == <span class="hljs-number">-1</span> ||
+                                  fcntl(FORKSRV_FD + <span class="hljs-number">1</span>, F_GETFD) == <span class="hljs-number">-1</span>)) {
+
+    <span class="hljs-keyword">if</span> (__afl_debug) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+              <span class="hljs-string">&quot;DEBUG: running not inside afl-fuzz, disabling shared memory &quot;</span>
+              <span class="hljs-string">&quot;testcases\n&quot;</span>);
+
+    }
+
+    __afl_sharedmem_fuzzing = <span class="hljs-number">0</span>;
+
+  }
+
+  <span class="hljs-keyword">if</span> (!id_str) {
+
+    u32 val = <span class="hljs-number">0</span>;
+    u8 *ptr;
+
+    <span class="hljs-keyword">if</span> ((ptr = getenv(<span class="hljs-string">&quot;AFL_MAP_SIZE&quot;</span>)) != <span class="hljs-literal">NULL</span>) { val = atoi(ptr); }
+
+    <span class="hljs-keyword">if</span> (val &gt; MAP_INITIAL_SIZE &amp;&amp; val &gt; __afl_final_loc) {
+
+      __afl_map_size = val;
+
+    } <span class="hljs-keyword">else</span> {
+
+      <span class="hljs-keyword">if</span> (__afl_first_final_loc &gt; MAP_INITIAL_SIZE) {
+
+        <span class="hljs-comment">// done in second stage constructor</span>
+        __afl_map_size = __afl_first_final_loc;
+
+      } <span class="hljs-keyword">else</span> {
+
+        __afl_map_size = MAP_INITIAL_SIZE;
+
+      }
+
+    }
+
+    <span class="hljs-keyword">if</span> (__afl_map_size &gt; MAP_INITIAL_SIZE &amp;&amp; __afl_final_loc &lt; __afl_map_size) {
+
+      __afl_final_loc = __afl_map_size;
+
+    }
+
+    <span class="hljs-keyword">if</span> (__afl_debug) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;DEBUG: (0) init map size is %u to %p\n&quot;</span>, __afl_map_size,
+              __afl_area_ptr_dummy);
+
+    }
+
+  }
+
+  <span class="hljs-comment">/* If we&apos;re running under AFL, attach to the appropriate region, replacing the
+     early-stage __afl_area_initial region that is needed to allow some really
+     hacky .init code to work correctly in projects such as OpenSSL. */</span>
+
+  <span class="hljs-keyword">if</span> (__afl_debug) {
+
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+            <span class="hljs-string">&quot;DEBUG: (1) id_str %s, __afl_area_ptr %p, __afl_area_initial %p, &quot;</span>
+            <span class="hljs-string">&quot;__afl_area_ptr_dummy %p, __afl_map_addr 0x%llx, MAP_SIZE %u, &quot;</span>
+            <span class="hljs-string">&quot;__afl_final_loc %u, __afl_map_size %u\n&quot;</span>,
+            id_str == <span class="hljs-literal">NULL</span> ? <span class="hljs-string">&quot;&lt;null&gt;&quot;</span> : id_str, __afl_area_ptr,
+            __afl_area_initial, __afl_area_ptr_dummy, __afl_map_addr, MAP_SIZE,
+            __afl_final_loc, __afl_map_size);
+
+  }
+
+  <span class="hljs-keyword">if</span> (id_str) {
+
+    <span class="hljs-keyword">if</span> (__afl_area_ptr &amp;&amp; __afl_area_ptr != __afl_area_initial &amp;&amp;
+        __afl_area_ptr != __afl_area_ptr_dummy) {
+
+      <span class="hljs-keyword">if</span> (__afl_map_addr) {
+
+        munmap((<span class="hljs-keyword">void</span> *)__afl_map_addr, __afl_final_loc);
+
+      } <span class="hljs-keyword">else</span> {
+
+        <span class="hljs-built_in">free</span>(__afl_area_ptr);
+
+      }
+
+      __afl_area_ptr = __afl_area_ptr_dummy;
+
+    }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> USEMMAP</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    u32 shm_id = atoi(id_str);
+
+    <span class="hljs-keyword">if</span> (__afl_map_size &amp;&amp; __afl_map_size &gt; MAP_SIZE) {
+
+      u8 *map_env = (u8 *)getenv(<span class="hljs-string">&quot;AFL_MAP_SIZE&quot;</span>);
+      <span class="hljs-keyword">if</span> (!map_env || atoi((<span class="hljs-keyword">char</span> *)map_env) &lt; MAP_SIZE) {
+
+        <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;FS_ERROR_MAP_SIZE\n&quot;</span>);
+        send_forkserver_error(FS_ERROR_MAP_SIZE);
+        _exit(<span class="hljs-number">1</span>);
+
+      }
+
+    }
+
+    __afl_area_ptr = (u8 *)shmat(shm_id, (<span class="hljs-keyword">void</span> *)__afl_map_addr, <span class="hljs-number">0</span>);
+    <span class="hljs-comment">// point __afl_area_ptr to shared memory so that instrumentation</span>
+    <span class="hljs-comment">// can access to shared memory and change coverage map</span>
+
+    <span class="hljs-comment">/* Whooooops. */</span>
+
+    <span class="hljs-keyword">if</span> (!__afl_area_ptr || __afl_area_ptr == (<span class="hljs-keyword">void</span> *)<span class="hljs-number">-1</span>) {
+
+      <span class="hljs-keyword">if</span> (__afl_map_addr)
+        send_forkserver_error(FS_ERROR_MAP_ADDR);
+      <span class="hljs-keyword">else</span>
+        send_forkserver_error(FS_ERROR_SHMAT);
+
+      perror(<span class="hljs-string">&quot;shmat for map&quot;</span>);
+      _exit(<span class="hljs-number">1</span>);
+
+    }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+    <span class="hljs-comment">/* Write something into the bitmap so that even with low AFL_INST_RATIO,
+       our parent doesn&apos;t give up on us. */</span>
+
+    __afl_area_ptr[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;
+
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((!__afl_area_ptr || __afl_area_ptr == __afl_area_initial) &amp;&amp;
+
+             __afl_map_addr) {
+
+    __afl_area_ptr = (u8 *)mmap(
+        (<span class="hljs-keyword">void</span> *)__afl_map_addr, __afl_map_size, PROT_READ | PROT_WRITE,
+        MAP_FIXED_NOREPLACE | MAP_SHARED | MAP_ANONYMOUS, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>);
+
+    <span class="hljs-keyword">if</span> (__afl_area_ptr == MAP_FAILED) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;can not acquire mmap for address %p\n&quot;</span>,
+              (<span class="hljs-keyword">void</span> *)__afl_map_addr);
+      send_forkserver_error(FS_ERROR_SHM_OPEN);
+      <span class="hljs-built_in">exit</span>(<span class="hljs-number">1</span>);
+
+    }
+
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (__afl_final_loc &gt; MAP_INITIAL_SIZE &amp;&amp;
+
+             __afl_final_loc &gt; __afl_first_final_loc) {
+
+    <span class="hljs-keyword">if</span> (__afl_area_initial != __afl_area_ptr_dummy) {
+
+      <span class="hljs-built_in">free</span>(__afl_area_ptr_dummy);
+
+    }
+
+    __afl_map_size = __afl_final_loc + <span class="hljs-number">1</span>;
+    __afl_area_ptr_dummy = (u8 *)<span class="hljs-built_in">malloc</span>(__afl_map_size);
+    __afl_area_ptr = __afl_area_ptr_dummy;
+
+    <span class="hljs-keyword">if</span> (!__afl_area_ptr_dummy) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+              <span class="hljs-string">&quot;Error: AFL++ could not acquire %u bytes of memory, exiting!\n&quot;</span>,
+              __afl_final_loc);
+      <span class="hljs-built_in">exit</span>(<span class="hljs-number">-1</span>);
+
+    }
+
+  }  <span class="hljs-comment">// else: nothing to be done</span>
+
+  __afl_area_ptr_backup = __afl_area_ptr;
+
+  <span class="hljs-keyword">if</span> (__afl_debug) {
+
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+            <span class="hljs-string">&quot;DEBUG: (2) id_str %s, __afl_area_ptr %p, __afl_area_initial %p, &quot;</span>
+            <span class="hljs-string">&quot;__afl_area_ptr_dummy %p, __afl_map_addr 0x%llx, MAP_SIZE &quot;</span>
+            <span class="hljs-string">&quot;%u, __afl_final_loc %u, __afl_map_size %u\n&quot;</span>,
+            id_str == <span class="hljs-literal">NULL</span> ? <span class="hljs-string">&quot;&lt;null&gt;&quot;</span> : id_str, __afl_area_ptr,
+            __afl_area_initial, __afl_area_ptr_dummy, __afl_map_addr, MAP_SIZE,
+            __afl_final_loc, __afl_map_size);
+
+  }
+
+  <span class="hljs-keyword">if</span> (__afl_selective_coverage) {
+
+    <span class="hljs-keyword">if</span> (__afl_map_size &gt; MAP_INITIAL_SIZE) {
+
+      __afl_area_ptr_dummy = (u8 *)<span class="hljs-built_in">malloc</span>(__afl_map_size);
+
+    }
+
+    <span class="hljs-keyword">if</span> (__afl_area_ptr_dummy) {
+
+      <span class="hljs-keyword">if</span> (__afl_selective_coverage_start_off) {
+
+        __afl_area_ptr = __afl_area_ptr_dummy;
+
+      }
+
+    } <span class="hljs-keyword">else</span> {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;Error: __afl_selective_coverage failed!\n&quot;</span>);
+      __afl_selective_coverage = <span class="hljs-number">0</span>;
+      <span class="hljs-comment">// continue;</span>
+
+    }
+
+  }
+
+  id_str = getenv(CMPLOG_SHM_ENV_VAR);
+
+  <span class="hljs-keyword">if</span> (__afl_debug) {
+
+    <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;DEBUG: cmplog id_str %s\n&quot;</span>,
+            id_str == <span class="hljs-literal">NULL</span> ? <span class="hljs-string">&quot;&lt;null&gt;&quot;</span> : id_str);
+
+  }
+
+  <span class="hljs-keyword">if</span> (id_str) {
+
+    <span class="hljs-comment">// /dev/null doesn&apos;t work so we use /dev/urandom</span>
+    <span class="hljs-keyword">if</span> ((__afl_dummy_fd[<span class="hljs-number">1</span>] = open(<span class="hljs-string">&quot;/dev/urandom&quot;</span>, O_WRONLY)) &lt; <span class="hljs-number">0</span>) {
+
+      <span class="hljs-keyword">if</span> (pipe(__afl_dummy_fd) &lt; <span class="hljs-number">0</span>) { __afl_dummy_fd[<span class="hljs-number">1</span>] = <span class="hljs-number">1</span>; }
+
+    }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> USEMMAP</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    u32 shm_id = atoi(id_str);
+
+    __afl_cmp_map = (<span class="hljs-keyword">struct</span> cmp_map *)shmat(shm_id, <span class="hljs-literal">NULL</span>, <span class="hljs-number">0</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+    __afl_cmp_map_backup = __afl_cmp_map;
+
+    <span class="hljs-keyword">if</span> (!__afl_cmp_map || __afl_cmp_map == (<span class="hljs-keyword">void</span> *)<span class="hljs-number">-1</span>) {
+
+      perror(<span class="hljs-string">&quot;shmat for cmplog&quot;</span>);
+      send_forkserver_error(FS_ERROR_SHM_OPEN);
+      _exit(<span class="hljs-number">1</span>);
+
+    }
+
+  }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __AFL_CODE_COVERAGE</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span>  <span class="hljs-comment">// __AFL_CODE_COVERAGE</span></span>
+
+  <span class="hljs-keyword">if</span> (!__afl_cmp_map &amp;&amp; getenv(<span class="hljs-string">&quot;AFL_CMPLOG_DEBUG&quot;</span>)) {
+
+    __afl_cmp_map_backup = __afl_cmp_map = <span class="hljs-built_in">malloc</span>(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> cmp_map));
+
+  }
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_CMPLOG_MAX_LEN&quot;</span>)) {
+
+    <span class="hljs-keyword">int</span> tmp = atoi(getenv(<span class="hljs-string">&quot;AFL_CMPLOG_MAX_LEN&quot;</span>));
+    <span class="hljs-keyword">if</span> (tmp &gt;= <span class="hljs-number">16</span> &amp;&amp; tmp &lt;= <span class="hljs-number">32</span>) { __afl_cmplog_max_len = tmp; }
+
+  }
+
+}
+</code></pre>
+<h2 id="forkserver">Forkserver</h2>
+<p><code>__early_forkserver</code> &#x53EA;&#x662F;&#x8C03;&#x7528; <code>__afl_auto_init</code> </p>
+<pre><code class="lang-c">__attribute__((constructor(EARLY_FS_PRIO))) <span class="hljs-keyword">void</span> __early_forkserver(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_EARLY_FORKSERVER&quot;</span>)) { __afl_auto_init(); }
+
+}
+</code></pre>
+<p><code>__afl_auto_init</code> &#x4F1A;&#x8C03;&#x7528; <code>__afl_manual_init -&gt; __afl_start_forkserver</code>. </p>
+<p>&#x6700;&#x7EC8;, forkserver &#x6A21;&#x5F0F;&#x7684; fuzzing  &#x7531; <code>__afl_start_forkserver</code> &#x51FD;&#x6570;&#x542F;&#x52A8;, &#x4E3B;&#x903B;&#x8F91;&#x89C1; <code>while(1)</code> &#x4E2D;&#x7684;&#x6CE8;&#x91CA;</p>
+<pre><code class="lang-c">__attribute__((constructor())) <span class="hljs-keyword">void</span> __afl_auto_init(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_init) { <span class="hljs-keyword">return</span>; }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __ANDROID__</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+  __afl_already_initialized_init = <span class="hljs-number">1</span>;
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DISABLE_LLVM_INSTRUMENTATION&quot;</span>)) <span class="hljs-keyword">return</span>;
+
+  <span class="hljs-keyword">if</span> (getenv(DEFER_ENV_VAR)) <span class="hljs-keyword">return</span>;
+
+  __afl_manual_init();
+
+}
+
+<span class="hljs-keyword">void</span> __afl_manual_init(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">static</span> u8 init_done;
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DISABLE_LLVM_INSTRUMENTATION&quot;</span>)) {
+
+    init_done = <span class="hljs-number">1</span>;
+    is_persistent = <span class="hljs-number">0</span>;
+    __afl_sharedmem_fuzzing = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> (__afl_area_ptr == <span class="hljs-literal">NULL</span>) __afl_area_ptr = __afl_area_ptr_dummy;
+
+    <span class="hljs-keyword">if</span> (__afl_debug) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+              <span class="hljs-string">&quot;DEBUG: disabled instrumentation because of &quot;</span>
+              <span class="hljs-string">&quot;AFL_DISABLE_LLVM_INSTRUMENTATION\n&quot;</span>);
+
+    }
+
+  }
+
+  <span class="hljs-keyword">if</span> (!init_done) {
+
+    __afl_start_forkserver();
+    init_done = <span class="hljs-number">1</span>;
+
+  }
+
+}
+
+<span class="hljs-comment">/* Fork server logic. */</span>
+
+<span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> __afl_start_forkserver(<span class="hljs-keyword">void</span>) {
+
+  <span class="hljs-keyword">if</span> (__afl_already_initialized_forkserver) <span class="hljs-keyword">return</span>;
+  __afl_already_initialized_forkserver = <span class="hljs-number">1</span>;
+
+  <span class="hljs-keyword">struct</span> sigaction orig_action;
+  sigaction(SIGTERM, <span class="hljs-literal">NULL</span>, &amp;orig_action);
+  old_sigterm_handler = orig_action.sa_handler;
+  signal(SIGTERM, at_exit);
+
+  u32 already_read_first = <span class="hljs-number">0</span>;
+  u32 was_killed = <span class="hljs-number">0</span>;
+  u32 version = <span class="hljs-number">0x41464c00</span> + FS_NEW_VERSION_MAX;
+  u32 tmp = version ^ <span class="hljs-number">0xffffffff</span>, status2, status = version;
+  u8 *msg = (u8 *)&amp;status;
+  u8 *reply = (u8 *)&amp;status2;
+
+  u8 child_stopped = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">void</span> (*old_sigchld_handler)(<span class="hljs-keyword">int</span>) = signal(SIGCHLD, SIG_DFL);
+
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_OLD_FORKSERVER&quot;</span>)) {
+
+    __afl_old_forkserver = <span class="hljs-number">1</span>;
+    status = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">if</span> (__afl_final_loc &gt; MAP_SIZE) {
+
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>,
+              <span class="hljs-string">&quot;Warning: AFL_OLD_FORKSERVER is used with a target compiled with &quot;</span>
+              <span class="hljs-string">&quot;non-colliding coverage instead of AFL_LLVM_INSTRUMENT=CLASSIC - &quot;</span>
+              <span class="hljs-string">&quot;this target may crash!\n&quot;</span>);
+
+    }
+
+  }
+
+  <span class="hljs-comment">/* Phone home and tell the parent that we&apos;re OK. If parent isn&apos;t there,
+     assume we&apos;re not running in forkserver mode and just execute program. */</span>
+
+  <span class="hljs-keyword">if</span> (!__afl_old_forkserver) {
+
+    <span class="hljs-comment">// return because possible non-forkserver usage</span>
+    <span class="hljs-keyword">if</span> (write(FORKSRV_FD + <span class="hljs-number">1</span>, msg, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>) { <span class="hljs-keyword">return</span>; }
+
+    <span class="hljs-keyword">if</span> (read(FORKSRV_FD, reply, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>) { _exit(<span class="hljs-number">1</span>); }
+    <span class="hljs-keyword">if</span> (tmp != status2) {
+
+      write_error(<span class="hljs-string">&quot;wrong forkserver message from AFL++ tool&quot;</span>);
+      _exit(<span class="hljs-number">1</span>);
+
+    }
+
+    <span class="hljs-comment">// send the set/requested options to forkserver</span>
+    status = FS_NEW_OPT_MAPSIZE;  <span class="hljs-comment">// we always send the map size</span>
+    <span class="hljs-keyword">if</span> (__afl_sharedmem_fuzzing) { status |= FS_NEW_OPT_SHDMEM_FUZZ; }
+    <span class="hljs-keyword">if</span> (__afl_dictionary_len &amp;&amp; __afl_dictionary) {
+
+      status |= FS_NEW_OPT_AUTODICT;
+
+    }
+
+    <span class="hljs-keyword">if</span> (write(FORKSRV_FD + <span class="hljs-number">1</span>, msg, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>) { _exit(<span class="hljs-number">1</span>); }
+
+    <span class="hljs-comment">// Now send the parameters for the set options, increasing by option number</span>
+
+    <span class="hljs-comment">// FS_NEW_OPT_MAPSIZE - we always send the map size</span>
+    status = __afl_map_size;
+    <span class="hljs-keyword">if</span> (write(FORKSRV_FD + <span class="hljs-number">1</span>, msg, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>) { _exit(<span class="hljs-number">1</span>); }
+
+    <span class="hljs-comment">// FS_NEW_OPT_SHDMEM_FUZZ - no data</span>
+
+    <span class="hljs-comment">// FS_NEW_OPT_AUTODICT - send autodictionary</span>
+    <span class="hljs-keyword">if</span> (__afl_dictionary_len &amp;&amp; __afl_dictionary) {
+
+      <span class="hljs-comment">// pass the dictionary through the forkserver FD</span>
+      u32 len = __afl_dictionary_len, offset = <span class="hljs-number">0</span>;
+
+      <span class="hljs-keyword">if</span> (write(FORKSRV_FD + <span class="hljs-number">1</span>, &amp;len, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>) {
+
+        write(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;Error: could not send dictionary len\n&quot;</span>,
+              <span class="hljs-built_in">strlen</span>(<span class="hljs-string">&quot;Error: could not send dictionary len\n&quot;</span>));
+        _exit(<span class="hljs-number">1</span>);
+
+      }
+
+      <span class="hljs-keyword">while</span> (len != <span class="hljs-number">0</span>) {
+
+        s32 ret;
+        ret = write(FORKSRV_FD + <span class="hljs-number">1</span>, __afl_dictionary + offset, len);
+
+        <span class="hljs-keyword">if</span> (ret &lt; <span class="hljs-number">1</span>) {
+
+          write_error(<span class="hljs-string">&quot;could not send dictionary&quot;</span>);
+          _exit(<span class="hljs-number">1</span>);
+
+        }
+
+        len -= ret;
+        offset += ret;
+
+      }
+
+    }
+
+    <span class="hljs-comment">// send welcome message as final message</span>
+    status = version;
+    <span class="hljs-keyword">if</span> (write(FORKSRV_FD + <span class="hljs-number">1</span>, msg, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>) { _exit(<span class="hljs-number">1</span>); }
+
+  }
+
+  <span class="hljs-comment">// END forkserver handshake</span>
+
+  __afl_connected = <span class="hljs-number">1</span>;
+
+  <span class="hljs-keyword">if</span> (__afl_sharedmem_fuzzing) { __afl_map_shm_fuzz(); }
+
+  <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) {
+
+    <span class="hljs-keyword">int</span> status;
+
+    <span class="hljs-comment">/* Wait for parent by reading from the pipe. Abort if read fails. */</span>
+
+    <span class="hljs-keyword">if</span> (unlikely(already_read_first)) {
+
+      already_read_first = <span class="hljs-number">0</span>;
+
+    } <span class="hljs-keyword">else</span> {
+
+      <span class="hljs-keyword">if</span> (unlikely(read(FORKSRV_FD, &amp;was_killed, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>)) {
+
+        write_error(<span class="hljs-string">&quot;read from AFL++ tool&quot;</span>);
+        _exit(<span class="hljs-number">1</span>);
+
+      }
+
+    }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> _AFL_DOCUMENT_MUTATIONS</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+    <span class="hljs-comment">/* If we stopped the child in persistent mode, but there was a race
+       condition and afl-fuzz already issued SIGKILL, write off the old
+       process. */</span>
+
+    <span class="hljs-keyword">if</span> (unlikely(child_stopped &amp;&amp; was_killed)) {
+
+      child_stopped = <span class="hljs-number">0</span>;
+      <span class="hljs-keyword">if</span> (unlikely(waitpid(child_pid, &amp;status, <span class="hljs-number">0</span>) &lt; <span class="hljs-number">0</span>)) {
+
+        write_error(<span class="hljs-string">&quot;child_stopped &amp;&amp; was_killed&quot;</span>);
+        _exit(<span class="hljs-number">1</span>);
+
+      }
+
+    }
+
+    <span class="hljs-keyword">if</span> (unlikely(!child_stopped)) {
+
+      <span class="hljs-comment">/* Once woken up, create a clone of our process. */</span>
+
+      child_pid = fork(); <span class="hljs-comment">// fork child process to grand child and execute</span>
+      <span class="hljs-keyword">if</span> (unlikely(child_pid &lt; <span class="hljs-number">0</span>)) {
+
+        write_error(<span class="hljs-string">&quot;fork&quot;</span>);
+        _exit(<span class="hljs-number">1</span>);
+
+      }
+
+      <span class="hljs-comment">/* In child process: close fds, resume execution. */</span>
+      <span class="hljs-comment">// fork returns 0 to child and child_pid to parent</span>
+      <span class="hljs-keyword">if</span> (unlikely(!child_pid)) {  <span class="hljs-comment">// just to signal afl-fuzz faster</span>
+
+        <span class="hljs-comment">//(void)nice(-20);</span>
+        <span class="hljs-comment">// reset signal handlers</span>
+        signal(SIGCHLD, old_sigchld_handler);
+        signal(SIGTERM, old_sigterm_handler);
+        <span class="hljs-comment">// close pipes</span>
+        close(FORKSRV_FD); 
+        close(FORKSRV_FD + <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">return</span>; <span class="hljs-comment">// return to main</span>
+
+      }
+
+    } <span class="hljs-keyword">else</span> {
+
+      <span class="hljs-comment">/* Special handling for persistent mode: if the child is alive but
+         currently stopped, simply restart it with SIGCONT. */</span>
+
+      kill(child_pid, SIGCONT);
+      child_stopped = <span class="hljs-number">0</span>;
+
+    }
+
+    <span class="hljs-comment">/* In parent process: write PID to pipe, then wait for child. */</span>
+    <span class="hljs-comment">// send the grandchild_pid to parent</span>
+    <span class="hljs-keyword">if</span> (unlikely(write(FORKSRV_FD + <span class="hljs-number">1</span>, &amp;child_pid, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>)) {
+
+      write_error(<span class="hljs-string">&quot;write to afl-fuzz&quot;</span>);
+      _exit(<span class="hljs-number">1</span>);
+
+    }
+    <span class="hljs-comment">// wait for child process finishing</span>
+    <span class="hljs-keyword">if</span> (unlikely(waitpid(child_pid, &amp;status, is_persistent ? WUNTRACED : <span class="hljs-number">0</span>) &lt;
+                 <span class="hljs-number">0</span>)) {
+
+      write_error(<span class="hljs-string">&quot;waitpid&quot;</span>);
+      _exit(<span class="hljs-number">1</span>);
+
+    }
+
+    <span class="hljs-comment">/* In persistent mode, the child stops itself with SIGSTOP to indicate
+       a successful run. In this case, we want to wake it up without forking
+       again. */</span>
+
+    <span class="hljs-keyword">if</span> (likely(WIFSTOPPED(status))) { child_stopped = <span class="hljs-number">1</span>; }
+
+    <span class="hljs-comment">/* Relay wait status to pipe, then loop back. */</span>
+    <span class="hljs-comment">// send completed message to parent for further fuzzing</span>
+    <span class="hljs-keyword">if</span> (unlikely(write(FORKSRV_FD + <span class="hljs-number">1</span>, &amp;status, <span class="hljs-number">4</span>) != <span class="hljs-number">4</span>)) {
+
+      write_error(<span class="hljs-string">&quot;writing to afl-fuzz&quot;</span>);
+      _exit(<span class="hljs-number">1</span>);
+
+    }
+
+  }
+
+}
+</code></pre>
+<h2 id="persistent-mode">Persistent Mode</h2>
+<p>&#x6BD4; forkserver &#x66F4;&#x5FEB;&#x7684;&#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F; (persistent mode) &#x7528;&#x4E8E;&#x9AD8;&#x6548;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x7247;&#x6BB5;. &#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x6765;&#x53CD;&#x590D;&#x8C03;&#x7528;&#x76EE;&#x6807;&#x51FD;&#x6570;/&#x4EE3;&#x7801;, &#x800C;&#x4E0D;&#x5FC5;&#x6BCF;&#x6B21;&#x8F93;&#x5165;&#x90FD;&#x8981; fork &#x5B50;&#x8FDB;&#x7A0B;, &#x56E0;&#x6B64;&#x53EF;&#x4EE5; 10x - 20x &#x500D;&#x63D0;&#x9AD8;&#x6548;&#x7387;. &#x6301;&#x4E45;&#x5316;&#x6A21;&#x5F0F;&#x4EE3;&#x7801;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;what_you_need_for_your_target.h&quot;</span></span>
+
+main() {
+  <span class="hljs-comment">// anything else here, e.g. command line arguments, initialization, etc.</span>
+  <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> buf[<span class="hljs-number">1024</span>];
+
+  <span class="hljs-keyword">while</span> (__AFL_LOOP(<span class="hljs-number">10000</span>)) { <span class="hljs-comment">//loop</span>
+    <span class="hljs-keyword">int</span> len = read(<span class="hljs-number">0</span>,buf,<span class="hljs-number">1024</span>);  
+
+    <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">8</span>) <span class="hljs-keyword">continue</span>;  <span class="hljs-comment">// check for a required/useful minimum input </span>
+    target_function(buf, len);
+    <span class="hljs-built_in">memset</span>(buf, <span class="hljs-number">0</span>, <span class="hljs-number">1024</span>); <span class="hljs-comment">//reset the state</span>
+    <span class="hljs-comment">/* Reset state. e.g. libtarget_free(tmp) */</span>
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x76F8;&#x5E94;&#x5730;, forkserver &#x7684;&#x7B49;&#x5F85;&#x5B50;&#x8FDB;&#x7A0B;&#x903B;&#x8F91;&#x9700;&#x8981;&#x8C03;&#x6574; (<code>instrumentation/afl-compiler-rt.o.c</code>)</p>
+<pre><code class="lang-c"><span class="hljs-keyword">if</span> (unlikely(waitpid(child_pid, &amp;status, is_persistent ? WUNTRACED : <span class="hljs-number">0</span>) &lt; <span class="hljs-number">0</span>))
+</code></pre>
+<h2 id="shared-memory-fuzzing">Shared Memory Fuzzing</h2>
+<p>&#x5C06;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x4E5F;&#x5B58;&#x50A8;&#x5230;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x4E2D;, &#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x9AD8; fuzzing &#x6548;&#x7387;, &#x79F0;&#x4E3A; Shared Memory Fuzzing. &#x4EE3;&#x7801;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&quot;what_you_need_for_your_target.h&quot;</span></span>
+__AFL_FUZZ_INIT();
+main() {
+  <span class="hljs-comment">// anything else here, e.g. command line arguments, initialization, etc.</span>
+  <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">char</span> *buf = __AFL_FUZZ_TESTCASE_BUF;  <span class="hljs-comment">// must be after __AFL_INIT</span>
+                                                 <span class="hljs-comment">// and before __AFL_LOOP!</span>
+  <span class="hljs-keyword">while</span> (__AFL_LOOP(<span class="hljs-number">10000</span>)) {
+    <span class="hljs-keyword">int</span> len = __AFL_FUZZ_TESTCASE_LEN;  <span class="hljs-comment">// don&apos;t use the macro directly in a</span>
+                                        <span class="hljs-comment">// call!</span>
+    <span class="hljs-keyword">if</span> (len &lt; <span class="hljs-number">8</span>) <span class="hljs-keyword">continue</span>;  <span class="hljs-comment">// check for a required/useful minimum input length</span>
+    <span class="hljs-comment">/* Setup function call, e.g. struct target *tmp = libtarget_init() */</span>
+    <span class="hljs-comment">/* Call function to be fuzzed, e.g.: */</span>
+    target_function(buf, len);
+    <span class="hljs-comment">/* Reset state. e.g. libtarget_free(tmp) */</span>
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}
+</code></pre>
+<p>&#x5176;&#x4E2D;, <code>__AFL_FUZZ_TESTCASE_BUF</code> &#x662F;&#x4FDD;&#x5B58;&#x8F93;&#x5165;&#x7684;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x7F13;&#x51B2;&#x533A;, &#x5F00;&#x542F;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x53D8;&#x91CF;&#x4E3A; <code>__afl_sharedmem_fuzzing</code>, &#x8C03;&#x7528; <code>__AFL_FUZZ_INIT</code> &#x65F6;&#x53D8;&#x91CF; <code>__afl_sharedmem_fuzzing</code> &#x4E5F;&#x4F1A;&#x88AB;&#x8BBE;&#x7F6E;&#x4E3A; 1. &#x53EA;&#x5F53; <code>afl-clang-fast</code> &#x63D2;&#x6869;&#x76EE;&#x6807;&#x7A0B;&#x5E8F;&#x65F6;, &#x4E0B;&#x9762; <code>src/afl-cc.c</code> &#x7684; <code>__AFL_FUZZ_INIT</code> &#x5B8F;&#x5B9A;&#x4E49;&#x624D;&#x4F1A;&#x7F16;&#x8BD1;&#x65F6;&#x52A0;&#x5165;. </p>
+<pre><code class="lang-c">  insert_param(aflcc,
+               <span class="hljs-string">&quot;-D__AFL_FUZZ_INIT()=&quot;</span>
+               <span class="hljs-string">&quot;int __afl_sharedmem_fuzzing = 1;&quot;</span>
+               <span class="hljs-string">&quot;extern __attribute__((visibility(\&quot;default\&quot;))) &quot;</span>
+               <span class="hljs-string">&quot;unsigned int *__afl_fuzz_len;&quot;</span>
+               <span class="hljs-string">&quot;extern __attribute__((visibility(\&quot;default\&quot;))) &quot;</span>
+               <span class="hljs-string">&quot;unsigned char *__afl_fuzz_ptr;&quot;</span>
+               <span class="hljs-string">&quot;unsigned char __afl_fuzz_alt[1048576];&quot;</span>
+               <span class="hljs-string">&quot;unsigned char *__afl_fuzz_alt_ptr = __afl_fuzz_alt;&quot;</span>);
+</code></pre>
+<p>[*] &#x66F4;&#x6DF1;&#x5165;&#x7684;&#x7406;&#x89E3; persistent mode &#x548C; shared memory fuzzing </p>
+<p>&#x4F7F;&#x7528;&#x63D2;&#x6869;&#x5668;&#x7F16;&#x8BD1; <code>utils/persistent_mode/persistent_demo_new.c</code>, &#x7136;&#x540E;&#x7528; IDAPro &#x5BF9;&#x6BD4;&#x5206;&#x6790;&#x5DEE;&#x5F02;. </p>
+<h2 id="afl-fuzz-main-logic">afl-fuzz Main Logic</h2>
+<p>&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x7ED3;&#x6784; <code>afl_state_t</code> &#x7BA1;&#x7406; fuzzer &#x7684;&#x5927;&#x90E8;&#x5206;&#x53C2;&#x6570; (mutator parameters, observers, feedbacks &#x7B49;), &#x4EE5;&#x53CA; <code>afl_forkserver_t</code> &#x7BA1;&#x7406; forkserver &#x76F8;&#x5173;&#x7684;&#x53D8;&#x91CF;. <code>afl_forkserver_t</code> &#x5D4C;&#x5165;&#x5728; <code>afl_state_t</code> &#x4E2D;. &#x5B9A;&#x4E49;&#x89C1;&#x4E0B;: </p>
+<pre><code class="lang-c">typedef struct afl_state {
+
+  /* Position of this state in the global states list */
+  u32 _id;
+
+  afl_forkserver_t fsrv;
+  sharedmem_t      shm;
+  sharedmem_t     *shm_fuzz;
+  afl_env_vars_t   afl_env;
+
+  char **argv;                                            /* argv if needed */
+
+  /* MOpt:
+    Lots of globals, but mostly for the status UI and other things where it
+    really makes no sense to haul them around as function parameters. */
+  u64 orig_hit_cnt_puppet, last_limit_time_start, tmp_pilot_time,
+      total_pacemaker_time, total_puppet_find, temp_puppet_find, most_time_key,
+      most_time, most_execs_key, most_execs, old_hit_count, force_ui_update,
+      prev_run_time;
+
+  MOpt_globals_t mopt_globals_core, mopt_globals_pilot;
+
+  s32 limit_time_puppet, SPLICE_CYCLES_puppet, limit_time_sig, key_puppet,
+      key_module;
+
+  double w_init, w_end, w_now;
+
+  s32 g_now;
+  s32 g_max;
+
+  u64 tmp_core_time;
+  s32 swarm_now;
+
+  double x_now[swarm_num][operator_num], L_best[swarm_num][operator_num],
+      eff_best[swarm_num][operator_num], G_best[operator_num],
+      v_now[swarm_num][operator_num], probability_now[swarm_num][operator_num],
+      swarm_fitness[swarm_num];
+
+  u64 stage_finds_puppet[swarm_num][operator_num], /* Patterns found per
+                                                            fuzz stage    */
+      stage_finds_puppet_v2[swarm_num][operator_num],
+      stage_cycles_puppet_v2[swarm_num][operator_num],
+      stage_cycles_puppet_v3[swarm_num][operator_num],
+      stage_cycles_puppet[swarm_num][operator_num],
+      operator_finds_puppet[operator_num],
+      core_operator_finds_puppet[operator_num],
+      core_operator_finds_puppet_v2[operator_num],
+      core_operator_cycles_puppet[operator_num],
+      core_operator_cycles_puppet_v2[operator_num],
+      core_operator_cycles_puppet_v3[operator_num]; /* Execs per fuzz stage */
+
+  double period_pilot_tmp;
+  s32    key_lv;
+
+  u8 *in_dir,                           /* Input directory with test cases  */
+      *out_dir,                         /* Working &amp; output directory       */
+      *tmp_dir,                         /* Temporary directory for input    */
+      *sync_dir,                        /* Synchronization directory        */
+      *sync_id,                         /* Fuzzer ID                        */
+      *power_name,                      /* Power schedule name              */
+      *use_banner,                      /* Display banner                   */
+      *in_bitmap,                       /* Input bitmap                     */
+      *file_extension,                  /* File extension                   */
+      *orig_cmdline,                    /* Original command line            */
+      *infoexec;                       /* Command to execute on a new crash */
+
+  u32 hang_tmout;                       /* Timeout used for hang det (ms)   */
+
+  u8 havoc_stack_pow2,                  /* HAVOC_STACK_POW2                 */
+      no_unlink,                        /* do not unlink cur_input          */
+      debug,                            /* Debug mode                       */
+      custom_only,                      /* Custom mutator only mode         */
+      custom_splice_optout,             /* Custom mutator no splice buffer  */
+      is_main_node,                     /* if this is the main node         */
+      is_secondary_node,                /* if this is a secondary instance  */
+      pizza_is_served;                  /* pizza mode                       */
+
+  u32 stats_update_freq;                /* Stats update frequency (execs)   */
+
+  u8 schedule;                          /* Power schedule (default: EXPLORE)*/
+  u8 havoc_max_mult;
+
+  u8 skip_deterministic,                /* Skip deterministic stages?       */
+      use_splicing,                     /* Recombine input files?           */
+      non_instrumented_mode,            /* Run in non-instrumented mode?    */
+      score_changed,                    /* Scoring for favorites changed?   */
+      resuming_fuzz,                    /* Resuming an older fuzzing job?   */
+      timeout_given,                    /* Specific timeout given?          */
+      not_on_tty,                       /* stdout is not a tty              */
+      term_too_small,                   /* terminal dimensions too small    */
+      no_forkserver,                    /* Disable forkserver?              */
+      crash_mode,                       /* Crash mode! Yeah!                */
+      in_place_resume,                  /* Attempt in-place resume?         */
+      autoresume,                       /* Resume if afl-&gt;out_dir exists?   */
+      auto_changed,                     /* Auto-generated tokens changed?   */
+      no_cpu_meter_red,                 /* Feng shui on the status screen   */
+      no_arith,                         /* Skip most arithmetic ops         */
+      shuffle_queue,                    /* Shuffle input queue?             */
+      bitmap_changed,                   /* Time to update bitmap?           */
+      unicorn_mode,                     /* Running in Unicorn mode?         */
+      use_wine,                         /* Use WINE with QEMU mode          */
+      skip_requested,                   /* Skip request, via SIGUSR1        */
+      run_over10m,                      /* Run time over 10 minutes?        */
+      persistent_mode,                  /* Running in persistent mode?      */
+      deferred_mode,                    /* Deferred forkserver mode?        */
+      fixed_seed,                       /* do not reseed                    */
+      fast_cal,                         /* Try to calibrate faster?         */
+      disable_trim,                     /* Never trim in fuzz_one           */
+      shmem_testcase_mode,              /* If sharedmem testcases are used  */
+      expand_havoc,                /* perform expensive havoc after no find */
+      cycle_schedules,                  /* cycle power schedules?           */
+      old_seed_selection,               /* use vanilla afl seed selection   */
+      reinit_table;                     /* reinit the queue weight table    */
+
+  u8 *virgin_bits,                      /* Regions yet untouched by fuzzing */
+      *virgin_tmout,                    /* Bits we haven&apos;t seen in tmouts   */
+      *virgin_crash;                    /* Bits we haven&apos;t seen in crashes  */
+
+  double *alias_probability;            /* alias weighted probabilities     */
+  u32    *alias_table;                /* alias weighted random lookup table */
+  u32     active_items;                 /* enabled entries in the queue     */
+
+  u8 *var_bytes;                        /* Bytes that appear to be variable */
+
+#define N_FUZZ_SIZE (1 &lt;&lt; 21)
+  u32 *n_fuzz;
+
+  volatile u8 stop_soon,                /* Ctrl-C pressed?                  */
+      clear_screen;                     /* Window resized?                  */
+
+  u32 queued_items,                     /* Total number of queued testcases */
+      queued_variable,                  /* Testcases with variable behavior */
+      queued_at_start,                  /* Total number of initial inputs   */
+      queued_discovered,                /* Items discovered during this run */
+      queued_imported,                  /* Items imported via -S            */
+      queued_favored,                   /* Paths deemed favorable           */
+      queued_with_cov,                  /* Paths with new coverage bytes    */
+      pending_not_fuzzed,               /* Queued but not done yet          */
+      pending_favored,                  /* Pending favored paths            */
+      cur_skipped_items,                /* Abandoned inputs in cur cycle    */
+      cur_depth,                        /* Current path depth               */
+      max_depth,                        /* Max path depth                   */
+      useless_at_start,                 /* Number of useless starting paths */
+      var_byte_count,                   /* Bitmap bytes with var behavior   */
+      current_entry,                    /* Current queue entry ID           */
+      havoc_div,                        /* Cycle count divisor for havoc    */
+      max_det_extras;                   /* deterministic extra count (dicts)*/
+
+  u64 total_crashes,                    /* Total number of crashes          */
+      saved_crashes,                    /* Crashes with unique signatures   */
+      total_tmouts,                     /* Total number of timeouts         */
+      saved_tmouts,                     /* Timeouts with unique signatures  */
+      saved_hangs,                      /* Hangs with unique signatures     */
+      last_crash_execs,                 /* Exec counter at last crash       */
+      queue_cycle,                      /* Queue round counter              */
+      cycles_wo_finds,                  /* Cycles without any new paths     */
+      trim_execs,                       /* Execs done to trim input files   */
+      bytes_trim_in,                    /* Bytes coming into the trimmer    */
+      bytes_trim_out,                   /* Bytes coming outa the trimmer    */
+      blocks_eff_total,                 /* Blocks subject to effector maps  */
+      blocks_eff_select,                /* Blocks selected as fuzzable      */
+      start_time,                       /* Unix start time (ms)             */
+      last_sync_time,                   /* Time of last sync                */
+      last_sync_cycle,                  /* Cycle no. of the last sync       */
+      last_find_time,                   /* Time for most recent path (ms)   */
+      last_crash_time,                  /* Time for most recent crash (ms)  */
+      last_hang_time,                   /* Time for most recent hang (ms)   */
+      exit_on_time,                     /* Delay to exit if no new paths    */
+      sync_time;                        /* Sync time (ms)                   */
+
+  u32 slowest_exec_ms,                  /* Slowest testcase non hang in ms  */
+      subseq_tmouts;                    /* Number of timeouts in a row      */
+
+  u8 *stage_name,                       /* Name of the current fuzz stage   */
+      *stage_short,                     /* Short stage name                 */
+      *syncing_party;                   /* Currently syncing with...        */
+
+  u8 stage_name_buf[STAGE_BUF_SIZE];    /* reused stagename buf with len 64 */
+
+  u32 stage_cur, stage_max;             /* Stage progression                */
+  s32 splicing_with;                    /* Splicing with which test case?   */
+
+  u32 main_node_id, main_node_max;      /*   Main instance job splitting    */
+
+  u32 syncing_case;                     /* Syncing with case #...           */
+
+  s32 stage_cur_byte,                   /* Byte offset of current stage op  */
+      stage_cur_val;                    /* Value used for stage op          */
+
+  u8 stage_val_type;                    /* Value type (STAGE_VAL_*)         */
+
+  u64 stage_finds[32],                  /* Patterns found per fuzz stage    */
+      stage_cycles[32];                 /* Execs per fuzz stage             */
+
+  u32 rand_cnt;                         /* Random number counter            */
+
+  /*  unsigned long rand_seed[3]; would also work */
+  AFL_RAND_RETURN rand_seed[3];
+  s64             init_seed;
+
+  u64 total_cal_us,                     /* Total calibration time (us)      */
+      total_cal_cycles;                 /* Total calibration cycles         */
+
+  u64 total_bitmap_size,                /* Total bit count for all bitmaps  */
+      total_bitmap_entries;             /* Number of bitmaps counted        */
+
+  s32 cpu_core_count,                   /* CPU core count                   */
+      cpu_to_bind;                      /* bind to specific CPU             */
+
+#ifdef HAVE_AFFINITY
+  s32 cpu_aff;                          /* Selected CPU core                */
+#endif                                                     /* HAVE_AFFINITY */
+
+  struct queue_entry *queue,            /* Fuzzing queue (linked list)      */
+      *queue_cur,                       /* Current offset within the queue  */
+      *queue_top;                       /* Top of the list                  */
+
+  // growing buf
+  struct queue_entry **queue_buf;
+
+  struct queue_entry **top_rated;           /* Top entries for bitmap bytes */
+
+  struct extra_data *extras;            /* Extra tokens to fuzz with        */
+  u32                extras_cnt;        /* Total number of tokens read      */
+
+  struct auto_extra_data
+      a_extras[MAX_AUTO_EXTRAS];        /* Automatically selected extras    */
+  u32 a_extras_cnt;                     /* Total number of tokens available */
+
+  /* afl_postprocess API - Now supported via custom mutators */
+
+  /* CmpLog */
+
+  char            *cmplog_binary;
+  afl_forkserver_t cmplog_fsrv;     /* cmplog has its own little forkserver */
+
+  /* Custom mutators */
+  struct custom_mutator *mutator;
+
+  /* cmplog forkserver ids */
+  s32 cmplog_fsrv_ctl_fd, cmplog_fsrv_st_fd;
+  u32 cmplog_prev_timed_out;
+  u32 cmplog_max_filesize;
+  u32 cmplog_lvl;
+  u32 colorize_success;
+  u8  cmplog_enable_arith, cmplog_enable_transform, cmplog_random_colorization;
+
+  struct afl_pass_stat *pass_stats;
+  struct cmp_map       *orig_cmp_map;
+
+  u8 describe_op_buf_256[256]; /* describe_op will use this to return a string
+                                  up to 256 */
+
+  unsigned long long int last_avg_exec_update;
+  u32                    last_avg_execs;
+  double                 last_avg_execs_saved;
+
+/* foreign sync */
+#define FOREIGN_SYNCS_MAX 32U
+  u8                  foreign_sync_cnt;
+  struct foreign_sync foreign_syncs[FOREIGN_SYNCS_MAX];
+
+#ifdef _AFL_DOCUMENT_MUTATIONS
+  u8  do_document;
+  u32 document_counter;
+#endif
+
+  /* statistics file */
+  double last_bitmap_cvg, last_stability, last_eps;
+
+  /* plot file saves from last run */
+  u32 plot_prev_qp, plot_prev_pf, plot_prev_pnf, plot_prev_ce, plot_prev_md;
+  u64 plot_prev_qc, plot_prev_uc, plot_prev_uh, plot_prev_ed;
+
+  u64 stats_last_stats_ms, stats_last_plot_ms, stats_last_queue_ms,
+      stats_last_ms, stats_last_execs;
+
+  /* StatsD */
+  u64                statsd_last_send_ms;
+  struct sockaddr_in statsd_server;
+  int                statsd_sock;
+  char              *statsd_tags_flavor;
+  char              *statsd_tags_format;
+  char              *statsd_metric_format;
+  int                statsd_metric_format_type;
+
+  double stats_avg_exec;
+
+  u8 *clean_trace;
+  u8 *clean_trace_custom;
+  u8 *first_trace;
+
+  /*needed for afl_fuzz_one */
+  // TODO: see which we can reuse
+  u8 *out_buf;
+
+  u8 *out_scratch_buf;
+
+  u8 *eff_buf;
+
+  u8 *in_buf;
+
+  u8 *in_scratch_buf;
+
+  u8 *ex_buf;
+
+  u8 *testcase_buf, *splicecase_buf;
+
+  u32 custom_mutators_count;
+
+  struct custom_mutator *current_custom_fuzz;
+
+  list_t custom_mutator_list;
+
+  /* this is a fixed buffer of size map_size that can be used by any function if
+   * they do not call another function */
+  u8 *map_tmp_buf;
+
+  /* queue entries ready for splicing count (len &gt; 4) */
+  u32 ready_for_splicing_count;
+
+  /* min/max length for generated fuzzing inputs */
+  u32 min_length, max_length;
+
+  /* This is the user specified maximum size to use for the testcase cache */
+  u64 q_testcase_max_cache_size;
+
+  /* This is the user specified maximum entries in the testcase cache */
+  u32 q_testcase_max_cache_entries;
+
+  /* How much of the testcase cache is used so far */
+  u64 q_testcase_cache_size;
+
+  /* highest cache count so far */
+  u32 q_testcase_max_cache_count;
+
+  /* How many queue entries currently have cached testcases */
+  u32 q_testcase_cache_count;
+
+  /* the smallest id currently known free entry */
+  u32 q_testcase_smallest_free;
+
+  /* How often did we evict from the cache (for statistics only) */
+  u32 q_testcase_evictions;
+
+  /* Refs to each queue entry with cached testcase (for eviction, if cache_count
+   * is too large) */
+  struct queue_entry **q_testcase_cache;
+
+#ifdef INTROSPECTION
+  char  mutation[8072];
+  char  m_tmp[4096];
+  FILE *introspection_file;
+  u32   bitsmap_size;
+#endif
+
+} afl_state_t;
+
+
+typedef struct afl_forkserver {
+
+  /* a program that includes afl-forkserver needs to define these */
+
+  u8 *trace_bits;                       /* SHM with instrumentation bitmap  */
+
+  s32 fsrv_pid,                         /* PID of the fork server           */
+      child_pid,                        /* PID of the fuzzed program        */
+      child_status,                     /* waitpid result for the child     */
+      out_dir_fd;                       /* FD of the lock file              */
+
+  s32 out_fd,                           /* Persistent fd for fsrv-&gt;out_file */
+      dev_urandom_fd,                   /* Persistent fd for /dev/urandom   */
+
+      dev_null_fd,                      /* Persistent fd for /dev/null      */
+      fsrv_ctl_fd,                      /* Fork server control pipe (write) */
+      fsrv_st_fd;                       /* Fork server status pipe (read)   */
+
+  u32 exec_tmout;                       /* Configurable exec timeout (ms)   */
+  u32 init_tmout;                       /* Configurable init timeout (ms)   */
+  u32 map_size;                         /* map size used by the target      */
+  u32 real_map_size;                    /* real map size, unaligned         */
+  u32 snapshot;                         /* is snapshot feature used         */
+  u64 mem_limit;                        /* Memory cap for child (MB)        */
+
+  u64 total_execs;                      /* How often run_target was called  */
+
+  u8 *out_file,                         /* File to fuzz, if any             */
+      *target_path;                     /* Path of the target               */
+
+  FILE *plot_file;                      /* Gnuplot output file              */
+
+  /* Note: last_run_timed_out is u32 to send it to the child as 4 byte array */
+  u32 last_run_timed_out;               /* Traced process timed out?        */
+
+  u8 last_kill_signal;                  /* Signal that killed the child     */
+
+  bool use_shmem_fuzz;                  /* use shared mem for test cases    */
+
+  bool support_shmem_fuzz;              /* set by afl-fuzz                  */
+
+  bool use_fauxsrv;                     /* Fauxsrv for non-forking targets? */
+
+  bool qemu_mode;                       /* if running in qemu mode or not   */
+
+  bool frida_mode;                     /* if running in frida mode or not   */
+
+  bool frida_asan;                    /* if running with asan in frida mode */
+
+  bool cs_mode;                      /* if running in CoreSight mode or not */
+
+  bool use_stdin;                       /* use stdin for sending data       */
+
+  bool no_unlink;                       /* do not unlink cur_input          */
+
+  bool uses_asan;                       /* Target uses ASAN?                */
+
+  bool debug;                           /* debug mode?                      */
+
+  bool uses_crash_exitcode;             /* Custom crash exitcode specified? */
+  u8   crash_exitcode;                  /* The crash exitcode specified     */
+
+  u32 *shmem_fuzz_len;                  /* length of the fuzzing test case  */
+
+  u8 *shmem_fuzz;                       /* allocated memory for fuzzing     */
+
+  char *cmplog_binary;                  /* the name of the cmplog binary    */
+
+  /* persistent mode replay functionality */
+  u32 persistent_record;                /* persistent replay setting        */
+#ifdef AFL_PERSISTENT_RECORD
+  u32  persistent_record_idx;           /* persistent replay cache ptr      */
+  u32  persistent_record_cnt;           /* persistent replay counter        */
+  u8  *persistent_record_dir;
+  u8 **persistent_record_data;
+  u32 *persistent_record_len;
+  s32  persistent_record_pid;
+#endif
+
+  /* Function to kick off the forkserver child */
+  void (*init_child_func)(struct afl_forkserver *fsrv, char **argv);
+
+  u8 *afl_ptr;                          /* for autodictionary: afl ptr      */
+
+  void (*add_extra_func)(void *afl_ptr, u8 *mem, u32 len);
+
+  u8 child_kill_signal;
+  u8 fsrv_kill_signal;
+
+  u8 persistent_mode;
+
+#ifdef __linux__
+  nyx_plugin_handler_t *nyx_handlers;
+  char                 *out_dir_path;    /* path to the output directory     */
+  u8                    nyx_mode;        /* if running in nyx mode or not    */
+  bool                  nyx_parent;      /* create initial snapshot          */
+  bool                  nyx_standalone;  /* don&apos;t serialize the snapshot     */
+  void                 *nyx_runner;      /* nyx runner object                */
+  u32                   nyx_id;          /* nyx runner id (0 -&gt; master)      */
+  u32                   nyx_bind_cpu_id; /* nyx runner cpu id                */
+  char                 *nyx_aux_string;
+#endif
+
+} afl_forkserver_t;
+</code></pre>
+<p>main &#x51FD;&#x6570;&#x4E2D;&#x5F88;&#x591A;&#x903B;&#x8F91;&#x662F;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x6A21;&#x5F0F;&#x7684;, &#x4E3B;&#x8981;&#x903B;&#x8F91;&#x662F;&#x4ECE;&#x5206;&#x914D;&#x5171;&#x4EAB;&#x5185;&#x5B58; <code>map_size</code> &#x5F00;&#x59CB;&#x7684;</p>
+<pre><code class="lang-c"><span class="hljs-comment">/* Reads the map size from ENV */</span>
+<span class="hljs-function">u32 <span class="hljs-title">get_map_size</span><span class="hljs-params">(<span class="hljs-keyword">void</span>)</span> </span>{
+
+  <span class="hljs-keyword">uint32_t</span> map_size = DEFAULT_SHMEM_SIZE;
+  <span class="hljs-keyword">char</span>    *ptr;
+
+  <span class="hljs-keyword">if</span> ((ptr = getenv(<span class="hljs-string">&quot;AFL_MAP_SIZE&quot;</span>)) || (ptr = getenv(<span class="hljs-string">&quot;AFL_MAPSIZE&quot;</span>))) {
+
+    map_size = atoi(ptr);
+    <span class="hljs-keyword">if</span> (!map_size || map_size &gt; (<span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">29</span>)) {
+
+      FATAL(<span class="hljs-string">&quot;illegal AFL_MAP_SIZE %u, must be between %u and %u&quot;</span>, map_size, <span class="hljs-number">64U</span>,
+            <span class="hljs-number">1U</span> &lt;&lt; <span class="hljs-number">29</span>);
+
+    }
+
+    <span class="hljs-keyword">if</span> (map_size % <span class="hljs-number">64</span>) { map_size = (((map_size &gt;&gt; <span class="hljs-number">6</span>) + <span class="hljs-number">1</span>) &lt;&lt; <span class="hljs-number">6</span>); }
+
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_SKIP_BIN_CHECK&quot;</span>)) {
+
+    map_size = MAP_SIZE;
+
+  }
+
+  <span class="hljs-keyword">return</span> map_size;
+
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x521D;&#x59CB;&#x5316; <code>afl_state_t</code> &#x548C; <code>afl_forkserver_t</code> </p>
+<pre><code class="lang-c"><span class="hljs-comment">/* Initializes an afl_state_t. */</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">afl_state_init</span><span class="hljs-params">(<span class="hljs-keyword">afl_state_t</span> *afl, <span class="hljs-keyword">uint32_t</span> map_size)</span> </span>{
+
+  <span class="hljs-comment">/* thanks to this memset, growing vars like out_buf
+  and out_size are NULL/0 by default. */</span>
+  <span class="hljs-built_in">memset</span>(afl, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">afl_state_t</span>));
+
+  afl-&gt;shm.map_size = map_size ? map_size : MAP_SIZE;
+
+  afl-&gt;w_init = <span class="hljs-number">0.9</span>;
+  afl-&gt;w_end = <span class="hljs-number">0.3</span>;
+  afl-&gt;g_max = <span class="hljs-number">5000</span>;
+  afl-&gt;period_pilot_tmp = <span class="hljs-number">5000.0</span>;
+  afl-&gt;schedule = EXPLORE;              <span class="hljs-comment">/* Power schedule (default: EXPLORE)*/</span>
+  afl-&gt;havoc_max_mult = HAVOC_MAX_MULT;
+  afl-&gt;clear_screen = <span class="hljs-number">1</span>;                <span class="hljs-comment">/* Window resized?                  */</span>
+  afl-&gt;havoc_div = <span class="hljs-number">1</span>;                   <span class="hljs-comment">/* Cycle count divisor for havoc    */</span>
+  afl-&gt;stage_name = <span class="hljs-string">&quot;init&quot;</span>;             <span class="hljs-comment">/* Name of the current fuzz stage   */</span>
+  afl-&gt;splicing_with = <span class="hljs-number">-1</span>;              <span class="hljs-comment">/* Splicing with which test case?   */</span>
+  afl-&gt;cpu_to_bind = <span class="hljs-number">-1</span>;
+  afl-&gt;havoc_stack_pow2 = HAVOC_STACK_POW2;
+  afl-&gt;hang_tmout = EXEC_TIMEOUT;
+  afl-&gt;exit_on_time = <span class="hljs-number">0</span>;
+  afl-&gt;stats_update_freq = <span class="hljs-number">1</span>;
+  afl-&gt;stats_file_update_freq_msecs = STATS_UPDATE_SEC * <span class="hljs-number">1000</span>;
+  afl-&gt;stats_avg_exec = <span class="hljs-number">0</span>;
+  afl-&gt;skip_deterministic = <span class="hljs-number">0</span>;
+  afl-&gt;sync_time = SYNC_TIME;
+  afl-&gt;cmplog_lvl = <span class="hljs-number">2</span>;
+  afl-&gt;min_length = <span class="hljs-number">1</span>;
+  afl-&gt;max_length = MAX_FILE;
+  afl-&gt;switch_fuzz_mode = STRATEGY_SWITCH_TIME * <span class="hljs-number">1000</span>;
+  afl-&gt;q_testcase_max_cache_size = TESTCASE_CACHE_SIZE * <span class="hljs-number">1048576U</span>L;
+  afl-&gt;q_testcase_max_cache_entries = <span class="hljs-number">64</span> * <span class="hljs-number">1024</span>;
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> HAVE_AFFINITY</span>
+  afl-&gt;cpu_aff = <span class="hljs-number">-1</span>;                    <span class="hljs-comment">/* Selected CPU core                */</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span>                                                     <span class="hljs-comment">/* HAVE_AFFINITY */</span></span>
+
+  afl-&gt;virgin_bits = ck_alloc(map_size);
+  afl-&gt;virgin_tmout = ck_alloc(map_size);
+  afl-&gt;virgin_crash = ck_alloc(map_size);
+  afl-&gt;var_bytes = ck_alloc(map_size);
+  afl-&gt;top_rated = ck_alloc(map_size * <span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">void</span> *));
+  afl-&gt;clean_trace = ck_alloc(map_size);
+  afl-&gt;clean_trace_custom = ck_alloc(map_size);
+  afl-&gt;first_trace = ck_alloc(map_size);
+  afl-&gt;map_tmp_buf = ck_alloc(map_size);
+
+  afl-&gt;fsrv.use_stdin = <span class="hljs-number">1</span>;
+  afl-&gt;fsrv.map_size = map_size;
+  <span class="hljs-comment">// afl_state_t is not available in forkserver.c</span>
+  afl-&gt;fsrv.afl_ptr = (<span class="hljs-keyword">void</span> *)afl;
+  afl-&gt;fsrv.add_extra_func = (<span class="hljs-keyword">void</span> (*)(<span class="hljs-keyword">void</span> *, u8 *, u32)) &amp; add_extra;
+  afl-&gt;fsrv.exec_tmout = EXEC_TIMEOUT;
+  afl-&gt;fsrv.mem_limit = MEM_LIMIT;
+  afl-&gt;fsrv.dev_urandom_fd = <span class="hljs-number">-1</span>;
+  afl-&gt;fsrv.dev_null_fd = <span class="hljs-number">-1</span>;
+  afl-&gt;fsrv.child_pid = <span class="hljs-number">-1</span>;
+  afl-&gt;fsrv.out_dir_fd = <span class="hljs-number">-1</span>;
+
+  <span class="hljs-comment">/* Init SkipDet */</span>
+  afl-&gt;skipdet_g =
+      (<span class="hljs-keyword">struct</span> skipdet_global *)ck_alloc(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> skipdet_global));
+  afl-&gt;skipdet_g-&gt;inf_prof =
+      (<span class="hljs-keyword">struct</span> inf_profile *)ck_alloc(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> inf_profile));
+  afl-&gt;havoc_prof =
+      (<span class="hljs-keyword">struct</span> havoc_profile *)ck_alloc(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">struct</span> havoc_profile));
+
+  init_mopt_globals(afl);
+
+  list_append(&amp;afl_states, afl);
+
+}
+
+
+<span class="hljs-comment">/* Initializes the struct */</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">afl_fsrv_init</span><span class="hljs-params">(<span class="hljs-keyword">afl_forkserver_t</span> *fsrv)</span> </span>{
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __linux__</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+  <span class="hljs-comment">// this structure needs default so we initialize it if this was not done</span>
+  <span class="hljs-comment">// already</span>
+  fsrv-&gt;out_fd = <span class="hljs-number">-1</span>;
+  fsrv-&gt;out_dir_fd = <span class="hljs-number">-1</span>;
+  fsrv-&gt;dev_null_fd = <span class="hljs-number">-1</span>;
+  fsrv-&gt;dev_urandom_fd = <span class="hljs-number">-1</span>;
+
+  <span class="hljs-comment">/* Settings */</span>
+  fsrv-&gt;use_stdin = <span class="hljs-literal">true</span>;
+  fsrv-&gt;no_unlink = <span class="hljs-literal">false</span>;
+  fsrv-&gt;exec_tmout = EXEC_TIMEOUT;
+  fsrv-&gt;init_tmout = EXEC_TIMEOUT * FORK_WAIT_MULT;
+  fsrv-&gt;mem_limit = MEM_LIMIT;
+  fsrv-&gt;out_file = <span class="hljs-literal">NULL</span>;
+  fsrv-&gt;child_kill_signal = SIGKILL;
+  fsrv-&gt;max_length = MAX_FILE;
+
+  <span class="hljs-comment">/* exec related stuff */</span>
+  fsrv-&gt;child_pid = <span class="hljs-number">-1</span>;
+  fsrv-&gt;map_size = get_map_size();
+  fsrv-&gt;real_map_size = fsrv-&gt;map_size;
+  fsrv-&gt;use_fauxsrv = <span class="hljs-literal">false</span>;
+  fsrv-&gt;last_run_timed_out = <span class="hljs-literal">false</span>;
+  fsrv-&gt;debug = <span class="hljs-literal">false</span>;
+  fsrv-&gt;uses_crash_exitcode = <span class="hljs-literal">false</span>;
+  fsrv-&gt;uses_asan = <span class="hljs-literal">false</span>;
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __AFL_CODE_COVERAGE</span>
+  fsrv-&gt;persistent_trace_bits = <span class="hljs-literal">NULL</span>;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+  fsrv-&gt;init_child_func = fsrv_exec_child;
+  list_append(&amp;fsrv_list, fsrv);
+
+}
+</code></pre>
+<p>&#x4E4B;&#x540E;&#x7528; <code>getopt()</code> &#x83B7;&#x53D6;&#x547D;&#x4EE4;&#x884C;&#x53C2;&#x6570;, &#x5E76;&#x9010;&#x4E00;&#x89E3;&#x6790;</p>
+<pre><code class="lang-c">  <span class="hljs-comment">// still available: HjJkKqruvwz</span>
+  <span class="hljs-keyword">while</span> (
+      (opt = getopt(argc, argv,
+                    <span class="hljs-string">&quot;+aw:Ab:B:c:CdDe:E:f:F:g:G:hi:I:l:L:m:M:nNo:Op:P:QRs:S:t:&quot;</span>
+                    <span class="hljs-string">&quot;T:uUV:WXx:YzZ&quot;</span>)) &gt; <span class="hljs-number">0</span>) {
+
+    <span class="hljs-keyword">switch</span> (opt) {
+
+      <span class="hljs-keyword">case</span> <span class="hljs-string">&apos;a&apos;</span>:
+            ...
+    }
+  }
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;, &#x6839;&#x636E;&#x8F93;&#x5165;&#x53C2;&#x6570; <code>@@</code> &#x662F;&#x5426;&#x5B58;&#x5728;&#x6765;&#x9009;&#x62E9;&#x8F93;&#x5165;&#x5904;&#x7406;&#x65B9;&#x5F0F;, &#x4E0B;&#x9762;&#x662F; <code>main</code> &#x4E2D;&#x7684;&#x903B;&#x8F91;, <code>fsrv.out_file</code> &#x662F;&#x4FDD;&#x5B58;&#x8F93;&#x5165;&#x7684;&#x76EE;&#x6807;&#x6587;&#x4EF6; <code>[output dir]/.cur_input</code>, &#x5982;&#x679C;&#x6709; <code>@@</code> &#x53C2;&#x6570;&#x90A3;&#x4E48;&#x8BBE;&#x7F6E; <code>afl-&gt;fsrv.use_stdin = 0</code> &#x8868;&#x793A;&#x4E0D;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x65B9;&#x5F0F;. &#x5982;&#x679C;&#x4F7F;&#x7528;&#x6807;&#x51C6;&#x8F93;&#x5165;, &#x5219;&#x8C03;&#x7528; <code>setup_stdio_file</code>. </p>
+<pre><code class="lang-c">    <span class="hljs-keyword">if</span> ((afl-&gt;tmp_dir = afl-&gt;afl_env.afl_tmpdir) != <span class="hljs-literal">NULL</span> &amp;&amp; !afl-&gt;in_place_resume)
+...
+  } <span class="hljs-keyword">else</span> {
+    afl-&gt;tmp_dir = afl-&gt;out_dir;
+  }
+
+
+  <span class="hljs-keyword">if</span> (!afl-&gt;fsrv.out_file) {
+    u32 j = optind + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">while</span> (argv[j]) {
+      u8 *aa_loc = <span class="hljs-built_in">strstr</span>(argv[j], <span class="hljs-string">&quot;@@&quot;</span>);
+      <span class="hljs-keyword">if</span> (aa_loc &amp;&amp; !afl-&gt;fsrv.out_file) {
+        afl-&gt;fsrv.use_stdin = <span class="hljs-number">0</span>;
+        default_output = <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span> (afl-&gt;file_extension) {
+          afl-&gt;fsrv.out_file = alloc_printf(<span class="hljs-string">&quot;%s/.cur_input.%s&quot;</span>, afl-&gt;tmp_dir,
+                                            afl-&gt;file_extension);
+        } <span class="hljs-keyword">else</span> {
+          afl-&gt;fsrv.out_file = alloc_printf(<span class="hljs-string">&quot;%s/.cur_input&quot;</span>, afl-&gt;tmp_dir);
+        }
+        detect_file_args(argv + optind + <span class="hljs-number">1</span>, afl-&gt;fsrv.out_file,
+                         &amp;afl-&gt;fsrv.use_stdin);
+        <span class="hljs-keyword">break</span>;
+      }
+      ++j;
+    }
+  }
+  <span class="hljs-keyword">if</span> (!afl-&gt;fsrv.out_file) { setup_stdio_file(afl); }
+
+
+<span class="hljs-comment">/* Setup the output file for fuzzed data, if not using -f. */</span>
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup_stdio_file</span><span class="hljs-params">(<span class="hljs-keyword">afl_state_t</span> *afl)</span> </span>{
+
+  <span class="hljs-keyword">if</span> (afl-&gt;file_extension) {
+
+    afl-&gt;fsrv.out_file =
+        alloc_printf(<span class="hljs-string">&quot;%s/.cur_input.%s&quot;</span>, afl-&gt;tmp_dir, afl-&gt;file_extension);
+
+  } <span class="hljs-keyword">else</span> {
+
+    afl-&gt;fsrv.out_file = alloc_printf(<span class="hljs-string">&quot;%s/.cur_input&quot;</span>, afl-&gt;tmp_dir);
+
+  }
+
+  unlink(afl-&gt;fsrv.out_file);                              <span class="hljs-comment">/* Ignore errors */</span>
+
+  afl-&gt;fsrv.out_fd =
+      open(afl-&gt;fsrv.out_file, O_RDWR | O_CREAT | O_EXCL, DEFAULT_PERMISSION);
+
+  <span class="hljs-keyword">if</span> (afl-&gt;fsrv.out_fd &lt; <span class="hljs-number">0</span>) {
+
+    PFATAL(<span class="hljs-string">&quot;Unable to create &apos;%s&apos;&quot;</span>, afl-&gt;fsrv.out_file);
+
+  }
+
+}
+</code></pre>
+<p>&#x8BBE;&#x7F6E;&#x5B8C;&#x8F93;&#x5165;&#x65B9;&#x5F0F;, &#x63A5;&#x7740;&#x8BBE;&#x7F6E;&#x5171;&#x4EAB;&#x5185;&#x5B58;, &#x5305;&#x62EC; <code>coverage map</code> &#x548C; <code>shared memory test cases</code></p>
+<pre><code class="lang-c"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setup_testcase_shmem</span><span class="hljs-params">(<span class="hljs-keyword">afl_state_t</span> *afl)</span> </span>{
+  afl-&gt;shm_fuzz = ck_alloc(<span class="hljs-keyword">sizeof</span>(<span class="hljs-keyword">sharedmem_t</span>));
+  <span class="hljs-comment">// we need to set the non-instrumented mode to not overwrite the SHM_ENV_VAR</span>
+  u8 *<span class="hljs-built_in">map</span> = afl_shm_init(afl-&gt;shm_fuzz, MAX_FILE + <span class="hljs-keyword">sizeof</span>(u32), <span class="hljs-number">1</span>);
+  afl-&gt;shm_fuzz-&gt;shmemfuzz_mode = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">map</span>) { FATAL(<span class="hljs-string">&quot;BUG: Zero return from afl_shm_init.&quot;</span>); }
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> USEMMAP</span>
+  setenv(SHM_FUZZ_ENV_VAR, afl-&gt;shm_fuzz-&gt;g_shm_file_path, <span class="hljs-number">1</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+  u8 *shm_str = alloc_printf(<span class="hljs-string">&quot;%d&quot;</span>, afl-&gt;shm_fuzz-&gt;shm_id);
+  setenv(SHM_FUZZ_ENV_VAR, shm_str, <span class="hljs-number">1</span>);
+  ck_free(shm_str);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+  afl-&gt;fsrv.support_shmem_fuzz = <span class="hljs-number">1</span>;
+  afl-&gt;fsrv.shmem_fuzz_len = (u32 *)<span class="hljs-built_in">map</span>;
+  afl-&gt;fsrv.shmem_fuzz = <span class="hljs-built_in">map</span> + <span class="hljs-keyword">sizeof</span>(u32);
+}
+
+<span class="hljs-comment">// main: set coverage mape</span>
+  afl-&gt;fsrv.trace_bits =
+      afl_shm_init(&amp;afl-&gt;shm, afl-&gt;fsrv.map_size, afl-&gt;non_instrumented_mode);
+  ...
+    <span class="hljs-keyword">if</span> (map_size &lt;= DEFAULT_SHMEM_SIZE) {
+      afl-&gt;fsrv.map_size = DEFAULT_SHMEM_SIZE;  <span class="hljs-comment">// dummy temporary value</span>
+      <span class="hljs-keyword">char</span> vbuf[<span class="hljs-number">16</span>];
+      <span class="hljs-built_in">snprintf</span>(vbuf, <span class="hljs-keyword">sizeof</span>(vbuf), <span class="hljs-string">&quot;%u&quot;</span>, DEFAULT_SHMEM_SIZE);
+      setenv(<span class="hljs-string">&quot;AFL_MAP_SIZE&quot;</span>, vbuf, <span class="hljs-number">1</span>);
+    }
+</code></pre>
+<p>&#x542F;&#x52A8;&#x903B;&#x8F91;&#x7684;&#x6700;&#x540E;, &#x662F;&#x8C03;&#x7528; <code>src/afl-forkserver.c/afl_fsrv_start()</code> &#x5F00;&#x59CB; fuzzing, &#x5E76;&#x4E14;&#x9700;&#x8981;&#x8BBE;&#x7F6E; pipes, &#x5305;&#x62EC; <code>status pipe</code> &#x548C; <code>control pipe</code> &#x7528;&#x4E8E;&#x4E3B;&#x5B50;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;. </p>
+<pre><code class="lang-c">  <span class="hljs-keyword">if</span> (pipe(st_pipe) || pipe(ctl_pipe)) { PFATAL(<span class="hljs-string">&quot;pipe() failed&quot;</span>); }
+
+  fsrv-&gt;last_run_timed_out = <span class="hljs-number">0</span>;
+  fsrv-&gt;fsrv_pid = fork();
+</code></pre>
+<h2 id="afl-fuzz-runtime">afl-fuzz Runtime</h2>
+<p>&#x8FD0;&#x884C;&#x65F6;&#x7684; forkserver &#x901A;&#x8FC7;&#x8C03;&#x7528; <code>afl_fsrv_write_to_testcase</code> &#x51FD;&#x6570;&#x6765;&#x5199; testcases &#x5230;&#x6587;&#x4EF6;. &#x9996;&#x5148;&#x5224;&#x65AD;&#x662F;&#x5426;&#x4F7F;&#x7528; shared memory fuzzing, &#x5982;&#x679C; <code>likely(fsrv-&gt;use_shmem_fuzz)</code> &#x5219; <code>memcpy(fsrv-&gt;shmem_fuzz, buf, len)</code> &#x62F7;&#x8D1D;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x5230;&#x5171;&#x4EAB;&#x5185;&#x5B58;. &#x5982;&#x679C;&#x4E0D;&#x542F;&#x7528; shared memory fuzzing, &#x5219;&#x901A;&#x8FC7; <code>ck_write(fd, buf, len, fsrv-&gt;out_file)</code> &#x5C06;&#x8F93;&#x5165;&#x5199;&#x5230; <code>fsrv-&gt;out_file</code> &#x6587;&#x4EF6;&#x4E2D;. </p>
+<pre><code class="lang-c"><span class="hljs-keyword">void</span> __attribute__((hot)) afl_fsrv_write_to_testcase(<span class="hljs-keyword">afl_forkserver_t</span> *fsrv,
+                                                     u8 *buf, <span class="hljs-keyword">size_t</span> len) {
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> __linux__</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_PERSISTENT_RECORD</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+  <span class="hljs-keyword">if</span> (likely(fsrv-&gt;use_shmem_fuzz)) {
+
+    <span class="hljs-keyword">if</span> (unlikely(len &gt; MAX_FILE)) len = MAX_FILE;
+
+    *fsrv-&gt;shmem_fuzz_len = len;
+    <span class="hljs-built_in">memcpy</span>(fsrv-&gt;shmem_fuzz, buf, len);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> _DEBUG</span>
+...
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+  } <span class="hljs-keyword">else</span> {
+
+    s32 fd = fsrv-&gt;out_fd;
+
+    <span class="hljs-keyword">if</span> (!fsrv-&gt;use_stdin &amp;&amp; fsrv-&gt;out_file) {
+
+      <span class="hljs-keyword">if</span> (unlikely(fsrv-&gt;no_unlink)) {
+
+        fd = open(fsrv-&gt;out_file, O_WRONLY | O_CREAT | O_TRUNC,
+                  DEFAULT_PERMISSION);
+
+      } <span class="hljs-keyword">else</span> {
+
+        unlink(fsrv-&gt;out_file);                           <span class="hljs-comment">/* Ignore errors. */</span>
+        fd = open(fsrv-&gt;out_file, O_WRONLY | O_CREAT | O_EXCL,
+                  DEFAULT_PERMISSION);
+
+      }
+
+      <span class="hljs-keyword">if</span> (fd &lt; <span class="hljs-number">0</span>) { PFATAL(<span class="hljs-string">&quot;Unable to create &apos;%s&apos;&quot;</span>, fsrv-&gt;out_file); }
+
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (unlikely(fd &lt;= <span class="hljs-number">0</span>)) {
+
+      <span class="hljs-comment">// We should have a (non-stdin) fd at this point, else we got a problem.</span>
+      FATAL(
+          <span class="hljs-string">&quot;Nowhere to write output to (neither out_fd nor out_file set (fd is &quot;</span>
+          <span class="hljs-string">&quot;%d))&quot;</span>,
+          fd);
+
+    } <span class="hljs-keyword">else</span> {
+
+      lseek(fd, <span class="hljs-number">0</span>, SEEK_SET);
+
+    }
+
+    <span class="hljs-comment">// fprintf(stderr, &quot;WRITE %d %u\n&quot;, fd, len);</span>
+    ck_write(fd, buf, len, fsrv-&gt;out_file);
+
+    <span class="hljs-keyword">if</span> (fsrv-&gt;use_stdin) {
+
+      <span class="hljs-keyword">if</span> (ftruncate(fd, len)) { PFATAL(<span class="hljs-string">&quot;ftruncate() failed&quot;</span>); }
+      lseek(fd, <span class="hljs-number">0</span>, SEEK_SET);
+
+    } <span class="hljs-keyword">else</span> {
+
+      close(fd);
+
+    }
+
+  }
+
+}
+</code></pre>
+<p>&#x5F53;&#x53D8;&#x5F02;&#x7684;&#x8F93;&#x5165;&#x5199;&#x5165;&#x540E;, forkserver &#x4F1A;&#x91CD;&#x542F;&#x4E00;&#x4E2A;&#x5B50;&#x8FDB;&#x7A0B;&#x53BB;&#x8FD0;&#x884C;&#x53D8;&#x5F02;&#x7684;&#x8F93;&#x5165;, &#x8FD9;&#x90E8;&#x5206;&#x903B;&#x8F91;&#x5728; <code>fuzz_run_target -&gt; afl_fsrv_run_target</code>. &#x51FD;&#x6570;&#x91CD;&#x7F6E; <code>fsrv-&gt;trace_bits</code> &#x4E3A; 0, &#x4E3A;&#x4E0B;&#x4E00;&#x8F6E;&#x8FD0;&#x884C;&#x505A;&#x51C6;&#x5907;, &#x7136;&#x540E; <code>write(fsrv-&gt;fsrv_ctl_fd, &amp;write_value, 4)</code> &#x544A;&#x8BC9;&#x5B50;&#x8FDB;&#x7A0B;&#x5F00;&#x59CB;&#x542F;&#x52A8; fuzzing</p>
+<pre><code class="lang-c"><span class="hljs-keyword">fsrv_run_result_t</span> __attribute__((hot))
+afl_fsrv_run_target(<span class="hljs-keyword">afl_forkserver_t</span> *fsrv, u32 timeout,
+                    <span class="hljs-keyword">volatile</span> u8 *stop_soon_p) {
+
+  s32 res;
+  u32 exec_ms;
+  u32 write_value = fsrv-&gt;last_run_timed_out;
+
+...
+  <span class="hljs-comment">/* After this memset, fsrv-&gt;trace_bits[] are effectively volatile, so we
+     must prevent any earlier operations from venturing into that
+     territory. */</span>
+...
+  <span class="hljs-built_in">memset</span>(fsrv-&gt;trace_bits, <span class="hljs-number">0</span>, fsrv-&gt;map_size);
+  MEM_BARRIER(); <span class="hljs-comment">//commit all writes</span>
+
+
+  <span class="hljs-comment">/* we have the fork server (or faux server) up and running
+  First, tell it if the previous run timed out. */</span>
+
+  <span class="hljs-keyword">if</span> ((res = write(fsrv-&gt;fsrv_ctl_fd, &amp;write_value, <span class="hljs-number">4</span>)) != <span class="hljs-number">4</span>) {
+
+    <span class="hljs-keyword">if</span> (*stop_soon_p) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+    RPFATAL(res, <span class="hljs-string">&quot;Unable to request new process from fork server (OOM?)&quot;</span>);
+
+  }
+
+  fsrv-&gt;last_run_timed_out = <span class="hljs-number">0</span>;
+
+  <span class="hljs-keyword">if</span> ((res = read(fsrv-&gt;fsrv_st_fd, &amp;fsrv-&gt;child_pid, <span class="hljs-number">4</span>)) != <span class="hljs-number">4</span>) {
+
+    <span class="hljs-keyword">if</span> (*stop_soon_p) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+    RPFATAL(res, <span class="hljs-string">&quot;Unable to request new process from fork server (OOM?)&quot;</span>);
+
+  }
+
+...
+
+  exec_ms = read_s32_timed(fsrv-&gt;fsrv_st_fd, &amp;fsrv-&gt;child_status, timeout,
+                           stop_soon_p);
+
+  <span class="hljs-keyword">if</span> (exec_ms &gt; timeout) {
+
+    <span class="hljs-comment">/* If there was no response from forkserver after timeout seconds,
+    we kill the child. The forkserver should inform us afterwards */</span>
+
+    s32 tmp_pid = fsrv-&gt;child_pid;
+    <span class="hljs-keyword">if</span> (tmp_pid &gt; <span class="hljs-number">0</span>) {
+
+      kill(tmp_pid, fsrv-&gt;child_kill_signal);
+      fsrv-&gt;child_pid = <span class="hljs-number">-1</span>;
+
+    }
+
+    fsrv-&gt;last_run_timed_out = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">if</span> (read(fsrv-&gt;fsrv_st_fd, &amp;fsrv-&gt;child_status, <span class="hljs-number">4</span>) &lt; <span class="hljs-number">4</span>) { exec_ms = <span class="hljs-number">0</span>; }
+
+  }
+
+  <span class="hljs-keyword">if</span> (!exec_ms) {
+
+    <span class="hljs-keyword">if</span> (*stop_soon_p) { <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>; }
+    SAYF(<span class="hljs-string">&quot;\n&quot;</span> cLRD <span class="hljs-string">&quot;[-] &quot;</span> cRST
+         <span class="hljs-string">&quot;Unable to communicate with fork server. Some possible reasons:\n\n&quot;</span>
+         <span class="hljs-string">&quot;    - You&apos;ve run out of memory. Use -m to increase the the memory &quot;</span>
+         <span class="hljs-string">&quot;limit\n&quot;</span>
+         <span class="hljs-string">&quot;      to something higher than %llu.\n&quot;</span>
+         <span class="hljs-string">&quot;    - The binary or one of the libraries it uses manages to &quot;</span>
+         <span class="hljs-string">&quot;create\n&quot;</span>
+         <span class="hljs-string">&quot;      threads before the forkserver initializes.\n&quot;</span>
+         <span class="hljs-string">&quot;    - The binary, at least in some circumstances, exits in a way &quot;</span>
+         <span class="hljs-string">&quot;that\n&quot;</span>
+         <span class="hljs-string">&quot;      also kills the parent process - raise() could be the &quot;</span>
+         <span class="hljs-string">&quot;culprit.\n&quot;</span>
+         <span class="hljs-string">&quot;    - If using persistent mode with QEMU, &quot;</span>
+         <span class="hljs-string">&quot;AFL_QEMU_PERSISTENT_ADDR &quot;</span>
+         <span class="hljs-string">&quot;is\n&quot;</span>
+         <span class="hljs-string">&quot;      probably not valid (hint: add the base address in case of &quot;</span>
+         <span class="hljs-string">&quot;PIE)&quot;</span>
+         <span class="hljs-string">&quot;\n\n&quot;</span>
+         <span class="hljs-string">&quot;If all else fails you can disable the fork server via &quot;</span>
+         <span class="hljs-string">&quot;AFL_NO_FORKSRV=1.\n&quot;</span>,
+         fsrv-&gt;mem_limit);
+    RPFATAL(res, <span class="hljs-string">&quot;Unable to communicate with fork server&quot;</span>);
+
+  }
+
+  <span class="hljs-keyword">if</span> (!WIFSTOPPED(fsrv-&gt;child_status)) { fsrv-&gt;child_pid = <span class="hljs-number">-1</span>; }
+
+  fsrv-&gt;total_execs++;
+
+  <span class="hljs-comment">/* Any subsequent operations on fsrv-&gt;trace_bits must not be moved by the
+     compiler below this point. Past this location, fsrv-&gt;trace_bits[]
+     behave very normally and do not have to be treated as volatile. */</span>
+
+  MEM_BARRIER();
+
+  <span class="hljs-comment">/* Report outcome to caller. */</span>
+
+  <span class="hljs-comment">/* Was the run unsuccessful? */</span>
+  <span class="hljs-keyword">if</span> (unlikely(*(u32 *)fsrv-&gt;trace_bits == EXEC_FAIL_SIG)) {
+
+    <span class="hljs-keyword">return</span> FSRV_RUN_ERROR;
+
+  }
+
+  ...
+
+  <span class="hljs-comment">/* success :) */</span>
+  <span class="hljs-keyword">return</span> FSRV_RUN_OK;
+
+}
+</code></pre>
+<h2 id="reference">Reference</h2>
+<p>[1] <a href="https://github.com/AFLplusplus/AFLplusplus" target="_blank">https://github.com/AFLplusplus/AFLplusplus</a></p>
+<p>[2] <a href="https://blog.ritsec.club/posts/afl-under-hood/" target="_blank">https://blog.ritsec.club/posts/afl-under-hood/</a></p>
+<p>[3] <a href="https://www.gnu.org/software/hurd/glibc/startup.html" target="_blank">https://www.gnu.org/software/hurd/glibc/startup.html</a></p>
+<p>[4] <a href="https://github.com/bminor/glibc/blob/9e2ff880f3cbc0b4ec8505ad2ce4a1c92d7f6d56/elf/dl-init.c#L70" target="_blank">https://github.com/bminor/glibc/blob/9e2ff880f3cbc0b4ec8505ad2ce4a1c92d7f6d56/elf/dl-init.c#L70</a></p>
+<p>[5] <a href="https://github.com/AFLplusplus/AFLplusplus/blob/ea14f3fd40e32234989043a525e3853fcb33c1b6/instrumentation/afl-compiler-rt.o.c#L91" target="_blank">https://github.com/AFLplusplus/AFLplusplus/blob/ea14f3fd40e32234989043a525e3853fcb33c1b6/instrumentation/afl-compiler-rt.o.c#L91</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="aflpp_src_reading_I.html" class="navigation navigation-prev " aria-label="Previous page: AFLpp Src Reading I - History">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../pwn/" class="navigation navigation-next " aria-label="Next page: Pwn">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AFLpp Src Reading II - Forkserver","level":"3.1.5","depth":2,"next":{"title":"Pwn","level":"4.1","depth":1,"path":"pwn/index.md","ref":"pwn/index.md","articles":[{"title":"Glibc _IO_FILE Exploitation Introduction","level":"4.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]}]},"previous":{"title":"AFLpp Src Reading I - History","level":"3.1.4","depth":2,"path":"fuzzing/aflpp_src_reading_I.md","ref":"fuzzing/aflpp_src_reading_I.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"fuzzing/aflpp_src_reading_II.md","mtime":"2025-04-17T04:50:39.623Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-04-17T05:02:46.055Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

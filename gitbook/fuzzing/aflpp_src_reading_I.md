@@ -673,7 +673,6 @@ AFL 从 2.52b 开始重构代码, fuzzing 逻辑的实现出现较大的改动. 
   
   - **行为调整**: 改进 `AFL_EXIT_ON_TIME` 和 `AFL_EXIT_WHEN_DONE` 的逻辑 (后者现在会真正等待任务完成) 
   
-
 + **二进制模糊测试模式更新**
   - **Frida 模式**: 
     - `AFL_FRIDA_PERSISTENT_ADDR` 支持任意可达地址 (不限于函数入口) 
@@ -744,8 +743,8 @@ AFL 从 2.52b 开始重构代码, fuzzing 逻辑的实现出现较大的改动. 
 | Version       | Updates                                                      |
 | ------------- | ------------------------------------------------------------ |
 | 2.52c         | 新增 AFLfast 功率调度                                        |
-| 2.54c         | 统一代码结构 (`include/` 和 `src/` 目录)  拆分 `afl-fuzz` 逻辑到模块化文件 (如 forkserver、内存映射等) <br />支持 LLVM-9, Android<br />支持自定义变异库 |
 | 2.53c         | 新增 MOpt                                                    |
+| 2.54c         | 统一代码结构 (`include/` 和 `src/` 目录)  拆分 `afl-fuzz` 逻辑到模块化文件 (如 forkserver、内存映射等) <br />支持 LLVM-9, Android<br />支持自定义变异库 |
 | 2.54d - 2.57c | Qemu 持久化模式<br />支持 Win32, ARM                         |
 | 2.59c         | 支持 QBDI 模式 (Android native)<br />支持 Unicorn 模式       |
 | 2.61c         | 支持全 python2 / 3<br />新增 Redqueen<br />新增 cmplog 插桩  |
