@@ -324,6 +324,78 @@ SanitizerCoveragePCGUARD++4.31c
 
 测试框架相关代码类似, 可在 `test` 目录创建一个 `.c` 文件包含目标头文件, 并使用目标函数完成实际操作并输出结果, 然后单独编译一个可执行文件. 在 `.sh` 中提供目标测试例的正确结果, 再运行测试对比运行是否符合预期. 
 
+需要修改的文件: `Makefile -> GNUmakefile -> test/your_test.sh`, 以我添加 funafl 测试为例
+
+```makefile
+# Makefile modified
+test-fun:
+	@gmake test-fun
+
+# GNUmakefile modified
+.PHONY: tests-fun
+tests-fun: test-fun
+
+.PHONY: test-fun
+test-fun: source-only
+	@cd test ; ./test-fun.sh
+	@rm -f test/errors
+```
+
+test-fun.sh, 其中 aflpp-benchmarks 是 fuzzbench AFL++ 编译的目标程序集 (从 docker builder 里提取出来), 初始种子库沿用 fuzzbench 的 corpus. 将 `aflpp_benchmarks` 文件夹放到 AFL++ 目录的上一级目录.
+
+```sh
+#!/bin/sh
+
+. ./test-pre.sh
+
+OS=$(uname -s)
+
+AFL_COMPILER=afl-clang-fast
+$ECHO "$BLUE[*] Testing: afl-fuzz"
+ test -e ../${AFL_COMPILER} -a -e ../afl-showmap -a -e ../afl-fuzz && {
+   # now we want to be sure that afl-fuzz is working
+   # make sure crash reporter is disabled on Mac OS X
+   (test "$OS" = "Darwin" && test $(launchctl list 2>/dev/null | grep -q '\.ReportCrash$') && {
+    $ECHO "$RED[!] we cannot run afl-fuzz with enabled crash reporter. Run 'sudo sh afl-system-config'.$RESET"
+    true
+   }) || {
+      echo "funafl test error log\n" > errors && {
+      TARGET=zlib
+      $ECHO "$GREY[*] running afl-fuzz for ${AFL_COMPILER}, this will take approx 10 seconds"
+      {
+        echo "[+] Testing: ../afl-fuzz -V07 -m ${MEM_LIMIT} -i ../../aflpp_benchmarks/${TARGET}/seeds -o ../../aflpp_benchmarks/${TARGET}/out -- ../../aflpp_benchmarks/${TARGET}/zlib_uncompress_fuzzer" >> errors
+        ../afl-fuzz -V07 -m ${MEM_LIMIT} -i ../../aflpp_benchmarks/${TARGET}/seeds -o ../../aflpp_benchmarks/${TARGET}/out -- ../../aflpp_benchmarks/${TARGET}/zlib_uncompress_fuzzer >>errors 2>&1
+      } || {
+        $ECHO "$RED[+] afl-fuzz is not running correctly with ${TARGET}"
+      }
+      test -n "$( ls ../../aflpp_benchmarks/zlib/out/default/queue/id:000002* 2>/dev/null )" && {
+        $ECHO "$GREEN[+] afl-fuzz is working correctly with ${TARGET}"
+      }
+    } && {
+      TARGET=re2
+      $ECHO "$GREY[*] running afl-fuzz for ${AFL_COMPILER}, this will take approx 10 seconds"
+      {
+        echo "[+] Testing: ../afl-fuzz -V07 -m ${MEM_LIMIT} -o ../../aflpp_benchmarks/${TARGET}/out -- ../../aflpp_benchmarks/${TARGET}/fuzzer" >> errors
+        ../afl-fuzz -V07 -m ${MEM_LIMIT} -o ../../aflpp_benchmarks/${TARGET}/out -- ../../aflpp_benchmarks/${TARGET}/fuzzer >>errors 2>&1
+      } || {
+        $ECHO "$RED[+] afl-fuzz is not running correctly with ${TARGET}"
+      }
+      test -n "$( ls ../../aflpp_benchmarks/re2/out/default/queue/id:000002* 2>/dev/null )" && {
+        $ECHO "$GREEN[+] afl-fuzz is working correctly with ${TARGET}"
+      }
+    }
+   } || {
+    $ECHO "$RED[!] afl-fuzz is not working correctly with ${AFL_COMPILER}"
+    CODE=1
+   }
+ } || {
+   $ECHO "$YELLOW[-] afl is not compiled, cannot test"
+   INCOMPLETE=1
+ }
+
+. ./test-post.sh
+```
+
 
 
 
