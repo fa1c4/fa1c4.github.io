@@ -18,6 +18,10 @@
 * [LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders](llm2vec.md)
 
 
+## AI for Reversing
+* [Source Code Foundation Models are Transferable Binary Analysis Knowledge Bases](ProRec.md)
+
+
 
 ## Survey
 * [SoK: Prudent Evaluation Practices for Fuzzing](SoK_Prudent_Evaluation_Practices_for_Fuzzing.md)
