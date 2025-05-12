@@ -1,0 +1,1189 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AFL++ Custom Mutator (python) · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../pwn/" />
+    
+    
+    <link rel="prev" href="aflpp_new_test.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../papers/">
+            
+                <a href="../papers/">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="../papers/SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../papers/FOX.html">
+            
+                <a href="../papers/FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../papers/On_Understanding.html">
+            
+                <a href="../papers/On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="../papers/autofz.html">
+            
+                <a href="../papers/autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="../papers/Fuzz_to_the_Future.html">
+            
+                <a href="../papers/Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="../papers/DSFuzz.html">
+            
+                <a href="../papers/DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="../papers/Rubick.html">
+            
+                <a href="../papers/Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="../papers/Fuzz4All.html">
+            
+                <a href="../papers/Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="../papers/kag.html">
+            
+                <a href="../papers/kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="../papers/graphuzz.html">
+            
+                <a href="../papers/graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="../papers/Seed_Selection.html">
+            
+                <a href="../papers/Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="../papers/belieffuzz.html">
+            
+                <a href="../papers/belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="../papers/K_Scheduler.html">
+            
+                <a href="../papers/K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="../papers/entropic.html">
+            
+                <a href="../papers/entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="../papers/FuzzInMem.html">
+            
+                <a href="../papers/FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="../papers/AFLpp.html">
+            
+                <a href="../papers/AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="../papers/DDFuzz.html">
+            
+                <a href="../papers/DDFuzz.html">
+            
+                    
+                    Fuzzing with Data Dependency Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="../papers/Hier.html">
+            
+                <a href="../papers/Hier.html">
+            
+                    
+                    Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="../papers/LLM_Fuzzing_BusyBox.html">
+            
+                <a href="../papers/LLM_Fuzzing_BusyBox.html">
+            
+                    
+                    Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="../papers/llm2vec.html">
+            
+                <a href="../papers/llm2vec.html">
+            
+                    
+                    LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="../papers/ShapFuzz.html">
+            
+                <a href="../papers/ShapFuzz.html">
+            
+                    
+                    SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="../papers/TortoiseFuzz.html">
+            
+                <a href="../papers/TortoiseFuzz.html">
+            
+                    
+                    Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="../papers/prefix_guided_execution.html">
+            
+                <a href="../papers/prefix_guided_execution.html">
+            
+                    
+                    Accelerating Fuzzing through Prefix-Guided Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="../papers/Fuzztastic.html">
+            
+                <a href="../papers/Fuzztastic.html">
+            
+                    
+                    Extrapolating Coverage Rate in Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="../papers/ProRec.html">
+            
+                <a href="../papers/ProRec.html">
+            
+                    
+                    Source Code Foundation Models are Transferable Binary Analysis Knowledge Bases
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="AFLpp_build_on_Magma.html">
+            
+                <a href="AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="fuzzbench_build.html">
+            
+                <a href="fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="fuzzbench_new_fuzzer.html">
+            
+                <a href="fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="aflpp_src_reading_I.html">
+            
+                <a href="aflpp_src_reading_I.html">
+            
+                    
+                    AFLpp Src Reading I - History
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="aflpp_src_reading_II.html">
+            
+                <a href="aflpp_src_reading_II.html">
+            
+                    
+                    AFLpp Src Reading II - Forkserver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="aflpp_new_test.html">
+            
+                <a href="aflpp_new_test.html">
+            
+                    
+                    AFL++ Add New Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.1.7" data-path="aflpp_custom_mutator.html">
+            
+                <a href="aflpp_custom_mutator.html">
+            
+                    
+                    AFL++ Custom Mutator (python)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                <a href="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                    
+                    IDAPro Cheat Sheet 7.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AFL++ Custom Mutator (python)</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="afl-add-custom-mutator">AFL++ Add Custom Mutator</h1>
+<p>&#x672C;&#x7BC7;&#x4E3B;&#x8981;&#x8BB0;&#x5F55;&#x5728; <code>AFL++</code> &#x6846;&#x67B6;&#x4E0A;&#x6DFB;&#x52A0; <code>custom mutator</code> &#x7684;&#x8FC7;&#x7A0B;</p>
+<p>&#x76EE;&#x524D; <code>custom mutator</code> &#x652F;&#x6301;&#x7684;&#x8BED;&#x8A00;&#x5305;&#x62EC; <code>C/C++, Python, Rust</code>. &#x51FA;&#x4E8E;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x548C;&#x4FBF;&#x6377;&#x6027;&#x7684;&#x76EE;&#x7684;, &#x672C;&#x6B21;&#x8BB0;&#x5F55;&#x4E3B;&#x8981;&#x662F; <code>Python</code> &#x8BED;&#x8A00;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x53D8;&#x5F02;&#x5668;&#x5B9E;&#x73B0;.</p>
+<h2 id="apis">APIs</h2>
+<p>&#x4E0B;&#x9762;&#x662F;&#x6240;&#x6709; Python &#x7684; APIs, &#x6CE8;&#x91CA;&#x90E8;&#x5206;&#x6982;&#x62EC;&#x4E86; API &#x7684;&#x903B;&#x8F91;&#x529F;&#x80FD;. </p>
+<p>&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x51FD;&#x6570;&#x90FD;&#x662F; <code>[optional]</code> &#x7684;, &#x4E0D;&#x9700;&#x8981;&#x5219;&#x90FD;&#x53EF;&#x4EE5;&#x4E0D;&#x5B9E;&#x73B0;, &#x5373;&#x6700;&#x5C0F;&#x7684; Python <code>custom_mutator</code> &#x4E3A;&#x4E00;&#x4E2A;&#x7A7A;&#x6587;&#x4EF6;.</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span><span class="hljs-params">(seed)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method is called when AFL++ starts up and is used to seed RNG and set up buffers and state.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fuzz_count</span><span class="hljs-params">(buf)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    When a queue entry is selected to be fuzzed, afl-fuzz selects the number of fuzzing attempts with this input based on a few factors. If, however, the custom mutator wants to set this number instead on how often it is called for a specific queue entry, use this function. This function is most useful if AFL_CUSTOM_MUTATOR_ONLY is not used.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> cnt
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">splice_optout</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    If this function is present, no splicing target is passed to the fuzz function. This saves time if splicing data is not needed by the custom fuzzing function. This function is never called, just needs to be present to activate.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fuzz</span><span class="hljs-params">(buf, add_buf, max_size)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method performs your custom mutations on a given input. The add_buf is the contents of another queue item that can be used for splicing - or anything else - and can also be ignored. If you are not using this additional data then define splice_optout (see above). This function is optional. Returning a length of 0 is valid and is interpreted as skipping this one mutation result. For non-Python: the returned output buffer is under your memory management!
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> mutated_out
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">describe</span><span class="hljs-params">(max_description_length)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    When this function is called, it shall describe the current test case, generated by the last mutation. This will be called, for example, to name the written test case file after a crash occurred. Using it can help to reproduce crashing mutations.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;description_of_current_mutation&quot;</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_process</span><span class="hljs-params">(buf)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    For some cases, the format of the mutated data returned from the custom mutator is not suitable to directly execute the target with this input. For example, when using libprotobuf-mutator, the data returned is in a protobuf format which corresponds to a given grammar. In order to execute the target, the protobuf data must be converted to the plain-text format expected by the target. In such scenarios, the user can define the post_process function. This function is then transforming the data into the format expected by the API before executing the target.
+
+This can return any python object that implements the buffer protocol and supports PyBUF_SIMPLE. These include bytes, bytearray, etc.
+
+You can decide in the post_process mutator to not send the mutated data to the target, e.g. if it is too short, too corrupted, etc. If so, return a NULL buffer and zero length (or a 0 length string in Python).
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> out_buf
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init_trim</span><span class="hljs-params">(buf)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method is called at the start of each trimming operation and receives the initial buffer. It should return the amount of iteration steps possible on this input (e.g., if your input has n elements and you want to remove them one by one, return n, if you do a binary search, return log(n), and so on).
+
+If your trimming algorithm doesn&#x2019;t allow to determine the amount of (remaining) steps easily (esp. while running), then you can alternatively return 1 here and always return 0 in post_trim until you are finished and no steps remain. In that case, returning 1 in post_trim will end the trimming routine. The whole current index/max iterations stuff is only used to show progress.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> cnt
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">trim</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method is called for each trimming operation. It doesn&#x2019;t have any arguments because there is already the initial buffer from init_trim and we can memorize the current state in the data variables. This can also save reparsing steps for each iteration. It should return the trimmed input buffer.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> out_buf
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">post_trim</span><span class="hljs-params">(success)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method is called after each trim operation to inform you if your trimming step was successful or not (in terms of coverage). If you receive a failure here, you should reset your input to the last known good state. In any case, this method must return the next trim iteration index (from 0 to the maximum amount of steps you returned in init_trim).
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> next_index
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">havoc_mutation</span><span class="hljs-params">(buf, max_size)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    performs a single custom mutation on a given input. This mutation is stacked with other mutations in havoc.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> mutated_out
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">havoc_mutation_probability</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    returns the probability that havoc_mutation is called in havoc. By default, it is 6%.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> probability <span class="hljs-comment"># int in [0, 100]</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">queue_get</span><span class="hljs-params">(filename)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method determines whether AFL++ should fuzz the current queue entry or not: all defined custom mutators as well as all AFL++&#x2019;s mutators.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fuzz_send</span><span class="hljs-params">(buf)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method can be used if you want to send data to the target yourself, e.g. via IPC. This replaces some usage of utils/afl_proxy but requires that you start the target with afl-fuzz.
+    Setting AFL_CUSTOM_MUTATOR_LATE_SEND will call the afl_custom_fuzz_send() function after the target has been restarted.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">pass</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">queue_new_entry</span><span class="hljs-params">(filename_new_queue, filename_orig_queue)</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This methods is called after adding a new test case to the queue. If the contents of the file was changed, return True, False otherwise.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">introspection</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    This method is called after a new queue entry, crash or timeout is discovered if compiled with INTROSPECTION. The custom mutator can then return a string (const char *) that reports the exact mutations used.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">return</span> string
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deinit</span><span class="hljs-params">()</span>:</span>  <span class="hljs-comment"># optional for Python</span>
+    <span class="hljs-string">&apos;&apos;&apos;
+    [optional]
+    The last method to be called, deinitializing the state.
+    &apos;&apos;&apos;</span>
+    <span class="hljs-keyword">pass</span>
+</code></pre>
+<h2 id="usage">Usage</h2>
+<p>&#x786E;&#x4FDD; <code>$PATH</code> &#x4E0B;&#x6709; <code>python3-config</code>, &#x7F16;&#x8BD1;&#x65F6;&#x81EA;&#x52A8;&#x5305;&#x542B; python &#x7279;&#x6027;</p>
+<pre><code class="lang-shell">which python3-config
+# /usr/bin/python3-config
+
+make clean &amp;&amp; make -j source-only
+</code></pre>
+<p>&#x8FD0;&#x884C;, &#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x4E24;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x542F;&#x52A8; Python Module: <code>PYTHONPATH</code>, <code>AFL_PYTHON_MODULE</code> </p>
+<pre><code class="lang-shell"># set the path where to find module
+export PYTHONPATH=`dirname /path/to/AFLplusplus/custom_mutators/examples/example.py`
+# set the module name without &quot;.py&quot; suffix
+export AFL_PYTHON_MODULE=example
+afl-fuzz /path/to/program
+</code></pre>
+<h2 id="debug">Debug</h2>
+<p>&#x5982;&#x679C; mutator &#x51FA;&#x9519;&#x5BFC;&#x81F4; fuzzer &#x5D29;&#x6E83;, &#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x542F;&#x7528; core dump. &#x518D;&#x7528; gdb &#x8C03;&#x8BD5;&#x5D29;&#x6E83;&#x65F6;&#x7684;&#x6808;&#x5E27; (&#x56E0;&#x4E3A;&#x8C03;&#x7528; Python Module &#x6240;&#x4EE5;&#x53EA;&#x7528; gdb &#x4E0D;&#x80FD;&#x9010;&#x884C;&#x8C03;&#x8BD5; python &#x4EE3;&#x7801;, &#x4F46;&#x53EF;&#x4EE5;&#x67E5;&#x770B; fuzzer &#x672C;&#x8EAB;&#x7684;&#x6808;&#x5E27;)</p>
+<pre><code class="lang-shell">ulimit -c unlimited
+gdb ../afl-fuzz core.xxx 
+
+# or 
+gdb --args ./afl-fuzz -m none -i &lt;path_to_seeds&gt; -o &lt;path_to_out&gt; -- ./target
+&gt; b (custom_mutators.c:)fuzz
+&gt; r
+&gt; bt
+</code></pre>
+<p>&#x5982;&#x679C;&#x6000;&#x7591; fuzzer &#x672C;&#x8EAB;&#x51FA;&#x9519;, &#x53EF;&#x4EE5;&#x5148;&#x5173;&#x95ED; <code>custom_mutator</code>, &#x518D;&#x8FD0;&#x884C; fuzzing</p>
+<pre><code class="lang-shell">unset PYTHONPATH
+unset AFL_PYTHON_MODULE
+</code></pre>
+<p>&#x5982;&#x679C;&#x6000;&#x7591;&#x662F; C &#x548C; Python &#x4EA4;&#x4E92;&#x63A5;&#x53E3;&#x5904;&#x6709; bug, &#x53EF;&#x4EE5;&#x8BBE;&#x7F6E; GNUmakefile &#x7684;&#x4F18;&#x5316;&#x7B49;&#x7EA7;&#x4E3A; 0</p>
+<pre><code class="lang-makefile">override CFLAGS += -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wno-pointer-arith \
+            -fPIC -O0 -I include/ -I include/cJSON -DAFL_PATH=\&quot;$(HELPER_PATH)\&quot;  \
+            -DBIN_PATH=\&quot;$(BIN_PATH)\&quot; -DDOC_PATH=\&quot;$(DOC_PATH)\&quot;
+</code></pre>
+<p>&#x7136;&#x540E;&#x91CD;&#x65B0;&#x7F16;&#x8BD1;, &#x5E76;&#x5728; gdb &#x8C03;&#x8BD5;&#x65F6;&#x5728; <code>load_custom_mutator_py</code> &#x7B49;&#x51FD;&#x6570;&#x5904;&#x4E0B;&#x65AD;&#x70B9;</p>
+<pre><code class="lang-shell">&#x276F; gdb --args ../afl-fuzz -m none -i ../../aflpp_benchmarks/zlib/seeds -o ../../aflpp_benchmarks/zlib/out -- ../../aflpp_benchmarks/zlib/zlib_uncompress_fuzzer
+
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+...
+Reading symbols from ../afl-fuzz...
+------- tip of the day (disable with set show-tips off) -------
+Use $base(&quot;heap&quot;) to get the start address of a [heap] memory page
+pwndbg&gt; b load_custom_mutator_py
+Breakpoint 1 at 0x4abe2: file src/afl-fuzz-python.c, line 434.
+pwndbg&gt; r
+...
+</code></pre>
+<p>&#x7136;&#x540E;&#x9010;&#x6B65;&#x8DDF;&#x8FDB;, &#x67E5;&#x770B;&#x5177;&#x4F53;&#x662F;&#x54EA;&#x4E00;&#x884C;&#x6E90;&#x4EE3;&#x7801;&#x53D1;&#x751F;&#x5D29;&#x6E83;.</p>
+<h2 id="references">References</h2>
+<p>[1] <a href="https://aflplus.plus/docs/custom_mutators/" target="_blank">https://aflplus.plus/docs/custom_mutators/</a></p>
+<p>[2] <a href="https://github.com/AFLplusplus/AFLplusplus/blob/stable/src/afl-fuzz-mutators.c" target="_blank">https://github.com/AFLplusplus/AFLplusplus/blob/stable/src/afl-fuzz-mutators.c</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="aflpp_new_test.html" class="navigation navigation-prev " aria-label="Previous page: AFL++ Add New Test">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../pwn/" class="navigation navigation-next " aria-label="Next page: Pwn">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AFL++ Custom Mutator (python)","level":"3.1.7","depth":2,"next":{"title":"Pwn","level":"4.1","depth":1,"path":"pwn/index.md","ref":"pwn/index.md","articles":[{"title":"Glibc _IO_FILE Exploitation Introduction","level":"4.1.1","depth":2,"path":"pwn/glibc_IO_FILE_exploitation.md","ref":"pwn/glibc_IO_FILE_exploitation.md","articles":[]}]},"previous":{"title":"AFL++ Add New Test","level":"3.1.6","depth":2,"path":"fuzzing/aflpp_new_test.md","ref":"fuzzing/aflpp_new_test.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"fuzzing/aflpp_custom_mutator.md","mtime":"2025-05-12T12:40:20.248Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-05-12T12:42:13.974Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

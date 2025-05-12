@@ -8,4 +8,4 @@
 * [AFLpp Src Reading I - History](aflpp_src_reading_I.md)
 * [AFLpp Src Reading II - Forkserver](aflpp_src_reading_II.md)
 * [AFL++ Add New Test](aflpp_new_test.md)
-
+* [AFL++ Custom Mutator (python)](aflpp_custom_mutator.md)
