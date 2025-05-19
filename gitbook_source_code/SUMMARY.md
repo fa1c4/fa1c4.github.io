@@ -81,6 +81,11 @@
 
 
 
+* [Latex](latex/index.md)
+  * [latex awesome table templates](latex/awes_table.md)
+
+
+
 * [Shell](shell/index.md)
   * [shell programming basic](shell/shell_programming_basic.md)
   * [shell programming techs I](shell/shell_programming_techs_I.md)
