@@ -56,6 +56,7 @@
   <!-- * [AFL++ new Fuzzer](fuzzing/aflpp_new_fuzzer.md) -->
   * [AFLpp Src Reading I - History](fuzzing/aflpp_src_reading_I.md)
   * [AFLpp Src Reading II - Forkserver](fuzzing/aflpp_src_reading_II.md)
+  * [AFLpp Src Reading III - Instrumentation](fuzzing/aflpp_src_reading_III.md)
   * [AFL++ Add New Test](fuzzing/aflpp_new_test.md)
   * [AFL++ Custom Mutator (python)](fuzzing/aflpp_custom_mutator.md)
   
