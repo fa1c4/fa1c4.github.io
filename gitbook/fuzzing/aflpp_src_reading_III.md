@@ -680,6 +680,8 @@ char AFLCoverage::ID = 0;
 
 ### Instrumentation "Main Function"
 
+`AFLCoverage::run()` or `AFLCoverage::runOnModule` 是插桩 pass 的入口函数用于遍历 `Module &M` 并插入检查点. 其余逻辑见下面代码中的注释
+
 ```c
 #if LLVM_VERSION_MAJOR >= 11                        /* use new pass manager */
 PreservedAnalyses AFLCoverage::run(Module &M, ModuleAnalysisManager &MAM) {
@@ -689,32 +691,32 @@ bool AFLCoverage::runOnModule(Module &M) {
 
 #endif
 
-  LLVMContext &C = M.getContext();
+  LLVMContext &C = M.getContext(); // get the context of M
 
-  IntegerType *Int8Ty = IntegerType::getInt8Ty(C);
-  IntegerType *Int32Ty = IntegerType::getInt32Ty(C);
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  IntegerType *IntLocTy =
+  IntegerType *Int8Ty = IntegerType::getInt8Ty(C); // define i8 type
+  IntegerType *Int32Ty = IntegerType::getInt32Ty(C); // define i32 type
+#ifdef AFL_HAVE_VECTOR_INTRINSICS // "vectorize instrumentation" flag
+  IntegerType *IntLocTy = // if AFL_HAVE_VECTOR_INTRINSICS enables, define IntLocTy type to store prev_loc
       IntegerType::getIntNTy(C, sizeof(PREV_LOC_T) * CHAR_BIT);
 #endif
-  struct timeval  tv;
-  struct timezone tz;
+  struct timeval  tv; // time value for now
+  struct timezone tz; // time zone for now
   u32             rand_seed;
-  unsigned int    cur_loc = 0;
+  unsigned int    cur_loc = 0; // current instrumented location ID
 
   /* Setup random() so we get Actually Random(TM) outputs from AFL_R() */
-  gettimeofday(&tv, &tz);
-  rand_seed = tv.tv_sec ^ tv.tv_usec ^ getpid();
-  AFL_SR(rand_seed);
+  gettimeofday(&tv, &tz); // get current time of the day
+  rand_seed = tv.tv_sec ^ tv.tv_usec ^ getpid(); // xor with process pid to get rand seed
+  AFL_SR(rand_seed); // marcro to set rand seed (later uses AFL_R() to generate random number)
 
   /* Show a banner */
 
-  setvbuf(stdout, NULL, _IONBF, 0);
+  setvbuf(stdout, NULL, _IONBF, 0); // set no buffer of IO
 
-  if (getenv("AFL_DEBUG")) debug = 1;
+  if (getenv("AFL_DEBUG")) debug = 1; // if AFL_DEBUG enables then set debug = 1
 
 #if LLVM_VERSION_MAJOR >= 11                        /* use new pass manager */
-  if (getenv("AFL_SAN_NO_INST")) {
+  if (getenv("AFL_SAN_NO_INST")) { // if AFL_SAN_NO_INST enables, then skip instrumentation
 
     if (debug) { fprintf(stderr, "Instrument disabled\n"); }
     return PreservedAnalyses::all();
@@ -722,7 +724,7 @@ bool AFLCoverage::runOnModule(Module &M) {
   }
 
 #else
-  if (getenv("AFL_SAN_NO_INST")) {
+  if (getenv("AFL_SAN_NO_INST")) { // if AFL_SAN_NO_INST enables, then skip instrumentation
 
     if (debug) { fprintf(stderr, "Instrument disabled\n"); }
     return true;
@@ -731,35 +733,45 @@ bool AFLCoverage::runOnModule(Module &M) {
 
 #endif
 
+...
+...
+...
+
+#if LLVM_VERSION_MAJOR >= 11                        /* use new pass manager */
+  return PreservedAnalyses(); // LLVM-11+ uses PreservedAnalyses to show IR modified
+#else
+  return true; // LLVM-10- uses true to show IR modified
+#endif
+
+}
+```
+
+
+
+下面逐部分解释代码
+
+主逻辑进来设置参数以后, 开始设置插桩率 `inst_ratio`, `neverzero counters`, `threadsafe counters`. 接着, 设置上下文插桩相关的变量, 包括 `N-gram`, `ctx`, `caller`. 
+
+```c
+  // if fd==2(stderr) && AFL_QUIET disables && AFL_DEBUG enables then output the version information 
   if ((isatty(2) && !getenv("AFL_QUIET")) || getenv("AFL_DEBUG") != NULL) {
 
     SAYF(cCYA "afl-llvm-pass" VERSION cRST
               " by <lszekeres@google.com> and <adrian.herrera@anu.edu.au>\n");
 
-  } else
+  } else // else set the flag be_quiet = 1
 
     be_quiet = 1;
 
-  /*
-    char *ptr;
-    if ((ptr = getenv("AFL_MAP_SIZE")) || (ptr = getenv("AFL_MAPSIZE"))) {
-
-      map_size = atoi(ptr);
-      if (map_size < 8 || map_size > (1 << 29))
-        FATAL("illegal AFL_MAP_SIZE %u, must be between 2^3 and 2^30",
-    map_size); if (map_size % 8) map_size = (((map_size >> 3) + 1) << 3);
-
-    }
-
-  */
+  // ...
 
   /* Decide instrumentation ratio */
 
-  char        *inst_ratio_str = getenv("AFL_INST_RATIO");
-  unsigned int inst_ratio = 100;
+  char        *inst_ratio_str = getenv("AFL_INST_RATIO"); // use AFL_INST_RATIO to set instrumentation ratio
+  unsigned int inst_ratio = 100; // 100% as max
 
   if (inst_ratio_str) {
-
+	// if inst_ratio_str is not numeric || inst_ratio == 0 || inst_ratio > 100 then report error and exit
     if (sscanf(inst_ratio_str, "%u", &inst_ratio) != 1 || !inst_ratio ||
         inst_ratio > 100)
       FATAL("Bad value of AFL_INST_RATIO (must be between 1 and 100)");
@@ -767,32 +779,17 @@ bool AFLCoverage::runOnModule(Module &M) {
   }
 
 #if LLVM_VERSION_MAJOR < 9
-  char *neverZero_counters_str = getenv("AFL_LLVM_NOT_ZERO");
+  char *neverZero_counters_str = getenv("AFL_LLVM_NOT_ZERO"); // LLVM-8- set AFL_LLVM_NOT_ZERO to disable neverZero counters
 #endif
-  skip_nozero = getenv("AFL_LLVM_SKIP_NEVERZERO");
-  use_threadsafe_counters = getenv("AFL_LLVM_THREADSAFE_INST");
+  skip_nozero = getenv("AFL_LLVM_SKIP_NEVERZERO"); // LLVM-9+ set AFL_LLVM_SKIP_NEVERZERO to disable neverZero counters
+  use_threadsafe_counters = getenv("AFL_LLVM_THREADSAFE_INST"); // set AFL_LLVM_THREADSAFE_INST to enable threadsafe counters
 
   if ((isatty(2) && !getenv("AFL_QUIET")) || !!getenv("AFL_DEBUG")) {
 
-    if (use_threadsafe_counters) {
-
-      // disabled unless there is support for other modules as well
-      // (increases documentation complexity)
-      /*      if (!getenv("AFL_LLVM_NOT_ZERO")) { */
+    if (use_threadsafe_counters) { // when enables threadsafe counters then skip neverzero counters
 
       skip_nozero = "1";
       SAYF(cCYA "afl-llvm-pass" VERSION cRST " using thread safe counters\n");
-
-      /*
-
-            } else {
-
-              SAYF(cCYA "afl-llvm-pass" VERSION cRST
-                        " using thread safe not-zero-counters\n");
-
-            }
-
-      */
 
     } else {
 
@@ -806,42 +803,50 @@ bool AFLCoverage::runOnModule(Module &M) {
   unsigned PrevLocSize = 0;
   unsigned PrevCallerSize = 0;
 
-  char *ngram_size_str = getenv("AFL_LLVM_NGRAM_SIZE");
-  if (!ngram_size_str) ngram_size_str = getenv("AFL_NGRAM_SIZE");
-  char *ctx_k_str = getenv("AFL_LLVM_CTX_K");
-  if (!ctx_k_str) ctx_k_str = getenv("AFL_CTX_K");
-  ctx_str = getenv("AFL_LLVM_CTX");
-  caller_str = getenv("AFL_LLVM_CALLER");
+  char *ngram_size_str = getenv("AFL_LLVM_NGRAM_SIZE"); // set ngram_size by AFL_LLVM_NGRAM_SIZE 
+  if (!ngram_size_str) ngram_size_str = getenv("AFL_NGRAM_SIZE"); // or set ngram_size by AFL_NGRAM_SIZE
+  char *ctx_k_str = getenv("AFL_LLVM_CTX_K"); // enables context-aware instrumentaion size by setting AFL_LLVM_CTX_K
+  if (!ctx_k_str) ctx_k_str = getenv("AFL_CTX_K"); // or enables context-aware instrumentaion size by setting AFL_CTX_K
+  ctx_str = getenv("AFL_LLVM_CTX"); // enables instrument_ctx by setting AFL_LLVM_CTX
+  caller_str = getenv("AFL_LLVM_CALLER"); // or enables instrument_ctx by setting AFL_LLVM_CALLER
 
-  bool instrument_ctx = ctx_str || caller_str;
+  bool instrument_ctx = ctx_str || caller_str; // set instrument_ctx to enable context-aware instrumentation
+```
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
+
+
+往下是设置向量化插桩的参数, 包括 `n-gram`, `k-context`. 
+
+```c
+#ifdef AFL_HAVE_VECTOR_INTRINSICS // AFL_HAVE_VECTOR_INTRINSICS to enable vectorize instrumentation, e.g. N-gram path log
   /* Decide previous location vector size (must be a power of two) */
   VectorType *PrevLocTy = NULL;
 
   if (ngram_size_str)
+    // if ngram_size is not numeric || ngram_size <= 1 || ngram_size > allowed NGRAM_SIZE_MAX then report error and exit
     if (sscanf(ngram_size_str, "%u", &ngram_size) != 1 || ngram_size < 2 ||
         ngram_size > NGRAM_SIZE_MAX)
       FATAL(
           "Bad value of AFL_NGRAM_SIZE (must be between 2 and NGRAM_SIZE_MAX "
           "(%u))",
           NGRAM_SIZE_MAX);
-
+  // ngram_size == 1 makes no sense to record only 1 path, so set to 0
   if (ngram_size == 1) ngram_size = 0;
   if (ngram_size)
-    PrevLocSize = ngram_size - 1;
+    PrevLocSize = ngram_size - 1; // PrevLoc to store ngram_size - 1 path log
   else
-    PrevLocSize = 1;
+    PrevLocSize = 1; // default is 1
 
   /* Decide K-ctx vector size (must be a power of two) */
   VectorType *PrevCallerTy = NULL;
 
   if (ctx_k_str)
+    // check valid ctx_k_str setting
     if (sscanf(ctx_k_str, "%u", &ctx_k) != 1 || ctx_k < 1 || ctx_k > CTX_MAX_K)
       FATAL("Bad value of AFL_CTX_K (must be between 1 and CTX_MAX_K (%u))",
             CTX_MAX_K);
 
-  if (ctx_k == 1) {
+  if (ctx_k == 1) { // when ctx_k == 1 then only enables CALLER mode
 
     ctx_k = 0;
     instrument_ctx = true;
@@ -849,15 +854,15 @@ bool AFLCoverage::runOnModule(Module &M) {
 
   }
 
-  if (ctx_k) {
+  if (ctx_k) { // when ctx_k >= 2 then enables context instrumentation
 
-    PrevCallerSize = ctx_k;
+    PrevCallerSize = ctx_k; // set the PrevCallerSize as k
     instrument_ctx = true;
 
   }
 
-#else
-  if (ngram_size_str)
+#else // disables context instrumentation
+  if (ngram_size_str) // report error when setting ngram_size but not setting AFL_HAVE_VECTOR_INTRINSICS
   #ifndef LLVM_VERSION_PATCH
     FATAL(
         "Sorry, NGRAM branch coverage is not supported with llvm version "
@@ -869,7 +874,7 @@ bool AFLCoverage::runOnModule(Module &M) {
         "%d.%d.%d!",
         LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, LLVM_VERSION_PATCH);
   #endif
-  if (ctx_k_str)
+  if (ctx_k_str) // report error when setting ctx_k but not setting AFL_HAVE_VECTOR_INTRINSICS
   #ifndef LLVM_VERSION_PATCH
     FATAL(
         "Sorry, K-CTX branch coverage is not supported with llvm version "
@@ -881,43 +886,52 @@ bool AFLCoverage::runOnModule(Module &M) {
         "%d.%d.%d!",
         LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, LLVM_VERSION_PATCH);
   #endif
-  PrevLocSize = 1;
+  PrevLocSize = 1; // default PrevLocSize is 1
 #endif
 
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
-  int PrevLocVecSize = PowerOf2Ceil(PrevLocSize);
+  int PrevLocVecSize = PowerOf2Ceil(PrevLocSize); // PrevLocSize <= 2^n (where n is the smallest to make inequality hold)
   if (ngram_size)
-    PrevLocTy = VectorType::get(IntLocTy, PrevLocVecSize
-  #if LLVM_VERSION_MAJOR >= 12
+    PrevLocTy = VectorType::get(IntLocTy, PrevLocVecSize 
+                                // create vector PrevLocTy[PrevLocVecSize] whose element type is IntLocTy
+  #if LLVM_VERSION_MAJOR >= 12 // LLVM-12+ supports scalable vector
                                 ,
-                                false
+                                false // not scalable to expend vector
   #endif
     );
 #endif
 
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
-  int PrevCallerVecSize = PowerOf2Ceil(PrevCallerSize);
+  int PrevCallerVecSize = PowerOf2Ceil(PrevCallerSize); 
+  // PrevCallerSize <= 2^n (where n is the smallest to make inequality hold)
   if (ctx_k)
     PrevCallerTy = VectorType::get(IntLocTy, PrevCallerVecSize
-  #if LLVM_VERSION_MAJOR >= 12
+                                   // create vector PrevCallerTy[PrevCallerVecSize] whose element type is IntLocTy
+  #if LLVM_VERSION_MAJOR >= 12 // LLVM-12+ supports scalable vector
                                    ,
-                                   false
+                                   false // not scalable to expend vector
   #endif
     );
 #endif
+```
 
+
+
+设置完上下文相关参数后, 接着是设置共享内存 `SHM` 的相关变量
+
+```c
   /* Get globals for the SHM region and the previous location. Note that
      __afl_prev_loc is thread-local. */
-
-  GlobalVariable *AFLMapPtr =
+  // set the global variable __afl_area_ptr, whose type is i8* (Int8Ty pointer).
+  GlobalVariable *AFLMapPtr = // points to bitmap share memory
       new GlobalVariable(M, PointerType::get(Int8Ty, 0), false,
                          GlobalValue::ExternalLinkage, 0, "__afl_area_ptr");
-  GlobalVariable *AFLPrevLoc;
-  GlobalVariable *AFLPrevCaller;
-  GlobalVariable *AFLContext = NULL;
+  GlobalVariable *AFLPrevLoc; // last basic block location
+  GlobalVariable *AFLPrevCaller; // last caller location
+  GlobalVariable *AFLContext = NULL; // last function ID (caller mode enabling), which is thread local storage (TLS)
 
-  if (ctx_str || caller_str)
-#if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
+  if (ctx_str || caller_str) // if enables context instrumentation then create global variable __afl_prev_ctx
+#if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS) // ANDROID not supports TLS
     AFLContext = new GlobalVariable(
         M, Int32Ty, false, GlobalValue::ExternalLinkage, 0, "__afl_prev_ctx");
 #else
@@ -927,7 +941,7 @@ bool AFLCoverage::runOnModule(Module &M) {
 #endif
 
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
-  if (ngram_size)
+  if (ngram_size) // if enables ngram then create global variable __afl_prev_loc to store last basic block
   #if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
     AFLPrevLoc = new GlobalVariable(
         M, PrevLocTy, /* isConstant */ false, GlobalValue::ExternalLinkage,
@@ -939,7 +953,7 @@ bool AFLCoverage::runOnModule(Module &M) {
         /* InsertBefore */ nullptr, GlobalVariable::GeneralDynamicTLSModel,
         /* AddressSpace */ 0, /* IsExternallyInitialized */ false);
   #endif
-  else
+  else // disables vectorize mode so create not-vector global variable __afl_prev_loc
 #endif
 #if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
     AFLPrevLoc = new GlobalVariable(
@@ -951,7 +965,7 @@ bool AFLCoverage::runOnModule(Module &M) {
 #endif
 
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
-  if (ctx_k)
+  if (ctx_k) // if enables caller then create global variable __afl_prev_caller to store last caller
   #if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
     AFLPrevCaller = new GlobalVariable(
         M, PrevCallerTy, /* isConstant */ false, GlobalValue::ExternalLinkage,
@@ -963,7 +977,7 @@ bool AFLCoverage::runOnModule(Module &M) {
         /* InsertBefore */ nullptr, GlobalVariable::GeneralDynamicTLSModel,
         /* AddressSpace */ 0, /* IsExternallyInitialized */ false);
   #endif
-  else
+  else // disables vectorize mode so create not-vector global variable __afl_prev_caller
 #endif
 #if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
     AFLPrevCaller =
@@ -979,17 +993,21 @@ bool AFLCoverage::runOnModule(Module &M) {
   /* Create the vector shuffle mask for updating the previous block history.
      Note that the first element of the vector will store cur_loc, so just set
      it to undef to allow the optimizer to do its thing. */
-
+  
   SmallVector<Constant *, 32> PrevLocShuffle = {UndefValue::get(Int32Ty)};
-
+  
   for (unsigned I = 0; I < PrevLocSize - 1; ++I)
     PrevLocShuffle.push_back(ConstantInt::get(Int32Ty, I));
+    // PrevLocShuffle = [cur_loc(UnderValue), prev_loc[0], prev_loc[1], ...]
 
+  // fill remains of vector elements with PrevLocSize
   for (int I = PrevLocSize; I < PrevLocVecSize; ++I)
     PrevLocShuffle.push_back(ConstantInt::get(Int32Ty, PrevLocSize));
 
+  // The mask will right shift the vector of PrevLoc and insert cur_loc into first place of vector
   Constant *PrevLocShuffleMask = ConstantVector::get(PrevLocShuffle);
 
+  // same logic for PrevCallerShuffleMask 
   Constant                   *PrevCallerShuffleMask = NULL;
   SmallVector<Constant *, 32> PrevCallerShuffle = {UndefValue::get(Int32Ty)};
 
@@ -997,10 +1015,13 @@ bool AFLCoverage::runOnModule(Module &M) {
 
     for (unsigned I = 0; I < PrevCallerSize - 1; ++I)
       PrevCallerShuffle.push_back(ConstantInt::get(Int32Ty, I));
-
+      // PrevCallerShuffle = [cur_caller(UnderValue), prev_caller[0], prev_caller[1], ...]
+    
+    // fill remains of vector elements with PrevCallerSize
     for (int I = PrevCallerSize; I < PrevCallerVecSize; ++I)
       PrevCallerShuffle.push_back(ConstantInt::get(Int32Ty, PrevCallerSize));
 
+    // The mask will right shift the vector of PrevCaller and insert cur_caller into first place of vector
     PrevCallerShuffleMask = ConstantVector::get(PrevCallerShuffle);
 
   }
@@ -1012,79 +1033,92 @@ bool AFLCoverage::runOnModule(Module &M) {
 
   Value    *PrevCtx = NULL;     // CTX sensitive coverage
   LoadInst *PrevCaller = NULL;  // K-CTX coverage
+```
 
+
+
+**插桩的主要逻辑**
+
+```c
   /* Instrument all the things! */
+  // ----------> main logic of instrumentation starts here <----------
+  int inst_blocks = 0; // count of successfully instrumented blocks
+  scanForDangerousFunctions(&M); // scan M contains dangerous functions like fork, exec
 
-  int inst_blocks = 0;
-  scanForDangerousFunctions(&M);
-
-  for (auto &F : M) {
+  for (auto &F : M) { // traverse all functions in Module M
 
     int has_calls = 0;
     if (debug)
       fprintf(stderr, "FUNCTION: %s (%zu)\n", F.getName().str().c_str(),
               F.size());
 
-    if (!isInInstrumentList(&F, MNAME)) { continue; }
+    if (!isInInstrumentList(&F, MNAME)) { continue; } // skip function doesn't need instrument
 
-    if (F.size() < function_minimum_size) { continue; }
+    if (F.size() < function_minimum_size) { continue; } // skip function with little basic blocks 
 
     std::list<Value *> todo;
-    for (auto &BB : F) {
+    for (auto &BB : F) { // traverse all basic blocks in Function F
 
-      BasicBlock::iterator IP = BB.getFirstInsertionPt();
-      IRBuilder<>          IRB(&(*IP));
+      BasicBlock::iterator IP = BB.getFirstInsertionPt(); // IP points to first insertion point in BB
+      IRBuilder<>          IRB(&(*IP)); // IRBuilder inserts IR instruction
 
       // Context sensitive coverage
+      // if enables instrument_ctx && current BB is the first BB of function F, then ...
       if (instrument_ctx && &BB == &F.getEntryBlock()) {
 
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
         if (ctx_k) {
 
-          PrevCaller = IRB.CreateLoad(
+          PrevCaller = IRB.CreateLoad( // CreateLoad(Type, Value*): load type data from Value* address
   #if LLVM_VERSION_MAJOR >= 14
               PrevCallerTy,
   #endif
               AFLPrevCaller);
+          
+          // insert nosanitize to tell A/M/TSan not to analyze the instruction
           PrevCaller->setMetadata(M.getMDKindID("nosanitize"),
                                   MDNode::get(C, None));
-          PrevCtx =
+          PrevCtx = // CreateZExt(Value*, Type*): zero extend an integer to wider type integer, 
+              		// high position padding with zeros
               IRB.CreateZExt(IRB.CreateXorReduce(PrevCaller), IRB.getInt32Ty());
-
-        } else
+				// CreateXorReduce(Value*): xor each element in vector Value* and return the xored result
+        } else // ctx_k == 0
 
 #endif
         {
 
           // load the context ID of the previous function and write to a
           // local variable on the stack
-          LoadInst *PrevCtxLoad = IRB.CreateLoad(
+          LoadInst *PrevCtxLoad = IRB.CreateLoad( // PrevCtxLoad stores prev function context ID
 #if LLVM_VERSION_MAJOR >= 14
               IRB.getInt32Ty(),
 #endif
               AFLContext);
+          
+          // insert nosanitize to tell A/M/TSan not to analyze the instruction
           PrevCtxLoad->setMetadata(M.getMDKindID("nosanitize"),
                                    MDNode::get(C, None));
           PrevCtx = PrevCtxLoad;
 
-        }
+        } // end of if(ctx_k) else 
 
-        // does the function have calls? and is any of the calls larger than one
-        // basic block?
-        for (auto &BB_2 : F) {
+        // does the function have calls? and is any of the calls larger than one basic block?
+        for (auto &BB_2 : F) { // traverse all BB in function F again 
+            // to check if F calls other functions needed to be instrumented
 
-          if (has_calls) break;
-          for (auto &IN : BB_2) {
+          if (has_calls) break; // already found calls then break
+          for (auto &IN : BB_2) { // traverse instruction by instruction in function
 
             CallInst *callInst = nullptr;
-            if ((callInst = dyn_cast<CallInst>(&IN))) {
+            if ((callInst = dyn_cast<CallInst>(&IN))) { // safely transform &IN to CallInst type
 
-              Function *Callee = callInst->getCalledFunction();
-              if (!Callee || Callee->size() < function_minimum_size)
+              Function *Callee = callInst->getCalledFunction(); // get the callee of instruction
+              if (!Callee || Callee->size() < function_minimum_size) 
+                  // if callee is nullptr || called function with little BB, then skip
                 continue;
-              else {
+              else { // found one called function needed to be instrumented
 
-                has_calls = 1;
+                has_calls = 1; // set the flag has_calls = 1
                 break;
 
               }
@@ -1093,82 +1127,78 @@ bool AFLCoverage::runOnModule(Module &M) {
 
           }
 
-        }
+        } // end of for (auto &BB_2 : F)
 
         // if yes we store a context ID for this function in the global var
         if (has_calls) {
-
+		  // random another new context ID
           Value *NewCtx = ConstantInt::get(Int32Ty, AFL_R(map_size));
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
           if (ctx_k) {
-
+			// uses mask vector to right shift the old vector 
             Value *ShuffledPrevCaller = IRB.CreateShuffleVector(
-                PrevCaller, UndefValue::get(PrevCallerTy),
+                PrevCaller, UndefValue::get(PrevCallerTy), // UndefValue vector only occupy the places here
                 PrevCallerShuffleMask);
+            // and insert NewCtx into first place of PrevCaller vector
             Value *UpdatedPrevCaller = IRB.CreateInsertElement(
                 ShuffledPrevCaller, NewCtx, (uint64_t)0);
 
-            StoreInst *Store =
-                IRB.CreateStore(UpdatedPrevCaller, AFLPrevCaller);
+            StoreInst *Store = // CreateStore(Value *Val, Value *Ptr): store Val to Ptr 
+                IRB.CreateStore(UpdatedPrevCaller, AFLPrevCaller); // update AFLPrevCaller with UpdatedPrevCaller
+            // insert nosanitize to tell A/M/TSan not to analyze the instruction
             Store->setMetadata(M.getMDKindID("nosanitize"),
                                MDNode::get(C, None));
 
-          } else
+          } else // ctx_k == 0
 
 #endif
           {
-
+			// when disables context mode then xor PrevCtx with NewCtx 
             if (ctx_str) NewCtx = IRB.CreateXor(PrevCtx, NewCtx);
-            StoreInst *StoreCtx = IRB.CreateStore(NewCtx, AFLContext);
+            StoreInst *StoreCtx = IRB.CreateStore(NewCtx, AFLContext); // update AFLContext with NewCtx
+            // insert nosanitize to tell A/M/TSan not to analyze the instruction
             StoreCtx->setMetadata(M.getMDKindID("nosanitize"),
                                   MDNode::get(C, None));
 
-          }
+          } // end of if else
 
-        }
+        } // end of has_calls
 
-      }
+      } // end of if (instrument_ctx && &BB == &F.getEntryBlock())
 
-      if (AFL_R(100) >= inst_ratio) continue;
-
+      if (AFL_R(100) >= inst_ratio) continue; // skip rest BB instrumentation if random >= inst_ratio
+      
       /* Make up cur_loc */
 
       // cur_loc++;
-      cur_loc = AFL_R(map_size);
+      cur_loc = AFL_R(map_size); // random cur_loc for current BB from 0 to map_size - 1
 
-/* There is a problem with Ubuntu 18.04 and llvm 6.0 (see issue #63).
-   The inline function successors() is not inlined and also not found at runtime
-   :-( As I am unable to detect Ubuntu18.04 here, the next best thing is to
-   disable this optional optimization for LLVM 6.0.0 and Linux */
+/* ... */ // ignore this bug fix code
 #if !(LLVM_VERSION_MAJOR == 6 && LLVM_VERSION_MINOR == 0) || !defined __linux__
-      // only instrument if this basic block is the destination of a previous
+      
+	  // only instrument if this basic block is the destination of a previous
       // basic block that has multiple successors
       // this gets rid of ~5-10% of instrumentations that are unnecessary
       // result: a little more speed and less map pollution
-      int more_than_one = -1;
+      int more_than_one = -1; // flag: BB's pred_BB has more than one succ_BB  
       // fprintf(stderr, "BB %u: ", cur_loc);
-      for (pred_iterator PI = pred_begin(&BB), E = pred_end(&BB); PI != E;
-           ++PI) {
+      for (pred_iterator PI = pred_begin(&BB), E = pred_end(&BB); PI != E; ++PI) {
 
         BasicBlock *Pred = *PI;
 
-        int count = 0;
+        int count = 0; // count for succ_BB  
         if (more_than_one == -1) more_than_one = 0;
         // fprintf(stderr, " %p=>", Pred);
 
-        for (succ_iterator SI = succ_begin(Pred), E = succ_end(Pred); SI != E;
-             ++SI) {
+        for (succ_iterator SI = succ_begin(Pred), E = succ_end(Pred); SI != E; ++SI) {
 
           BasicBlock *Succ = *SI;
 
-          // if (count > 0)
-          //  fprintf(stderr, "|");
           if (Succ != NULL) count++;
-          // fprintf(stderr, "%p", Succ);
 
         }
 
-        if (count > 1) more_than_one = 1;
+        if (count > 1) more_than_one = 1; // succ_BB count is more than one 
 
       }
 
@@ -1179,39 +1209,42 @@ bool AFLCoverage::runOnModule(Module &M) {
         // she might be calling other functions which need the correct CTX
         if (instrument_ctx && has_calls) {
 
-          Instruction *Inst = BB.getTerminator();
-          if (isa<ReturnInst>(Inst) || isa<ResumeInst>(Inst)) {
+          Instruction *Inst = BB.getTerminator(); // get the last instruction of BB
+          if (isa<ReturnInst>(Inst) || isa<ResumeInst>(Inst)) { 
+              // only last inst is ret or resum type need to restore context
 
-            IRBuilder<> Post_IRB(Inst);
+            IRBuilder<> Post_IRB(Inst); // define IRBuilder Post_IRB, which is right before Inst instruction
 
             StoreInst *RestoreCtx;
   #ifdef AFL_HAVE_VECTOR_INTRINSICS
-            if (ctx_k)
+            if (ctx_k) // restore the context ID to AFLPrevCaller when enables ctx_k
               RestoreCtx = IRB.CreateStore(PrevCaller, AFLPrevCaller);
-            else
+            else // restore the context ID to AFLContext when disables ctx_k
   #endif
               RestoreCtx = Post_IRB.CreateStore(PrevCtx, AFLContext);
+            // insert nosanitize to tell A/M/TSan not to analyze the instruction
             RestoreCtx->setMetadata(M.getMDKindID("nosanitize"),
                                     MDNode::get(C, None));
 
           }
 
-        }
+        } // end of if (instrument_ctx && has_calls)
 
-        continue;
+        continue; // skip instrumentation if pred_BB not ends with conditional jump
+          // which means the current BB is not in branching path, so no need to instrument
 
-      }
+      } // end of if (F.size() > 1 && more_than_one != 1)
 
 #endif
 
-      ConstantInt *CurLoc;
+      ConstantInt *CurLoc; // define constant CurLoc to store current BB location
 
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
       if (ngram_size)
-        CurLoc = ConstantInt::get(IntLocTy, cur_loc);
+        CurLoc = ConstantInt::get(IntLocTy, cur_loc); // when enables ngram then CurLoc type is IntLocTy
       else
 #endif
-        CurLoc = ConstantInt::get(Int32Ty, cur_loc);
+        CurLoc = ConstantInt::get(Int32Ty, cur_loc); // when disables ngram CurLoc type is Int32Ty
 
       /* Load prev_loc */
 
@@ -1221,7 +1254,7 @@ bool AFLCoverage::runOnModule(Module &M) {
 
         PrevLoc = IRB.CreateLoad(
 #if LLVM_VERSION_MAJOR >= 14
-            PrevLocTy,
+            PrevLocTy, // if ngram enables then load PrevLoc as PrevLocTy type
 #endif
             AFLPrevLoc);
 
@@ -1229,12 +1262,12 @@ bool AFLCoverage::runOnModule(Module &M) {
 
         PrevLoc = IRB.CreateLoad(
 #if LLVM_VERSION_MAJOR >= 14
-            IRB.getInt32Ty(),
+            IRB.getInt32Ty(), // if ngram disables then load PrevLoc as Int32Ty type
 #endif
             AFLPrevLoc);
 
       }
-
+	  // insert nosanitize to tell A/M/TSan not to analyze the instruction
       PrevLoc->setMetadata(M.getMDKindID("nosanitize"), MDNode::get(C, None));
       Value *PrevLocTrans;
 
@@ -1244,31 +1277,39 @@ bool AFLCoverage::runOnModule(Module &M) {
          prev_block_trans = (block_trans_1 ^ ... ^ block_trans_(n-1)" */
 
       if (ngram_size)
-        PrevLocTrans =
+        PrevLocTrans = // xor PrevLoc each element to introduce n gram BBs information
             IRB.CreateZExt(IRB.CreateXorReduce(PrevLoc), IRB.getInt32Ty());
       else
 #endif
         PrevLocTrans = PrevLoc;
 
       if (instrument_ctx)
-        PrevLocTrans =
+        PrevLocTrans = // xor PrevLocTrans with PrevCtx to introduce context-aware
             IRB.CreateZExt(IRB.CreateXor(PrevLocTrans, PrevCtx), Int32Ty);
       else
         PrevLocTrans = IRB.CreateZExt(PrevLocTrans, IRB.getInt32Ty());
+```
 
+
+
+插桩之后会更新 bitmap, 也就是目标程序与 fuzzer 的共享内存, 反馈信息由此传输
+
+```c
       /* Load SHM pointer */
 
       LoadInst *MapPtr = IRB.CreateLoad(
 #if LLVM_VERSION_MAJOR >= 14
           PointerType::get(Int8Ty, 0),
 #endif
-          AFLMapPtr);
+          AFLMapPtr); // load share memory ptr from AFLMapPtr with type i8*
+      // insert nosanitize to tell A/M/TSan not to analyze the instruction
       MapPtr->setMetadata(M.getMDKindID("nosanitize"), MDNode::get(C, None));
 
-      Value *MapPtrIdx;
+      Value *MapPtrIdx; // share memory (bitmap) index ptr
+
 #ifdef AFL_HAVE_VECTOR_INTRINSICS
       if (ngram_size)
-        MapPtrIdx = IRB.CreateGEP(
+        MapPtrIdx = IRB.CreateGEP( // CreateGEP(type, ptr1, ptr2): ptr1 + ptr2
             Int8Ty, MapPtr,
             IRB.CreateZExt(
                 IRB.CreateXor(PrevLocTrans, IRB.CreateZExt(CurLoc, Int32Ty)),
@@ -1280,11 +1321,12 @@ bool AFLCoverage::runOnModule(Module &M) {
             Int8Ty,
 #endif
             MapPtr, IRB.CreateXor(PrevLocTrans, CurLoc));
+	  // logic above is like this: MapPtrIdx = MapPtr + ((PrevLoc ^ CurLoc) & 0xFFFF)
 
-      /* Update bitmap */
+	  /* Update bitmap */
 
       if (use_threadsafe_counters) {                              /* Atomic */
-
+		// logic of function below is like: bitmap[MapPtrIdx] += 1;
         IRB.CreateAtomicRMW(llvm::AtomicRMWInst::BinOp::Add, MapPtrIdx, One,
 #if LLVM_VERSION_MAJOR >= 13
                             llvm::MaybeAlign(1),
@@ -1296,7 +1338,7 @@ bool AFLCoverage::runOnModule(Module &M) {
 
         */
 
-      } else {
+      } else { // not Atomic operations
 
         LoadInst *Counter = IRB.CreateLoad(
 #if LLVM_VERSION_MAJOR >= 14
@@ -1305,13 +1347,13 @@ bool AFLCoverage::runOnModule(Module &M) {
             MapPtrIdx);
         Counter->setMetadata(M.getMDKindID("nosanitize"), MDNode::get(C, None));
 
-        Value *Incr = IRB.CreateAdd(Counter, One);
+        Value *Incr = IRB.CreateAdd(Counter, One); // Incr = bitmap[MapPtrIdx] + 1;
 
 #if LLVM_VERSION_MAJOR >= 9
         if (!skip_nozero) {
 
 #else
-        if (neverZero_counters_str != NULL) {
+        if (neverZero_counters_str != NULL) { // if enables neverzero then skip 0 counter value
 
 #endif
           /* hexcoder: Realize a counter that skips zero during overflow.
@@ -1325,10 +1367,10 @@ bool AFLCoverage::runOnModule(Module &M) {
            * Counter + OverflowFlag -> Counter
            */
 
-          ConstantInt *Zero = ConstantInt::get(Int8Ty, 0);
-          auto         cf = IRB.CreateICmpEQ(Incr, Zero);
-          auto         carry = IRB.CreateZExt(cf, Int8Ty);
-          Incr = IRB.CreateAdd(Incr, carry);
+          ConstantInt *Zero = ConstantInt::get(Int8Ty, 0); // get constant 0 with type i8
+          auto         cf = IRB.CreateICmpEQ(Incr, Zero); // if Incr == 0, means overflow
+          auto         carry = IRB.CreateZExt(cf, Int8Ty); // carry = 1 when Incr == 0
+          Incr = IRB.CreateAdd(Incr, carry); // Incr plus carry to avoid 0 value
 
         }
 
@@ -1349,7 +1391,7 @@ bool AFLCoverage::runOnModule(Module &M) {
             PrevLoc, UndefValue::get(PrevLocTy), PrevLocShuffleMask);
         Value *UpdatedPrevLoc = IRB.CreateInsertElement(
             ShuffledPrevLoc, IRB.CreateLShr(CurLoc, (uint64_t)1), (uint64_t)0);
-
+			// CreateLShr(val1, val2): val1 >> val2  
         Store = IRB.CreateStore(UpdatedPrevLoc, AFLPrevLoc);
         Store->setMetadata(M.getMDKindID("nosanitize"), MDNode::get(C, None));
 
@@ -1367,7 +1409,7 @@ bool AFLCoverage::runOnModule(Module &M) {
       // in CTX mode we have to restore the original context for the caller -
       // she might be calling other functions which need the correct CTX.
       // Currently this is only needed for the Ubuntu clang-6.0 bug
-      if (instrument_ctx && has_calls) {
+      if (instrument_ctx && has_calls) { // when enables context then restore the context of BB
 
         Instruction *Inst = BB.getTerminator();
         if (isa<ReturnInst>(Inst) || isa<ResumeInst>(Inst)) {
@@ -1388,49 +1430,26 @@ bool AFLCoverage::runOnModule(Module &M) {
 
       }
 
-      inst_blocks++;
+      inst_blocks++; // successful instrumentation count++ 
 
-    }
+    } // end of if (instrument_ctx && has_calls)
+```
 
-#if 0
-    if (use_threadsafe_counters) {                       /*Atomic NeverZero */
+
+
+最后, 是线程安全和计数器更新的新版代码, 主要逻辑是使用 CAS (Compare-And-Swap) 循环替代原本的 `++` 操作. 优点是并发更安全, 避免计数器为 0 的问题, 缺点是效率比 `++` 更低, 目前作为未来计划之一, 尚未启用. 
+
+```c
+// #if 0
+    if (use_threadsafe_counters) {                       /* Atomic NeverZero */
       // handle the list of registered blocks to instrument
       for (auto val : todo) {
 
         /* hexcoder: Realize a thread-safe counter that skips zero during
          * overflow. Once this counter reaches its maximum value, it next
          * increments to 1
-         *
-         * Instead of
-         * Counter + 1 -> Counter
-         * we inject now this
-         * Counter + 1 -> {Counter, OverflowFlag}
-         * Counter + OverflowFlag -> Counter
-         */
-
-        /* equivalent c code looks like this
-         * Thanks to
-         https://preshing.com/20150402/you-can-do-any-kind-of-atomic-read-modify-write-operation/
-
-            int old = atomic_load_explicit(&Counter, memory_order_relaxed);
-            int new;
-            do {
-
-                 if (old == 255) {
-
-                   new = 1;
-
-                 } else {
-
-                   new = old + 1;
-
-                 }
-
-            } while (!atomic_compare_exchange_weak_explicit(&Counter, &old, new,
-
-         memory_order_relaxed, memory_order_relaxed));
-
-         */
+         * ...
+		 */
 
         Value *              MapPtrIdx = val;
         Instruction *        MapPtrIdxInst = cast<Instruction>(val);
@@ -1508,62 +1527,19 @@ bool AFLCoverage::runOnModule(Module &M) {
 
     }
 
-#endif
+// #endif // end of #if 0
 
-  }
+  } // end of for (auto &F : M)
 
   /*
     // This is currently disabled because we not only need to create/insert a
     // function (easy), but also add it as a constructor with an ID < 5
-
-    if (getenv("AFL_LLVM_DONTWRITEID") == NULL) {
-
-      // yes we could create our own function, insert it into ctors ...
-      // but this would be a pain in the butt ... so we use afl-llvm-rt.o
-
-      Function *f = ...
-
-      if (!f) {
-
-        fprintf(stderr,
-                "Error: init function could not be created (this should not
-    happen)\n"); exit(-1);
-
-      }
-
-      ... constructor for f = 4
-
-      BasicBlock *bb = &f->getEntryBlock();
-      if (!bb) {
-
-        fprintf(stderr,
-                "Error: init function does not have an EntryBlock (this should
-    not happen)\n"); exit(-1);
-
-      }
-
-      BasicBlock::iterator IP = bb->getFirstInsertionPt();
-      IRBuilder<>          IRB(&(*IP));
-
-      if (map_size <= 0x800000) {
-
-        GlobalVariable *AFLFinalLoc = new GlobalVariable(
-            M, Int32Ty, true, GlobalValue::ExternalLinkage, 0,
-            "__afl_final_loc");
-        ConstantInt *const_loc = ConstantInt::get(Int32Ty, map_size);
-        StoreInst *  StoreFinalLoc = IRB.CreateStore(const_loc, AFLFinalLoc);
-        StoreFinalLoc->setMetadata(M.getMDKindID("nosanitize"),
-                                     MDNode::get(C, None));
-
-      }
-
-    }
-
+    ...
   */
 
   /* Say something nice. */
 
-  if (!be_quiet) {
+  if (!be_quiet) { // print out information for debugging
 
     if (!inst_blocks)
       WARNF("No instrumentation targets found.");
@@ -1583,14 +1559,6 @@ bool AFLCoverage::runOnModule(Module &M) {
     }
 
   }
-
-#if LLVM_VERSION_MAJOR >= 11                        /* use new pass manager */
-  return PreservedAnalyses();
-#else
-  return true;
-#endif
-
-}
 ```
 
 

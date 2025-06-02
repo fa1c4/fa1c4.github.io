@@ -1642,85 +1642,90 @@ u8            *__afl_filter_pcs_module = <span class="hljs-literal">NULL</span>;
 #endif
 </code></pre>
 <h3 id="instrumentation-main-function">Instrumentation &quot;Main Function&quot;</h3>
-<pre><code class="lang-c">#if LLVM_VERSION_MAJOR &gt;= 11                        /* use new pass manager */
+<p><code>AFLCoverage::run()</code> or <code>AFLCoverage::runOnModule</code> &#x662F;&#x63D2;&#x6869; pass &#x7684;&#x5165;&#x53E3;&#x51FD;&#x6570;&#x7528;&#x4E8E;&#x904D;&#x5386; <code>Module &amp;M</code> &#x5E76;&#x63D2;&#x5165;&#x68C0;&#x67E5;&#x70B9;. &#x5176;&#x4F59;&#x903B;&#x8F91;&#x89C1;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x6CE8;&#x91CA;</p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> LLVM_VERSION_MAJOR &gt;= 11                        <span class="hljs-comment">/* use new pass manager */</span></span>
 PreservedAnalyses AFLCoverage::run(Module &amp;M, ModuleAnalysisManager &amp;MAM) {
 
-#else
-bool AFLCoverage::runOnModule(Module &amp;M) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+<span class="hljs-keyword">bool</span> AFLCoverage::runOnModule(Module &amp;M) {
 
-#endif
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-  LLVMContext &amp;C = M.getContext();
+  LLVMContext &amp;C = M.getContext(); <span class="hljs-comment">// get the context of M</span>
 
-  IntegerType *Int8Ty = IntegerType::getInt8Ty(C);
-  IntegerType *Int32Ty = IntegerType::getInt32Ty(C);
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  IntegerType *IntLocTy =
-      IntegerType::getIntNTy(C, sizeof(PREV_LOC_T) * CHAR_BIT);
-#endif
-  struct timeval  tv;
-  struct timezone tz;
+  IntegerType *Int8Ty = IntegerType::getInt8Ty(C); <span class="hljs-comment">// define i8 type</span>
+  IntegerType *Int32Ty = IntegerType::getInt32Ty(C); <span class="hljs-comment">// define i32 type</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS <span class="hljs-comment">// &quot;vectorize instrumentation&quot; flag</span></span>
+  IntegerType *IntLocTy = <span class="hljs-comment">// if AFL_HAVE_VECTOR_INTRINSICS enables, define IntLocTy type to store prev_loc</span>
+      IntegerType::getIntNTy(C, <span class="hljs-keyword">sizeof</span>(PREV_LOC_T) * CHAR_BIT);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+  <span class="hljs-keyword">struct</span> timeval  tv; <span class="hljs-comment">// time value for now</span>
+  <span class="hljs-keyword">struct</span> timezone tz; <span class="hljs-comment">// time zone for now</span>
   u32             rand_seed;
-  unsigned int    cur_loc = 0;
+  <span class="hljs-keyword">unsigned</span> <span class="hljs-keyword">int</span>    cur_loc = <span class="hljs-number">0</span>; <span class="hljs-comment">// current instrumented location ID</span>
 
-  /* Setup random() so we get Actually Random(TM) outputs from AFL_R() */
-  gettimeofday(&amp;tv, &amp;tz);
-  rand_seed = tv.tv_sec ^ tv.tv_usec ^ getpid();
-  AFL_SR(rand_seed);
+  <span class="hljs-comment">/* Setup random() so we get Actually Random(TM) outputs from AFL_R() */</span>
+  gettimeofday(&amp;tv, &amp;tz); <span class="hljs-comment">// get current time of the day</span>
+  rand_seed = tv.tv_sec ^ tv.tv_usec ^ getpid(); <span class="hljs-comment">// xor with process pid to get rand seed</span>
+  AFL_SR(rand_seed); <span class="hljs-comment">// marcro to set rand seed (later uses AFL_R() to generate random number)</span>
 
-  /* Show a banner */
+  <span class="hljs-comment">/* Show a banner */</span>
 
-  setvbuf(stdout, NULL, _IONBF, 0);
+  setvbuf(<span class="hljs-built_in">stdout</span>, <span class="hljs-literal">NULL</span>, _IONBF, <span class="hljs-number">0</span>); <span class="hljs-comment">// set no buffer of IO</span>
 
-  if (getenv(&quot;AFL_DEBUG&quot;)) debug = 1;
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_DEBUG&quot;</span>)) debug = <span class="hljs-number">1</span>; <span class="hljs-comment">// if AFL_DEBUG enables then set debug = 1</span>
 
-#if LLVM_VERSION_MAJOR &gt;= 11                        /* use new pass manager */
-  if (getenv(&quot;AFL_SAN_NO_INST&quot;)) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> LLVM_VERSION_MAJOR &gt;= 11                        <span class="hljs-comment">/* use new pass manager */</span></span>
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_SAN_NO_INST&quot;</span>)) { <span class="hljs-comment">// if AFL_SAN_NO_INST enables, then skip instrumentation</span>
 
-    if (debug) { fprintf(stderr, &quot;Instrument disabled\n&quot;); }
-    return PreservedAnalyses::all();
-
-  }
-
-#else
-  if (getenv(&quot;AFL_SAN_NO_INST&quot;)) {
-
-    if (debug) { fprintf(stderr, &quot;Instrument disabled\n&quot;); }
-    return true;
+    <span class="hljs-keyword">if</span> (debug) { <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;Instrument disabled\n&quot;</span>); }
+    <span class="hljs-keyword">return</span> PreservedAnalyses::all();
 
   }
 
-#endif
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+  <span class="hljs-keyword">if</span> (getenv(<span class="hljs-string">&quot;AFL_SAN_NO_INST&quot;</span>)) { <span class="hljs-comment">// if AFL_SAN_NO_INST enables, then skip instrumentation</span>
 
+    <span class="hljs-keyword">if</span> (debug) { <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;Instrument disabled\n&quot;</span>); }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+
+  }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+...
+...
+...
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> LLVM_VERSION_MAJOR &gt;= 11                        <span class="hljs-comment">/* use new pass manager */</span></span>
+  <span class="hljs-keyword">return</span> PreservedAnalyses(); <span class="hljs-comment">// LLVM-11+ uses PreservedAnalyses to show IR modified</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <span class="hljs-comment">// LLVM-10- uses true to show IR modified</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#x9010;&#x90E8;&#x5206;&#x89E3;&#x91CA;&#x4EE3;&#x7801;</p>
+<p>&#x4E3B;&#x903B;&#x8F91;&#x8FDB;&#x6765;&#x8BBE;&#x7F6E;&#x53C2;&#x6570;&#x4EE5;&#x540E;, &#x5F00;&#x59CB;&#x8BBE;&#x7F6E;&#x63D2;&#x6869;&#x7387; <code>inst_ratio</code>, <code>neverzero counters</code>, <code>threadsafe counters</code>. &#x63A5;&#x7740;, &#x8BBE;&#x7F6E;&#x4E0A;&#x4E0B;&#x6587;&#x63D2;&#x6869;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x91CF;, &#x5305;&#x62EC; <code>N-gram</code>, <code>ctx</code>, <code>caller</code>. </p>
+<pre><code class="lang-c">  // if fd==2(stderr) &amp;&amp; AFL_QUIET disables &amp;&amp; AFL_DEBUG enables then output the version information 
   if ((isatty(2) &amp;&amp; !getenv(&quot;AFL_QUIET&quot;)) || getenv(&quot;AFL_DEBUG&quot;) != NULL) {
 
     SAYF(cCYA &quot;afl-llvm-pass&quot; VERSION cRST
               &quot; by &lt;lszekeres@google.com&gt; and &lt;adrian.herrera@anu.edu.au&gt;\n&quot;);
 
-  } else
+  } else // else set the flag be_quiet = 1
 
     be_quiet = 1;
 
-  /*
-    char *ptr;
-    if ((ptr = getenv(&quot;AFL_MAP_SIZE&quot;)) || (ptr = getenv(&quot;AFL_MAPSIZE&quot;))) {
-
-      map_size = atoi(ptr);
-      if (map_size &lt; 8 || map_size &gt; (1 &lt;&lt; 29))
-        FATAL(&quot;illegal AFL_MAP_SIZE %u, must be between 2^3 and 2^30&quot;,
-    map_size); if (map_size % 8) map_size = (((map_size &gt;&gt; 3) + 1) &lt;&lt; 3);
-
-    }
-
-  */
+  // ...
 
   /* Decide instrumentation ratio */
 
-  char        *inst_ratio_str = getenv(&quot;AFL_INST_RATIO&quot;);
-  unsigned int inst_ratio = 100;
+  char        *inst_ratio_str = getenv(&quot;AFL_INST_RATIO&quot;); // use AFL_INST_RATIO to set instrumentation ratio
+  unsigned int inst_ratio = 100; // 100% as max
 
   if (inst_ratio_str) {
-
+    // if inst_ratio_str is not numeric || inst_ratio == 0 || inst_ratio &gt; 100 then report error and exit
     if (sscanf(inst_ratio_str, &quot;%u&quot;, &amp;inst_ratio) != 1 || !inst_ratio ||
         inst_ratio &gt; 100)
       FATAL(&quot;Bad value of AFL_INST_RATIO (must be between 1 and 100)&quot;);
@@ -1728,32 +1733,17 @@ bool AFLCoverage::runOnModule(Module &amp;M) {
   }
 
 #if LLVM_VERSION_MAJOR &lt; 9
-  char *neverZero_counters_str = getenv(&quot;AFL_LLVM_NOT_ZERO&quot;);
+  char *neverZero_counters_str = getenv(&quot;AFL_LLVM_NOT_ZERO&quot;); // LLVM-8- set AFL_LLVM_NOT_ZERO to disable neverZero counters
 #endif
-  skip_nozero = getenv(&quot;AFL_LLVM_SKIP_NEVERZERO&quot;);
-  use_threadsafe_counters = getenv(&quot;AFL_LLVM_THREADSAFE_INST&quot;);
+  skip_nozero = getenv(&quot;AFL_LLVM_SKIP_NEVERZERO&quot;); // LLVM-9+ set AFL_LLVM_SKIP_NEVERZERO to disable neverZero counters
+  use_threadsafe_counters = getenv(&quot;AFL_LLVM_THREADSAFE_INST&quot;); // set AFL_LLVM_THREADSAFE_INST to enable threadsafe counters
 
   if ((isatty(2) &amp;&amp; !getenv(&quot;AFL_QUIET&quot;)) || !!getenv(&quot;AFL_DEBUG&quot;)) {
 
-    if (use_threadsafe_counters) {
-
-      // disabled unless there is support for other modules as well
-      // (increases documentation complexity)
-      /*      if (!getenv(&quot;AFL_LLVM_NOT_ZERO&quot;)) { */
+    if (use_threadsafe_counters) { // when enables threadsafe counters then skip neverzero counters
 
       skip_nozero = &quot;1&quot;;
       SAYF(cCYA &quot;afl-llvm-pass&quot; VERSION cRST &quot; using thread safe counters\n&quot;);
-
-      /*
-
-            } else {
-
-              SAYF(cCYA &quot;afl-llvm-pass&quot; VERSION cRST
-                        &quot; using thread safe not-zero-counters\n&quot;);
-
-            }
-
-      */
 
     } else {
 
@@ -1767,286 +1757,308 @@ bool AFLCoverage::runOnModule(Module &amp;M) {
   unsigned PrevLocSize = 0;
   unsigned PrevCallerSize = 0;
 
-  char *ngram_size_str = getenv(&quot;AFL_LLVM_NGRAM_SIZE&quot;);
-  if (!ngram_size_str) ngram_size_str = getenv(&quot;AFL_NGRAM_SIZE&quot;);
-  char *ctx_k_str = getenv(&quot;AFL_LLVM_CTX_K&quot;);
-  if (!ctx_k_str) ctx_k_str = getenv(&quot;AFL_CTX_K&quot;);
-  ctx_str = getenv(&quot;AFL_LLVM_CTX&quot;);
-  caller_str = getenv(&quot;AFL_LLVM_CALLER&quot;);
+  char *ngram_size_str = getenv(&quot;AFL_LLVM_NGRAM_SIZE&quot;); // set ngram_size by AFL_LLVM_NGRAM_SIZE 
+  if (!ngram_size_str) ngram_size_str = getenv(&quot;AFL_NGRAM_SIZE&quot;); // or set ngram_size by AFL_NGRAM_SIZE
+  char *ctx_k_str = getenv(&quot;AFL_LLVM_CTX_K&quot;); // enables context-aware instrumentaion size by setting AFL_LLVM_CTX_K
+  if (!ctx_k_str) ctx_k_str = getenv(&quot;AFL_CTX_K&quot;); // or enables context-aware instrumentaion size by setting AFL_CTX_K
+  ctx_str = getenv(&quot;AFL_LLVM_CTX&quot;); // enables instrument_ctx by setting AFL_LLVM_CTX
+  caller_str = getenv(&quot;AFL_LLVM_CALLER&quot;); // or enables instrument_ctx by setting AFL_LLVM_CALLER
 
-  bool instrument_ctx = ctx_str || caller_str;
+  bool instrument_ctx = ctx_str || caller_str; // set instrument_ctx to enable context-aware instrumentation
+</code></pre>
+<p>&#x5F80;&#x4E0B;&#x662F;&#x8BBE;&#x7F6E;&#x5411;&#x91CF;&#x5316;&#x63D2;&#x6869;&#x7684;&#x53C2;&#x6570;, &#x5305;&#x62EC; <code>n-gram</code>, <code>k-context</code>. </p>
+<pre><code class="lang-c"><span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS <span class="hljs-comment">// AFL_HAVE_VECTOR_INTRINSICS to enable vectorize instrumentation, e.g. N-gram path log</span></span>
+  <span class="hljs-comment">/* Decide previous location vector size (must be a power of two) */</span>
+  VectorType *PrevLocTy = <span class="hljs-literal">NULL</span>;
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  /* Decide previous location vector size (must be a power of two) */
-  VectorType *PrevLocTy = NULL;
-
-  if (ngram_size_str)
-    if (sscanf(ngram_size_str, &quot;%u&quot;, &amp;ngram_size) != 1 || ngram_size &lt; 2 ||
+  <span class="hljs-keyword">if</span> (ngram_size_str)
+    <span class="hljs-comment">// if ngram_size is not numeric || ngram_size &lt;= 1 || ngram_size &gt; allowed NGRAM_SIZE_MAX then report error and exit</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">sscanf</span>(ngram_size_str, <span class="hljs-string">&quot;%u&quot;</span>, &amp;ngram_size) != <span class="hljs-number">1</span> || ngram_size &lt; <span class="hljs-number">2</span> ||
         ngram_size &gt; NGRAM_SIZE_MAX)
       FATAL(
-          &quot;Bad value of AFL_NGRAM_SIZE (must be between 2 and NGRAM_SIZE_MAX &quot;
-          &quot;(%u))&quot;,
+          <span class="hljs-string">&quot;Bad value of AFL_NGRAM_SIZE (must be between 2 and NGRAM_SIZE_MAX &quot;</span>
+          <span class="hljs-string">&quot;(%u))&quot;</span>,
           NGRAM_SIZE_MAX);
+  <span class="hljs-comment">// ngram_size == 1 makes no sense to record only 1 path, so set to 0</span>
+  <span class="hljs-keyword">if</span> (ngram_size == <span class="hljs-number">1</span>) ngram_size = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">if</span> (ngram_size)
+    PrevLocSize = ngram_size - <span class="hljs-number">1</span>; <span class="hljs-comment">// PrevLoc to store ngram_size - 1 path log</span>
+  <span class="hljs-keyword">else</span>
+    PrevLocSize = <span class="hljs-number">1</span>; <span class="hljs-comment">// default is 1</span>
 
-  if (ngram_size == 1) ngram_size = 0;
-  if (ngram_size)
-    PrevLocSize = ngram_size - 1;
-  else
-    PrevLocSize = 1;
+  <span class="hljs-comment">/* Decide K-ctx vector size (must be a power of two) */</span>
+  VectorType *PrevCallerTy = <span class="hljs-literal">NULL</span>;
 
-  /* Decide K-ctx vector size (must be a power of two) */
-  VectorType *PrevCallerTy = NULL;
-
-  if (ctx_k_str)
-    if (sscanf(ctx_k_str, &quot;%u&quot;, &amp;ctx_k) != 1 || ctx_k &lt; 1 || ctx_k &gt; CTX_MAX_K)
-      FATAL(&quot;Bad value of AFL_CTX_K (must be between 1 and CTX_MAX_K (%u))&quot;,
+  <span class="hljs-keyword">if</span> (ctx_k_str)
+    <span class="hljs-comment">// check valid ctx_k_str setting</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">sscanf</span>(ctx_k_str, <span class="hljs-string">&quot;%u&quot;</span>, &amp;ctx_k) != <span class="hljs-number">1</span> || ctx_k &lt; <span class="hljs-number">1</span> || ctx_k &gt; CTX_MAX_K)
+      FATAL(<span class="hljs-string">&quot;Bad value of AFL_CTX_K (must be between 1 and CTX_MAX_K (%u))&quot;</span>,
             CTX_MAX_K);
 
-  if (ctx_k == 1) {
+  <span class="hljs-keyword">if</span> (ctx_k == <span class="hljs-number">1</span>) { <span class="hljs-comment">// when ctx_k == 1 then only enables CALLER mode</span>
 
-    ctx_k = 0;
-    instrument_ctx = true;
-    caller_str = ctx_k_str;  // Enable CALLER instead
-
-  }
-
-  if (ctx_k) {
-
-    PrevCallerSize = ctx_k;
-    instrument_ctx = true;
+    ctx_k = <span class="hljs-number">0</span>;
+    instrument_ctx = <span class="hljs-literal">true</span>;
+    caller_str = ctx_k_str;  <span class="hljs-comment">// Enable CALLER instead</span>
 
   }
 
-#else
-  if (ngram_size_str)
-  #ifndef LLVM_VERSION_PATCH
-    FATAL(
-        &quot;Sorry, NGRAM branch coverage is not supported with llvm version &quot;
-        &quot;%d.%d.%d!&quot;,
-        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, 0);
-  #else
-    FATAL(
-        &quot;Sorry, NGRAM branch coverage is not supported with llvm version &quot;
-        &quot;%d.%d.%d!&quot;,
-        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, LLVM_VERSION_PATCH);
-  #endif
-  if (ctx_k_str)
-  #ifndef LLVM_VERSION_PATCH
-    FATAL(
-        &quot;Sorry, K-CTX branch coverage is not supported with llvm version &quot;
-        &quot;%d.%d.%d!&quot;,
-        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, 0);
-  #else
-    FATAL(
-        &quot;Sorry, K-CTX branch coverage is not supported with llvm version &quot;
-        &quot;%d.%d.%d!&quot;,
-        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, LLVM_VERSION_PATCH);
-  #endif
-  PrevLocSize = 1;
-#endif
+  <span class="hljs-keyword">if</span> (ctx_k) { <span class="hljs-comment">// when ctx_k &gt;= 2 then enables context instrumentation</span>
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  int PrevLocVecSize = PowerOf2Ceil(PrevLocSize);
-  if (ngram_size)
-    PrevLocTy = VectorType::get(IntLocTy, PrevLocVecSize
-  #if LLVM_VERSION_MAJOR &gt;= 12
+    PrevCallerSize = ctx_k; <span class="hljs-comment">// set the PrevCallerSize as k</span>
+    instrument_ctx = <span class="hljs-literal">true</span>;
+
+  }
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span> <span class="hljs-comment">// disables context instrumentation</span></span>
+  <span class="hljs-keyword">if</span> (ngram_size_str) <span class="hljs-comment">// report error when setting ngram_size but not setting AFL_HAVE_VECTOR_INTRINSICS</span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> LLVM_VERSION_PATCH</span>
+    FATAL(
+        <span class="hljs-string">&quot;Sorry, NGRAM branch coverage is not supported with llvm version &quot;</span>
+        <span class="hljs-string">&quot;%d.%d.%d!&quot;</span>,
+        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, <span class="hljs-number">0</span>);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    FATAL(
+        <span class="hljs-string">&quot;Sorry, NGRAM branch coverage is not supported with llvm version &quot;</span>
+        <span class="hljs-string">&quot;%d.%d.%d!&quot;</span>,
+        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, LLVM_VERSION_PATCH);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+  <span class="hljs-keyword">if</span> (ctx_k_str) <span class="hljs-comment">// report error when setting ctx_k but not setting AFL_HAVE_VECTOR_INTRINSICS</span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">ifndef</span> LLVM_VERSION_PATCH</span>
+    FATAL(
+        <span class="hljs-string">&quot;Sorry, K-CTX branch coverage is not supported with llvm version &quot;</span>
+        <span class="hljs-string">&quot;%d.%d.%d!&quot;</span>,
+        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, <span class="hljs-number">0</span>);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    FATAL(
+        <span class="hljs-string">&quot;Sorry, K-CTX branch coverage is not supported with llvm version &quot;</span>
+        <span class="hljs-string">&quot;%d.%d.%d!&quot;</span>,
+        LLVM_VERSION_MAJOR, LLVM_VERSION_MINOR, LLVM_VERSION_PATCH);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+  PrevLocSize = <span class="hljs-number">1</span>; <span class="hljs-comment">// default PrevLocSize is 1</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+  <span class="hljs-keyword">int</span> PrevLocVecSize = PowerOf2Ceil(PrevLocSize); <span class="hljs-comment">// PrevLocSize &lt;= 2^n (where n is the smallest to make inequality hold)</span>
+  <span class="hljs-keyword">if</span> (ngram_size)
+    PrevLocTy = VectorType::get(IntLocTy, PrevLocVecSize 
+                                <span class="hljs-comment">// create vector PrevLocTy[PrevLocVecSize] whose element type is IntLocTy</span>
+  #<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">12</span> <span class="hljs-comment">// LLVM-12+ supports scalable vector</span>
                                 ,
-                                false
+                                <span class="hljs-literal">false</span> <span class="hljs-comment">// not scalable to expend vector</span>
   #endif
     );
-#endif
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  int PrevCallerVecSize = PowerOf2Ceil(PrevCallerSize);
-  if (ctx_k)
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+  <span class="hljs-keyword">int</span> PrevCallerVecSize = PowerOf2Ceil(PrevCallerSize); 
+  <span class="hljs-comment">// PrevCallerSize &lt;= 2^n (where n is the smallest to make inequality hold)</span>
+  <span class="hljs-keyword">if</span> (ctx_k)
     PrevCallerTy = VectorType::get(IntLocTy, PrevCallerVecSize
-  #if LLVM_VERSION_MAJOR &gt;= 12
+                                   <span class="hljs-comment">// create vector PrevCallerTy[PrevCallerVecSize] whose element type is IntLocTy</span>
+  #<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">12</span> <span class="hljs-comment">// LLVM-12+ supports scalable vector</span>
                                    ,
-                                   false
+                                   <span class="hljs-literal">false</span> <span class="hljs-comment">// not scalable to expend vector</span>
   #endif
     );
-#endif
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+</code></pre>
+<p>&#x8BBE;&#x7F6E;&#x5B8C;&#x4E0A;&#x4E0B;&#x6587;&#x76F8;&#x5173;&#x53C2;&#x6570;&#x540E;, &#x63A5;&#x7740;&#x662F;&#x8BBE;&#x7F6E;&#x5171;&#x4EAB;&#x5185;&#x5B58; <code>SHM</code> &#x7684;&#x76F8;&#x5173;&#x53D8;&#x91CF;</p>
+<pre><code class="lang-c">  <span class="hljs-comment">/* Get globals for the SHM region and the previous location. Note that
+     __afl_prev_loc is thread-local. */</span>
+  <span class="hljs-comment">// set the global variable __afl_area_ptr, whose type is i8* (Int8Ty pointer).</span>
+  GlobalVariable *AFLMapPtr = <span class="hljs-comment">// points to bitmap share memory</span>
+      <span class="hljs-keyword">new</span> GlobalVariable(M, PointerType::get(Int8Ty, <span class="hljs-number">0</span>), <span class="hljs-literal">false</span>,
+                         GlobalValue::ExternalLinkage, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;__afl_area_ptr&quot;</span>);
+  GlobalVariable *AFLPrevLoc; <span class="hljs-comment">// last basic block location</span>
+  GlobalVariable *AFLPrevCaller; <span class="hljs-comment">// last caller location</span>
+  GlobalVariable *AFLContext = <span class="hljs-literal">NULL</span>; <span class="hljs-comment">// last function ID (caller mode enabling), which is thread local storage (TLS)</span>
 
-  /* Get globals for the SHM region and the previous location. Note that
-     __afl_prev_loc is thread-local. */
+  <span class="hljs-keyword">if</span> (ctx_str || caller_str) <span class="hljs-comment">// if enables context instrumentation then create global variable __afl_prev_ctx</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS) <span class="hljs-comment">// ANDROID not supports TLS</span></span>
+    AFLContext = <span class="hljs-keyword">new</span> GlobalVariable(
+        M, Int32Ty, <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;__afl_prev_ctx&quot;</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    AFLContext = <span class="hljs-keyword">new</span> GlobalVariable(
+        M, Int32Ty, <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;__afl_prev_ctx&quot;</span>, <span class="hljs-number">0</span>,
+        GlobalVariable::GeneralDynamicTLSModel, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-  GlobalVariable *AFLMapPtr =
-      new GlobalVariable(M, PointerType::get(Int8Ty, 0), false,
-                         GlobalValue::ExternalLinkage, 0, &quot;__afl_area_ptr&quot;);
-  GlobalVariable *AFLPrevLoc;
-  GlobalVariable *AFLPrevCaller;
-  GlobalVariable *AFLContext = NULL;
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+  <span class="hljs-keyword">if</span> (ngram_size) <span class="hljs-comment">// if enables ngram then create global variable __afl_prev_loc to store last basic block</span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)</span>
+    AFLPrevLoc = <span class="hljs-keyword">new</span> GlobalVariable(
+        M, PrevLocTy, <span class="hljs-comment">/* isConstant */</span> <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage,
+        <span class="hljs-comment">/* Initializer */</span> <span class="hljs-literal">nullptr</span>, <span class="hljs-string">&quot;__afl_prev_loc&quot;</span>);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    AFLPrevLoc = <span class="hljs-keyword">new</span> GlobalVariable(
+        M, PrevLocTy, <span class="hljs-comment">/* isConstant */</span> <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage,
+        <span class="hljs-comment">/* Initializer */</span> <span class="hljs-literal">nullptr</span>, <span class="hljs-string">&quot;__afl_prev_loc&quot;</span>,
+        <span class="hljs-comment">/* InsertBefore */</span> <span class="hljs-literal">nullptr</span>, GlobalVariable::GeneralDynamicTLSModel,
+        <span class="hljs-comment">/* AddressSpace */</span> <span class="hljs-number">0</span>, <span class="hljs-comment">/* IsExternallyInitialized */</span> <span class="hljs-literal">false</span>);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+  <span class="hljs-keyword">else</span> <span class="hljs-comment">// disables vectorize mode so create not-vector global variable __afl_prev_loc</span>
+#endif
+#<span class="hljs-keyword">if</span> defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
+    AFLPrevLoc = <span class="hljs-keyword">new</span> GlobalVariable(
+        M, Int32Ty, <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;__afl_prev_loc&quot;</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+  AFLPrevLoc = <span class="hljs-keyword">new</span> GlobalVariable(
+      M, Int32Ty, <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;__afl_prev_loc&quot;</span>, <span class="hljs-number">0</span>,
+      GlobalVariable::GeneralDynamicTLSModel, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-  if (ctx_str || caller_str)
-#if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
-    AFLContext = new GlobalVariable(
-        M, Int32Ty, false, GlobalValue::ExternalLinkage, 0, &quot;__afl_prev_ctx&quot;);
-#else
-    AFLContext = new GlobalVariable(
-        M, Int32Ty, false, GlobalValue::ExternalLinkage, 0, &quot;__afl_prev_ctx&quot;, 0,
-        GlobalVariable::GeneralDynamicTLSModel, 0, false);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+  <span class="hljs-keyword">if</span> (ctx_k) <span class="hljs-comment">// if enables caller then create global variable __afl_prev_caller to store last caller</span>
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)</span>
+    AFLPrevCaller = <span class="hljs-keyword">new</span> GlobalVariable(
+        M, PrevCallerTy, <span class="hljs-comment">/* isConstant */</span> <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage,
+        <span class="hljs-comment">/* Initializer */</span> <span class="hljs-literal">nullptr</span>, <span class="hljs-string">&quot;__afl_prev_caller&quot;</span>);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+    AFLPrevCaller = <span class="hljs-keyword">new</span> GlobalVariable(
+        M, PrevCallerTy, <span class="hljs-comment">/* isConstant */</span> <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage,
+        <span class="hljs-comment">/* Initializer */</span> <span class="hljs-literal">nullptr</span>, <span class="hljs-string">&quot;__afl_prev_caller&quot;</span>,
+        <span class="hljs-comment">/* InsertBefore */</span> <span class="hljs-literal">nullptr</span>, GlobalVariable::GeneralDynamicTLSModel,
+        <span class="hljs-comment">/* AddressSpace */</span> <span class="hljs-number">0</span>, <span class="hljs-comment">/* IsExternallyInitialized */</span> <span class="hljs-literal">false</span>);
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+  <span class="hljs-keyword">else</span> <span class="hljs-comment">// disables vectorize mode so create not-vector global variable __afl_prev_caller</span>
 #endif
-
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  if (ngram_size)
-  #if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
-    AFLPrevLoc = new GlobalVariable(
-        M, PrevLocTy, /* isConstant */ false, GlobalValue::ExternalLinkage,
-        /* Initializer */ nullptr, &quot;__afl_prev_loc&quot;);
-  #else
-    AFLPrevLoc = new GlobalVariable(
-        M, PrevLocTy, /* isConstant */ false, GlobalValue::ExternalLinkage,
-        /* Initializer */ nullptr, &quot;__afl_prev_loc&quot;,
-        /* InsertBefore */ nullptr, GlobalVariable::GeneralDynamicTLSModel,
-        /* AddressSpace */ 0, /* IsExternallyInitialized */ false);
-  #endif
-  else
-#endif
-#if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
-    AFLPrevLoc = new GlobalVariable(
-        M, Int32Ty, false, GlobalValue::ExternalLinkage, 0, &quot;__afl_prev_loc&quot;);
-#else
-  AFLPrevLoc = new GlobalVariable(
-      M, Int32Ty, false, GlobalValue::ExternalLinkage, 0, &quot;__afl_prev_loc&quot;, 0,
-      GlobalVariable::GeneralDynamicTLSModel, 0, false);
-#endif
-
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  if (ctx_k)
-  #if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
-    AFLPrevCaller = new GlobalVariable(
-        M, PrevCallerTy, /* isConstant */ false, GlobalValue::ExternalLinkage,
-        /* Initializer */ nullptr, &quot;__afl_prev_caller&quot;);
-  #else
-    AFLPrevCaller = new GlobalVariable(
-        M, PrevCallerTy, /* isConstant */ false, GlobalValue::ExternalLinkage,
-        /* Initializer */ nullptr, &quot;__afl_prev_caller&quot;,
-        /* InsertBefore */ nullptr, GlobalVariable::GeneralDynamicTLSModel,
-        /* AddressSpace */ 0, /* IsExternallyInitialized */ false);
-  #endif
-  else
-#endif
-#if defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
+#<span class="hljs-keyword">if</span> defined(__ANDROID__) || defined(__HAIKU__) || defined(NO_TLS)
     AFLPrevCaller =
-        new GlobalVariable(M, Int32Ty, false, GlobalValue::ExternalLinkage, 0,
-                           &quot;__afl_prev_caller&quot;);
-#else
-  AFLPrevCaller = new GlobalVariable(
-      M, Int32Ty, false, GlobalValue::ExternalLinkage, 0, &quot;__afl_prev_caller&quot;,
-      0, GlobalVariable::GeneralDynamicTLSModel, 0, false);
-#endif
+        <span class="hljs-keyword">new</span> GlobalVariable(M, Int32Ty, <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage, <span class="hljs-number">0</span>,
+                           <span class="hljs-string">&quot;__afl_prev_caller&quot;</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+  AFLPrevCaller = <span class="hljs-keyword">new</span> GlobalVariable(
+      M, Int32Ty, <span class="hljs-literal">false</span>, GlobalValue::ExternalLinkage, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;__afl_prev_caller&quot;</span>,
+      <span class="hljs-number">0</span>, GlobalVariable::GeneralDynamicTLSModel, <span class="hljs-number">0</span>, <span class="hljs-literal">false</span>);
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-  /* Create the vector shuffle mask for updating the previous block history.
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+  <span class="hljs-comment">/* Create the vector shuffle mask for updating the previous block history.
      Note that the first element of the vector will store cur_loc, so just set
-     it to undef to allow the optimizer to do its thing. */
+     it to undef to allow the optimizer to do its thing. */</span>
 
-  SmallVector&lt;Constant *, 32&gt; PrevLocShuffle = {UndefValue::get(Int32Ty)};
+  SmallVector&lt;Constant *, <span class="hljs-number">32</span>&gt; PrevLocShuffle = {UndefValue::get(Int32Ty)};
 
-  for (unsigned I = 0; I &lt; PrevLocSize - 1; ++I)
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> I = <span class="hljs-number">0</span>; I &lt; PrevLocSize - <span class="hljs-number">1</span>; ++I)
     PrevLocShuffle.push_back(ConstantInt::get(Int32Ty, I));
+    <span class="hljs-comment">// PrevLocShuffle = [cur_loc(UnderValue), prev_loc[0], prev_loc[1], ...]</span>
 
-  for (int I = PrevLocSize; I &lt; PrevLocVecSize; ++I)
+  <span class="hljs-comment">// fill remains of vector elements with PrevLocSize</span>
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> I = PrevLocSize; I &lt; PrevLocVecSize; ++I)
     PrevLocShuffle.push_back(ConstantInt::get(Int32Ty, PrevLocSize));
 
+  <span class="hljs-comment">// The mask will right shift the vector of PrevLoc and insert cur_loc into first place of vector</span>
   Constant *PrevLocShuffleMask = ConstantVector::get(PrevLocShuffle);
 
-  Constant                   *PrevCallerShuffleMask = NULL;
-  SmallVector&lt;Constant *, 32&gt; PrevCallerShuffle = {UndefValue::get(Int32Ty)};
+  <span class="hljs-comment">// same logic for PrevCallerShuffleMask </span>
+  Constant                   *PrevCallerShuffleMask = <span class="hljs-literal">NULL</span>;
+  SmallVector&lt;Constant *, <span class="hljs-number">32</span>&gt; PrevCallerShuffle = {UndefValue::get(Int32Ty)};
 
-  if (ctx_k) {
+  <span class="hljs-keyword">if</span> (ctx_k) {
 
-    for (unsigned I = 0; I &lt; PrevCallerSize - 1; ++I)
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">unsigned</span> I = <span class="hljs-number">0</span>; I &lt; PrevCallerSize - <span class="hljs-number">1</span>; ++I)
       PrevCallerShuffle.push_back(ConstantInt::get(Int32Ty, I));
+      <span class="hljs-comment">// PrevCallerShuffle = [cur_caller(UnderValue), prev_caller[0], prev_caller[1], ...]</span>
 
-    for (int I = PrevCallerSize; I &lt; PrevCallerVecSize; ++I)
+    <span class="hljs-comment">// fill remains of vector elements with PrevCallerSize</span>
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> I = PrevCallerSize; I &lt; PrevCallerVecSize; ++I)
       PrevCallerShuffle.push_back(ConstantInt::get(Int32Ty, PrevCallerSize));
 
+    <span class="hljs-comment">// The mask will right shift the vector of PrevCaller and insert cur_caller into first place of vector</span>
     PrevCallerShuffleMask = ConstantVector::get(PrevCallerShuffle);
 
   }
 
-#endif
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
 
-  // other constants we need
-  ConstantInt *One = ConstantInt::get(Int8Ty, 1);
+  <span class="hljs-comment">// other constants we need</span>
+  ConstantInt *One = ConstantInt::get(Int8Ty, <span class="hljs-number">1</span>);
 
-  Value    *PrevCtx = NULL;     // CTX sensitive coverage
-  LoadInst *PrevCaller = NULL;  // K-CTX coverage
+  Value    *PrevCtx = <span class="hljs-literal">NULL</span>;     <span class="hljs-comment">// CTX sensitive coverage</span>
+  LoadInst *PrevCaller = <span class="hljs-literal">NULL</span>;  <span class="hljs-comment">// K-CTX coverage</span>
+</code></pre>
+<p><strong>&#x63D2;&#x6869;&#x7684;&#x4E3B;&#x8981;&#x903B;&#x8F91;</strong></p>
+<pre><code class="lang-c">  <span class="hljs-comment">/* Instrument all the things! */</span>
+  <span class="hljs-comment">// ----------&gt; main logic of instrumentation starts here &lt;----------</span>
+  <span class="hljs-keyword">int</span> inst_blocks = <span class="hljs-number">0</span>; <span class="hljs-comment">// count of successfully instrumented blocks</span>
+  scanForDangerousFunctions(&amp;M); <span class="hljs-comment">// scan M contains dangerous functions like fork, exec</span>
 
-  /* Instrument all the things! */
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;F : M) { <span class="hljs-comment">// traverse all functions in Module M</span>
 
-  int inst_blocks = 0;
-  scanForDangerousFunctions(&amp;M);
-
-  for (auto &amp;F : M) {
-
-    int has_calls = 0;
-    if (debug)
-      fprintf(stderr, &quot;FUNCTION: %s (%zu)\n&quot;, F.getName().str().c_str(),
+    <span class="hljs-keyword">int</span> has_calls = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> (debug)
+      <span class="hljs-built_in">fprintf</span>(<span class="hljs-built_in">stderr</span>, <span class="hljs-string">&quot;FUNCTION: %s (%zu)\n&quot;</span>, F.getName().str().c_str(),
               F.size());
 
-    if (!isInInstrumentList(&amp;F, MNAME)) { continue; }
+    <span class="hljs-keyword">if</span> (!isInInstrumentList(&amp;F, MNAME)) { <span class="hljs-keyword">continue</span>; } <span class="hljs-comment">// skip function doesn&apos;t need instrument</span>
 
-    if (F.size() &lt; function_minimum_size) { continue; }
+    <span class="hljs-keyword">if</span> (F.size() &lt; function_minimum_size) { <span class="hljs-keyword">continue</span>; } <span class="hljs-comment">// skip function with little basic blocks </span>
 
-    std::list&lt;Value *&gt; todo;
-    for (auto &amp;BB : F) {
+    <span class="hljs-built_in">std</span>::<span class="hljs-built_in">list</span>&lt;Value *&gt; todo;
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;BB : F) { <span class="hljs-comment">// traverse all basic blocks in Function F</span>
 
-      BasicBlock::iterator IP = BB.getFirstInsertionPt();
-      IRBuilder&lt;&gt;          IRB(&amp;(*IP));
+      BasicBlock::iterator IP = BB.getFirstInsertionPt(); <span class="hljs-comment">// IP points to first insertion point in BB</span>
+      IRBuilder&lt;&gt;          IRB(&amp;(*IP)); <span class="hljs-comment">// IRBuilder inserts IR instruction</span>
 
-      // Context sensitive coverage
-      if (instrument_ctx &amp;&amp; &amp;BB == &amp;F.getEntryBlock()) {
+      <span class="hljs-comment">// Context sensitive coverage</span>
+      <span class="hljs-comment">// if enables instrument_ctx &amp;&amp; current BB is the first BB of function F, then ...</span>
+      <span class="hljs-keyword">if</span> (instrument_ctx &amp;&amp; &amp;BB == &amp;F.getEntryBlock()) {
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-        if (ctx_k) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+        <span class="hljs-keyword">if</span> (ctx_k) {
 
-          PrevCaller = IRB.CreateLoad(
-  #if LLVM_VERSION_MAJOR &gt;= 14
+          PrevCaller = IRB.CreateLoad( <span class="hljs-comment">// CreateLoad(Type, Value*): load type data from Value* address</span>
+  #<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">14</span>
               PrevCallerTy,
   #endif
               AFLPrevCaller);
-          PrevCaller-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;),
-                                  MDNode::get(C, None));
-          PrevCtx =
-              IRB.CreateZExt(IRB.CreateXorReduce(PrevCaller), IRB.getInt32Ty());
 
-        } else
+          <span class="hljs-comment">// insert nosanitize to tell A/M/TSan not to analyze the instruction</span>
+          PrevCaller-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>),
+                                  MDNode::get(C, None));
+          PrevCtx = <span class="hljs-comment">// CreateZExt(Value*, Type*): zero extend an integer to wider type integer, </span>
+                      <span class="hljs-comment">// high position padding with zeros</span>
+              IRB.CreateZExt(IRB.CreateXorReduce(PrevCaller), IRB.getInt32Ty());
+                <span class="hljs-comment">// CreateXorReduce(Value*): xor each element in vector Value* and return the xored result</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-comment">// ctx_k == 0</span>
 
 #endif
         {
 
-          // load the context ID of the previous function and write to a
-          // local variable on the stack
-          LoadInst *PrevCtxLoad = IRB.CreateLoad(
-#if LLVM_VERSION_MAJOR &gt;= 14
+          <span class="hljs-comment">// load the context ID of the previous function and write to a</span>
+          <span class="hljs-comment">// local variable on the stack</span>
+          LoadInst *PrevCtxLoad = IRB.CreateLoad( <span class="hljs-comment">// PrevCtxLoad stores prev function context ID</span>
+#<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">14</span>
               IRB.getInt32Ty(),
 #endif
               AFLContext);
-          PrevCtxLoad-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;),
+
+          <span class="hljs-comment">// insert nosanitize to tell A/M/TSan not to analyze the instruction</span>
+          PrevCtxLoad-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>),
                                    MDNode::get(C, None));
           PrevCtx = PrevCtxLoad;
 
-        }
+        } <span class="hljs-comment">// end of if(ctx_k) else </span>
 
-        // does the function have calls? and is any of the calls larger than one
-        // basic block?
-        for (auto &amp;BB_2 : F) {
+        <span class="hljs-comment">// does the function have calls? and is any of the calls larger than one basic block?</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;BB_2 : F) { <span class="hljs-comment">// traverse all BB in function F again </span>
+            <span class="hljs-comment">// to check if F calls other functions needed to be instrumented</span>
 
-          if (has_calls) break;
-          for (auto &amp;IN : BB_2) {
+          <span class="hljs-keyword">if</span> (has_calls) <span class="hljs-keyword">break</span>; <span class="hljs-comment">// already found calls then break</span>
+          <span class="hljs-keyword">for</span> (<span class="hljs-keyword">auto</span> &amp;IN : BB_2) { <span class="hljs-comment">// traverse instruction by instruction in function</span>
 
-            CallInst *callInst = nullptr;
-            if ((callInst = dyn_cast&lt;CallInst&gt;(&amp;IN))) {
+            CallInst *callInst = <span class="hljs-literal">nullptr</span>;
+            <span class="hljs-keyword">if</span> ((callInst = dyn_cast&lt;CallInst&gt;(&amp;IN))) { <span class="hljs-comment">// safely transform &amp;IN to CallInst type</span>
 
-              Function *Callee = callInst-&gt;getCalledFunction();
-              if (!Callee || Callee-&gt;size() &lt; function_minimum_size)
-                continue;
-              else {
+              Function *Callee = callInst-&gt;getCalledFunction(); <span class="hljs-comment">// get the callee of instruction</span>
+              <span class="hljs-keyword">if</span> (!Callee || Callee-&gt;size() &lt; function_minimum_size) 
+                  <span class="hljs-comment">// if callee is nullptr || called function with little BB, then skip</span>
+                <span class="hljs-keyword">continue</span>;
+              <span class="hljs-keyword">else</span> { <span class="hljs-comment">// found one called function needed to be instrumented</span>
 
-                has_calls = 1;
-                break;
+                has_calls = <span class="hljs-number">1</span>; <span class="hljs-comment">// set the flag has_calls = 1</span>
+                <span class="hljs-keyword">break</span>;
 
               }
 
@@ -2054,228 +2066,231 @@ bool AFLCoverage::runOnModule(Module &amp;M) {
 
           }
 
-        }
+        } <span class="hljs-comment">// end of for (auto &amp;BB_2 : F)</span>
 
-        // if yes we store a context ID for this function in the global var
-        if (has_calls) {
-
+        <span class="hljs-comment">// if yes we store a context ID for this function in the global var</span>
+        <span class="hljs-keyword">if</span> (has_calls) {
+          <span class="hljs-comment">// random another new context ID</span>
           Value *NewCtx = ConstantInt::get(Int32Ty, AFL_R(map_size));
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-          if (ctx_k) {
-
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+          <span class="hljs-keyword">if</span> (ctx_k) {
+            <span class="hljs-comment">// uses mask vector to right shift the old vector </span>
             Value *ShuffledPrevCaller = IRB.CreateShuffleVector(
-                PrevCaller, UndefValue::get(PrevCallerTy),
+                PrevCaller, UndefValue::get(PrevCallerTy), <span class="hljs-comment">// UndefValue vector only occupy the places here</span>
                 PrevCallerShuffleMask);
+            <span class="hljs-comment">// and insert NewCtx into first place of PrevCaller vector</span>
             Value *UpdatedPrevCaller = IRB.CreateInsertElement(
-                ShuffledPrevCaller, NewCtx, (uint64_t)0);
+                ShuffledPrevCaller, NewCtx, (<span class="hljs-keyword">uint64_t</span>)<span class="hljs-number">0</span>);
 
-            StoreInst *Store =
-                IRB.CreateStore(UpdatedPrevCaller, AFLPrevCaller);
-            Store-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;),
+            StoreInst *Store = <span class="hljs-comment">// CreateStore(Value *Val, Value *Ptr): store Val to Ptr </span>
+                IRB.CreateStore(UpdatedPrevCaller, AFLPrevCaller); <span class="hljs-comment">// update AFLPrevCaller with UpdatedPrevCaller</span>
+            <span class="hljs-comment">// insert nosanitize to tell A/M/TSan not to analyze the instruction</span>
+            Store-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>),
                                MDNode::get(C, None));
 
-          } else
+          } <span class="hljs-keyword">else</span> <span class="hljs-comment">// ctx_k == 0</span>
 
 #endif
           {
-
-            if (ctx_str) NewCtx = IRB.CreateXor(PrevCtx, NewCtx);
-            StoreInst *StoreCtx = IRB.CreateStore(NewCtx, AFLContext);
-            StoreCtx-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;),
+            <span class="hljs-comment">// when disables context mode then xor PrevCtx with NewCtx </span>
+            <span class="hljs-keyword">if</span> (ctx_str) NewCtx = IRB.CreateXor(PrevCtx, NewCtx);
+            StoreInst *StoreCtx = IRB.CreateStore(NewCtx, AFLContext); <span class="hljs-comment">// update AFLContext with NewCtx</span>
+            <span class="hljs-comment">// insert nosanitize to tell A/M/TSan not to analyze the instruction</span>
+            StoreCtx-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>),
                                   MDNode::get(C, None));
 
-          }
+          } <span class="hljs-comment">// end of if else</span>
 
-        }
+        } <span class="hljs-comment">// end of has_calls</span>
 
-      }
+      } <span class="hljs-comment">// end of if (instrument_ctx &amp;&amp; &amp;BB == &amp;F.getEntryBlock())</span>
 
-      if (AFL_R(100) &gt;= inst_ratio) continue;
+      <span class="hljs-keyword">if</span> (AFL_R(<span class="hljs-number">100</span>) &gt;= inst_ratio) <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// skip rest BB instrumentation if random &gt;= inst_ratio</span>
 
-      /* Make up cur_loc */
+      <span class="hljs-comment">/* Make up cur_loc */</span>
 
-      // cur_loc++;
-      cur_loc = AFL_R(map_size);
+      <span class="hljs-comment">// cur_loc++;</span>
+      cur_loc = AFL_R(map_size); <span class="hljs-comment">// random cur_loc for current BB from 0 to map_size - 1</span>
 
-/* There is a problem with Ubuntu 18.04 and llvm 6.0 (see issue #63).
-   The inline function successors() is not inlined and also not found at runtime
-   :-( As I am unable to detect Ubuntu18.04 here, the next best thing is to
-   disable this optional optimization for LLVM 6.0.0 and Linux */
-#if !(LLVM_VERSION_MAJOR == 6 &amp;&amp; LLVM_VERSION_MINOR == 0) || !defined __linux__
-      // only instrument if this basic block is the destination of a previous
-      // basic block that has multiple successors
-      // this gets rid of ~5-10% of instrumentations that are unnecessary
-      // result: a little more speed and less map pollution
-      int more_than_one = -1;
-      // fprintf(stderr, &quot;BB %u: &quot;, cur_loc);
-      for (pred_iterator PI = pred_begin(&amp;BB), E = pred_end(&amp;BB); PI != E;
-           ++PI) {
+<span class="hljs-comment">/* ... */</span> <span class="hljs-comment">// ignore this bug fix code</span>
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> !(LLVM_VERSION_MAJOR == 6 &amp;&amp; LLVM_VERSION_MINOR == 0) || !defined __linux__</span>
+
+      <span class="hljs-comment">// only instrument if this basic block is the destination of a previous</span>
+      <span class="hljs-comment">// basic block that has multiple successors</span>
+      <span class="hljs-comment">// this gets rid of ~5-10% of instrumentations that are unnecessary</span>
+      <span class="hljs-comment">// result: a little more speed and less map pollution</span>
+      <span class="hljs-keyword">int</span> more_than_one = <span class="hljs-number">-1</span>; <span class="hljs-comment">// flag: BB&apos;s pred_BB has more than one succ_BB  </span>
+      <span class="hljs-comment">// fprintf(stderr, &quot;BB %u: &quot;, cur_loc);</span>
+      <span class="hljs-keyword">for</span> (pred_iterator PI = pred_begin(&amp;BB), E = pred_end(&amp;BB); PI != E; ++PI) {
 
         BasicBlock *Pred = *PI;
 
-        int count = 0;
-        if (more_than_one == -1) more_than_one = 0;
-        // fprintf(stderr, &quot; %p=&gt;&quot;, Pred);
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>; <span class="hljs-comment">// count for succ_BB  </span>
+        <span class="hljs-keyword">if</span> (more_than_one == <span class="hljs-number">-1</span>) more_than_one = <span class="hljs-number">0</span>;
+        <span class="hljs-comment">// fprintf(stderr, &quot; %p=&gt;&quot;, Pred);</span>
 
-        for (succ_iterator SI = succ_begin(Pred), E = succ_end(Pred); SI != E;
-             ++SI) {
+        <span class="hljs-keyword">for</span> (succ_iterator SI = succ_begin(Pred), E = succ_end(Pred); SI != E; ++SI) {
 
           BasicBlock *Succ = *SI;
 
-          // if (count &gt; 0)
-          //  fprintf(stderr, &quot;|&quot;);
-          if (Succ != NULL) count++;
-          // fprintf(stderr, &quot;%p&quot;, Succ);
+          <span class="hljs-keyword">if</span> (Succ != <span class="hljs-literal">NULL</span>) count++;
 
         }
 
-        if (count &gt; 1) more_than_one = 1;
+        <span class="hljs-keyword">if</span> (count &gt; <span class="hljs-number">1</span>) more_than_one = <span class="hljs-number">1</span>; <span class="hljs-comment">// succ_BB count is more than one </span>
 
       }
 
-      // fprintf(stderr, &quot; == %d\n&quot;, more_than_one);
-      if (F.size() &gt; 1 &amp;&amp; more_than_one != 1) {
+      <span class="hljs-comment">// fprintf(stderr, &quot; == %d\n&quot;, more_than_one);</span>
+      <span class="hljs-keyword">if</span> (F.size() &gt; <span class="hljs-number">1</span> &amp;&amp; more_than_one != <span class="hljs-number">1</span>) {
 
-        // in CTX mode we have to restore the original context for the caller -
-        // she might be calling other functions which need the correct CTX
-        if (instrument_ctx &amp;&amp; has_calls) {
+        <span class="hljs-comment">// in CTX mode we have to restore the original context for the caller -</span>
+        <span class="hljs-comment">// she might be calling other functions which need the correct CTX</span>
+        <span class="hljs-keyword">if</span> (instrument_ctx &amp;&amp; has_calls) {
 
-          Instruction *Inst = BB.getTerminator();
-          if (isa&lt;ReturnInst&gt;(Inst) || isa&lt;ResumeInst&gt;(Inst)) {
+          Instruction *Inst = BB.getTerminator(); <span class="hljs-comment">// get the last instruction of BB</span>
+          <span class="hljs-keyword">if</span> (isa&lt;ReturnInst&gt;(Inst) || isa&lt;ResumeInst&gt;(Inst)) { 
+              <span class="hljs-comment">// only last inst is ret or resum type need to restore context</span>
 
-            IRBuilder&lt;&gt; Post_IRB(Inst);
+            IRBuilder&lt;&gt; Post_IRB(Inst); <span class="hljs-comment">// define IRBuilder Post_IRB, which is right before Inst instruction</span>
 
             StoreInst *RestoreCtx;
-  #ifdef AFL_HAVE_VECTOR_INTRINSICS
-            if (ctx_k)
+  <span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+            <span class="hljs-keyword">if</span> (ctx_k) <span class="hljs-comment">// restore the context ID to AFLPrevCaller when enables ctx_k</span>
               RestoreCtx = IRB.CreateStore(PrevCaller, AFLPrevCaller);
-            else
+            <span class="hljs-keyword">else</span> <span class="hljs-comment">// restore the context ID to AFLContext when disables ctx_k</span>
   #endif
               RestoreCtx = Post_IRB.CreateStore(PrevCtx, AFLContext);
-            RestoreCtx-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;),
+            <span class="hljs-comment">// insert nosanitize to tell A/M/TSan not to analyze the instruction</span>
+            RestoreCtx-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>),
                                     MDNode::get(C, None));
 
           }
 
-        }
+        } <span class="hljs-comment">// end of if (instrument_ctx &amp;&amp; has_calls)</span>
 
-        continue;
+        <span class="hljs-keyword">continue</span>; <span class="hljs-comment">// skip instrumentation if pred_BB not ends with conditional jump</span>
+          <span class="hljs-comment">// which means the current BB is not in branching path, so no need to instrument</span>
 
-      }
+      } <span class="hljs-comment">// end of if (F.size() &gt; 1 &amp;&amp; more_than_one != 1)</span>
 
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+
+      ConstantInt *CurLoc; <span class="hljs-comment">// define constant CurLoc to store current BB location</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+      <span class="hljs-keyword">if</span> (ngram_size)
+        CurLoc = ConstantInt::get(IntLocTy, cur_loc); <span class="hljs-comment">// when enables ngram then CurLoc type is IntLocTy</span>
+      <span class="hljs-keyword">else</span>
 #endif
+        CurLoc = ConstantInt::get(Int32Ty, cur_loc); <span class="hljs-comment">// when disables ngram CurLoc type is Int32Ty</span>
 
-      ConstantInt *CurLoc;
-
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-      if (ngram_size)
-        CurLoc = ConstantInt::get(IntLocTy, cur_loc);
-      else
-#endif
-        CurLoc = ConstantInt::get(Int32Ty, cur_loc);
-
-      /* Load prev_loc */
+      <span class="hljs-comment">/* Load prev_loc */</span>
 
       LoadInst *PrevLoc;
 
-      if (ngram_size) {
+      <span class="hljs-keyword">if</span> (ngram_size) {
 
         PrevLoc = IRB.CreateLoad(
-#if LLVM_VERSION_MAJOR &gt;= 14
-            PrevLocTy,
+#<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">14</span>
+            PrevLocTy, <span class="hljs-comment">// if ngram enables then load PrevLoc as PrevLocTy type</span>
 #endif
             AFLPrevLoc);
 
-      } else {
+      } <span class="hljs-keyword">else</span> {
 
         PrevLoc = IRB.CreateLoad(
-#if LLVM_VERSION_MAJOR &gt;= 14
-            IRB.getInt32Ty(),
+#<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">14</span>
+            IRB.getInt32Ty(), <span class="hljs-comment">// if ngram disables then load PrevLoc as Int32Ty type</span>
 #endif
             AFLPrevLoc);
 
       }
-
-      PrevLoc-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;), MDNode::get(C, None));
+      <span class="hljs-comment">// insert nosanitize to tell A/M/TSan not to analyze the instruction</span>
+      PrevLoc-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>), MDNode::get(C, None));
       Value *PrevLocTrans;
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-      /* &quot;For efficiency, we propose to hash the tuple as a key into the
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+      <span class="hljs-comment">/* &quot;For efficiency, we propose to hash the tuple as a key into the
          hit_count map as (prev_block_trans &lt;&lt; 1) ^ curr_block_trans, where
-         prev_block_trans = (block_trans_1 ^ ... ^ block_trans_(n-1)&quot; */
+         prev_block_trans = (block_trans_1 ^ ... ^ block_trans_(n-1)&quot; */</span>
 
-      if (ngram_size)
-        PrevLocTrans =
+      <span class="hljs-keyword">if</span> (ngram_size)
+        PrevLocTrans = <span class="hljs-comment">// xor PrevLoc each element to introduce n gram BBs information</span>
             IRB.CreateZExt(IRB.CreateXorReduce(PrevLoc), IRB.getInt32Ty());
-      else
+      <span class="hljs-keyword">else</span>
 #endif
         PrevLocTrans = PrevLoc;
 
-      if (instrument_ctx)
-        PrevLocTrans =
+      <span class="hljs-keyword">if</span> (instrument_ctx)
+        PrevLocTrans = <span class="hljs-comment">// xor PrevLocTrans with PrevCtx to introduce context-aware</span>
             IRB.CreateZExt(IRB.CreateXor(PrevLocTrans, PrevCtx), Int32Ty);
-      else
+      <span class="hljs-keyword">else</span>
         PrevLocTrans = IRB.CreateZExt(PrevLocTrans, IRB.getInt32Ty());
-
-      /* Load SHM pointer */
+</code></pre>
+<p>&#x63D2;&#x6869;&#x4E4B;&#x540E;&#x4F1A;&#x66F4;&#x65B0; bitmap, &#x4E5F;&#x5C31;&#x662F;&#x76EE;&#x6807;&#x7A0B;&#x5E8F;&#x4E0E; fuzzer &#x7684;&#x5171;&#x4EAB;&#x5185;&#x5B58;, &#x53CD;&#x9988;&#x4FE1;&#x606F;&#x7531;&#x6B64;&#x4F20;&#x8F93;</p>
+<pre><code class="lang-c">      <span class="hljs-comment">/* Load SHM pointer */</span>
 
       LoadInst *MapPtr = IRB.CreateLoad(
-#if LLVM_VERSION_MAJOR &gt;= 14
-          PointerType::get(Int8Ty, 0),
+#<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">14</span>
+          PointerType::get(Int8Ty, <span class="hljs-number">0</span>),
 #endif
-          AFLMapPtr);
-      MapPtr-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;), MDNode::get(C, None));
+          AFLMapPtr); <span class="hljs-comment">// load share memory ptr from AFLMapPtr with type i8*</span>
+      <span class="hljs-comment">// insert nosanitize to tell A/M/TSan not to analyze the instruction</span>
+      MapPtr-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>), MDNode::get(C, None));
 
-      Value *MapPtrIdx;
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-      if (ngram_size)
-        MapPtrIdx = IRB.CreateGEP(
+      Value *MapPtrIdx; <span class="hljs-comment">// share memory (bitmap) index ptr</span>
+
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+      <span class="hljs-keyword">if</span> (ngram_size)
+        MapPtrIdx = IRB.CreateGEP( <span class="hljs-comment">// CreateGEP(type, ptr1, ptr2): ptr1 + ptr2</span>
             Int8Ty, MapPtr,
             IRB.CreateZExt(
                 IRB.CreateXor(PrevLocTrans, IRB.CreateZExt(CurLoc, Int32Ty)),
                 Int32Ty));
-      else
+      <span class="hljs-keyword">else</span>
 #endif
         MapPtrIdx = IRB.CreateGEP(
-#if LLVM_VERSION_MAJOR &gt;= 14
+#<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">14</span>
             Int8Ty,
 #endif
             MapPtr, IRB.CreateXor(PrevLocTrans, CurLoc));
+      <span class="hljs-comment">// logic above is like this: MapPtrIdx = MapPtr + ((PrevLoc ^ CurLoc) &amp; 0xFFFF)</span>
 
-      /* Update bitmap */
+      <span class="hljs-comment">/* Update bitmap */</span>
 
-      if (use_threadsafe_counters) {                              /* Atomic */
-
+      <span class="hljs-keyword">if</span> (use_threadsafe_counters) {                              <span class="hljs-comment">/* Atomic */</span>
+        <span class="hljs-comment">// logic of function below is like: bitmap[MapPtrIdx] += 1;</span>
         IRB.CreateAtomicRMW(llvm::AtomicRMWInst::BinOp::Add, MapPtrIdx, One,
-#if LLVM_VERSION_MAJOR &gt;= 13
-                            llvm::MaybeAlign(1),
+#<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">13</span>
+                            llvm::MaybeAlign(<span class="hljs-number">1</span>),
 #endif
                             llvm::AtomicOrdering::Monotonic);
-        /*
+        <span class="hljs-comment">/*
 
                 }
 
-        */
+        */</span>
 
-      } else {
+      } <span class="hljs-keyword">else</span> { <span class="hljs-comment">// not Atomic operations</span>
 
         LoadInst *Counter = IRB.CreateLoad(
-#if LLVM_VERSION_MAJOR &gt;= 14
+#<span class="hljs-keyword">if</span> LLVM_VERSION_MAJOR &gt;= <span class="hljs-number">14</span>
             IRB.getInt8Ty(),
 #endif
             MapPtrIdx);
-        Counter-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;), MDNode::get(C, None));
+        Counter-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>), MDNode::get(C, None));
 
-        Value *Incr = IRB.CreateAdd(Counter, One);
+        Value *Incr = IRB.CreateAdd(Counter, One); <span class="hljs-comment">// Incr = bitmap[MapPtrIdx] + 1;</span>
 
-#if LLVM_VERSION_MAJOR &gt;= 9
-        if (!skip_nozero) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">if</span> LLVM_VERSION_MAJOR &gt;= 9</span>
+        <span class="hljs-keyword">if</span> (!skip_nozero) {
 
-#else
-        if (neverZero_counters_str != NULL) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">else</span></span>
+        <span class="hljs-keyword">if</span> (neverZero_counters_str != <span class="hljs-literal">NULL</span>) { <span class="hljs-comment">// if enables neverzero then skip 0 counter value</span>
 
-#endif
-          /* hexcoder: Realize a counter that skips zero during overflow.
+<span class="hljs-meta">#<span class="hljs-meta-keyword">endif</span></span>
+          <span class="hljs-comment">/* hexcoder: Realize a counter that skips zero during overflow.
            * Once this counter reaches its maximum value, it next increments to
            * 1
            *
@@ -2284,113 +2299,85 @@ bool AFLCoverage::runOnModule(Module &amp;M) {
            * we inject now this
            * Counter + 1 -&gt; {Counter, OverflowFlag}
            * Counter + OverflowFlag -&gt; Counter
-           */
+           */</span>
 
-          ConstantInt *Zero = ConstantInt::get(Int8Ty, 0);
-          auto         cf = IRB.CreateICmpEQ(Incr, Zero);
-          auto         carry = IRB.CreateZExt(cf, Int8Ty);
-          Incr = IRB.CreateAdd(Incr, carry);
+          ConstantInt *Zero = ConstantInt::get(Int8Ty, <span class="hljs-number">0</span>); <span class="hljs-comment">// get constant 0 with type i8</span>
+          <span class="hljs-keyword">auto</span>         cf = IRB.CreateICmpEQ(Incr, Zero); <span class="hljs-comment">// if Incr == 0, means overflow</span>
+          <span class="hljs-keyword">auto</span>         carry = IRB.CreateZExt(cf, Int8Ty); <span class="hljs-comment">// carry = 1 when Incr == 0</span>
+          Incr = IRB.CreateAdd(Incr, carry); <span class="hljs-comment">// Incr plus carry to avoid 0 value</span>
 
         }
 
         IRB.CreateStore(Incr, MapPtrIdx)
-            -&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;), MDNode::get(C, None));
+            -&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>), MDNode::get(C, None));
 
-      }                                                  /* non atomic case */
+      }                                                  <span class="hljs-comment">/* non atomic case */</span>
 
-      /* Update prev_loc history vector (by placing cur_loc at the head of the
-         vector and shuffle the other elements back by one) */
+      <span class="hljs-comment">/* Update prev_loc history vector (by placing cur_loc at the head of the
+         vector and shuffle the other elements back by one) */</span>
 
       StoreInst *Store;
 
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-      if (ngram_size) {
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+      <span class="hljs-keyword">if</span> (ngram_size) {
 
         Value *ShuffledPrevLoc = IRB.CreateShuffleVector(
             PrevLoc, UndefValue::get(PrevLocTy), PrevLocShuffleMask);
         Value *UpdatedPrevLoc = IRB.CreateInsertElement(
-            ShuffledPrevLoc, IRB.CreateLShr(CurLoc, (uint64_t)1), (uint64_t)0);
-
+            ShuffledPrevLoc, IRB.CreateLShr(CurLoc, (<span class="hljs-keyword">uint64_t</span>)<span class="hljs-number">1</span>), (<span class="hljs-keyword">uint64_t</span>)<span class="hljs-number">0</span>);
+            <span class="hljs-comment">// CreateLShr(val1, val2): val1 &gt;&gt; val2  </span>
         Store = IRB.CreateStore(UpdatedPrevLoc, AFLPrevLoc);
-        Store-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;), MDNode::get(C, None));
+        Store-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>), MDNode::get(C, None));
 
-      } else
+      } <span class="hljs-keyword">else</span>
 
 #endif
       {
 
-        Store = IRB.CreateStore(ConstantInt::get(Int32Ty, cur_loc &gt;&gt; 1),
+        Store = IRB.CreateStore(ConstantInt::get(Int32Ty, cur_loc &gt;&gt; <span class="hljs-number">1</span>),
                                 AFLPrevLoc);
-        Store-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;), MDNode::get(C, None));
+        Store-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>), MDNode::get(C, None));
 
       }
 
-      // in CTX mode we have to restore the original context for the caller -
-      // she might be calling other functions which need the correct CTX.
-      // Currently this is only needed for the Ubuntu clang-6.0 bug
-      if (instrument_ctx &amp;&amp; has_calls) {
+      <span class="hljs-comment">// in CTX mode we have to restore the original context for the caller -</span>
+      <span class="hljs-comment">// she might be calling other functions which need the correct CTX.</span>
+      <span class="hljs-comment">// Currently this is only needed for the Ubuntu clang-6.0 bug</span>
+      <span class="hljs-keyword">if</span> (instrument_ctx &amp;&amp; has_calls) { <span class="hljs-comment">// when enables context then restore the context of BB</span>
 
         Instruction *Inst = BB.getTerminator();
-        if (isa&lt;ReturnInst&gt;(Inst) || isa&lt;ResumeInst&gt;(Inst)) {
+        <span class="hljs-keyword">if</span> (isa&lt;ReturnInst&gt;(Inst) || isa&lt;ResumeInst&gt;(Inst)) {
 
           IRBuilder&lt;&gt; Post_IRB(Inst);
 
           StoreInst *RestoreCtx;
-#ifdef AFL_HAVE_VECTOR_INTRINSICS
-          if (ctx_k)
+<span class="hljs-meta">#<span class="hljs-meta-keyword">ifdef</span> AFL_HAVE_VECTOR_INTRINSICS</span>
+          <span class="hljs-keyword">if</span> (ctx_k)
             RestoreCtx = IRB.CreateStore(PrevCaller, AFLPrevCaller);
-          else
+          <span class="hljs-keyword">else</span>
 #endif
             RestoreCtx = Post_IRB.CreateStore(PrevCtx, AFLContext);
-          RestoreCtx-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;),
+          RestoreCtx-&gt;setMetadata(M.getMDKindID(<span class="hljs-string">&quot;nosanitize&quot;</span>),
                                   MDNode::get(C, None));
 
         }
 
       }
 
-      inst_blocks++;
+      inst_blocks++; <span class="hljs-comment">// successful instrumentation count++ </span>
 
-    }
-
-#if 0
-    if (use_threadsafe_counters) {                       /*Atomic NeverZero */
+    } <span class="hljs-comment">// end of if (instrument_ctx &amp;&amp; has_calls)</span>
+</code></pre>
+<p>&#x6700;&#x540E;, &#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x548C;&#x8BA1;&#x6570;&#x5668;&#x66F4;&#x65B0;&#x7684;&#x65B0;&#x7248;&#x4EE3;&#x7801;, &#x4E3B;&#x8981;&#x903B;&#x8F91;&#x662F;&#x4F7F;&#x7528; CAS (Compare-And-Swap) &#x5FAA;&#x73AF;&#x66FF;&#x4EE3;&#x539F;&#x672C;&#x7684; <code>++</code> &#x64CD;&#x4F5C;. &#x4F18;&#x70B9;&#x662F;&#x5E76;&#x53D1;&#x66F4;&#x5B89;&#x5168;, &#x907F;&#x514D;&#x8BA1;&#x6570;&#x5668;&#x4E3A; 0 &#x7684;&#x95EE;&#x9898;, &#x7F3A;&#x70B9;&#x662F;&#x6548;&#x7387;&#x6BD4; <code>++</code> &#x66F4;&#x4F4E;, &#x76EE;&#x524D;&#x4F5C;&#x4E3A;&#x672A;&#x6765;&#x8BA1;&#x5212;&#x4E4B;&#x4E00;, &#x5C1A;&#x672A;&#x542F;&#x7528;. </p>
+<pre><code class="lang-c">// #if 0
+    if (use_threadsafe_counters) {                       /* Atomic NeverZero */
       // handle the list of registered blocks to instrument
       for (auto val : todo) {
 
         /* hexcoder: Realize a thread-safe counter that skips zero during
          * overflow. Once this counter reaches its maximum value, it next
          * increments to 1
-         *
-         * Instead of
-         * Counter + 1 -&gt; Counter
-         * we inject now this
-         * Counter + 1 -&gt; {Counter, OverflowFlag}
-         * Counter + OverflowFlag -&gt; Counter
-         */
-
-        /* equivalent c code looks like this
-         * Thanks to
-         https://preshing.com/20150402/you-can-do-any-kind-of-atomic-read-modify-write-operation/
-
-            int old = atomic_load_explicit(&amp;Counter, memory_order_relaxed);
-            int new;
-            do {
-
-                 if (old == 255) {
-
-                   new = 1;
-
-                 } else {
-
-                   new = old + 1;
-
-                 }
-
-            } while (!atomic_compare_exchange_weak_explicit(&amp;Counter, &amp;old, new,
-
-         memory_order_relaxed, memory_order_relaxed));
-
+         * ...
          */
 
         Value *              MapPtrIdx = val;
@@ -2469,62 +2456,19 @@ bool AFLCoverage::runOnModule(Module &amp;M) {
 
     }
 
-#endif
+// #endif // end of #if 0
 
-  }
+  } // end of for (auto &amp;F : M)
 
   /*
     // This is currently disabled because we not only need to create/insert a
     // function (easy), but also add it as a constructor with an ID &lt; 5
-
-    if (getenv(&quot;AFL_LLVM_DONTWRITEID&quot;) == NULL) {
-
-      // yes we could create our own function, insert it into ctors ...
-      // but this would be a pain in the butt ... so we use afl-llvm-rt.o
-
-      Function *f = ...
-
-      if (!f) {
-
-        fprintf(stderr,
-                &quot;Error: init function could not be created (this should not
-    happen)\n&quot;); exit(-1);
-
-      }
-
-      ... constructor for f = 4
-
-      BasicBlock *bb = &amp;f-&gt;getEntryBlock();
-      if (!bb) {
-
-        fprintf(stderr,
-                &quot;Error: init function does not have an EntryBlock (this should
-    not happen)\n&quot;); exit(-1);
-
-      }
-
-      BasicBlock::iterator IP = bb-&gt;getFirstInsertionPt();
-      IRBuilder&lt;&gt;          IRB(&amp;(*IP));
-
-      if (map_size &lt;= 0x800000) {
-
-        GlobalVariable *AFLFinalLoc = new GlobalVariable(
-            M, Int32Ty, true, GlobalValue::ExternalLinkage, 0,
-            &quot;__afl_final_loc&quot;);
-        ConstantInt *const_loc = ConstantInt::get(Int32Ty, map_size);
-        StoreInst *  StoreFinalLoc = IRB.CreateStore(const_loc, AFLFinalLoc);
-        StoreFinalLoc-&gt;setMetadata(M.getMDKindID(&quot;nosanitize&quot;),
-                                     MDNode::get(C, None));
-
-      }
-
-    }
-
+    ...
   */
 
   /* Say something nice. */
 
-  if (!be_quiet) {
+  if (!be_quiet) { // print out information for debugging
 
     if (!inst_blocks)
       WARNF(&quot;No instrumentation targets found.&quot;);
@@ -2544,14 +2488,6 @@ bool AFLCoverage::runOnModule(Module &amp;M) {
     }
 
   }
-
-#if LLVM_VERSION_MAJOR &gt;= 11                        /* use new pass manager */
-  return PreservedAnalyses();
-#else
-  return true;
-#endif
-
-}
 </code></pre>
 <h2 id="reference">Reference</h2>
 <p>[1] <a href="https://github.com/AFLplusplus/AFLplusplus" target="_blank">https://github.com/AFLplusplus/AFLplusplus</a></p>
@@ -2599,7 +2535,7 @@ bool AFLCoverage::runOnModule(Module &amp;M) {
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"AFLpp Src Reading III - Instrumentation","level":"3.1.6","depth":2,"next":{"title":"AFL++ Add New Test","level":"3.1.7","depth":2,"path":"fuzzing/aflpp_new_test.md","ref":"fuzzing/aflpp_new_test.md","articles":[]},"previous":{"title":"AFLpp Src Reading II - Forkserver","level":"3.1.5","depth":2,"path":"fuzzing/aflpp_src_reading_II.md","ref":"fuzzing/aflpp_src_reading_II.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"fuzzing/aflpp_src_reading_III.md","mtime":"2025-05-22T14:07:50.953Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-05-22T14:07:55.712Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"AFLpp Src Reading III - Instrumentation","level":"3.1.6","depth":2,"next":{"title":"AFL++ Add New Test","level":"3.1.7","depth":2,"path":"fuzzing/aflpp_new_test.md","ref":"fuzzing/aflpp_new_test.md","articles":[]},"previous":{"title":"AFLpp Src Reading II - Forkserver","level":"3.1.5","depth":2,"path":"fuzzing/aflpp_src_reading_II.md","ref":"fuzzing/aflpp_src_reading_II.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"fuzzing/aflpp_src_reading_III.md","mtime":"2025-06-02T14:17:05.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-06-02T14:17:40.051Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
