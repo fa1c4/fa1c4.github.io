@@ -1440,7 +1440,7 @@ bool AFLCoverage::runOnModule(Module &M) {
 最后, 是线程安全和计数器更新的新版代码, 主要逻辑是使用 CAS (Compare-And-Swap) 循环替代原本的 `++` 操作. 优点是并发更安全, 避免计数器为 0 的问题, 缺点是效率比 `++` 更低, 目前作为未来计划之一, 尚未启用. 
 
 ```c
-// #if 0
+#if 0
     if (use_threadsafe_counters) {                       /* Atomic NeverZero */
       // handle the list of registered blocks to instrument
       for (auto val : todo) {
@@ -1527,7 +1527,7 @@ bool AFLCoverage::runOnModule(Module &M) {
 
     }
 
-// #endif // end of #if 0
+#endif // end of #if 0
 
   } // end of for (auto &F : M)
 

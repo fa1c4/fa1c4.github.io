@@ -445,6 +445,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.26" data-path="../papers/Coding-PTMs.html">
+            
+                <a href="../papers/Coding-PTMs.html">
+            
+                    
+                    Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -2369,7 +2382,7 @@ PreservedAnalyses AFLCoverage::run(Module &amp;M, ModuleAnalysisManager &amp;MAM
     } <span class="hljs-comment">// end of if (instrument_ctx &amp;&amp; has_calls)</span>
 </code></pre>
 <p>&#x6700;&#x540E;, &#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x548C;&#x8BA1;&#x6570;&#x5668;&#x66F4;&#x65B0;&#x7684;&#x65B0;&#x7248;&#x4EE3;&#x7801;, &#x4E3B;&#x8981;&#x903B;&#x8F91;&#x662F;&#x4F7F;&#x7528; CAS (Compare-And-Swap) &#x5FAA;&#x73AF;&#x66FF;&#x4EE3;&#x539F;&#x672C;&#x7684; <code>++</code> &#x64CD;&#x4F5C;. &#x4F18;&#x70B9;&#x662F;&#x5E76;&#x53D1;&#x66F4;&#x5B89;&#x5168;, &#x907F;&#x514D;&#x8BA1;&#x6570;&#x5668;&#x4E3A; 0 &#x7684;&#x95EE;&#x9898;, &#x7F3A;&#x70B9;&#x662F;&#x6548;&#x7387;&#x6BD4; <code>++</code> &#x66F4;&#x4F4E;, &#x76EE;&#x524D;&#x4F5C;&#x4E3A;&#x672A;&#x6765;&#x8BA1;&#x5212;&#x4E4B;&#x4E00;, &#x5C1A;&#x672A;&#x542F;&#x7528;. </p>
-<pre><code class="lang-c">// #if 0
+<pre><code class="lang-c">#if 0
     if (use_threadsafe_counters) {                       /* Atomic NeverZero */
       // handle the list of registered blocks to instrument
       for (auto val : todo) {
@@ -2456,7 +2469,7 @@ PreservedAnalyses AFLCoverage::run(Module &amp;M, ModuleAnalysisManager &amp;MAM
 
     }
 
-// #endif // end of #if 0
+#endif // end of #if 0
 
   } // end of for (auto &amp;F : M)
 
@@ -2535,7 +2548,7 @@ PreservedAnalyses AFLCoverage::run(Module &amp;M, ModuleAnalysisManager &amp;MAM
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"AFLpp Src Reading III - Instrumentation","level":"3.1.6","depth":2,"next":{"title":"AFL++ Add New Test","level":"3.1.7","depth":2,"path":"fuzzing/aflpp_new_test.md","ref":"fuzzing/aflpp_new_test.md","articles":[]},"previous":{"title":"AFLpp Src Reading II - Forkserver","level":"3.1.5","depth":2,"path":"fuzzing/aflpp_src_reading_II.md","ref":"fuzzing/aflpp_src_reading_II.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"fuzzing/aflpp_src_reading_III.md","mtime":"2025-06-02T14:17:05.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-06-02T14:17:40.051Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"AFLpp Src Reading III - Instrumentation","level":"3.1.6","depth":2,"next":{"title":"AFL++ Add New Test","level":"3.1.7","depth":2,"path":"fuzzing/aflpp_new_test.md","ref":"fuzzing/aflpp_new_test.md","articles":[]},"previous":{"title":"AFLpp Src Reading II - Forkserver","level":"3.1.5","depth":2,"path":"fuzzing/aflpp_src_reading_II.md","ref":"fuzzing/aflpp_src_reading_II.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"fuzzing/aflpp_src_reading_III.md","mtime":"2025-06-02T14:27:49.066Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-06-07T09:10:35.807Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

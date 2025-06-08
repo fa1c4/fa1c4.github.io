@@ -33,6 +33,7 @@
   * [Accelerating Fuzzing through Prefix-Guided Execution](papers/prefix_guided_execution.md)
   * [Extrapolating Coverage Rate in Greybox Fuzzing](papers/Fuzztastic.md)
   * [Source Code Foundation Models are Transferable Binary Analysis Knowledge Bases](papers/ProRec.md)
+  * [Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?](papers/Coding-PTMs.md)
 
 
 
