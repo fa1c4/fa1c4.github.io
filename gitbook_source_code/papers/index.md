@@ -10,6 +10,7 @@
 * [Fuzzing with Data Dependency Information](DDFuzz.md)
 * [Accelerating Fuzzing through Prefix-Guided Execution](prefix_guided_execution.md)
 * [Extrapolating Coverage Rate in Greybox Fuzzing](Fuzztastic.md)
+* [AFGEN: Whole-Function Fuzzing for Applications and Libraries](AFGEN.md)
 
 
 

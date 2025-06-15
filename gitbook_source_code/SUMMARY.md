@@ -34,6 +34,7 @@
   * [Extrapolating Coverage Rate in Greybox Fuzzing](papers/Fuzztastic.md)
   * [Source Code Foundation Models are Transferable Binary Analysis Knowledge Bases](papers/ProRec.md)
   * [Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?](papers/Coding-PTMs.md)
+  * [AFGEN: Whole-Function Fuzzing for Applications and Libraries](papers/AFGEN.md)
 
 
 
@@ -93,10 +94,3 @@
   * [shell programming techs I](shell/shell_programming_techs_I.md)
 
 
-
-<!-- no need to use details tag to trigger toggle function -->
-<!-- * <details>
-    <summary><a href="shell/index.md">Shell</a></summary>
-    * [Shell Programming Basic](shell/shell_programming_basic.md)
-    * [Shell Programming Techs I](shell/shell_programming_techs_I.md)
-</details> -->

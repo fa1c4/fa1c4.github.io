@@ -1,0 +1,1135 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>AFGEN: Whole-Function Fuzzing for Applications and Libraries · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../linux/" />
+    
+    
+    <link rel="prev" href="Coding-PTMs.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="FOX.html">
+            
+                <a href="FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="On_Understanding.html">
+            
+                <a href="On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="autofz.html">
+            
+                <a href="autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="Fuzz_to_the_Future.html">
+            
+                <a href="Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="DSFuzz.html">
+            
+                <a href="DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="Rubick.html">
+            
+                <a href="Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="Fuzz4All.html">
+            
+                <a href="Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="kag.html">
+            
+                <a href="kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="graphuzz.html">
+            
+                <a href="graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="Seed_Selection.html">
+            
+                <a href="Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="belieffuzz.html">
+            
+                <a href="belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="K_Scheduler.html">
+            
+                <a href="K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="entropic.html">
+            
+                <a href="entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="FuzzInMem.html">
+            
+                <a href="FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="AFLpp.html">
+            
+                <a href="AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="DDFuzz.html">
+            
+                <a href="DDFuzz.html">
+            
+                    
+                    Fuzzing with Data Dependency Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="Hier.html">
+            
+                <a href="Hier.html">
+            
+                    
+                    Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="LLM_Fuzzing_BusyBox.html">
+            
+                <a href="LLM_Fuzzing_BusyBox.html">
+            
+                    
+                    Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="llm2vec.html">
+            
+                <a href="llm2vec.html">
+            
+                    
+                    LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="ShapFuzz.html">
+            
+                <a href="ShapFuzz.html">
+            
+                    
+                    SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="TortoiseFuzz.html">
+            
+                <a href="TortoiseFuzz.html">
+            
+                    
+                    Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="prefix_guided_execution.html">
+            
+                <a href="prefix_guided_execution.html">
+            
+                    
+                    Accelerating Fuzzing through Prefix-Guided Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="Fuzztastic.html">
+            
+                <a href="Fuzztastic.html">
+            
+                    
+                    Extrapolating Coverage Rate in Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="ProRec.html">
+            
+                <a href="ProRec.html">
+            
+                    
+                    Source Code Foundation Models are Transferable Binary Analysis Knowledge Bases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="Coding-PTMs.html">
+            
+                <a href="Coding-PTMs.html">
+            
+                    
+                    Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.27" data-path="AFGEN.html">
+            
+                <a href="AFGEN.html">
+            
+                    
+                    AFGEN: Whole-Function Fuzzing for Applications and Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                <a href="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../fuzzing/fuzzbench_build.html">
+            
+                <a href="../fuzzing/fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                <a href="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../fuzzing/aflpp_src_reading_I.html">
+            
+                <a href="../fuzzing/aflpp_src_reading_I.html">
+            
+                    
+                    AFLpp Src Reading I - History
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../fuzzing/aflpp_src_reading_II.html">
+            
+                <a href="../fuzzing/aflpp_src_reading_II.html">
+            
+                    
+                    AFLpp Src Reading II - Forkserver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../fuzzing/aflpp_src_reading_III.html">
+            
+                <a href="../fuzzing/aflpp_src_reading_III.html">
+            
+                    
+                    AFLpp Src Reading III - Instrumentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../fuzzing/aflpp_new_test.html">
+            
+                <a href="../fuzzing/aflpp_new_test.html">
+            
+                    
+                    AFL++ Add New Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../fuzzing/aflpp_custom_mutator.html">
+            
+                <a href="../fuzzing/aflpp_custom_mutator.html">
+            
+                    
+                    AFL++ Custom Mutator (python)
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                <a href="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                    
+                    IDAPro Cheat Sheet 7.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../latex/">
+            
+                <a href="../latex/">
+            
+                    
+                    Latex
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../latex/awes_table.html">
+            
+                <a href="../latex/awes_table.html">
+            
+                    
+                    latex awesome table templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >AFGEN: Whole-Function Fuzzing for Applications and Libraries</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="afgen-whole-function-fuzzing-for-applications-and-libraries-sp-2024">AFGEN: Whole-Function Fuzzing for Applications and Libraries [S&amp;P 2024]</h1>
+<p><img src="assets/image-20250615104121657.png" alt="image-20250615104121657"></p>
+<p>&#x5F53;&#x524D;&#x81EA;&#x52A8;&#x4E3A;&#x5E93;&#x4E2D;&#x7684; API &#x51FD;&#x6570;&#x751F;&#x6210;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8; (fuzzing harness) &#x7684;&#x7814;&#x7A76;, &#x5E94;&#x7528;&#x4E8E;&#x9879;&#x76EE; (&#x5E93;) &#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x4F9D;&#x7136;&#x9762;&#x4E34;&#x6311;&#x6218;. &#x5185;&#x90E8;&#x51FD;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x590D;&#x6742;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x5BFC;&#x81F4;&#x5176;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x66F4;&#x4E3A;&#x590D;&#x6742;, &#x4E14;&#x53C2;&#x6570;&#x53D7;&#x9650;&#x66F4;&#x591A;, &#x4F7F;&#x5F97;&#x9AD8;&#x6548;&#x751F;&#x6210;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x53D8;&#x5F97;&#x56F0;&#x96BE;. &#x672C;&#x6587;&#x63D0;&#x51FA;&#x4E00;&#x79CD;&#x201C;&#x5168;&#x51FD;&#x6570;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x201D; (whole-function fuzzing) &#x65B9;&#x6CD5; AFGEN, &#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x201C;&#x81EA;&#x5E95;&#x5411;&#x4E0A;&#x201D;&#x7684;&#x7B56;&#x7565;, &#x65E8;&#x5728;&#x901A;&#x8FC7;&#x8986;&#x76D6;&#x6240;&#x6709;&#x51FD;&#x6570;&#x6765;&#x5BF9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x548C;&#x5E93;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;. &#x4F5C;&#x8005;&#x8BA4;&#x4E3A;, &#x80FD;&#x591F;&#x5728;&#x727A;&#x7272;&#x4E00;&#x5B9A;&#x7CBE;&#x5EA6;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#x5B9E;&#x73B0;&#x51FD;&#x6570;&#x7684;&#x5168;&#x9762;&#x8986;&#x76D6;, &#x5E76;&#x901A;&#x8FC7;&#x7CBE;&#x7EC6;&#x8BBE;&#x8BA1;&#x964D;&#x4F4E;&#x8BEF;&#x62A5;&#x7387;. AFGEN &#x9996;&#x5148;&#x57FA;&#x4E8E;&#x63A7;&#x5236;&#x6D41;&#x548C;&#x6570;&#x636E;&#x6D41;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x5BF9;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8BED;&#x53E5;&#x8FDB;&#x884C;&#x5207;&#x7247;, &#x518D;&#x6839;&#x636E;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x4E3A;&#x5207;&#x7247;&#x4EE3;&#x7801;&#x4E2D;&#x5FC5;&#x8981;&#x53D8;&#x91CF;&#x8D4B;&#x503C;, &#x5E76;&#x8FDB;&#x4E00;&#x6B65;&#x5206;&#x6790;&#x4E0E;&#x5D29;&#x6E83;&#x76F8;&#x5173;&#x53D8;&#x91CF;&#x7684;&#x7EA6;&#x675F;&#x8BED;&#x53E5;, &#x4ECE;&#x800C;&#x751F;&#x6210;&#x8BEF;&#x62A5;&#x7387;&#x8F83;&#x4F4E;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;. </p>
+<p>&#x4F5C;&#x8005;&#x6536;&#x96C6;&#x4E86;&#x6765;&#x81EA; 11 &#x4E2A;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x7684; 102 &#x4E2A;&#x5DF2;&#x77E5;&#x6F0F;&#x6D1E;. AFGEN &#x6210;&#x529F;&#x4E3A;&#x6240;&#x6709;&#x5B58;&#x5728;&#x6F0F;&#x6D1E;&#x7684;&#x51FD;&#x6570;&#x751F;&#x6210;&#x4E86;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;, &#x5E76;&#x8BC6;&#x522B;&#x51FA;&#x4E86;&#x5176;&#x4E2D; 66 &#x4E2A;&#x6F0F;&#x6D1E;, &#x8D85;&#x8FC7;&#x4E86;&#x6240;&#x6709;&#x5BF9;&#x6BD4;&#x5DE5;&#x5177;, &#x662F;&#x7B2C;&#x4E8C;&#x4F18;&#x79C0;&#x5DE5;&#x5177; (AFL++) &#x7684;&#x4E24;&#x500D;. </p>
+<h2 id="challenges">Challenges</h2>
+<p><strong>C1: Constructing proper program context.</strong> &#x4E0A;&#x4E0B;&#x6587;&#x5305;&#x62EC;&#x4E0E;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;, &#x4F8B;&#x5982;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x548C;&#x53C2;&#x6570;. &#x83B7;&#x53D6;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x51C6;&#x786E;&#x548C;&#x5168;&#x9762;&#x7684;&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;&#x662F;&#x56F0;&#x96BE;&#x7684;, &#x4F46;&#x53C8;&#x81F3;&#x5173;&#x91CD;&#x8981;, &#x56E0;&#x4E3A;&#x5982;&#x679C;&#x4E0A;&#x4E0B;&#x6587;&#x4E0D;&#x6B63;&#x786E;, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8; (fuzzing harness) &#x751A;&#x81F3;&#x65E0;&#x6CD5;&#x7F16;&#x8BD1;. &#x5BF9;&#x4E8E; API &#x51FD;&#x6570;, &#x4E0A;&#x4E0B;&#x6587;&#x901A;&#x5E38;&#x8F83;&#x4E3A;&#x7B80;&#x5355;, &#x4E14;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6587;&#x6863;&#x548C;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#x8F7B;&#x677E;&#x83B7;&#x5F97;. &#x7136;&#x800C;, &#x5185;&#x90E8;&#x51FD;&#x6570;&#x7684;&#x7A0B;&#x5E8F;&#x4E0A;&#x4E0B;&#x6587;&#x53EF;&#x80FD;&#x66F4;&#x52A0;&#x590D;&#x6742;, &#x4E14;&#x6587;&#x6863;&#x6216;&#x4F7F;&#x7528;&#x793A;&#x4F8B;&#x8F83;&#x5C11;. </p>
+<p><strong>C2: Assigning valid values for variables.</strong> API &#x7684;&#x53C2;&#x6570;&#x901A;&#x5E38;&#x662F;&#x57FA;&#x7840;&#x7C7B;&#x578B;, &#x5982;&#x6807;&#x91CF;&#x6216;&#x5185;&#x5B58;&#x7F13;&#x51B2;&#x533A;. &#x5373;&#x4F7F;&#x67D0;&#x4E9B;&#x53C2;&#x6570;&#x8F83;&#x4E3A;&#x590D;&#x6742;, &#x6BD4;&#x5982;&#x5177;&#x6709;&#x591A;&#x4E2A;&#x6210;&#x5458;&#x7684;&#x7ED3;&#x6784;&#x4F53;, &#x5E93;&#x901A;&#x5E38;&#x4E5F;&#x4F1A;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x521D;&#x59CB;&#x5316;&#x51FD;&#x6570;&#x6765;&#x5904;&#x7406;&#x5B83;&#x4EEC;. &#x7136;&#x800C;, &#x5185;&#x90E8;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x901A;&#x5E38;&#x66F4;&#x4E3A;&#x590D;&#x6742; (&#x4F8B;&#x5982;&#x5D4C;&#x5957;&#x7ED3;&#x6784;&#x4F53;), &#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x7684;&#x521D;&#x59CB;&#x5316;&#x8BED;&#x53E5;&#x5F88;&#x96BE;&#x63D0;&#x53D6;. &#x56E0;&#x6B64;, &#x4F5C;&#x8005;&#x9700;&#x8981;&#x6839;&#x636E;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x4E3A;&#x5B83;&#x4EEC;&#x8D4B;&#x4E88;&#x6709;&#x6548;&#x503C;. &#x5BF9;&#x4E8E;&#x4E0D;&#x540C;&#x7C7B;&#x578B;, &#x5982;&#x6574;&#x6570;&#x3001;&#x7ED3;&#x6784;&#x4F53;&#x6216;&#x6307;&#x9488;, &#x4F5C;&#x8005;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x8D4B;&#x503C;. </p>
+<p><strong>C3: Satisfying program constraints.</strong> &#x5BF9;&#x4E8E;&#x5185;&#x90E8;&#x51FD;&#x6570;&#x6765;&#x8BF4;, &#x63D0;&#x53D6;&#x53C2;&#x6570;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x548C;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x7A0B;&#x662F;&#x56F0;&#x96BE;&#x7684;, &#x800C;&#x4F5C;&#x8005;&#x9700;&#x8981;&#x4F7F;&#x8D4B;&#x503C;&#x548C;&#x63D0;&#x53D6;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x6EE1;&#x8DB3;&#x7A0B;&#x5E8F;&#x7EA6;&#x675F;. &#x5426;&#x5219;, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x53EF;&#x80FD;&#x4F1A;&#x610F;&#x5916;&#x5D29;&#x6E83;, &#x4ECE;&#x800C;&#x5BFC;&#x81F4;&#x5927;&#x91CF;&#x7684;&#x8BEF;&#x62A5;. </p>
+<h2 id="method">Method</h2>
+<p>Figure 1 &#x5C55;&#x793A; AFGEN &#x7684;&#x603B;&#x4F53;&#x6846;&#x67B6;. &#x7ED9;&#x5B9A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x76EE;&#x6807;&#x7684;&#x6E90;&#x4EE3;&#x7801;, AFGEN &#x9996;&#x5148;&#x5BF9;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x9884;&#x5904;&#x7406;, &#x63D0;&#x53D6;&#x7ED3;&#x6784;&#x4FE1;&#x606F;&#x3001;&#x51FD;&#x6570;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x540E;&#x7EED;&#x5206;&#x6790;&#x6240;&#x9700;&#x7684;&#x4FE1;&#x606F;. &#x901A;&#x8FC7;&#x51FD;&#x6570;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;, AFGEN &#x5B9A;&#x4F4D;&#x8C03;&#x7528;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;, &#x5E76;&#x5207;&#x5272;&#x51FA;&#x8C03;&#x7528;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;&#x7247;&#x6BB5;. &#x5982;&#x679C;&#x5207;&#x5272;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x67D0;&#x4E9B;&#x53D8;&#x91CF;&#x672A;&#x521D;&#x59CB;&#x5316;, AFGEN &#x4F1A;&#x6839;&#x636E;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x548C;&#x7ED3;&#x6784;&#x4FE1;&#x606F;&#x4E3A;&#x5B83;&#x4EEC;&#x8D4B;&#x503C;, &#x4ECE;&#x800C;&#x5408;&#x6210;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;. AFGEN &#x8FD0;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5E76;&#x751F;&#x6210;&#x5D29;&#x6E83;&#x62A5;&#x544A;. AFGEN &#x5206;&#x6790;&#x5D29;&#x6E83;&#x62A5;&#x544A;, &#x63D0;&#x53D6;&#x4E0E;&#x5D29;&#x6E83;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x91CF;, &#x67E5;&#x627E;&#x5B9A;&#x4E49;&#x6216;&#x521D;&#x59CB;&#x5316;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x7684;&#x4EE3;&#x7801;, &#x5E76;&#x6700;&#x7EC8;&#x5C06;&#x4EE3;&#x7801;&#x63D2;&#x5165;&#x56DE;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x4E2D;. </p>
+<p><img src="assets/image-20250615195802514.png" alt="image-20250615195802514"></p>
+<h3 id="bi-direction-slicer">Bi-direction Slicer</h3>
+<p>&#x53CC;&#x5411;&#x5207;&#x7247;&#x5668; (Bi-direction Slicer) &#x63A5;&#x53D7;&#x76EE;&#x6807;&#x9879;&#x76EE;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;, &#x5E76;&#x8F93;&#x51FA;&#x9879;&#x76EE;&#x4E2D;&#x4EFB;&#x4F55;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;&#x5207;&#x7247;. &#x5B83;&#x5229;&#x7528;&#x9884;&#x5904;&#x7406;&#x5668;&#x626B;&#x63CF;&#x6E90;&#x4EE3;&#x7801;&#x5E76;&#x63D0;&#x53D6;&#x51FD;&#x6570;&#x7684;&#x57FA;&#x672C;&#x4FE1;&#x606F;, &#x5982;&#x8C03;&#x7528;&#x8005;&#x548C;&#x88AB;&#x8C03;&#x7528;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3001;&#x6240;&#x6709;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x5B9A;&#x4E49;. &#x53CC;&#x5411;&#x5207;&#x7247;&#x5668;&#x63A5;&#x7740;&#x5206;&#x6790;&#x6570;&#x636E;&#x6D41;&#x548C;&#x63A7;&#x5236;&#x6D41;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;, &#x8FFD;&#x8E2A;&#x4F7F;&#x7528;&#x6216;&#x4E0E;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x8FDE;&#x63A5;&#x7684;&#x4EE3;&#x7801;&#x5207;&#x7247;. &#x8C03;&#x7528;&#x5173;&#x7CFB;&#x7528;&#x4E8E;&#x5B9A;&#x4F4D;&#x4F7F;&#x7528;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x4EE3;&#x7801;&#x7247;&#x6BB5;. &#x63A7;&#x5236;&#x6D41;&#x4F9D;&#x8D56;&#x8BED;&#x53E5;&#x4F7F;&#x5F97;&#x751F;&#x6210;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x4E0E;&#x5F00;&#x53D1;&#x8005;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x8BE5;&#x51FD;&#x6570;&#x7684;&#x539F;&#x59CB;&#x903B;&#x8F91;&#x5339;&#x914D;, &#x5E76;&#x4E3A;&#x8C03;&#x7528;&#x51C6;&#x5907;&#x4E0A;&#x4E0B;&#x6587;. &#x6570;&#x636E;&#x6D41;&#x4F9D;&#x8D56;&#x8BED;&#x53E5;&#x5E2E;&#x52A9;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x9002;&#x5F53;&#x5730;&#x521D;&#x59CB;&#x5316;&#x5E76;&#x4E3A;&#x63D0;&#x53D6;&#x7684;&#x53D8;&#x91CF; (&#x5373;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x3001;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x548C;&#x5168;&#x5C40;&#x53D8;&#x91CF;) &#x8D4B;&#x503C;. </p>
+<p><img src="assets/image-20250615204003517.png" alt="image-20250615204003517"></p>
+<p>&#x7B97;&#x6CD5; 1 &#x5C55;&#x793A;&#x4E86;&#x5207;&#x7247;&#x8FC7;&#x7A0B;, &#x5305;&#x62EC;&#x63D0;&#x53D6;&#x63A7;&#x5236;&#x6D41;&#x548C;&#x6570;&#x636E;&#x6D41;&#x3001;&#x6DFB;&#x52A0;&#x5FC5;&#x8981;&#x7684;&#x4EE3;&#x7801;&#x4EE5;&#x4F7F;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x53EF;&#x7F16;&#x8BD1;&#x3001;&#x4EE5;&#x53CA;&#x79FB;&#x9664;&#x4E00;&#x4E9B;&#x65E0;&#x5BB3;&#x4EE3;&#x7801;&#x4EE5;&#x63D0;&#x9AD8;&#x6027;&#x80FD;. &#x5177;&#x4F53;&#x6765;&#x8BF4;, &#x5982;&#x679C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x6307;&#x5411;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8BED;&#x53E5;, &#x4F5C;&#x8005;&#x5C06;&#x5176;&#x6807;&#x8BB0;&#x4E3A;&#x8C03;&#x7528;&#x51FD;&#x6570;, &#x5E76;&#x5BF9;&#x6BCF;&#x4E2A;&#x627E;&#x5230;&#x7684;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x5207;&#x7247; (&#x7B2C; 1 &#x884C;&#x3001;&#x7B2C; 3 &#x884C;). &#x5207;&#x7247;&#x5668;&#x5C06;&#x628A;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x8BED;&#x53E5; (&#x5373; <code>IsCallOf</code>) &#x6DFB;&#x52A0;&#x5230;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x96C6; (<code>Setcode</code>) &#x4E2D;, &#x5E76;&#x5C06;&#x5176;&#x53C2;&#x6570;&#x6DFB;&#x52A0;&#x5230;&#x5173;&#x952E;&#x53D8;&#x91CF;&#x96C6; (<code>Setvar</code>)  (&#x7B2C; 8 &#x884C;&#x81F3;&#x7B2C; 10 &#x884C;). &#x6B64;&#x5916;, &#x5B83;&#x8FD8;&#x4F1A;&#x5C06;&#x4E0E;&#x5173;&#x952E;&#x53D8;&#x91CF;&#x5177;&#x6709;&#x6570;&#x636E;&#x6D41;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7684;&#x8BED;&#x53E5; (&#x5373; <code>IsDataRelated</code>) &#x548C;&#x4E0E;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x5177;&#x6709;&#x63A7;&#x5236;&#x6D41;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7684;&#x8BED;&#x53E5; (&#x5373; <code>IsControlRelated</code>) &#x6DFB;&#x52A0;&#x5230;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x96C6;, &#x5E76;&#x5C06;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x6DFB;&#x52A0;&#x5230;&#x5173;&#x952E;&#x53D8;&#x91CF;&#x96C6;&#x4E2D; (&#x7B2C; 8 &#x884C;&#x81F3;&#x7B2C; 10 &#x884C;). &#x5728;&#x6B64;, &#x4F5C;&#x8005;&#x8BA4;&#x4E3A;&#x4E00;&#x4E2A;&#x8BED;&#x53E5;&#x4E0E;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x96C6;&#x6709;&#x63A7;&#x5236;&#x6D41;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;, &#x5982;&#x679C;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x4F4D;&#x4E8E;&#x5B83;&#x7684;&#x4E3B;&#x4F53;&#x4E2D;, &#x6216;&#x8005;&#x5B83;&#x7EC8;&#x6B62;&#x7A0B;&#x5E8F; (&#x5373; <code>return</code> &#x548C; <code>assert</code>) &#x5E76;&#x4F4D;&#x4E8E;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x7684;&#x4E3B;&#x4F53;&#x4E2D;. &#x5BF9;&#x4E8E;&#x6570;&#x636E;&#x6D41;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;, &#x4F5C;&#x8005;&#x68C0;&#x67E5;&#x8BED;&#x53E5;&#x662F;&#x5426;&#x662F;&#x5173;&#x952E;&#x53D8;&#x91CF;&#x7684;&#x6700;&#x8FD1;&#x8D4B;&#x503C;&#x8BED;&#x53E5;. &#x5982;&#x679C;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#x8BED;&#x53E5;&#x662F;&#x4E00;&#x4E2A;&#x8C03;&#x7528;&#x8BED;&#x53E5;, AFGEN &#x4F1A;&#x8FDB;&#x4E00;&#x6B65;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x524D;&#x5411;&#x5207;&#x7247;, &#x4EE5;&#x83B7;&#x53D6;&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5173;&#x952E;&#x53D8;&#x91CF; (&#x7B2C; 11 &#x884C;&#x81F3;&#x7B2C; 12 &#x884C;). AFGEN &#x4F1A;&#x91CD;&#x590D;&#x4EE5;&#x4E0A;&#x8FC7;&#x7A0B;, &#x76F4;&#x5230;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x96C6; <code>Setcode</code> &#x4E0D;&#x518D;&#x53D8;&#x5316; (&#x7B2C; 13 &#x884C;), &#x6B64;&#x65F6;&#x8F93;&#x51FA;&#x8BED;&#x53E5;&#x96C6;&#x4E2D;&#x7684;&#x8BED;&#x53E5;&#x5C31;&#x662F;&#x5207;&#x7247;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x7247;&#x6BB5;. &#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;, &#x4F5C;&#x8005;&#x5BF9;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x5207;&#x7247;, &#x56E0;&#x4E3A;&#x8FDB;&#x4E00;&#x6B65;&#x5207;&#x7247;&#x9AD8;&#x7EA7;&#x51FD;&#x6570;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x91CF;&#x7206;&#x70B8;, &#x4ECE;&#x800C;&#x4F7F;&#x5F97;&#x5B8C;&#x6574;&#x6D4B;&#x8BD5;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x56F0;&#x96BE;. </p>
+<h3 id="variable-value-assigner">Variable Value Assigner</h3>
+<p>&#x7531;&#x5207;&#x7247;&#x5668;&#x7EC4;&#x4EF6;&#x751F;&#x6210;&#x7684;&#x5207;&#x7247;&#x4EE3;&#x7801;&#x4ECD;&#x7136;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x7F16;&#x8BD1;. &#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5207;&#x7247;&#x4EE3;&#x7801;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x53D8;&#x91CF;, &#x5982;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x548C;&#x5168;&#x5C40;&#x53D8;&#x91CF;, &#x5C1A;&#x672A;&#x5B9A;&#x4E49;&#x6216;&#x521D;&#x59CB;&#x5316;. &#x53D8;&#x91CF;&#x503C;&#x8D4B;&#x503C;&#x7EC4;&#x4EF6;&#x6839;&#x636E;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x4E3A;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x53D8;&#x91CF;&#x8D4B;&#x503C;, &#x4ECE;&#x800C;&#x4F7F;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x53EF;&#x7F16;&#x8BD1;&#x5E76;&#x53EF;&#x6267;&#x884C;. &#x5177;&#x4F53;&#x6765;&#x8BF4;, &#x4F5C;&#x8005;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5F15;&#x64CE;&#x4F1A;&#x968F;&#x673A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x533A;, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x9700;&#x8981;&#x5C06;&#x8BE5;&#x7F13;&#x51B2;&#x533A;&#x5206;&#x5272;&#x5E76;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;&#x6570;&#x636E;&#x4E3A;&#x672A;&#x521D;&#x59CB;&#x5316;&#x7684;&#x53D8;&#x91CF;&#x8D4B;&#x503C;. &#x4F5C;&#x8005;&#x5217;&#x51FA;&#x4E86;&#x4EE5;&#x4E0B;&#x51E0;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x8D4B;&#x503C;&#x65B9;&#x6CD5;: </p>
+<ol>
+<li><strong>Directly Assignment</strong>: &#x5BF9;&#x4E8E;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x548C;&#x5177;&#x6709;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4;&#x7C7B;&#x578B;, AFGEN &#x6839;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x957F;&#x5EA6;&#x4ECE;&#x6A21;&#x7CCA;&#x5F15;&#x64CE;&#x751F;&#x6210;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x83B7;&#x53D6;&#x503C;, &#x5E76;&#x5C06;&#x5176;&#x8D4B;&#x7ED9;&#x53D8;&#x91CF;. </li>
+<li><strong>Allocation before Assignment</strong>: &#x5BF9;&#x4E8E;&#x6307;&#x9488;&#x548C;&#x6CA1;&#x6709;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;&#x7684;&#x6570;&#x7EC4; (&#x4F8B;&#x5982;, <code>int[]</code>), AFGEN &#x5206;&#x914D;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x7F13;&#x51B2;&#x533A;, &#x5C06;&#x5206;&#x914D;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5730;&#x5740;&#x8D4B;&#x7ED9;&#x53D8;&#x91CF;, &#x5E76;&#x5C06;&#x751F;&#x6210;&#x7684;&#x6570;&#x636E;&#x586B;&#x5145;&#x5230;&#x7F13;&#x51B2;&#x533A;&#x4E2D;. &#x5206;&#x914D;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5E94;&#x8DB3;&#x591F;&#x5927;, &#x4EE5;&#x5BB9;&#x7EB3;&#x5185;&#x5B58;&#x89E3;&#x5F15;&#x7528;&#x64CD;&#x4F5C;. &#x67D0;&#x4E9B;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x6307;&#x5411;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x6CA1;&#x6709;&#x56FA;&#x5B9A;&#x5927;&#x5C0F;, &#x5728;&#x4E3A;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x4E4B;&#x540E;, AFGEN &#x4F1A;&#x8BA1;&#x7B97;&#x5269;&#x4F59;&#x8F93;&#x5165;&#x6570;&#x636E;&#x7684;&#x5927;&#x5C0F;, &#x5E76;&#x5C06;&#x5269;&#x4F59;&#x7684;&#x5B57;&#x8282;&#x5206;&#x914D;&#x7ED9;&#x5927;&#x5C0F;&#x4E0D;&#x56FA;&#x5B9A;&#x7684;&#x53D8;&#x91CF;. </li>
+<li><strong>Open File before Assignment</strong>: &#x4E0E;&#x8D4B;&#x503C;&#x524D;&#x5206;&#x914D;&#x65B9;&#x6CD5;&#x7C7B;&#x4F3C;, AFGEN &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x6587;&#x4EF6;, &#x5C06;&#x6587;&#x4EF6;&#x6307;&#x9488;&#x8D4B;&#x7ED9;&#x53D8;&#x91CF;, &#x5E76;&#x5C06;&#x751F;&#x6210;&#x7684;&#x6570;&#x636E;&#x5199;&#x5165;&#x65B0;&#x6587;&#x4EF6;. &#x5728;&#x8BBE;&#x7F6E;&#x5176;&#x4ED6;&#x56FA;&#x5B9A;&#x957F;&#x5EA6;&#x53D8;&#x91CF;&#x540E;, &#x4E5F;&#x4F1A;&#x521D;&#x59CB;&#x5316;&#x6587;&#x4EF6;&#x53D8;&#x91CF;. </li>
+</ol>
+<p>&#x7136;&#x800C;, &#x4ECD;&#x6709;&#x4E00;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x4E0A;&#x8FF0;&#x65B9;&#x6CD5;&#x5904;&#x7406;, &#x5305;&#x62EC;&#x51FD;&#x6570;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x3001;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x548C;&#x679A;&#x4E3E;&#x53D8;&#x91CF;. &#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;, &#x4F5C;&#x8005;&#x63D0;&#x51FA;&#x4E86;&#x4EE5;&#x4E0B;&#x7279;&#x5B9A;&#x65B9;&#x6CD5;: </p>
+<ol>
+<li><strong>Function Pointer Types</strong>: &#x51FD;&#x6570;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x4E0D;&#x540C;&#x4E8E;&#x5176;&#x4ED6;&#x6307;&#x9488;&#x53D8;&#x91CF;, &#x5B83;&#x6307;&#x5411;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x51FD;&#x6570;, &#x800C;&#x4E0D;&#x662F;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x533A;. &#x56E0;&#x6B64;, &#x4F5C;&#x8005;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x4E0A;&#x8FF0;&#x65B9;&#x6CD5;&#x6765;&#x521D;&#x59CB;&#x5316;&#x5B83;. &#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x53D8;&#x91CF;&#x7C7B;&#x578B;, AFGEN &#x626B;&#x63CF;&#x6E90;&#x4EE3;&#x7801;&#x4EE5;&#x63D0;&#x53D6;&#x8BE5;&#x53D8;&#x91CF;&#x7684;&#x8D4B;&#x503C;&#x8BED;&#x53E5;, &#x5E76;&#x5C06;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;&#x8D4B;&#x7ED9;&#x8BE5;&#x53D8;&#x91CF;, &#x8FD9;&#x662F;&#x901A;&#x8FC7;&#x9884;&#x5904;&#x7406;&#x5668;&#x7EC4;&#x4EF6;&#x5B9E;&#x73B0;&#x7684;. &#x7136;&#x800C;, &#x53EF;&#x80FD;&#x5728;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x627E;&#x4E0D;&#x5230;&#x8BE5;&#x53D8;&#x91CF;&#x7684;&#x8D4B;&#x503C;&#x8BED;&#x53E5;. &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;, AFGEN &#x4F1A;&#x641C;&#x7D22;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E0E;&#x51FD;&#x6570;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;, &#x7136;&#x540E;&#x5C06;&#x8BE5;&#x51FD;&#x6570;&#x8D4B;&#x7ED9;&#x8BE5;&#x53D8;&#x91CF;. </li>
+<li><strong>Casted Pointer Types</strong>: &#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x6307;&#x9488;&#x53D8;&#x91CF;, &#x7531;&#x4E8E; C/C++ &#x5BF9;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x6CA1;&#x6709;&#x9650;&#x5236;, &#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x5C06;&#x4EFB;&#x4F55;&#x6307;&#x9488;&#x8F6C;&#x6362;&#x4E3A;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x6307;&#x9488;&#x7C7B;&#x578B;, &#x56E0;&#x6B64;&#x4F5C;&#x8005;&#x65E0;&#x6CD5;&#x5728;&#x58F0;&#x660E;&#x65F6;&#x83B7;&#x53D6;&#x5176;&#x5B9E;&#x9645;&#x7C7B;&#x578B;. &#x5982;&#x679C;&#x4F5C;&#x8005;&#x6839;&#x636E;&#x58F0;&#x660E;&#x65F6;&#x7684;&#x7C7B;&#x578B;&#x4E3A;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x8D4B;&#x503C;, &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x53EF;&#x80FD;&#x4F1A;&#x610F;&#x5916;&#x5D29;&#x6E83;. AFGEN &#x9700;&#x8981;&#x8BB0;&#x5F55;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x7C7B;&#x578B;, &#x4EE5;&#x4FBF;&#x4E3A;&#x8FD9;&#x4E9B;&#x6307;&#x9488;&#x53D8;&#x91CF;&#x8D4B;&#x4E88;&#x6B63;&#x786E;&#x7684;&#x503C;. &#x5177;&#x4F53;&#x6765;&#x8BF4;, AFGEN &#x5728;&#x5207;&#x7247;&#x8FC7;&#x7A0B;&#x4E2D;&#x8BC6;&#x522B;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x8BED;&#x53E5;, &#x56E0;&#x6B64;&#x53EA;&#x6709;&#x4E0E;&#x76EE;&#x6807;&#x51FD;&#x6570;&#x76F8;&#x5173;&#x7684;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x8BED;&#x53E5;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;. &#x5F53;&#x8F6C;&#x6362;&#x7C7B;&#x578B;&#x6BD4;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x66F4;&#x590D;&#x6742;&#x65F6;, AFGEN &#x4F1A;&#x5C06;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x66FF;&#x6362;&#x4E3A;&#x8F6C;&#x6362;&#x540E;&#x7684;&#x7C7B;&#x578B;. &#x4F8B;&#x5982;, &#x5F53;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x4E3A; <code>void*</code>, &#x800C;&#x8F6C;&#x6362;&#x7C7B;&#x578B;&#x4E3A;&#x7ED3;&#x6784;&#x4F53;&#x6307;&#x9488;&#x65F6;, AFGEN &#x4F1A;&#x5C06; <code>void*</code> &#x66FF;&#x6362;&#x4E3A;&#x7ED3;&#x6784;&#x4F53;&#x6307;&#x9488;. </li>
+<li><strong>Enumeration Variables</strong>: &#x679A;&#x4E3E;&#x53D8;&#x91CF;&#x4F1A;&#x88AB;&#x8D4B;&#x4E88;&#x7279;&#x5B9A;&#x7684;&#x503C;, &#x901A;&#x5E38;&#x7528;&#x4E8E;&#x51B3;&#x5B9A;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x5206;&#x652F;. &#x5982;&#x679C; AFGEN &#x4E3A;&#x679A;&#x4E3E;&#x53D8;&#x91CF;&#x8D4B;&#x4E88;&#x968F;&#x673A;&#x6570;&#x636E;, &#x5B83;&#x4EEC;&#x5F88;&#x53EF;&#x80FD;&#x4F1A;&#x53D8;&#x5F97;&#x65E0;&#x6548;, &#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x7A0B;&#x5E8F;&#x53EA;&#x4F1A;&#x6267;&#x884C;&#x9ED8;&#x8BA4;&#x5206;&#x652F;. &#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x7684;&#x6709;&#x6548;&#x6027;, AFGEN &#x4F1A;&#x63D0;&#x53D6;&#x679A;&#x4E3E;&#x53D8;&#x91CF;&#x7684;&#x6240;&#x6709;&#x5019;&#x9009;&#x503C;, &#x5E76;&#x6839;&#x636E;&#x6A21;&#x7CCA;&#x8F93;&#x5165;&#x4E3A;&#x5176;&#x8D4B;&#x503C;. </li>
+</ol>
+<h3 id="constraints-tracer">Constraints Tracer</h3>
+<p>&#x5982; Algorithm 2 &#x6240;&#x793A;, &#x7EA6;&#x675F;&#x8DDF;&#x8E2A;&#x5668; (Constraints Tracer) &#x6839;&#x636E;&#x4E4B;&#x524D;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x89E6;&#x53D1;&#x7684;&#x5D29;&#x6E83;&#x62A5;&#x544A;&#x6765;&#x8DDF;&#x8E2A;&#x7EA6;&#x675F;. &#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x8DDF;&#x8E2A;&#x5668;&#x7684;&#x6548;&#x7387;, AFGEN &#x4EC5;&#x8DDF;&#x8E2A;&#x4E0E;&#x5D29;&#x6E83;&#x70B9;&#x76F4;&#x63A5;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x91CF;&#x7EA6;&#x675F;, &#x5373;&#x5D29;&#x6E83;&#x53D1;&#x751F;&#x7684;&#x8BED;&#x53E5;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x4EE5;&#x53CA;&#x63A7;&#x5236;&#x8BED;&#x53E5;&#x4E2D;&#x7684;&#x53D8;&#x91CF; (&#x7B2C; 2 &#x884C;&#x81F3;&#x7B2C; 4 &#x884C;). AFGEN &#x5B9A;&#x4F4D;&#x7ED9;&#x5B9A;&#x53D8;&#x91CF;&#x7684;&#x5B9A;&#x4E49; (&#x7B2C; 7 &#x884C;), &#x5BF9;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x6D41;&#x548C;&#x63A7;&#x5236;&#x6D41;&#x5206;&#x6790;, &#x5E76;&#x8BB0;&#x5F55;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x548C;&#x63A7;&#x5236;&#x6D41;&#x76F8;&#x5173;&#x53D8;&#x91CF;&#x4F5C;&#x4E3A;&#x7EA6;&#x675F; (&#x7B2C; 8 &#x884C;&#x81F3;&#x7B2C; 11 &#x884C;). &#x7136;&#x540E;, AFGEN &#x91CD;&#x590D;&#x5B9A;&#x4F4D;&#x548C;&#x8BB0;&#x5F55;&#x65B0;&#x8BB0;&#x5F55;&#x53D8;&#x91CF;&#x7684;&#x8FC7;&#x7A0B;, &#x76F4;&#x5230;&#x6CA1;&#x6709;&#x65B0;&#x53D8;&#x91CF;&#x88AB;&#x53D1;&#x73B0; (&#x7B2C; 12 &#x884C;). &#x6700;&#x540E;, AFGEN &#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x5206;&#x914D;&#x6811;, &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;, &#x6BCF;&#x6761;&#x8FB9;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x8D4B;&#x503C;&#x8BED;&#x53E5;, &#x6839;&#x8282;&#x70B9;&#x8868;&#x793A;&#x4E0E;&#x5D29;&#x6E83;&#x76F4;&#x63A5;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x91CF;. &#x56E0;&#x6B64;, &#x4F5C;&#x8005;&#x83B7;&#x5F97;&#x4E86;&#x4F5C;&#x4E3A;&#x8DDF;&#x8E2A;&#x7EA6;&#x675F;&#x7684;&#x8BB0;&#x5F55;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x96C6; <code>Setc</code> &#x548C;&#x63A7;&#x5236;&#x6D41;&#x4F9D;&#x8D56;&#x53D8;&#x91CF;&#x96C6; <code>Setcvar</code>. </p>
+<p><img src="assets/image-20250615204810015.png" alt="image-20250615204810015"></p>
+<p>&#x56DE;&#x5230; Listing 4, &#x4F5C;&#x8005;&#x4F7F;&#x7528;&#x76F8;&#x540C;&#x989C;&#x8272;&#x7684;&#x6846;&#x6765;&#x8868;&#x793A;&#x5B9A;&#x4E49;&#x5173;&#x7CFB;, &#x7070;&#x8272;&#x7BAD;&#x5934;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x4E0E;&#x88AB;&#x6307;&#x5411;&#x7684;&#x53D8;&#x91CF;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x6D41;&#x4F9D;&#x8D56;. AFGEN &#x5206;&#x6790;&#x4E86;&#x7B2C; 16 &#x884C;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x6EA2;&#x51FA;&#x5D29;&#x6E83;&#x62A5;&#x544A;, &#x5E76;&#x5F97;&#x51FA;&#x7ED3;&#x8BBA;, <code>fidx</code> (&#x7B2C; 16 &#x884C;) &#x548C; <code>c</code> (&#x7B2C; 14 &#x884C;) &#x662F;&#x4E0E;&#x5D29;&#x6E83;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x91CF;. &#x5BF9;&#x4E8E;&#x7B2C; 16 &#x884C;&#x7684; <code>fidx</code>, AFGEN &#x5B9A;&#x4F4D;&#x5176;&#x5B9A;&#x4E49;&#x4F4D;&#x7F6E;&#x5728;&#x7B2C; 15 &#x884C; (&#x7528;&#x84DD;&#x8272;&#x6846;&#x6807;&#x51FA;). &#x5982;&#x679C;&#x8D4B;&#x503C;&#x8BED;&#x53E5;&#x7684;&#x53F3;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6210;&#x5458;, AFGEN &#x4F1A;&#x8BB0;&#x5F55;&#x8BE5;&#x6210;&#x5458;, &#x800C;&#x4E0D;&#x662F;&#x6574;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;. &#x56E0;&#x6B64;, AFGEN &#x5C06;&#x63A7;&#x5236;&#x6D41;&#x76F8;&#x5173;&#x53D8;&#x91CF; <code>c</code> &#x548C;&#x6570;&#x636E;&#x6D41;&#x76F8;&#x5173;&#x53D8;&#x91CF; <code>qtab_idx</code> (&#x7531;&#x7070;&#x8272;&#x7BAD;&#x5934;&#x6307;&#x5411;) &#x8BB0;&#x5F55;&#x4E3A;&#x4E0B;&#x4E00;&#x8F6E;&#x5206;&#x6790;&#x7684;&#x8F93;&#x5165;. &#x6700;&#x7EC8;, AFGEN &#x63D0;&#x53D6;&#x51FA;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x6EA2;&#x51FA;&#x7684;&#x7EA6;&#x675F;&#x662F;&#x7B2C; 4 &#x884C;&#x3001;&#x7B2C; 5 &#x884C;&#x548C;&#x7B2C; 8 &#x884C;.</p>
+<p><img src="assets/image-20250615211324994.png" alt="image-20250615211324994"></p>
+<p>&#x5728;&#x83B7;&#x53D6;&#x8DDF;&#x8E2A;&#x7EA6;&#x675F;&#x540E;, &#x4F5C;&#x8005;&#x9700;&#x8981;&#x4ECE;&#x6570;&#x636E;&#x6D41;&#x548C;&#x63A7;&#x5236;&#x6D41;&#x7684;&#x89D2;&#x5EA6;&#x4FEE;&#x6539;&#x7EA6;&#x675F;, &#x4EE5;&#x63D0;&#x9AD8;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x6709;&#x6548;&#x6027;. &#x5728;&#x8BB0;&#x5F55;&#x7684;&#x7EA6;&#x675F;&#x4E2D;, &#x4E00;&#x4E9B;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x636E;&#x6765;&#x81EA;&#x7A0B;&#x5E8F;&#x8F93;&#x5165;, &#x800C;&#x4E00;&#x4E9B;&#x7EA6;&#x675F;&#x6D89;&#x53CA;&#x65B0;&#x7684;&#x53D8;&#x91CF;. &#x5BF9;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x7684;&#x989D;&#x5916;&#x4FEE;&#x6539;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x4E24;&#x7C7B;: </p>
+<ol>
+<li><strong>Program Input</strong>: &#x5982;&#x679C;&#x7EA6;&#x675F;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x636E;&#x6765;&#x81EA;&#x7A0B;&#x5E8F;&#x8F93;&#x5165;, &#x7528;&#x6237;&#x53EF;&#x4EE5;&#x5728;&#x6CA1;&#x6709;&#x989D;&#x5916;&#x9650;&#x5236;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x786E;&#x5B9A;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;. &#x56E0;&#x6B64;, AFGEN &#x5C06;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x8D4B;&#x4E88;&#x968F;&#x673A;&#x6570;&#x636E;. &#x5E93;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x7A0B;&#x5E8F;&#x8F93;&#x5165;&#x5F62;&#x5F0F;&#x662F;&#x901A;&#x8FC7; <code>fread</code> &#x7B49;&#x51FD;&#x6570;&#x4ECE;&#x6587;&#x4EF6;&#x6216;&#x6807;&#x51C6;&#x8F93;&#x5165;&#x83B7;&#x53D6;&#x7684;. &#x67D0;&#x4E9B;&#x5E93;&#x5305;&#x542B;&#x4F7F;&#x7528;&#x5E93;&#x4E2D; API &#x7684;&#x793A;&#x4F8B;&#x7A0B;&#x5E8F;, &#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x7A0B;&#x5E8F;, &#x7A0B;&#x5E8F;&#x8F93;&#x5165;&#x901A;&#x8FC7; <code>main</code> &#x51FD;&#x6570;&#x7684; <code>argv</code> &#x53C2;&#x6570;&#x8FDB;&#x884C;&#x8D4B;&#x503C;. &#x6B64;&#x5916;, &#x5982;&#x679C;&#x5728;&#x8BB0;&#x5F55;&#x8BED;&#x53E5;&#x4E2D;&#x5BF9;&#x8FD9;&#x4E9B;&#x53D8;&#x91CF;&#x5E94;&#x7528;&#x4E86;&#x5176;&#x4ED6;&#x4FEE;&#x6539;, AFGEN &#x4F1A;&#x5C06;&#x8FD9;&#x4E9B;&#x4FEE;&#x6539;&#x6DFB;&#x52A0;&#x5230;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x4E2D;. </li>
+<li><strong>New Control Variable</strong>: &#x5982;&#x679C; AFGEN &#x8DDF;&#x8E2A;&#x4E86;&#x5F53;&#x524D;&#x53D8;&#x91CF;&#x7684;&#x7EA6;&#x675F;, &#x5E76;&#x5728;&#x4E4B;&#x524D;&#x8DDF;&#x8E2A;&#x7684;&#x7EA6;&#x675F;&#x4E2D;&#x8DDF;&#x8E2A;&#x4E86;&#x65B0;&#x53D8;&#x91CF;&#x7684;&#x7EA6;&#x675F;, &#x8BB0;&#x5F55;&#x7684;&#x53D8;&#x91CF;&#x6570;&#x91CF;&#x4F1A;&#x8FC5;&#x901F;&#x589E;&#x52A0;, &#x4ECE;&#x800C;&#x964D;&#x4F4E;&#x4E86;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x7684;&#x53EF;&#x7528;&#x6027;&#x548C;&#x6548;&#x7387;. &#x6839;&#x636E;&#x4F5C;&#x8005;&#x7684;&#x5B9E;&#x9A8C;, &#x4F5C;&#x8005;&#x5C06;&#x5D4C;&#x5957;&#x8DDF;&#x8E2A;&#x7684;&#x9608;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A; 1, &#x8FD9;&#x610F;&#x5473;&#x7740; AFGEN &#x4F1A;&#x76F4;&#x63A5;&#x7528;&#x6A21;&#x7CCA;&#x8F93;&#x5165;&#x4E2D;&#x7684;&#x503C;&#x66FF;&#x6362;&#x65B0;&#x53D8;&#x91CF;. </li>
+</ol>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="rq1--rq2-">RQ1 &amp; RQ2 ...</h3>
+<h3 id="rq3-effectiveness-of-finding-unknown-vulnerabilities">RQ3: Effectiveness of Finding Unknown Vulnerabilities</h3>
+<p>&#x6839;&#x636E;&#x89E6;&#x53D1;&#x65B9;&#x5F0F;, &#x4F5C;&#x8005;&#x5C06;&#x6F0F;&#x6D1E;&#x5206;&#x4E3A;&#x56DB;&#x79CD;&#x7C7B;&#x578B;, &#x5982; Table 9 &#x6240;&#x793A;: &#x4E00;&#x822C;&#x6027; (General) &#x3001;API&#x3001;CPL &#x548C;&#x9009;&#x9879; (Option). <strong>&#x4E00;&#x822C;&#x6027; (General) </strong>&#x5305;&#x62EC;&#x7406;&#x8BBA;&#x4E0A;&#x4EC5;&#x901A;&#x8FC7;&#x6539;&#x53D8;&#x8F93;&#x5165;&#x6587;&#x4EF6;&#x5373;&#x53EF;&#x89E6;&#x53D1;&#x7684;&#x6F0F;&#x6D1E;, &#x65E0;&#x9700;&#x989D;&#x5916;&#x7684;&#x9009;&#x9879;. &#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6F0F;&#x6D1E;, &#x4F5C;&#x8005;&#x4EC5;&#x5C06; AFGEN &#x4E0E;&#x5176;&#x4ED6;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;, &#x56E0;&#x4E3A;&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x5E76;&#x672A;&#x8BBE;&#x8BA1;&#x7528;&#x4E8E;&#x53D1;&#x73B0;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x6F0F;&#x6D1E;. <strong>API</strong> &#x4EE3;&#x8868;&#x901A;&#x8FC7; API &#x800C;&#x4E0D;&#x662F;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;&#x70B9;&#x89E6;&#x53D1;&#x7684;&#x6F0F;&#x6D1E;. <strong>CPL</strong> &#x5305;&#x62EC;&#x9700;&#x8981;&#x989D;&#x5916;&#x7F16;&#x8BD1;&#x9009;&#x9879;&#x624D;&#x80FD;&#x89E6;&#x53D1;&#x7684;&#x6F0F;&#x6D1E;. &#x4F8B;&#x5982;, ngiflib &#x4E2D;&#x7684; CVE-2021-36530 &#x548C; CVE-2021-36531, &#x5982;&#x679C;&#x6CA1;&#x6709;&#x7279;&#x5B9A;&#x7684;&#x7F16;&#x8BD1;&#x547D;&#x4EE4;, &#x5728;&#x5176;&#x4ED6;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x4E2D;&#x65E0;&#x6CD5;&#x89E6;&#x53D1;. <strong>&#x9009;&#x9879; (Option) </strong>&#x8868;&#x793A;&#x901A;&#x8FC7;&#x7279;&#x5B9A;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;&#x89E6;&#x53D1;&#x7684;&#x6F0F;&#x6D1E;. &#x4F8B;&#x5982;, CVE-2022-28550 &#x662F;&#x4E00;&#x4E2A;&#x6808;&#x6EA2;&#x51FA;&#x6F0F;&#x6D1E;, &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;&#x89E6;&#x53D1;. </p>
+<p><img src="assets/image-20250615205252322.png" alt="image-20250615205252322"></p>
+<p>&#x6F0F;&#x6D1E;&#x4EE3;&#x7801;&#x548C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5982;&#x5217;&#x8868; 5 &#x6240;&#x793A;. &#x8106;&#x5F31;&#x51FD;&#x6570; <code>shellescape()</code> &#x5728;&#x7B2C; 5 &#x884C;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x8FB9;&#x754C;&#x68C0;&#x67E5;&#x5C31;&#x590D;&#x5236;&#x4E86;&#x6570;&#x636E;. &#x7531;&#x4E8E;&#x8C03;&#x7528;&#x8BED;&#x53E5;&#x4E2D;&#x63A5;&#x6536;&#x6570;&#x636E;&#x7F13;&#x51B2;&#x533A; <code>ExecString</code> &#x7684;&#x5927;&#x5C0F;&#x8F83;&#x5927; (12288), &#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5668;&#x9700;&#x8981;&#x4E3A; <code>ApplyCommand</code> &#x5206;&#x914D;&#x8DB3;&#x591F;&#x7684; &#x201C;&amp;i&#x201D;, &#x4EE5;&#x4FBF;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x8BE5;&#x51FD;&#x6570; (&#x7B2C; 13 &#x884C;&#x81F3;&#x7B2C; 15 &#x884C;) &#x6765;&#x89E6;&#x53D1;&#x6F0F;&#x6D1E;. &#x800C;&#x5728;&#x7A0B;&#x5E8F;&#x4E2D;, <code>ApplyCommand</code> &#x662F;&#x4ECE;&#x7279;&#x5B9A;&#x7684;&#x547D;&#x4EE4;&#x884C;&#x9009;&#x9879;&#x4E2D;&#x8BFB;&#x53D6;&#x7684;, &#x8FD9;&#x4F7F;&#x5F97;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x5F88;&#x96BE;&#x4E3A;&#x5176;&#x5206;&#x914D;&#x671F;&#x671B;&#x7684;&#x6570;&#x636E;. &#x800C; AFGEN &#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x53D8;&#x5F02; <code>ApplyCommand</code> &#x4E2D;&#x7684;&#x6570;&#x636E;, &#x5E76;&#x8FC5;&#x901F;&#x53D1;&#x73B0;&#x8FD9;&#x4E2A;&#x6F0F;&#x6D1E;. </p>
+<p><img src="assets/image-20250615205750726.png" alt="image-20250615205750726"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Coding-PTMs.html" class="navigation navigation-prev " aria-label="Previous page: Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../linux/" class="navigation navigation-next " aria-label="Next page: Linux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"AFGEN: Whole-Function Fuzzing for Applications and Libraries","level":"1.2.27","depth":2,"next":{"title":"Linux","level":"2.1","depth":1,"path":"linux/index.md","ref":"linux/index.md","articles":[{"title":"Rust Elementary I","level":"2.1.1","depth":2,"path":"linux/rust_elementary_I.md","ref":"linux/rust_elementary_I.md","articles":[]},{"title":"Rust Elementary II","level":"2.1.2","depth":2,"path":"linux/rust_elementary_II.md","ref":"linux/rust_elementary_II.md","articles":[]},{"title":"Rust Elementary III","level":"2.1.3","depth":2,"path":"linux/rust_elementary_III.md","ref":"linux/rust_elementary_III.md","articles":[]},{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"path":"linux/rust_elementary_IV.md","ref":"linux/rust_elementary_IV.md","articles":[]},{"title":"Rust Elementary V","level":"2.1.5","depth":2,"path":"linux/rust_elementary_V.md","ref":"linux/rust_elementary_V.md","articles":[]},{"title":"Rust Elementary VI","level":"2.1.6","depth":2,"path":"linux/rust_elementary_VI.md","ref":"linux/rust_elementary_VI.md","articles":[]},{"title":"Docker Sources Switch","level":"2.1.7","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]}]},"previous":{"title":"Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?","level":"1.2.26","depth":2,"path":"papers/Coding-PTMs.md","ref":"papers/Coding-PTMs.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"papers/AFGEN.md","mtime":"2025-06-15T13:21:32.436Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-06-15T13:25:33.107Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
