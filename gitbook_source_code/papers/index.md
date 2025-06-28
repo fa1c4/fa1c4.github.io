@@ -29,6 +29,7 @@
 
 ## AI for Vulnerabilities
 * [Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?](Coding-PTMs.md)
+* [SecureFalcon: Are We There Yet in Automated Software Vulnerability Detection With LLMs](SecureFalcon.md)
 
 
 

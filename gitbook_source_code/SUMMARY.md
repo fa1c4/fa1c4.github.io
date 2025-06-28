@@ -36,6 +36,7 @@
   * [Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?](papers/Coding-PTMs.md)
   * [AFGEN: Whole-Function Fuzzing for Applications and Libraries](papers/AFGEN.md)
   * [Arbiter: Bridging the Static and Dynamic Divide in Vulnerability Discovery on Binary Programs](papers/Arbiter.md)
+  * [SecureFalcon: Are We There Yet in Automated Software Vulnerability Detection With LLMs](papers/SecureFalcon.md)
 
 
 
