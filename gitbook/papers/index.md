@@ -13,13 +13,17 @@
 * [AFGEN: Whole-Function Fuzzing for Applications and Libraries](AFGEN.md)
 
 
+
 ## Main List of Vulnerability
 * [Arbiter: Bridging the Static and Dynamic Divide in Vulnerability Discovery on Binary Programs](Arbiter.md)
+* [Unveiling the Characteristics and Impact of Security Patch Evolution](patch_evolution.md)
+
 
 
 ## Main List of AI
 * [KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation](kag.md)
 * [LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders](llm2vec.md)
+
 
 
 ## AI for Reversing
@@ -29,6 +33,8 @@
 
 ## AI for Vulnerabilities
 * [Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?](Coding-PTMs.md)
+* [SecureFalcon: Are We There Yet in Automated Software Vulnerability Detection With LLMs](SecureFalcon.md)
+* [Effective Vulnerable Function Identification based on CVE Description Empowered by Large Language Models](VFFinder.md)
 
 
 
