@@ -35,7 +35,7 @@
 * [Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?](Coding-PTMs.md)
 * [SecureFalcon: Are We There Yet in Automated Software Vulnerability Detection With LLMs](SecureFalcon.md)
 * [Effective Vulnerable Function Identification based on CVE Description Empowered by Large Language Models](VFFinder.md)
-
+* [VulSim: Leveraging Similarity of Multi-Dimensional Neighbor Embeddings for Vulnerability Detection](VulSim.md)
 
 
 ## Survey
