@@ -40,6 +40,7 @@
   * [Effective Vulnerable Function Identification based on CVE Description Empowered by Large Language Models](papers/VFFinder.md)
   * [Unveiling the Characteristics and Impact of Security Patch Evolution](papers/patch_evolution.md)
   * [VulSim: Leveraging Similarity of Multi-Dimensional Neighbor Embeddings for Vulnerability Detection](papers/VulSim.md)
+  * [Rare Path Guided Fuzzing](papers/rare_path_fuzzing.md)
 
 
 

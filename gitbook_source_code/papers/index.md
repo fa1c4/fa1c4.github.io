@@ -11,6 +11,7 @@
 * [Accelerating Fuzzing through Prefix-Guided Execution](prefix_guided_execution.md)
 * [Extrapolating Coverage Rate in Greybox Fuzzing](Fuzztastic.md)
 * [AFGEN: Whole-Function Fuzzing for Applications and Libraries](AFGEN.md)
+* [Rare Path Guided Fuzzing](rare_path_fuzzing.md)
 
 
 
@@ -36,6 +37,7 @@
 * [SecureFalcon: Are We There Yet in Automated Software Vulnerability Detection With LLMs](SecureFalcon.md)
 * [Effective Vulnerable Function Identification based on CVE Description Empowered by Large Language Models](VFFinder.md)
 * [VulSim: Leveraging Similarity of Multi-Dimensional Neighbor Embeddings for Vulnerability Detection](VulSim.md)
+
 
 
 ## Survey
