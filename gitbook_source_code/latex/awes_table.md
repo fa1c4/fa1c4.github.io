@@ -8,6 +8,7 @@
 
 ```latex
 \usepackage{multirow}
+\usepackage{booktabs}
 
 \begin{table}[htbp]
   \centering

@@ -37,6 +37,7 @@
 * [SecureFalcon: Are We There Yet in Automated Software Vulnerability Detection With LLMs](SecureFalcon.md)
 * [Effective Vulnerable Function Identification based on CVE Description Empowered by Large Language Models](VFFinder.md)
 * [VulSim: Leveraging Similarity of Multi-Dimensional Neighbor Embeddings for Vulnerability Detection](VulSim.md)
+* [GRACE: Empowering LLM-based software vulnerability detection with graph structure and in-context learning](GRACE.md)
 
 
 

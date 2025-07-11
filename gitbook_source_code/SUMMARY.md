@@ -41,6 +41,7 @@
   * [Unveiling the Characteristics and Impact of Security Patch Evolution](papers/patch_evolution.md)
   * [VulSim: Leveraging Similarity of Multi-Dimensional Neighbor Embeddings for Vulnerability Detection](papers/VulSim.md)
   * [Rare Path Guided Fuzzing](papers/rare_path_fuzzing.md)
+  * [GRACE: Empowering LLM-based software vulnerability detection with graph structure and in-context learning](papers/GRACE.md)
 
 
 
