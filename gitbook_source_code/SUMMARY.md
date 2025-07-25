@@ -68,6 +68,7 @@
   * [AFLpp Src Reading III - Instrumentation](fuzzing/aflpp_src_reading_III.md)
   * [AFL++ Add New Test](fuzzing/aflpp_new_test.md)
   * [AFL++ Custom Mutator (python)](fuzzing/aflpp_custom_mutator.md)
+  * [AFL-COV-FAST Tool Usage](fuzzing/afl_cov_fast.md)
   
 
 

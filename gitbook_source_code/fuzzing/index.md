@@ -10,3 +10,4 @@
 * [AFLpp Src Reading III - Instrumentation](aflpp_src_reading_III.md)
 * [AFL++ Add New Test](aflpp_new_test.md)
 * [AFL++ Custom Mutator (python)](aflpp_custom_mutator.md)
+* [AFL-COV-FAST Tool Usage](afl_cov_fast.md)
