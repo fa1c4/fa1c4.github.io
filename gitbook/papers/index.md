@@ -12,6 +12,7 @@
 * [Extrapolating Coverage Rate in Greybox Fuzzing](Fuzztastic.md)
 * [AFGEN: Whole-Function Fuzzing for Applications and Libraries](AFGEN.md)
 * [Rare Path Guided Fuzzing](rare_path_fuzzing.md)
+* [BAZZAFL: Moving Fuzzing Campaigns Towards Bugs via Grouping Bug-Oriented Seeds](BazzAFL.md)
 
 
 
