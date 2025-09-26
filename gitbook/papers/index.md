@@ -68,4 +68,5 @@
 * [Balance Seed Scheduling via Monte Carlo Planning](belieffuzz.md)
 * [Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing](Hier.md)
 * [Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization](TortoiseFuzz.md)
+* [DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing](DiPri.md)
 

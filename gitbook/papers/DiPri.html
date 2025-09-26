@@ -1,0 +1,1280 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing · FA1C4 PATHs</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="fa1c4">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../styles/website.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../linux/" />
+    
+    
+    <link rel="prev" href="BazzAFL.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Papers
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                <a href="SoK_Prudent_Evaluation_Practices_for_Fuzzing.html">
+            
+                    
+                    SoK: Prudent Evaluation Practices for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="FOX.html">
+            
+                <a href="FOX.html">
+            
+                    
+                    FOX: Coverage-guided Fuzzing as Online Stochastic Control
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="On_Understanding.html">
+            
+                <a href="On_Understanding.html">
+            
+                    
+                    On Understanding and Forecasting Fuzzers Performance with Static Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="autofz.html">
+            
+                <a href="autofz.html">
+            
+                    
+                    autofz: Automated Fuzzer Composition at Runtime
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="Fuzz_to_the_Future.html">
+            
+                <a href="Fuzz_to_the_Future.html">
+            
+                    
+                    Fuzz to the Future: Uncovering Occluded Future Vulnerabilities via Robust Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="DSFuzz.html">
+            
+                <a href="DSFuzz.html">
+            
+                    
+                    DSFuzz: Detecting Deep State Bugs with Dependent State Exploration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="Rubick.html">
+            
+                <a href="Rubick.html">
+            
+                    
+                    Automata-Guided Control-Flow-Sensitive Fuzz Driver Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="Fuzz4All.html">
+            
+                <a href="Fuzz4All.html">
+            
+                    
+                    Fuzz4All: Universal Fuzzing with Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.9" data-path="kag.html">
+            
+                <a href="kag.html">
+            
+                    
+                    KAG: Boosting LLMs in Professional Domains via Knowledge Augmented Generation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.10" data-path="graphuzz.html">
+            
+                <a href="graphuzz.html">
+            
+                    
+                    Graphuzz: Data-driven Seed Scheduling for Coverage-guided Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.11" data-path="Seed_Selection.html">
+            
+                <a href="Seed_Selection.html">
+            
+                    
+                    Seed Selection for Successful Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.12" data-path="belieffuzz.html">
+            
+                <a href="belieffuzz.html">
+            
+                    
+                    Balance Seed Scheduling via Monte Carlo Planning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.13" data-path="K_Scheduler.html">
+            
+                <a href="K_Scheduler.html">
+            
+                    
+                    Effective Seed Scheduling for Fuzzing with Graph Centrality Analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.14" data-path="entropic.html">
+            
+                <a href="entropic.html">
+            
+                    
+                    Boosting Fuzzer Efficiency: An Information Theoretic Perspective
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.15" data-path="FuzzInMem.html">
+            
+                <a href="FuzzInMem.html">
+            
+                    
+                    FuzzInMem: Fuzzing Programs via In-memory Structures
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.16" data-path="AFLpp.html">
+            
+                <a href="AFLpp.html">
+            
+                    
+                    AFL++: Combining Incremental Steps of Fuzzing Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.17" data-path="DDFuzz.html">
+            
+                <a href="DDFuzz.html">
+            
+                    
+                    Fuzzing with Data Dependency Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.18" data-path="Hier.html">
+            
+                <a href="Hier.html">
+            
+                    
+                    Reinforcement Learning-based Hierarchical Seed Scheduling for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.19" data-path="LLM_Fuzzing_BusyBox.html">
+            
+                <a href="LLM_Fuzzing_BusyBox.html">
+            
+                    
+                    Fuzzing BusyBox: Leveraging LLM and Crash Reuse for Embedded Bug Unearthing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.20" data-path="llm2vec.html">
+            
+                <a href="llm2vec.html">
+            
+                    
+                    LLM2Vec: Large Language Models Are Secretly Powerful Text Encoders
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.21" data-path="ShapFuzz.html">
+            
+                <a href="ShapFuzz.html">
+            
+                    
+                    SHAPFUZZ: Efficient Fuzzing via Shapley-Guided Byte Selection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.22" data-path="TortoiseFuzz.html">
+            
+                <a href="TortoiseFuzz.html">
+            
+                    
+                    Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.23" data-path="prefix_guided_execution.html">
+            
+                <a href="prefix_guided_execution.html">
+            
+                    
+                    Accelerating Fuzzing through Prefix-Guided Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.24" data-path="Fuzztastic.html">
+            
+                <a href="Fuzztastic.html">
+            
+                    
+                    Extrapolating Coverage Rate in Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.25" data-path="ProRec.html">
+            
+                <a href="ProRec.html">
+            
+                    
+                    Source Code Foundation Models are Transferable Binary Analysis Knowledge Bases
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.26" data-path="Coding-PTMs.html">
+            
+                <a href="Coding-PTMs.html">
+            
+                    
+                    Coding-PTMs: How to Find Optimal Code Pre-trained Models for Code Embedding in Vulnerability Detection?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.27" data-path="AFGEN.html">
+            
+                <a href="AFGEN.html">
+            
+                    
+                    AFGEN: Whole-Function Fuzzing for Applications and Libraries
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.28" data-path="Arbiter.html">
+            
+                <a href="Arbiter.html">
+            
+                    
+                    Arbiter: Bridging the Static and Dynamic Divide in Vulnerability Discovery on Binary Programs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.29" data-path="SecureFalcon.html">
+            
+                <a href="SecureFalcon.html">
+            
+                    
+                    SecureFalcon: Are We There Yet in Automated Software Vulnerability Detection With LLMs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.30" data-path="VFFinder.html">
+            
+                <a href="VFFinder.html">
+            
+                    
+                    Effective Vulnerable Function Identification based on CVE Description Empowered by Large Language Models
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.31" data-path="patch_evolution.html">
+            
+                <a href="patch_evolution.html">
+            
+                    
+                    Unveiling the Characteristics and Impact of Security Patch Evolution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.32" data-path="VulSim.html">
+            
+                <a href="VulSim.html">
+            
+                    
+                    VulSim: Leveraging Similarity of Multi-Dimensional Neighbor Embeddings for Vulnerability Detection
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.33" data-path="rare_path_fuzzing.html">
+            
+                <a href="rare_path_fuzzing.html">
+            
+                    
+                    Rare Path Guided Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.34" data-path="GRACE.html">
+            
+                <a href="GRACE.html">
+            
+                    
+                    GRACE: Empowering LLM-based software vulnerability detection with graph structure and in-context learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.35" data-path="BazzAFL.html">
+            
+                <a href="BazzAFL.html">
+            
+                    
+                    BAZZAFL: Moving Fuzzing Campaigns Towards Bugs via Grouping Bug-Oriented Seeds
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.36" data-path="DiPri.html">
+            
+                <a href="DiPri.html">
+            
+                    
+                    DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../linux/">
+            
+                <a href="../linux/">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../linux/rust_elementary_I.html">
+            
+                <a href="../linux/rust_elementary_I.html">
+            
+                    
+                    Rust Elementary I
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../linux/rust_elementary_II.html">
+            
+                <a href="../linux/rust_elementary_II.html">
+            
+                    
+                    Rust Elementary II
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../linux/rust_elementary_III.html">
+            
+                <a href="../linux/rust_elementary_III.html">
+            
+                    
+                    Rust Elementary III
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../linux/rust_elementary_IV.html">
+            
+                <a href="../linux/rust_elementary_IV.html">
+            
+                    
+                    Rust Elementary IV
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../linux/rust_elementary_V.html">
+            
+                <a href="../linux/rust_elementary_V.html">
+            
+                    
+                    Rust Elementary V
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../linux/rust_elementary_VI.html">
+            
+                <a href="../linux/rust_elementary_VI.html">
+            
+                    
+                    Rust Elementary VI
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../linux/docker_sources_switch.html">
+            
+                <a href="../linux/docker_sources_switch.html">
+            
+                    
+                    Docker Sources Switch
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../fuzzing/">
+            
+                <a href="../fuzzing/">
+            
+                    
+                    Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                <a href="../fuzzing/AFLpp_build_on_Magma.html">
+            
+                    
+                    AFLpp build for Magma
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../fuzzing/fuzzbench_build.html">
+            
+                <a href="../fuzzing/fuzzbench_build.html">
+            
+                    
+                    FuzzBench Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.3" data-path="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                <a href="../fuzzing/fuzzbench_new_fuzzer.html">
+            
+                    
+                    Fuzzbench new Fuzzer
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.4" data-path="../fuzzing/aflpp_src_reading_I.html">
+            
+                <a href="../fuzzing/aflpp_src_reading_I.html">
+            
+                    
+                    AFLpp Src Reading I - History
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.5" data-path="../fuzzing/aflpp_src_reading_II.html">
+            
+                <a href="../fuzzing/aflpp_src_reading_II.html">
+            
+                    
+                    AFLpp Src Reading II - Forkserver
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.6" data-path="../fuzzing/aflpp_src_reading_III.html">
+            
+                <a href="../fuzzing/aflpp_src_reading_III.html">
+            
+                    
+                    AFLpp Src Reading III - Instrumentation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.7" data-path="../fuzzing/aflpp_new_test.html">
+            
+                <a href="../fuzzing/aflpp_new_test.html">
+            
+                    
+                    AFL++ Add New Test
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.8" data-path="../fuzzing/aflpp_custom_mutator.html">
+            
+                <a href="../fuzzing/aflpp_custom_mutator.html">
+            
+                    
+                    AFL++ Custom Mutator (python)
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.9" data-path="../fuzzing/afl_cov_fast.html">
+            
+                <a href="../fuzzing/afl_cov_fast.html">
+            
+                    
+                    AFL-COV-FAST Tool Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../pwn/">
+            
+                <a href="../pwn/">
+            
+                    
+                    Pwn
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                <a href="../pwn/glibc_IO_FILE_exploitation.html">
+            
+                    
+                    Glibc _IO_FILE Exploitation Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../reverse/">
+            
+                <a href="../reverse/">
+            
+                    
+                    Reverse
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="5.1.1" data-path="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                <a href="../reverse/IDAPro_cheatsheet_7x.html">
+            
+                    
+                    IDAPro Cheat Sheet 7.7
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../theory/">
+            
+                <a href="../theory/">
+            
+                    
+                    Theory
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="6.1.1" data-path="../theory/prac_statistics.html">
+            
+                <a href="../theory/prac_statistics.html">
+            
+                    
+                    Practical Statistics
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.1.2" data-path="../theory/entropic_weights.html">
+            
+                <a href="../theory/entropic_weights.html">
+            
+                    
+                    Entropic Weights
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../LLM/">
+            
+                <a href="../LLM/">
+            
+                    
+                    LLM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../latex/">
+            
+                <a href="../latex/">
+            
+                    
+                    Latex
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="8.1.1" data-path="../latex/awes_table.html">
+            
+                <a href="../latex/awes_table.html">
+            
+                    
+                    latex awesome table templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../shell/">
+            
+                <a href="../shell/">
+            
+                    
+                    Shell
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="9.1.1" data-path="../shell/shell_programming_basic.html">
+            
+                <a href="../shell/shell_programming_basic.html">
+            
+                    
+                    shell programming basic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.1.2" data-path="../shell/shell_programming_techs_I.html">
+            
+                <a href="../shell/shell_programming_techs_I.html">
+            
+                    
+                    shell programming techs I
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="dipri-distance-based-seed-prioritization-for-greybox-fuzzing-tosem-2025">DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing [TOSEM 2025]</h1>
+<p><img src="assets/image-20250918113626128.png" alt="image-20250918113626128"></p>
+<p>&#x79CD;&#x5B50;&#x4F18;&#x5148;&#x7EA7;&#x6392;&#x5E8F;&#x5BF9;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x975E;&#x5E38;&#x91CD;&#x8981;, &#x597D;&#x7684;&#x79CD;&#x5B50;&#x6392;&#x5E8F;&#x53EF;&#x4EE5;&#x63D0;&#x9AD8;&#x53D1;&#x73B0;&#x4EE3;&#x7801;&#x548C;&#x6316;&#x6398;&#x6F0F;&#x6D1E;&#x7684;&#x6548;&#x7387;. &#x73B0;&#x5728;&#x7684; SOTA &#x65B9;&#x6CD5;, &#x5982; Alphuzz &#x548C; K-scheduler &#x5E94;&#x7528;&#x590D;&#x6742;&#x7684;&#x7B56;&#x7565;&#x6765;&#x8FDB;&#x884C;&#x79CD;&#x5B50;&#x8C03;&#x5EA6;, &#x867D;&#x7136;&#x6548;&#x679C;&#x663E;&#x8457;&#x4F46;&#x662F;&#x989D;&#x5916;&#x5F00;&#x9500;&#x5927;&#x4E14;&#x4E0D;&#x6613;&#x6269;&#x5C55;. &#x8BBA;&#x6587;&#x63D0;&#x51FA;&#x57FA;&#x4E8E;&#x201C;&#x8DDD;&#x79BB;&#x201D;&#x7684;&#x79CD;&#x5B50;&#x4F18;&#x5148;&#x7EA7;: &#x8BA1;&#x7B97;&#x961F;&#x5217;&#x91CC;&#x5404;&#x4E2A;&#x79CD;&#x5B50;&#x4E4B;&#x95F4;&#x7684;&#x201C;&#x8DDD;&#x79BB;&#x201D;, &#x4F18;&#x5148;&#x9009;&#x62E9;&#x201C;&#x79BB;&#x7FA4;&#x7684;&#x79CD;&#x5B50;&#x201D; (&#x4E0E;&#x5176;&#x4ED6;&#x79CD;&#x5B50;&#x6700;&#x8FDC;&#x7684;&#x90A3;&#x4E9B;). &#x76F4;&#x89C9;&#x4E0A;, &#x8FD9;&#x4E9B;&#x79BB;&#x7FA4;&#x79CD;&#x5B50;&#x66F4;&#x53EF;&#x80FD;&#x628A;&#x6267;&#x884C;&#x5E26;&#x5230;&#x4EE5;&#x524D;&#x6CA1;&#x63A2;&#x7D22;&#x8FC7;&#x7684;&#x4EE3;&#x7801;&#x533A;&#x57DF;, &#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x53D1;&#x73B0;&#x65B0;&#x8DEF;&#x5F84;/&#x65B0;&#x7F3A;&#x9677;&#x7684;&#x673A;&#x4F1A;. </p>
+<p>&#x5728; AFL++ &#x4E0A;&#x505A;&#x4E86;&#x5927;&#x89C4;&#x6A21;&#x5B9E;&#x9A8C;: 24 &#x4E2A; C/C++ &#x76EE;&#x6807; (8 &#x4E2A;&#x771F;&#x5B9E;&#x9879;&#x76EE;&#x3001;8 &#x4E2A; FuzzBench&#x3001;8 &#x4E2A; Magma) , &#x603B;&#x8BA1;&#x8D85; 5 &#x4E07; CPU &#x5C0F;&#x65F6;. 1) &#x5BF9;&#x8986;&#x76D6;&#x7387;&#x7684;&#x5F71;&#x54CD;&#x4E0D;&#x5927;: &#x771F;&#x5B9E;&#x9879;&#x76EE;&#x4E0A;&#x5206;&#x652F;&#x8986;&#x76D6;&#x7565;&#x5347;; FuzzBench &#x4E0A;&#x5206;&#x652F;&#x8986;&#x76D6;&#x7565;&#x964D;. 2) &#x5BF9;&#x627E;&#x6F0F;&#x6D1E;&#x6709;&#x5E2E;&#x52A9;: &#x5728; Magma &#x4E0A;&#x591A;&#x89E6;&#x53D1;&#x4E86; 5 &#x4E2A;&#x5DF2;&#x77E5;&#x7F3A;&#x9677;. </p>
+<p>&#x4E3A;&#x9A8C;&#x8BC1;&#x53EF;&#x6269;&#x5C55;&#x6027;, &#x8FD8;&#x628A; DiPri &#x96C6;&#x6210;&#x5230; Java &#x7684; Zest &#x4E0A;, &#x5728; 5 &#x4E2A;&#x771F;&#x5B9E; Java &#x7A0B;&#x5E8F;&#x4E0A;&#x8DD1;&#x4E86; 8000+ CPU &#x5C0F;&#x65F6;: &#x7ED3;&#x679C;&#x663E;&#x793A; DiPri &#x53EF;&#x6269;&#x5C55;&#x6027;&#x4E0D;&#x9519;, &#x800C;&#x4E14;&#x66F4;&#x7A33;&#x5B9A;&#x5730;&#x5E2E;&#x52A9;&#x53D1;&#x73B0;&#x6F0F;&#x6D1E;. </p>
+<h2 id="methods">Methods</h2>
+<h3 id="motivating-example">Motivating Example</h3>
+<ul>
+<li><p>&#x5728;&#x5F53;&#x524D;&#x79CD;&#x5B50;&#x961F;&#x5217;&#x91CC;, &#x4F18;&#x5148;&#x9009;&#x62E9;&#x201C;&#x79BB;&#x7FA4;&#x201D;&#x7684;&#x90A3;&#x4E2A;&#x79CD;&#x5B50;</p>
+</li>
+<li><p>&#x5B9E;&#x5FC3;&#x5706;&#x70B9;&#x4EE3;&#x8868;&#x79CD;&#x5B50;, &#x800C;&#x6D45;&#x8272;&#x7684;&#x5706;&#x5708;&#x5219;&#x6A21;&#x62DF;&#x4E86;&#x7531;&#x4F4D;&#x4E8E;&#x4E2D;&#x5FC3;&#x4F4D;&#x7F6E;&#x7684;&#x79CD;&#x5B50;&#x751F;&#x6210;&#x7684;&#x5B50;&#x4EE3;&#x8F93;&#x5165;&#x6240;&#x80FD;&#x63A2;&#x7D22;&#x5230;&#x7684;&#x533A;&#x57DF;</p>
+</li>
+</ul>
+<p><img src="assets/image-20250926204247585.png" alt="image-20250926204247585" style="zoom:67%;"></p>
+<h3 id="workflow">Workflow</h3>
+<ul>
+<li><p>&#x8DDD;&#x79BB;&#x9A71;&#x52A8;&#x7684;&#x79CD;&#x5B50;&#x4F18;&#x5148;&#x7EA7;: &#x5148;&#x8BC4;&#x4F30;&#x3001;&#x518D;&#x91CD;&#x6392;, &#x6311;&#x51FA;&#x201C;&#x79BB;&#x7FA4;&#x201D;&#x7684;&#x90A3;&#x9897;&#x505A;&#x4E0B;&#x4E00;&#x8F6E;&#x7684;&#x7236;&#x79CD;&#x5B50;</p>
+</li>
+<li><p>&#x4EE5;&#x8986;&#x76D6;&#x4E3A;&#x4E2D;&#x5FC3;&#x7684;&#x7ED3;&#x679C;&#x89E3;&#x6790;: &#x628A;&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x5F97;&#x5230;&#x7684;&#x8986;&#x76D6;&#x4FE1;&#x606F;&#x505A;&#x6210;&#x201C;&#x8986;&#x76D6;&#x5411;&#x91CF;&#x201D;, &#x4F5C;&#x4E3A;&#x540E;&#x7EED;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x7684;&#x8F93;&#x5165;, &#x5E76;&#x7ED1;&#x5B9A;&#x5230;&#x5BF9;&#x5E94;&#x8F93;&#x5165;&#x4E0A;. </p>
+</li>
+</ul>
+<p><img src="assets/image-20250926204322801.png" alt="image-20250926204322801" style="zoom: 67%;"></p>
+<h3 id="optimization">Optimization</h3>
+<ul>
+<li>&#x7ECF;&#x5178; ART &#x7684;&#x75DB;&#x70B9;&#x662F;&#x201C;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x5F88;&#x8D35;&#x201D;: DiPri &#x7528;&#x589E;&#x91CF;&#x5F0F;&#x4F18;&#x5148;&#x7EA7;&#x8BA1;&#x7B97;&#x964D;&#x4F4E;&#x5F00;&#x9500;</li>
+<li>&#x53EA;&#x5728;&#x6EE1;&#x8DB3;&#x201C;&#x9700;&#x8981;&#x4F18;&#x5148;&#x5316;&#x201D;&#x7684;&#x6761;&#x4EF6;&#x65F6;&#x89E6;&#x53D1;&#x8BA1;&#x7B97;; &#x89E6;&#x53D1;&#x65F6;&#x53EA;&#x5173;&#x6CE8;&#x201C;&#x4E0A;&#x6B21;&#x4F18;&#x5148;&#x5316;&#x4E4B;&#x540E;&#x65B0;&#x589E;&#x7684;&#x79CD;&#x5B50;&#x201D;<ul>
+<li>VANILLA: &#x53EA;&#x8981;&#x961F;&#x5217;&#x6709;&#x65B0;&#x589E;&#x5C31;&#x4F18;&#x5148;&#x5316;</li>
+<li>PERIODICAL: &#x6309;&#x56FA;&#x5B9A;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x505A;; &#x82E5;&#x95F4;&#x9694;&#x592A;&#x957F;&#x800C;&#x4E0A;&#x6B21;&#x6392;&#x8FC7;&#x7684;&#x79CD;&#x5B50;&#x5DF2;&#x7528;&#x5C3D;, &#x4E5F;&#x4F1A;&#x63D0;&#x524D;&#x89E6;&#x53D1;, &#x907F;&#x514D;&#x9000;&#x5316;&#x6210;&#x201C;&#x961F;&#x5217;&#x987A;&#x5E8F;&#x201D;</li>
+<li>ADAPTIVE: &#x7B49;&#x201C;&#x4E0A;&#x6B21;&#x6392;&#x8FC7;&#x7684;&#x90A3;&#x6279;&#x79CD;&#x5B50;&#x90FD;&#x7528;&#x5B8C;&#x201D;&#x518D;&#x89E6;&#x53D1;</li>
+</ul>
+</li>
+</ul>
+<h2 id="evaluation">Evaluation</h2>
+<h3 id="rq1-how-does-dipri-perform-under-different-configurations">RQ1: How does DiPri perform under different configurations?</h3>
+<p>ADAPTIVE &#x6574;&#x4F53;&#x4F18;&#x4E8E; PERIODICAL &#x548C; VANILLA</p>
+<p><img src="assets/image-20250926204452964.png" alt="image-20250926204452964" style="zoom: 67%;"></p>
+<h3 id="rq2-how-does-dipri-compare-to-other-seed-prioritization-approaches">RQ2: How does DiPri compare to other seed prioritization approaches?</h3>
+<p><img src="assets/image-20250926204625575.png" alt="image-20250926204625575" style="zoom: 50%;"></p>
+<h3 id="rq3-how-does-dipri-compare-to-sota-seed-scheduling-techniques">RQ3: How does DiPri compare to SOTA seed scheduling techniques?</h3>
+<ul>
+<li>dipri-AH &#x6BD4;&#x8F83; Alphuzz &#x5728; 8 &#x4E2A;&#x76EE;&#x6807;&#x91CC;&#x6709; 6 &#x4E2A;&#x5E73;&#x5747;&#x8986;&#x76D6;&#x66F4;&#x9AD8;</li>
+<li>&#x6BD4;&#x8F83; k-scheduler &#x5728; 4 &#x4E2A;&#x76EE;&#x6807;&#x91CC;&#x6709; 3 &#x4E2A;&#x5E73;&#x5747;&#x8986;&#x76D6;&#x66F4;&#x9AD8;</li>
+</ul>
+<p><img src="assets/image-20250926204704569.png" alt="image-20250926204704569" style="zoom:67%;"></p>
+<h3 id="rq4-how-effective-is-the-distance-based-seed-evaluation">RQ4: How effective is the distance-based seed evaluation?</h3>
+<p>&#x603B;&#x4F53;&#x6700;&#x597D;&#x662F; dipri-AH (ADAPTIVE+Hamming) </p>
+<p><img src="assets/image-20250926204741205.png" alt="image-20250926204741205" style="zoom: 50%;"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="BazzAFL.html" class="navigation navigation-prev " aria-label="Previous page: BAZZAFL: Moving Fuzzing Campaigns Towards Bugs via Grouping Bug-Oriented Seeds">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../linux/" class="navigation navigation-next " aria-label="Next page: Linux">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing","level":"1.2.36","depth":2,"next":{"title":"Linux","level":"2.1","depth":1,"path":"linux/index.md","ref":"linux/index.md","articles":[{"title":"Rust Elementary I","level":"2.1.1","depth":2,"path":"linux/rust_elementary_I.md","ref":"linux/rust_elementary_I.md","articles":[]},{"title":"Rust Elementary II","level":"2.1.2","depth":2,"path":"linux/rust_elementary_II.md","ref":"linux/rust_elementary_II.md","articles":[]},{"title":"Rust Elementary III","level":"2.1.3","depth":2,"path":"linux/rust_elementary_III.md","ref":"linux/rust_elementary_III.md","articles":[]},{"title":"Rust Elementary IV","level":"2.1.4","depth":2,"path":"linux/rust_elementary_IV.md","ref":"linux/rust_elementary_IV.md","articles":[]},{"title":"Rust Elementary V","level":"2.1.5","depth":2,"path":"linux/rust_elementary_V.md","ref":"linux/rust_elementary_V.md","articles":[]},{"title":"Rust Elementary VI","level":"2.1.6","depth":2,"path":"linux/rust_elementary_VI.md","ref":"linux/rust_elementary_VI.md","articles":[]},{"title":"Docker Sources Switch","level":"2.1.7","depth":2,"path":"linux/docker_sources_switch.md","ref":"linux/docker_sources_switch.md","articles":[]}]},"previous":{"title":"BAZZAFL: Moving Fuzzing Campaigns Towards Bugs via Grouping Bug-Oriented Seeds","level":"1.2.35","depth":2,"path":"papers/BazzAFL.md","ref":"papers/BazzAFL.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","toggle-chapters","katex","sharing","lunr","search","livereload","fontsettings","highlight","theme-comscore"],"styles":{"website":"styles/website.css"},"pluginsConfig":{"livereload":{},"search":{},"lunr":{"ignoreSpecialCharacters":false,"maxIndexSize":1000000},"katex":{},"fontsettings":{"family":"sans","size":2,"theme":"white","fontFamily":"Arial Unicode MS"},"highlight":{},"theme-comscore":{},"sharing":{"all":["facebook","google","twitter","weibo","instapaper"],"facebook":true,"google":false,"instapaper":false,"twitter":true,"vk":false,"weibo":false},"theme-default":{"showLevel":false,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}},"toggle-chapters":{"toggle":true}},"theme":"default","author":"fa1c4","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"FA1C4 PATHs","language":"en","gitbook":"*","description":"Paths of fa1c4 to strive"},"file":{"path":"papers/DiPri.md","mtime":"2025-09-26T12:50:14.838Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-09-26T12:51:48.092Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

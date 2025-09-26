@@ -43,6 +43,7 @@
   * [Rare Path Guided Fuzzing](papers/rare_path_fuzzing.md)
   * [GRACE: Empowering LLM-based software vulnerability detection with graph structure and in-context learning](papers/GRACE.md)
   * [BAZZAFL: Moving Fuzzing Campaigns Towards Bugs via Grouping Bug-Oriented Seeds](papers/BazzAFL.md)
+  * [DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing](papers/DiPri.md)
 
 
 
