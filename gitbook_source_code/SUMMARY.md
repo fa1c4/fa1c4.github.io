@@ -87,6 +87,7 @@
 * [Theory](theory/index.md)
   * [Practical Statistics](theory/prac_statistics.md)
   * [Entropic Weights](theory/entropic_weights.md)
+  * [Tree-structured Parzen Estimator Approach](theory/TPE.md)
 
 
 
