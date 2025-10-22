@@ -70,3 +70,9 @@
 * [Not All Coverage Measurements Are Equal: Fuzzing by Coverage Accounting for Input Prioritization](TortoiseFuzz.md)
 * [DiPri: Distance-Based Seed Prioritization for Greybox Fuzzing](DiPri.md)
 
+
+
+## Fuzzing - Harness
+* [WildSync: Automated Fuzzing Harness Synthesis via Wild API Usage Recovery](WildSync.md)
+
+
